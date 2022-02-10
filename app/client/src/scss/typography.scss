@@ -1,0 +1,78 @@
+/* commissioner-regular - latin */
+@font-face {
+  font-family: 'Commissioner';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('../fonts/commissioner-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/commissioner-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-style: normal;
+    font-weight: normal;
+    src: local(''),
+    url('../fonts/Metropolis-Regular.woff') format("woff"),
+    url('../fonts/Metropolis-Regular.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: normal;
+    font-style: italic;
+    src: local(''),
+    url('../fonts/Metropolis-RegularItalic.woff') format("woff"),
+    url('../fonts/Metropolis-RegularItalic.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: 100;
+    font-style: normal;
+    src: local(''),
+    url('../fonts/Metropolis-Thin.woff') format("woff"),
+    url('../fonts/Metropolis-Thin.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: 100;
+    font-style: italic;
+    src: local(''),
+    url('../fonts/Metropolis-ThinItalic.woff') format("woff"),
+    url('../fonts/Metropolis-ThinItalic.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: bold;
+    font-style: normal;
+    src: local(''),
+    url('../fonts/Metropolis-Bold.woff') format("woff"),
+    url('../fonts/Metropolis-Bold.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: bold;
+    font-style: italic;
+    src: local(''),
+    url('../fonts/Metropolis-BoldItalic.woff') format("woff"),
+    url('../fonts/Metropolis-BoldItalic.otf') format("opentype");
+}
+
+body{
+    font-family: 'Metropolis', sans-serif;
+    font-size: 16px;
+}
+
+h1{
+    font-size: 35px;
+    font-weight: 600;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+}

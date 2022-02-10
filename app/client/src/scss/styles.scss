@@ -1,0 +1,29 @@
+@import "include-media";
+@import "~glightbox/dist/css/glightbox.css";
+
+@import "normalize.scss";
+@import "variables.scss";
+@import "typography";
+
+@import "layout/footer.scss";
+@import "layout/header.scss";
+@import "layout/textimage.scss";
+@import "layout/text.scss";
+
+.section {
+  max-width: $maxWidth;
+  margin: 40px auto 80px;
+  padding:0 10px;
+  transition: filter 0.3s;
+
+  @media screen and (max-width: 992px) {
+    .body--show &{
+      filter: blur(5px);
+    }
+  }
+}
+
+.section_content{
+  max-width: $maxWidthContent;
+  margin: 0 auto;
+}

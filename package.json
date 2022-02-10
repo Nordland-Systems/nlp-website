@@ -1,0 +1,30 @@
+{
+  "name": "nlp-silverstripe",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "Steffen Kahl <steffen.kahl@nordland-park.de>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "yarn development",
+    "development": "npx mix",
+    "watch": "npx mix watch",
+    "build": "npx mix --production"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.0",
+    "browser-sync": "^2.27.7",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "jquery": "^3.6.0",
+    "laravel-mix": "^6.0.39",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.1.0",
+    "selectize": "^0.12.4",
+    "slick-carousel": "^1.6.0",
+    "webpack-livereload-plugin": "^3.0.2"
+  },
+  "dependencies": {
+    "glightbox": "^3.0.9",
+    "include-media": "^1.4.10"
+  }
+}
