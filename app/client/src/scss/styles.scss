@@ -1,14 +1,15 @@
 @import "include-media";
 @import "~glightbox/dist/css/glightbox.css";
 
-@import "normalize.scss";
-@import "variables.scss";
+@import "normalize";
+@import "variables";
 @import "typography";
 
-@import "layout/footer.scss";
-@import "layout/header.scss";
-@import "layout/textimage.scss";
-@import "layout/text.scss";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/textimage";
+@import "layout/text";
+@import "layout/imagebanner";
 
 .section {
   max-width: $maxWidth;

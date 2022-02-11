@@ -7,8 +7,20 @@ $breakpoints: (
   'desktop': 1000px
 );
 
-$ColorPrimary: #1E3755;
-$ColorSecondary: #C9A141;
 
-$ColorBlack: #131F42;
-$ColorWhite: #FFF;
+$breakpoint-desktop: 1200px;
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 500px;
+
+$colorPrimary: #1B9CE5;
+$colorPrimaryDark: #093F5F;
+$colorPrimaryLight: #6CDAEE;
+
+$colorSecondary: #F79E02;
+
+$colorDarkGray: #1C1C1C;
+$colorDarkGrayTrans: rgba($colorDarkGray, 0.8);
+
+$colorWhite: #FFFFFF;
+$colorBlack: #000000;
+$colorLightGray: #C4C4C4;

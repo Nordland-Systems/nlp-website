@@ -11,7 +11,7 @@
 
         padding-right: 20px;
 
-        img{ 
+        img{
             width: 100%;
             height: 100%;
 
@@ -25,10 +25,10 @@
 
     .textimage_text {
         width: auto;
-        color: $ColorBlack;        
+        color: $colorBlack;
 
         .textimage_text_title {
-            color: $ColorPrimary;
+            color: $colorPrimary;
         }
 
         .textimage_text_content {
@@ -40,10 +40,10 @@
                 bottom: 0;
             }
         }
-    }  
+    }
 
     &.highlighted{
-        background-color: $ColorPrimary;
+        background-color: $colorPrimary;
         max-width: $maxWidth;
         padding: 0;
 
@@ -56,16 +56,16 @@
             }
 
             .textimage_text_title{
-                color: $ColorWhite;
+                color: $colorWhite;
             }
 
-            color: white;
+            color: $colorWhite;
 
             .textimage_text_button {
-                color: white;
+                color: $colorWhite;
 
                 &:hover {
-                    color: $ColorSecondary;
+                    color: $colorSecondary;
                 }
             }
 
@@ -99,25 +99,25 @@
                 width: 40%;
             }
         }
-    
+
         &.image-50{
             .textimage_image{
                 width: 50%;
             }
         }
-    
+
         &.image-60{
             .textimage_image{
                 width: 60%;
             }
         }
-    
+
         &.image-70{
             .textimage_image{
                 width: 70%;
             }
         }
-    
+
         &.image-right{
             .textimage_text{
                 order: 1;

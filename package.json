@@ -19,7 +19,6 @@
     "sass-loader": "^12.1.0"
   },
   "dependencies": {
-    "cross-env": "^7.0.3",
     "glightbox": "^3.0.9",
     "include-media": "^1.4.10"
   }

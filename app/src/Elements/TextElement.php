@@ -9,7 +9,6 @@ use SilverStripe\Forms\DropdownField;
  * Class \App\Elements\TextImageElement
  *
  * @property string $Text
- * @property string $Variant
  */
 class TextElement extends BaseElement
 {
