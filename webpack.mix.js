@@ -1,32 +1,27 @@
 let mix = require('laravel-mix');
-const LiveReloadPlugin = require("webpack-livereload-plugin");
 
 const src = 'app/client/src/';
 const dist = 'app/client/dist/';
 mix.setPublicPath(dist)
-  .webpackConfig({
-    plugins: [new LiveReloadPlugin()]
-  })
-  .setResourceRoot('../')
-  .options({
-    // processCssUrls: false  //??
-  })
-  // .webpackConfig({ devtool: "inline-source-map" })
-  .sass(src + 'scss/styles.scss', dist + "css")
-  .sass(src + 'scss/editor.scss', dist + "css")
-  .js(src + 'js/main.js', dist + "js/main.js")
-  .react()
-  .minify(dist + "css/styles.css")
-  .minify(dist + "js/main.js")
-  .sourceMaps(true)
-  .version()
-  .browserSync({
-    proxy: 'http://localhost/nlp-silverstripe/public',
-    files: [
-      "public/_resources/app/client/dist/css/*.css",
-      "public/_resources/app/client/dist/js/*.js",
-    ]
-  });
+    .setResourceRoot('../')
+    .options({
+        // processCssUrls: false  //??
+    })
+    // .webpackConfig({ devtool: "inline-source-map" })
+    .sass(src + 'scss/styles.scss', dist + "css")
+    .sass(src + 'scss/editor.scss', dist + "css")
+    .js(src + 'js/main.js', dist + "js/main.js")
+    .minify(dist + "css/styles.css")
+    .minify(dist + "js/main.js")
+    .sourceMaps(true)
+    .version()
+    .browserSync({
+        proxy: 'http://localhost/nlp-silverstripe/public',
+        files: [
+            "public/_resources/app/client/dist/css/*.css",
+            "public/_resources/app/client/dist/js/*.js",
+        ]
+    });
 
 /*
  |--------------------------------------------------------------------------
