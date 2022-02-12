@@ -1,34 +1,38 @@
 .section.section--textimage {
     display: flex;
     justify-content: space-between;
-    max-width: $maxWidthContent;
+    max-width: $maxWidth;
     flex-wrap: wrap;
+    padding: 0;
 
     .textimage_image {
         width: 100%;
         height: auto;
         flex-shrink: 0;
-
-        padding-right: 20px;
+        max-height: 600px;
 
         img{
             width: 100%;
             height: 100%;
 
-            @media screen and (min-width: 991px) {
+            @include media(">medium") {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
         }
+
+        @include media(">medium") {
+            padding-right: 20px;
+        }
     }
 
     .textimage_text {
         width: auto;
-        color: $colorBlack;
+
 
         .textimage_text_title {
-            color: $colorPrimary;
+            color: $colorWhite;
         }
 
         .textimage_text_content {
@@ -43,9 +47,8 @@
     }
 
     &.highlighted{
-        background-color: $colorPrimary;
+        background-color: $colorPrimaryDark;
         max-width: $maxWidth;
-        padding: 0;
 
         .textimage_text {
             display: flex;
@@ -69,7 +72,7 @@
                 }
             }
 
-            @media screen and (max-width: 991px) {
+            @include media("<medium") {
                 padding: 20px;
             }
         }
@@ -84,9 +87,8 @@
         }
     }
 
-    @media screen and (min-width: 991px) {
+    @include media(">medium") {
         flex-wrap: nowrap;
-        margin: 50px auto;
 
         &.image-30{
             .textimage_image{

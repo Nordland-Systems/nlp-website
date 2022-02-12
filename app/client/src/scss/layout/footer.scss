@@ -1,10 +1,8 @@
-.footer{
+.section.footer{
     background-color: $colorPrimaryDark;
     margin: 0;
-    padding-bottom: 10px;
-    position: absolute;
+    padding-bottom: 0px;
     width: 100%;
-    bottom: 0;
     .footer_icon{
         position: relative;
         margin: 0 auto;
@@ -21,7 +19,7 @@
         position: relative;
         top: -20px;
         left: 0;
-        color: white;
+        color: $colorWhite;
         text-align: center;
 
         ul{

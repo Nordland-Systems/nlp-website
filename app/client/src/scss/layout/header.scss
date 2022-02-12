@@ -94,19 +94,20 @@
 
         .header_mainbar_nav{
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
             margin: 0 auto;
             padding-left: 20px;
             padding-right: 20px;
 
-            max-width: 1400px;
+            max-width: $maxWidth;
 
             .nav_logo{
                 padding-top: 10px;
                 height: 100px;
                 transition: height 0.2s;
                 pointer-events: auto;
+                margin-right: 20px;
 
                 .nav_brand{
                     img{

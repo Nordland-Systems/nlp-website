@@ -19,7 +19,9 @@ class ImageBannerElement extends BaseElement
 
     private static $db = [
         "Text" => "Varchar(255)",
-        "Variant" => "Varchar(20)"
+        "Variant" => "Varchar(20)",
+        "Overlay" => "Varchar(20)",
+        "Height" => "Varchar(20)"
     ];
 
     private static $has_one = [
@@ -49,6 +51,16 @@ class ImageBannerElement extends BaseElement
         $fields->replaceField('Variant', new DropdownField('Variant', 'Variante', [
             "" => "Volle Breite",
             "image-right" => "Begrenzte Breite",
+        ]));
+        $fields->replaceField('Overlay', new DropdownField('Overlay', 'Überlagerung', [
+            "" => "Keine Überlagerung",
+            "darker" => "Dunkler",
+            "darkest" => "Am dunkelsten",
+        ]));
+        $fields->replaceField('Height', new DropdownField('Height', 'Höhe', [
+            "height--300" => "300px",
+            "height--500" => "500px",
+            "height--700" => "700px",
         ]));
         return $fields;
     }

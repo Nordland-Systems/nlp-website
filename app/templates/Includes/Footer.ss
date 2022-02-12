@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="section section--fullwidth footer">
     <div class="footer_icon">
         <a href="/"><img src="images/NLP_LogoBanner_SVG.svg"></a>
     </div>
