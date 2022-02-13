@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" data-behaviour="sticky-header">
     <div class="header_topbar">
         <ul>
             <% loop $Menu(1) %>
@@ -21,8 +21,11 @@
     </div>
 
     <div class="header_mainbar">
-        <div class="header_mainbar_nav">
+        <nav class="header_mainbar_nav">
             <div class="nav_logo">
+                <a href="" class="nav_brand_white">
+                    <img src="images/NLP_LogoBannerWhite_SVG_wot.svg">
+                </a>
                 <a href="" class="nav_brand">
                     <img src="images/NLP_LogoBanner_SVG.svg">
                 </a>
@@ -38,7 +41,7 @@
                     <% end_loop %>
                 </ul>
             </div>
-        </div>
+        </nav>
     </div>
 
     <div class="header_mobile">

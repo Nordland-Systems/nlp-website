@@ -11,6 +11,8 @@ use SilverStripe\Forms\DropdownField;
  *
  * @property string $Text
  * @property string $Variant
+ * @property string $Overlay
+ * @property int $Height
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  */
@@ -21,7 +23,7 @@ class ImageBannerElement extends BaseElement
         "Text" => "Varchar(255)",
         "Variant" => "Varchar(20)",
         "Overlay" => "Varchar(20)",
-        "Height" => "Varchar(20)"
+        "Height" => "Int(1000)"
     ];
 
     private static $has_one = [
@@ -34,6 +36,7 @@ class ImageBannerElement extends BaseElement
 
     private static $field_labels = [
         "Text" => "Bildunterschrift",
+        "Height" => "Höhe (in px)",
         "Image" => "Bild"
     ];
 
@@ -50,17 +53,15 @@ class ImageBannerElement extends BaseElement
         $fields = parent::getCMSFields();
         $fields->replaceField('Variant', new DropdownField('Variant', 'Variante', [
             "" => "Volle Breite",
-            "image-right" => "Begrenzte Breite",
+            "variant--limited" => "Begrenzte Breite",
+            "variant--hovering" => "Hervorgehoben",
         ]));
         $fields->replaceField('Overlay', new DropdownField('Overlay', 'Überlagerung', [
             "" => "Keine Überlagerung",
-            "darker" => "Dunkler",
-            "darkest" => "Am dunkelsten",
-        ]));
-        $fields->replaceField('Height', new DropdownField('Height', 'Höhe', [
-            "height--300" => "300px",
-            "height--500" => "500px",
-            "height--700" => "700px",
+            "overlay--darker" => "Dunkler",
+            "overlay--darkest" => "Am dunkelsten",
+            "overlay--primary" => "Primärfarbe",
+            "overlay--secondary" => "Sekundärfarbe",
         ]));
         return $fields;
     }

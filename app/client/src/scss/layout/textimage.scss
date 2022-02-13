@@ -1,133 +1,137 @@
 .section.section--textimage {
-    display: flex;
-    justify-content: space-between;
-    max-width: $maxWidth;
-    flex-wrap: wrap;
-    padding: 0;
 
-    .textimage_image {
-        width: 100%;
-        height: auto;
-        flex-shrink: 0;
-        max-height: 600px;
 
-        img{
+    .section_content{
+        display: flex;
+        justify-content: space-between;
+        max-width: $maxWidthContent;
+        flex-wrap: wrap;
+        padding: 0;
+
+        .textimage_image {
             width: 100%;
-            height: 100%;
+            height: auto;
+            flex-shrink: 0;
+            max-height: 600px;
 
-            @include media(">medium") {
+            img{
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+
+                @include media(">medium") {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            @include media(">medium") {
+                padding-right: 20px;
+            }
+        }
+
+        .textimage_text {
+            width: auto;
+
+
+            .textimage_text_title {
+                color: $colorWhite;
+            }
+
+            .textimage_text_content {
+                position: relative;
+                padding-bottom: 20px;
+                .textimage_text_button{
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+        }
+
+        &.highlighted{
+            background-color: $colorPrimaryDark;
+            max-width: $maxWidth;
+
+            .textimage_text {
+                display: flex;
+                align-items: center;
+
+                .textimage_text_content {
+                    padding: 20px;
+                }
+
+                .textimage_text_title{
+                    color: $colorWhite;
+                }
+
+                color: $colorWhite;
+
+                .textimage_text_button {
+                    color: $colorWhite;
+
+                    &:hover {
+                        color: $colorSecondary;
+                    }
+                }
+
+                @include media("<medium") {
+                    padding: 20px;
+                }
+            }
+
+            &.image-right{
+                .textimage_text{
+                    order: 1;
+                }
+                .textimage_image{
+                    order: 2;
+                }
             }
         }
 
         @include media(">medium") {
-            padding-right: 20px;
-        }
-    }
+            flex-wrap: nowrap;
 
-    .textimage_text {
-        width: auto;
-
-
-        .textimage_text_title {
-            color: $colorWhite;
-        }
-
-        .textimage_text_content {
-            position: relative;
-            padding-bottom: 20px;
-            .textimage_text_button{
-                position: absolute;
-                right: 0;
-                bottom: 0;
-            }
-        }
-    }
-
-    &.highlighted{
-        background-color: $colorPrimaryDark;
-        max-width: $maxWidth;
-
-        .textimage_text {
-            display: flex;
-            align-items: center;
-
-            .textimage_text_content {
-                padding: 20px;
-            }
-
-            .textimage_text_title{
-                color: $colorWhite;
-            }
-
-            color: $colorWhite;
-
-            .textimage_text_button {
-                color: $colorWhite;
-
-                &:hover {
-                    color: $colorSecondary;
+            &.image-30{
+                .textimage_image{
+                    width: 30%;
                 }
             }
 
-            @include media("<medium") {
-                padding: 20px;
+            &.image-40{
+                .textimage_image{
+                    width: 40%;
+                }
             }
-        }
 
-        &.image-right{
-            .textimage_text{
-                order: 1;
+            &.image-50{
+                .textimage_image{
+                    width: 50%;
+                }
             }
-            .textimage_image{
-                order: 2;
-            }
-        }
-    }
 
-    @include media(">medium") {
-        flex-wrap: nowrap;
-
-        &.image-30{
-            .textimage_image{
-                width: 30%;
+            &.image-60{
+                .textimage_image{
+                    width: 60%;
+                }
             }
-        }
 
-        &.image-40{
-            .textimage_image{
-                width: 40%;
+            &.image-70{
+                .textimage_image{
+                    width: 70%;
+                }
             }
-        }
 
-        &.image-50{
-            .textimage_image{
-                width: 50%;
-            }
-        }
-
-        &.image-60{
-            .textimage_image{
-                width: 60%;
-            }
-        }
-
-        &.image-70{
-            .textimage_image{
-                width: 70%;
-            }
-        }
-
-        &.image-right{
-            .textimage_text{
-                order: 1;
-            }
-            .textimage_image{
-                padding-left: 20px;
-                padding-right: 0px;
-                order: 2;
+            &.image-right{
+                .textimage_text{
+                    order: 1;
+                }
+                .textimage_image{
+                    padding-left: 20px;
+                    padding-right: 0px;
+                    order: 2;
+                }
             }
         }
     }

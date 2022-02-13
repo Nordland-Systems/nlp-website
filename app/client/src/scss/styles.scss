@@ -19,12 +19,12 @@ body {
   margin: 0px auto;
   padding: 0 10px;
   transition: filter 0.3s;
-  max-width: $maxWidth;
+  width: 100%;
   color: $colorWhite;
 
   @media screen and (max-width: 992px) {
     .body--show &{
-      filter: blur(2px);
+      //filter: grayscale(100%);
     }
   }
 
