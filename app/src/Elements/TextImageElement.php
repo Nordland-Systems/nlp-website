@@ -48,6 +48,12 @@ class TextImageElement extends BaseElement
     private static $table_name = 'TextImageElement';
     private static $icon = 'font-icon-block-promo-3';
 
+    private static $translate = [
+        'Text',
+        'Image',
+        'ButtonText',
+    ];
+
     public function getType()
     {
         return "Text+Bild";

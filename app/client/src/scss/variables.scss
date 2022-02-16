@@ -12,16 +12,10 @@ $breakpoint-desktop: 1200px;
 $breakpoint-tablet: 768px;
 $breakpoint-phone: 500px;
 
-//$colorPrimary: #1B9CE5;
-//$colorPrimaryDark: #093F5F;
-//$colorPrimaryLight: #6CDAEE;
-
-//$colorPrimary: #d9cdc9;
-
 $colorPrimary: #1B9CE5;
 $colorPrimaryDark: darken($colorPrimary, 20%);
 $colorPrimaryLight: lighten($colorPrimary, 20%);
-
+$colorBackground: $colorPrimary;
 
 $colorSecondary: #F79E02;
 

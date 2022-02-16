@@ -1,0 +1,22 @@
+---
+Name: myfluentconfig
+After: '#fluentconfig'
+---
+
+TractorCow\Fluent\Model\Locale:
+  default_records:
+    de:
+      Title: Deutsch
+      Locale: de_DE
+      URLSegment: de
+      IsGlobalDefault: 1
+    en:
+      Title: English
+      Locale: en_US
+      URLSegment: en
+
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  translate:
+    - Title

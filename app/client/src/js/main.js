@@ -35,7 +35,7 @@ function parallax() {
 
     //var parallax = document.querySelector('[data-behaviour="parallax"]');
     listParallaxElements.forEach((parallax, i) => {
-        var scrolled = window.pageYOffset - (parallax.offsetTop);
+        var scrolled = window.pageYOffset - (parallax.parentElement.offsetTop);
 
         // You can adjust the 0.4 to change the speed
         var coords = (scrolled * parallax.dataset.speed) + 'px'

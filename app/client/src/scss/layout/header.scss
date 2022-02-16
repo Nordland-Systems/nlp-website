@@ -151,7 +151,7 @@
             }
 
             .nav_menu{
-                background-color: $colorPrimary;
+                background-color: $colorPrimaryDark;
                 flex: 1 1 80%;
                 border-radius: 10px;
                 pointer-events: auto;
@@ -345,6 +345,7 @@
                     width: 60px;
                     padding: 0;
                     margin: 0;
+
                     .nav_brand{
                         opacity: 0;
                     }
@@ -355,6 +356,8 @@
                 .nav_menu{
                     background-color: $colorPrimaryDark;
                     border-radius: 0%;
+
+                    padding-left: 20px;
                 }
             }
         }

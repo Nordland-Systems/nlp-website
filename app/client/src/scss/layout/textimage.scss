@@ -1,6 +1,8 @@
 .section.section--textimage {
 
-
+    margin-top: -10px;
+    margin-bottom: -10px;
+    z-index: 10;
     .section_content{
         display: flex;
         justify-content: space-between;
@@ -31,7 +33,7 @@
         }
 
         .textimage_text {
-            width: auto;
+            width: 100%;
 
 
             .textimage_text_title {
@@ -42,9 +44,7 @@
                 position: relative;
                 padding-bottom: 20px;
                 .textimage_text_button{
-                    position: absolute;
-                    right: 0;
-                    bottom: 0;
+                    display: inline-block;
                 }
             }
         }
@@ -54,8 +54,9 @@
             max-width: $maxWidth;
 
             .textimage_text {
-                display: flex;
+                display: block;
                 align-items: center;
+                width: 100%;
 
                 .textimage_text_content {
                     padding: 20px;
@@ -78,6 +79,10 @@
                 @include media("<medium") {
                     padding: 20px;
                 }
+            }
+
+            .textimage_image{
+                padding: 0;
             }
 
             &.image-right{

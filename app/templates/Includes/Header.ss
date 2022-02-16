@@ -17,6 +17,17 @@
             <a href="/">
                 <img src="images/NLP_LogoBannerWhite_SVG_wot.svg">
             </a>
+            <% if $Locales %>
+                    <% loop $Locales %>
+                        <% if $LinkingMode != "current" %>
+                            <li>&nbsp;</li>
+                            <li class="$LinkingMode">
+                                <a href="$Link.ATT" <% if $LinkingMode != 'invalid' %>rel="alternate"
+                                   hreflang="$LocaleRFC1766"<% end_if %>>$URLSegment</a>
+                            </li>
+                        <% end_if %>
+                    <% end_loop %>
+                <% end_if %>
         </div>
     </div>
 
