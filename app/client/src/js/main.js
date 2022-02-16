@@ -17,16 +17,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const sticky_menu = document.querySelector('[data-behaviour="sticky-header"]');
 
     window.onscroll = function (){
+       
+    }
+
+    window.addEventListener('scroll', () => {
+        parallax();
+
         if (document.documentElement.scrollTop > 30 || document.body.scrollTop > 30){
             sticky_menu.classList.add('menu--fixed');
         } else {
             sticky_menu.classList.remove('menu--fixed');
         }
-    }
-
-    window.addEventListener('scroll', () => {
-        parallax();
     })
+    parallax();
 });
 
 function parallax() {

@@ -81,7 +81,13 @@
                     }
                 }
             }
+        }
 
+        .header_topbar_language{
+            ul{
+                padding: 0;
+                margin: 0;
+            }
         }
 
         @media (max-width: $breakpoint-phone) {
