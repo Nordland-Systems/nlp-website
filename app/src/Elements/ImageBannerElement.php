@@ -43,7 +43,7 @@ class ImageBannerElement extends BaseElement
     ];
 
     private static $table_name = 'ImageBannerElement';
-    private static $icon = 'elemental-icon-alert';
+    private static $icon = 'font-icon-block-file';
 
     private static $translate = [
         'Text',

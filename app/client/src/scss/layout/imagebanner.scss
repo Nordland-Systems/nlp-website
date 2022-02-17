@@ -28,6 +28,10 @@
         display: block;
         margin: 0 auto;
         max-width: $maxWidthContent;
+
+        @include media("<desktop") {
+            padding: 30px;
+        }
     }
 
     &.overlay--darker{
