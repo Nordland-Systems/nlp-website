@@ -90,7 +90,7 @@
             }
         }
 
-        @media (max-width: $breakpoint-phone) {
+        @include media("<medium") {
             display: none;
         }
     }
@@ -201,7 +201,7 @@
                     }
                 }
             }
-            @media (max-width: $breakpoint-phone) {
+            @include media("<medium") {
                 display: none;
             }
         }
@@ -324,7 +324,7 @@
             }
         }
 
-        @media screen and (max-width: $breakpoint-phone) {
+        @include media("<medium") {
             display: block;
         }
     }
