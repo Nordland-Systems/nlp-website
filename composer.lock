@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "702060596c6f1df48abac2ef4b0712c9",
+    "content-hash": "3bdb37ac40dc789b4eff302c776a9a98",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2057,6 +2057,76 @@
             "time": "2021-11-21T20:15:14+00:00"
         },
         {
+            "name": "silverstripe/blog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-blog.git",
+                "reference": "5f4204a79344cf08353b3d3d134df94c10a48b1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-blog/zipball/5f4204a79344cf08353b3d3d134df94c10a48b1b",
+                "reference": "5f4204a79344cf08353b3d3d134df94c10a48b1b",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/asset-admin": "^1.0",
+                "silverstripe/assets": "^1.0",
+                "silverstripe/cms": "^4.0",
+                "silverstripe/lumberjack": "^2.0",
+                "silverstripe/tagfield": "^2.0"
+            },
+            "replace": {
+                "micmania1/silverstripe-blog": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "suggest": {
+                "silverstripe/comments": "This module adds comments to your blog.",
+                "silverstripe/widgets": "Some widgets come with the blog which are compatible with the widgets module."
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                },
+                "expose": [
+                    "client/dist",
+                    "client/images"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Blog\\": "src/",
+                    "SilverStripe\\Blog\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Strong",
+                    "email": "github@michaelstrong.co.uk"
+                }
+            ],
+            "description": "A fresh take on blogging in Silverstripe set out to tackle the issue of a cluttered Site Tree.",
+            "keywords": [
+                "blog",
+                "news",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/silverstripe/silverstripe-blog/issues",
+                "source": "https://github.com/silverstripe/silverstripe-blog/tree/master"
+            },
+            "time": "2021-05-14T09:31:28+00:00"
+        },
+        {
             "name": "silverstripe/campaign-admin",
             "version": "1.10.0",
             "source": {
@@ -2530,6 +2600,59 @@
             "time": "2021-11-18T04:41:13+00:00"
         },
         {
+            "name": "silverstripe/lumberjack",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-lumberjack.git",
+                "reference": "4448804fc84647fa175bde6e584bf0016eca4a71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-lumberjack/zipball/4448804fc84647fa175bde6e584bf0016eca4a71",
+                "reference": "4448804fc84647fa175bde6e584bf0016eca4a71",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0",
+                "silverstripe/cms": "^4.0",
+                "silverstripe/framework": "^4.10"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "css",
+                    "javascript"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Lumberjack\\": "src/",
+                    "SilverStripe\\Lumberjack\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Strong",
+                    "email": "mstrong@silverstripe.org"
+                }
+            ],
+            "description": "A module to make managing pages in a GridField easy without losing any of the functionality that you're used to in the CMS.",
+            "support": {
+                "issues": "https://github.com/silverstripe/silverstripe-lumberjack/issues",
+                "source": "https://github.com/silverstripe/silverstripe-lumberjack/tree/2.1.0"
+            },
+            "time": "2021-11-01T08:53:38+00:00"
+        },
+        {
             "name": "silverstripe/mimevalidator",
             "version": "2.3.0",
             "source": {
@@ -2922,6 +3045,64 @@
                 "source": "https://github.com/silverstripe/silverstripe-siteconfig/tree/4.10.0"
             },
             "time": "2021-10-27T20:16:42+00:00"
+        },
+        {
+            "name": "silverstripe/tagfield",
+            "version": "2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-tagfield.git",
+                "reference": "187e66401e987f431eaeeac01c9856e2f87c96cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-tagfield/zipball/187e66401e987f431eaeeac01c9856e2f87c96cd",
+                "reference": "187e66401e987f431eaeeac01c9856e2f87c96cd",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0",
+                "silverstripe/framework": "^4.10",
+                "silverstripe/versioned": "^1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\TagField\\": "src/",
+                    "SilverStripe\\TagField\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Pitt",
+                    "email": "chris@silverstripe.com",
+                    "homepage": "http://github.com/assertchris"
+                }
+            ],
+            "description": "Tag field for SilverStripe",
+            "keywords": [
+                "field",
+                "silverstripe",
+                "tag"
+            ],
+            "support": {
+                "issues": "http://github.com/silverstripe/silverstripe-tagfield/issues",
+                "source": "https://github.com/silverstripe/silverstripe-tagfield/tree/2.8.0"
+            },
+            "time": "2021-11-24T04:21:14+00:00"
         },
         {
             "name": "silverstripe/vendor-plugin",
@@ -6548,7 +6729,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "silverstripe/blog": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
