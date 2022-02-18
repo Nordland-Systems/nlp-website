@@ -11,6 +11,7 @@
 @import "layout/text";
 @import "layout/imagebanner";
 @import "layout/space";
+@import "layout/notice";
 
 body {
     background-color: $colorBackground;
@@ -40,6 +41,15 @@ body {
 }
 
 .readmore{
-    padding: 10px ;
-    background-color: $colorSecondary;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid $colorWhite;
+    color: $colorWhite;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+    &:hover {
+        color: $colorBlack;
+        background-color: white;
+    }
 }

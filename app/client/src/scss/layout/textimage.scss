@@ -66,14 +66,6 @@
 
                 color: $colorWhite;
 
-                .textimage_text_button {
-                    color: $colorWhite;
-
-                    &:hover {
-                        color: $colorSecondary;
-                    }
-                }
-
                 @include media("<medium") {
                     padding: 20px;
                 }

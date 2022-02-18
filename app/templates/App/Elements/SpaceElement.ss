@@ -13,5 +13,13 @@
             <span class="section_diamond_inner"></span>
             <span class="section_diamond_line"></span>
         </div>
+    <% else_if $Variant=="style--icon" %>
+        <div class="section_icon">
+            <span class="section_icon_line"></span>
+            <% if $Image %>
+                <span class="section_icon_image" style="mask-image: url('$Image.Url'); -webkit-mask-image: url('$Image.Url');"></span>
+            <% end_if %>
+            <span class="section_icon_line"></span>
+        </div>
     <% end_if %>
 </section>

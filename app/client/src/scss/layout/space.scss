@@ -1,6 +1,7 @@
 .section.section--space{
     padding: 0;
     position: relative;
+    padding: 0 30px;
 
     .section_line{
         max-width: $maxWidth;
@@ -33,6 +34,35 @@
             display: block;
             transform-origin: center;
             transform: rotate(45deg);
+            margin: 10px;
+            background-color: $colorPrimaryDark;
+        }
+    }
+
+    .section_icon{
+        max-width: $maxWidth;
+        background-color: $colorBackground;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        height: 100%;
+        justify-content: space-between;
+
+        .section_icon_line{
+            width: 50%;
+            display: block;
+            border-bottom: 2px solid $colorPrimaryDark;
+        }
+
+        .section_icon_image{
+
+            height: 50px;
+            width: 50px;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            display: block;
+            transform-origin: center;
             margin: 10px;
             background-color: $colorPrimaryDark;
         }

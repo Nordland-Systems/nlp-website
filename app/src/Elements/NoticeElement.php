@@ -10,16 +10,20 @@ use SilverStripe\Forms\DropdownField;
  * Class \App\Elements\SpaceElement
  *
  * @property string $Variant
- * @property int $Height
+ * @property string $Text
+ * @property string $ButtonText
+ * @property string $ButtonLink
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  */
-class SpaceElement extends BaseElement
+class NoticeElement extends BaseElement
 {
 
     private static $db = [
         "Variant" => "Varchar(20)",
-        "Height" => "Int(1000)"
+        "Text" => "HTMLText",
+        "ButtonText" => "Varchar(255)",
+        "ButtonLink" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -31,27 +35,27 @@ class SpaceElement extends BaseElement
     ];
 
     private static $field_labels = [
-        "Height" => "Höhe (in px)",
-        "Image" => "Icon (transparenter Hintergrund und möglichst quadratisch)"
+        "Text" => "Text",
+        "Image" => "Icon (transparenter Hintergrund und möglichst quadratisch)",
+        "ButtonText" => "Button Text",
+        "ButtonLink" => "Button Link"
     ];
 
-    private static $table_name = 'SpaceElement';
-    private static $icon = 'font-icon-caret-up-down';
+    private static $table_name = 'NoticeElement';
+    private static $icon = 'font-icon-attention';
 
     public function getType()
     {
-        return "Abstand";
+        return "Hinweis";
     }
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         $fields->replaceField('Variant', new DropdownField('Variant', 'Variante', [
-            "style--none" => "Leerer Platz",
-            "style--line" => "Einfache Linie",
-            "style--wave" => "Welle",
-            "style--diamond" => "Diamant",
-            "style--icon" => "Icon",
+            "style--none" => "Keiner",
+            "style--important" => "Wichtig",
+            "style--hint" => "Hinweis",
         ]));
         return $fields;
     }

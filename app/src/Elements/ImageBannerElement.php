@@ -74,6 +74,7 @@ class ImageBannerElement extends BaseElement
             "0" => "Kein Parallax",
             "0.2" => "Normale Geschwindigkeit (0.2)",
             "0.4" => "Hohe Geschwindigkeit (0.4)",
+            "0.6" => "Maximale Geschwindigkeit (0.6)",
         ]));
         return $fields;
     }

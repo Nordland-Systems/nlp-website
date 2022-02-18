@@ -18,6 +18,8 @@ $colorPrimaryLight: lighten($colorPrimary, 20%);
 $colorBackground: $colorPrimary;
 
 $colorSecondary: #F79E02;
+$colorImportant: #410000;
+$colorHint: $colorSecondary;
 
 $colorDarkGray: #1C1C1C;
 $colorDarkGrayTrans: rgba($colorDarkGray, 0.8);
