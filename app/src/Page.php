@@ -16,7 +16,7 @@ namespace {
     class Page extends SiteTree
     {
         private static $db = [
-            "MenuPosition" => "Enum('main,footer', 'main')",
+            "MenuPosition" => "Enum('main,footer,topbar', 'main')",
         ];
 
         private static $has_one = [];
@@ -27,6 +27,7 @@ namespace {
             $fields->addFieldToTab("Root.Main", new DropdownField("MenuPosition", "Menü", [
                 "main" => "Hauptmenü",
                 "footer" => "Footer",
+                "topbar" => "TopBar",
             ]), "Content");
             return $fields;
         }

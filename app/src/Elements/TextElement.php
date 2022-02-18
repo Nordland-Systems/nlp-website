@@ -24,6 +24,10 @@ class TextElement extends BaseElement
     private static $table_name = 'TextElement';
     private static $icon = 'font-icon-block-content';
 
+    private static $translate = [
+        'Text',
+    ];
+
     public function getType()
     {
         return "Text";

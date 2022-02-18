@@ -17,16 +17,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const sticky_menu = document.querySelector('[data-behaviour="sticky-header"]');
 
     window.onscroll = function (){
+       
+    }
+
+    window.addEventListener('scroll', () => {
+        parallax();
+
         if (document.documentElement.scrollTop > 30 || document.body.scrollTop > 30){
             sticky_menu.classList.add('menu--fixed');
         } else {
             sticky_menu.classList.remove('menu--fixed');
         }
-    }
-
-    window.addEventListener('scroll', () => {
-        parallax();
     })
+    parallax();
 });
 
 function parallax() {
@@ -35,7 +38,7 @@ function parallax() {
 
     //var parallax = document.querySelector('[data-behaviour="parallax"]');
     listParallaxElements.forEach((parallax, i) => {
-        var scrolled = window.pageYOffset - (parallax.offsetTop);
+        var scrolled = window.pageYOffset - (parallax.parentElement.offsetTop);
 
         // You can adjust the 0.4 to change the speed
         var coords = (scrolled * parallax.dataset.speed) + 'px'

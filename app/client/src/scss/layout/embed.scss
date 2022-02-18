@@ -1,0 +1,20 @@
+.section.section--embed{
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    max-width: $maxWidth;
+    margin: 0 auto;
+
+    .section_content{
+        width: 100%;
+        iframe{
+            width: 100%;
+        }
+    }
+
+    @include media(">medium") {
+        flex-wrap: nowrap;
+    }
+}
