@@ -20,3 +20,5 @@ DNADesign\Elemental\Models\BaseElement:
     - TractorCow\Fluent\Extension\FluentExtension
   translate:
     - Title
+TractorCow\Fluent\Extension\FluentDirectorExtension:
+  disable_default_prefix: true
