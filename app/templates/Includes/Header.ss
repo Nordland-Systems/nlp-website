@@ -10,8 +10,9 @@
             <% end_loop %>
         </ul>
         <div class="header_topbar_socials">
-            <a href="https://twitter.com/NordlandPark" class="social_button"><img src="images/twitter_icon.png"></a>
-            <a href="https://discord.gg/V3nCVXn" class="social_button"><img src="images/discord_icon.png"></a>
+            <a href="https://twitter.com/NordlandPark" class="social_button"><img src="images/social_media/logo_twitter.png"></a>
+            <a href="https://discord.gg/V3nCVXn" class="social_button"><img src="images/social_media/logo_discord.png"></a>
+            <a href="https://github.com/Nordland-Systems/nlp-silverstripe" class="social_button"><img src="images/social_media/logo_github.png"></a>
         </div>
         <% if $Locales %>
             <div class="header_topbar_language">
@@ -36,7 +37,7 @@
                     <img src="images/NLP_LogoBannerWhite_SVG_wot.svg">
                 </a>
                 <a href="" class="nav_brand">
-                    <img src="images/NLP_LogoBanner_SVG.svg">
+                    <img src="images/NLP_LogoBanner_SVG_wot.svg">
                 </a>
             </div>
             <div class="nav_menu">

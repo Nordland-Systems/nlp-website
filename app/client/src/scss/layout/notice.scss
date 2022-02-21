@@ -5,15 +5,18 @@
         background-color: $colorPrimaryDark;
         padding: 25px;
         position: relative;
+        border-radius: 40px;
 
         .section_content_inner{
             padding: 40px;
             border: 1px solid $colorWhite;
+            border-radius: 20px;
             color: $colorWhite;
 
             .inner_title{
                 padding: 0;
                 margin: 0 0 10px 0;
+                color: $colorWhite;
             }
         }
 

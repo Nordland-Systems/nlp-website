@@ -1,5 +1,5 @@
 .section.footer{
-    background-color: $colorPrimaryDark;
+    background-color: $colorPrimaryExtraDark;
     margin: 0;
     padding-bottom: 0px;
     width: 100%;
@@ -21,6 +21,7 @@
         left: 0;
         color: $colorWhite;
         text-align: center;
+        height: 40px;
 
         ul{
             display: flex;
@@ -37,5 +38,21 @@
             }
         }
 
+        .footer_menu_socials{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 5px;
+            margin-right: 15px;
+            height: 100%;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+            .social_button{
+                height: 100%;
+                img{
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
     }
 }
