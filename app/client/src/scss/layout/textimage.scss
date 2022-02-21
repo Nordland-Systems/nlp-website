@@ -6,7 +6,8 @@
         justify-content: space-between;
         max-width: $maxWidthContent;
         flex-wrap: wrap;
-        padding: 0;
+        border-radius: 20px;
+        overflow: hidden;
 
         .textimage_image {
             width: 100%;
@@ -31,12 +32,8 @@
         }
 
         .textimage_text {
+            padding: 40px 0;
             width: 100%;
-
-
-            .textimage_text_title {
-                color: $colorWhite;
-            }
 
             .textimage_text_content {
                 position: relative;
@@ -48,8 +45,8 @@
         }
 
         &.highlighted{
-            background-color: $colorPrimaryDark;
-            max-width: $maxWidth;
+            background-color: $colorPrimary;
+
 
             .textimage_text {
                 display: block;

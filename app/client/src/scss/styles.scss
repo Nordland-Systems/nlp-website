@@ -14,6 +14,7 @@
 @import "layout/notice";
 @import "layout/face";
 @import "layout/embed";
+@import "layout/hero";
 
 body {
     background-color: $colorBackground;
@@ -24,7 +25,6 @@ body {
   padding: 0px 30px;
   transition: filter 0.3s;
   width: 100%;
-  color: $colorWhite;
 
   @media screen and (max-width: 992px) {
     .body--show &{
@@ -39,7 +39,7 @@ body {
 
 .section_content{
   max-width: $maxWidthContent;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 .readmore{
@@ -49,6 +49,7 @@ body {
     border: 1px solid $colorWhite;
     color: $colorWhite;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    border-radius: 20px;
 
     &:hover {
         color: $colorBlack;

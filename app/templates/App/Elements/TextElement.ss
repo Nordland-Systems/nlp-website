@@ -1,4 +1,4 @@
-<div class="section section--text $Variant">
+<div class="section section--text $AlignVariant $ColorVariant">
     <div class="section_content">
         <% if ShowTitle %>
             <% if $Variant == "section--text-intro" %>
@@ -8,5 +8,8 @@
             <% end_if %>
         <% end_if %>
         <div class="text_content">$Text</div>
+        <% if $ButtonText && $ButtonLink %>
+            <a href="$ButtonLink" class="text_text_button readmore">$ButtonText</a>
+        <% end_if %>
     </div>
 </div>

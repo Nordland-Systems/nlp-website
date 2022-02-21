@@ -9,59 +9,54 @@ use SilverStripe\Forms\DropdownField;
 /**
  * Class \App\Elements\TextImageElement
  *
- * @property string $Text
- * @property string $Variant
+ * @property string $Subline
  * @property string $Overlay
- * @property int $Height
  * @property string $Parallax
  * @property int $ImageID
+ * @property int $BackgroundImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\Assets\Image BackgroundImage()
  */
-class ImageBannerElement extends BaseElement
+class HeroElement extends BaseElement
 {
 
     private static $db = [
-        "Text" => "Varchar(255)",
-        "Variant" => "Varchar(20)",
+        "Subline" => "Varchar(255)",
         "Overlay" => "Varchar(20)",
-        "Height" => "Int(1000)",
         "Parallax" => "Varchar(20)"
     ];
 
     private static $has_one = [
         "Image" => Image::class,
+        "BackgroundImage" => Image::class,
     ];
 
     private static $owns = [
-        "Image"
+        "Image",
+        "BackgroundImage"
     ];
 
     private static $field_labels = [
-        "Text" => "Bildunterschrift",
-        "Height" => "Höhe (in px)",
-        "Image" => "Bild"
+        "Subline" => "Unterüberschrift",
+        "Image" => "Logo",
+        "BackgroundImage" => "Hintergrundbild"
     ];
 
-    private static $table_name = 'ImageBannerElement';
-    private static $icon = 'font-icon-block-file';
+    private static $table_name = 'HeroElement';
+    private static $icon = 'font-icon-block-carousel';
 
     private static $translate = [
-        'Text',
+        'Subline',
     ];
 
     public function getType()
     {
-        return "Bildbanner";
+        return "Hero";
     }
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->replaceField('Variant', new DropdownField('Variant', 'Variante', [
-            "" => "Volle Breite",
-            "variant--limited" => "Begrenzte Breite",
-            "variant--hovering" => "Hervorgehoben",
-        ]));
         $fields->replaceField('Overlay', new DropdownField('Overlay', 'Überlagerung', [
             "" => "Keine Überlagerung",
             "overlay--darker" => "Dunkler",
