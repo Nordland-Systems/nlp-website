@@ -45,10 +45,7 @@
         }
 
         .header_topbar_socials{
-            padding-top: 5px;
-            padding-bottom: 5px;
-            margin-left: 5px;
-            margin-right: 15px;
+            padding: 5px;
             height: 100%;
             opacity: 1;
             transition: opacity 0.3s ease-in-out;
@@ -334,9 +331,11 @@
             height: 40px;
             ul{
                 opacity: 0;
+                pointer-events: none;
             }
             .header_topbar_socials{
                 opacity: 0;
+                pointer-events: none;
             }
             .header_topbar_logo{
                 opacity: 0;

@@ -50,6 +50,7 @@
             }
             .content_text{
                 text-align: center;
+                padding: 20px;
                 .text_socials{
                     height: 40px;
                 }
@@ -71,6 +72,9 @@
             }
             .content_text{
                 padding: 40px 20px 40px 40px;
+                @include media("<medium") {
+                    padding: 20px;
+                }
             }
         }
     }

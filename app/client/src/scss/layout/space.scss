@@ -1,9 +1,10 @@
 .section.section--space{
     padding: 0;
     position: relative;
-    padding: 0 30px;
+    padding: 0;
 
     .section_line{
+        padding: 0 30px;
         max-width: $maxWidth;
         margin: 0 auto;
         height: 50%;
@@ -12,6 +13,7 @@
     }
 
     .section_diamond{
+        padding: 0 30px;
         max-width: $maxWidth;
         background-color: $colorBackground;
         display: flex;
@@ -40,6 +42,7 @@
     }
 
     .section_icon{
+        padding: 0 30px;
         max-width: $maxWidth;
         background-color: $colorBackground;
         display: flex;
@@ -73,27 +76,28 @@
         width: 100%;
         position:relative;
         bottom:0;
-        left:0;
+        left: 0;
         background: $colorBackground;
         overflow: hidden;
 
         .wave {
-            background: linear-gradient(0deg, rgba($colorPrimaryLight,0) 0%, rgba($colorPrimaryLight,1) 100%);
+            background: linear-gradient(0deg, rgba($colorPrimaryExtraDark,1) 0%, rgba($colorPrimary,0.8) 100%);
+            //background: $colorPrimaryExtraDark;
             mask-image: url("../../images/space-wave.svg");
             mask-repeat: repeat-x;
             position: absolute;
             bottom: 0px;
             width: 300vw;
             height: 50px;
-            animation: wave 60s linear infinite;
+            animation: wave 120s linear infinite;
             transform-origin: bottom;
             transform: translate3d(0, 0, 0);
 
             &:nth-child(2){
-                animation: wave 50s linear infinite, pulse 20s alternate ease-in-out infinite;
+                animation: wave 100s linear infinite, pulse 80s alternate ease-in-out infinite;
             }
             &:nth-child(3){
-                animation: wave 80s linear infinite, pulse 40s alternate ease-in-out infinite;
+                animation: wave 160s linear infinite, pulse 160s alternate ease-in-out infinite;
             }
 
             @keyframes wave {
