@@ -29,6 +29,7 @@ use SilverStripe\Forms\DropdownField;
  * @property string $YoutubeLink
  * @property string $SoundcloudLink
  * @property string $GitHubLink
+ * @property string $BehanceLink
  * @property string $TelegramLink
  * @property int $ParentID
  * @property int $ImageID
