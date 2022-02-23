@@ -15,13 +15,12 @@
 
         <% if $Categories.exists %>
             <div class="category_icons">
-                <% loop $Categories %>
+                <% loop $Categories.Limit(3) %>
                     <% if $Title == "Art" %>
                         <a href="$Link" class="category_icon">
                             <img src="images/social_media/logo_website.png">
                         </a>
-                    <% end_if %>
-                    <% if $Title == "Konzept" %>
+                    <% else_if $Title == "Konzept" %>
                         <a href="$Link" class="category_icon">
                             <img src="images/social_media/logo_facebook.png">
                         </a>
