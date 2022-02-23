@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const menu_button = document.querySelector('[data-behaviour="toggle-menu"]');
     const totopbutton = document.querySelector('[data-behaviour="totopbutton"');
     const sticky_menu = document.querySelector('[data-behaviour="sticky-header"]');
-    let listParallaxElements = [...document.querySelectorAll('[data-behaviour="parallax"]')];
 
     menu_button.addEventListener('click', () => {
         document.body.classList.toggle('body--show');
@@ -32,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 function parallax() {
+
+    let listParallaxElements = [...document.querySelectorAll('[data-behaviour="parallax"]')];
     //var parallax = document.querySelector('[data-behaviour="parallax"]');
     listParallaxElements.forEach((parallax, i) => {
         var scrolled = window.pageYOffset - (parallax.parentElement.offsetTop);
