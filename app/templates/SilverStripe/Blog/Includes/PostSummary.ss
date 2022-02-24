@@ -16,13 +16,37 @@
         <% if $Categories.exists %>
             <div class="category_icons">
                 <% loop $Categories.Limit(3) %>
-                    <% if $Title == "Art" %>
+                    <% if $Title == "Allgemein" %>
                         <a href="$Link" class="category_icon">
-                            <img src="images/social_media/logo_website.png">
+                            <img src="images/category/category_nlp.png">
                         </a>
-                    <% else_if $Title == "Konzept" %>
+                    <% else_if $Title == "Gestaltung" %>
                         <a href="$Link" class="category_icon">
-                            <img src="images/social_media/logo_facebook.png">
+                            <img src="images/category/category_design.png">
+                        </a>
+                    <% else_if $Title == "Einkauf" %>
+                        <a href="$Link" class="category_icon">
+                            <img src="images/category/category_shopping.png">
+                        </a>
+                    <% else_if $Title == "Veranstaltung" %>
+                        <a href="$Link" class="category_icon">
+                            <img src="images/category/category_event.png">
+                        </a>
+                    <% else_if $Title == "Unterhaltung" %>
+                        <a href="$Link" class="category_icon">
+                            <img src="images/category/category_entertainment.png">
+                        </a>
+                    <% else_if $Title == "Technik" %>
+                        <a href="$Link" class="category_icon">
+                            <img src="images/category/category_tech.png">
+                        </a>
+                    <% else_if $Title == "Nahrung" %>
+                        <a href="$Link" class="category_icon">
+                            <img src="images/category/category_food.png">
+                        </a>
+                    <% else %>
+                        <a href="$Link" class="category_icon">
+                            <img src="images/category/category_other.png">
                         </a>
                     <% end_if %>
                 <% end_loop %>
