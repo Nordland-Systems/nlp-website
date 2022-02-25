@@ -10,7 +10,7 @@
     .section_content{
         display: block;
         width: 100%;
-        height: calc(100% + 10vh);
+        height: calc(100% + 40vh);
         max-width: 100%;
         margin: 0;
         padding: 0;
@@ -71,10 +71,6 @@
             max-width: $maxWidth;
             padding-left: 30px;
         }
-
-        .section_content{
-            height: calc(100% + 30vh);
-        }
     }
 
     &.variant--hovering{
@@ -86,10 +82,6 @@
 
         .section_description{
             padding-left: 30px;
-        }
-
-        .section_content{
-            height: calc(100% + 30vh);
         }
     }
 }
