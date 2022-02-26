@@ -4,6 +4,7 @@
 @import "normalize";
 @import "variables";
 @import "typography";
+@import "forms";
 
 @import "layout/footer";
 @import "layout/header";
@@ -17,6 +18,7 @@
 @import "layout/hero";
 @import "layout/team";
 @import "layout/blog";
+@import "layout/blogentry";
 
 body {
     background-color: $colorBackground;

@@ -1,0 +1,91 @@
+.section.section--form{
+    display: block;
+
+    .section_content{
+        max-width: $maxWidthContent;
+        padding: 0 20px;
+        margin: 50px auto;
+
+        .userform{
+            .userform-fields{
+                .form-step{
+                    .field{
+                        padding: 25px 0;
+
+                        label{
+                            display: inline-block;
+                            margin-bottom: 10px;
+                        }
+
+                        &.text{
+                            input{
+                                padding: 10px;
+                                width: 100%;
+                                height: 40px;
+                                border: white;
+                                border-radius: 20px;
+                            }
+                        }
+
+                        &.checkbox{
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+
+                            input{
+                                width: 20px;
+                                height: 20px;
+
+                            }
+                        }
+
+                        &.file{
+                            input{
+                                width: 100%;
+                                padding: 20px;
+                            }
+                        }
+
+                        &.requiredField{
+                            label{
+                                &::after{
+                                    content: "*";
+                                    color: $colorSecondary;
+                                }
+                            }
+                        }
+                    }
+
+                    &::after{
+                        content: "* required";
+                        color: $colorSecondary;
+                    }
+                }
+            }
+
+            .btn-toolbar{
+                width: 100%;
+                margin-top: 15px;
+
+                .action{
+                    display: inline-block;
+                    padding: 10px 15px;
+                    background-color: transparent;
+                    border: 1px solid $colorPrimaryDark;
+                    color: $colorPrimaryDark;
+                    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+                    border-radius: 20px;
+
+                    &:hover {
+                        color: $colorWhite;
+                        background-color: $colorPrimaryDark;
+                    }
+                }
+            }
+        }
+    }
+
+    &.completed{
+        background-color: green;
+    }
+}

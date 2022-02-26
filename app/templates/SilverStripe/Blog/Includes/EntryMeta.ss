@@ -1,4 +1,4 @@
-<p class="blog_post_meta">
+<div class="blog_post_meta">
     <% if $Categories.exists %>
         <p>
             <%t SilverStripe\\Blog\\Model\\Blog.PostedIn "Posted in" %>
@@ -10,4 +10,4 @@
 
     <p><%t SilverStripe\\Blog\\Model\\Blog.Posted "Posted" %>
     $PublishDate.ago</p>
-</p>
+</div>
