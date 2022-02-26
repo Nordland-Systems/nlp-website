@@ -12,6 +12,11 @@
                     .field{
                         padding: 25px 0;
 
+                        label{
+                            display: inline-block;
+                            margin-bottom: 10px;
+                        }
+
                         &.text{
                             input{
                                 padding: 10px;
@@ -40,6 +45,20 @@
                                 padding: 20px;
                             }
                         }
+
+                        &.requiredField{
+                            label{
+                                &::after{
+                                    content: "*";
+                                    color: $colorSecondary;
+                                }
+                            }
+                        }
+                    }
+
+                    &::after{
+                        content: "* required";
+                        color: $colorSecondary;
                     }
                 }
             }
