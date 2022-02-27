@@ -212,6 +212,23 @@
         transition: height 0.5s ease-in-out;
         z-index: 10;
 
+        .header_mobile_socials{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 5px;
+
+            .social_button{
+                height: 40px;
+                padding: 0 5px;
+                img{
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+
         .nav_brand{
             height: 100%;
             display: flex;
@@ -289,26 +306,51 @@
                 padding: 0;
 
                 li{
-                    background-color: $colorPrimaryDark;
+
                     a{
+                        background-color: $colorPrimaryDark;
                         color: $colorWhite;
-                        padding: 20px 20px;
+                        padding: 30px;
                         display: block;
                     }
 
                     &.nav_link--active{
-                        padding-left: 20px;
+
                         position: relative;
-                        background-color: $colorPrimary;
+                        a{
+                            padding-left: 40px;
+                            background-color: $colorPrimary;
+                        }
                         &::after{
                             position: absolute;
                             left: 0px;
-                            top: 20px;
+                            top: 28px;
                             content: "";
                             width: 40px;
                             height: 40px;
                             transform: rotate(-45deg) translate(-10px, -25px);
                             background-color: $colorSecondary;
+                        }
+                    }
+                }
+            }
+
+            .topbar_menu{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 5px;
+                li{
+                    padding: 5px;
+                    width: 50%;
+                    a{
+                        height: 100%;
+                        padding: 15px;
+                    }
+
+                    &.nav_link--active{
+                        &::after{
+                            display: none;
                         }
                     }
                 }
@@ -330,14 +372,35 @@
         bottom: 20px;
         right: 20px;
         z-index: 200;
-        width: 20px;
-        height: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 20px;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease-in-out;
+        background-color: $colorPrimaryLight;
+        text-align: center;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
         &.totop--visible{
             opacity: 1;
             pointer-events: all;
+        }
+
+        span{
+            display: table;
+            position: relative;
+            top: 5px;
+            left: 13px;
+            width: 50%;
+            height: 50%;
+            border: solid $colorWhite;
+            border-width: 0 10px 10px 0;
+            display: inline-block;
+            padding: 5px;
+            transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
         }
     }
 

@@ -1,26 +1,22 @@
-.section.section--blogentry{
-    width: 100%;
-    padding: 0;
+article{
+    margin: 80px auto 80px auto;
+    .content_title{
+        max-width: $maxWidthContent;
+        padding: 0px 30px;
+    }
 
-    .section_content{
+    .content{
         width: 100%;
-        padding: 0;
+    }
 
-
-        article{
-            margin: 80px auto 80px auto;
-            .content_title{
-                max-width: $maxWidthContent;
-                padding: 0px 30px;
-            }
-
-            .content{
-                width: 100%;
-            }
-
+    .section{
+        .section_content{
             .blog_post_meta{
                 max-width: $maxWidthContent;
                 padding: 0px 30px;
+                p{
+                    color:rgba(0, 0, 0, 0.3);
+                }
             }
         }
     }
