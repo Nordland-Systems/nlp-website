@@ -2,7 +2,7 @@
     font-family: 'Metropolis', sans-serif;
     font-size: 16px;
 
-    margin: 80px 0 80px 0;
+    margin: 160px 0 80px 0;
 
     a{
         color: $colorPrimary;
@@ -58,15 +58,19 @@
 
                         .category_icons{
                             position: absolute;
-                            top: 10px;
-                            right: 10px;
+                            top: -1px;
+                            right: 30px;
                             display: flex;
                             gap: 10px;
+                            filter: drop-shadow(0px 5px 2px rgba(0, 0, 0, 0.2));
 
                             .category_icon{
-                                width: 40px;
-                                height: 40px;
+                                width: 60px;
+                                height: 60px;
                                 transition: transform 0.1s ease-in-out;
+                                clip-path: polygon(0 0, 100% 0%, 100% 50%, 50% 100%, 0% 50%);
+                                background-color: $colorPrimary;
+                                padding: 15px;
 
                                 img{
                                     width: 100%;
@@ -74,7 +78,9 @@
                                 }
 
                                 &:hover{
-                                    transform: scale(110%);
+                                    img{
+                                        transform: scale(110%);
+                                    }
                                 }
                             }
                         }
@@ -103,7 +109,7 @@
 
                         .post_text{
                             .category_icons{
-                                top: -50px;
+                                top: -1px;
                             }
                         }
                     }

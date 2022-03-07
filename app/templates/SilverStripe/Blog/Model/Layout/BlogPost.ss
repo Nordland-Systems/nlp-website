@@ -7,15 +7,19 @@
 </section>
 <% end_if %>
 
-<div class="section section--blogentry">
-    <div class="section_content">
-        <article>
+<article>
 
+    <div class="section">
+        <div class="section_content">
             <h1 class="content_title">$Title</h1>
-
-            <div class="content">$ElementalArea</div>
-
-            <% include SilverStripe\\Blog\\EntryMeta %>
-        </article>
+        </div>
     </div>
-</div>
+
+    $ElementalArea
+
+    <div class="section">
+        <div class="section_content">
+            <% include SilverStripe\\Blog\\EntryMeta %>
+        </div>
+    </div>
+</article>

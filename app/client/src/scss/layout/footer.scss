@@ -21,7 +21,7 @@
         left: 0;
         color: $colorWhite;
         text-align: center;
-        height: 40px;
+        height: 50px;
 
         ul{
             display: flex;
@@ -34,6 +34,7 @@
                 list-style: none;
                 a{
                     color: white;
+                    padding: 10px 20px;
                 }
             }
         }
@@ -43,6 +44,7 @@
             height: 100%;
             opacity: 1;
             transition: opacity 0.3s ease-in-out;
+            padding-top: 20px;
             .social_button{
                 height: 100%;
                 img{
