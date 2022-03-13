@@ -6,14 +6,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const totopbutton = document.querySelector('[data-behaviour="totopbutton"');
     const sticky_menu = document.querySelector('[data-behaviour="sticky-header"]');
 
+    //Mobile Menubutton
     menu_button.addEventListener('click', () => {
         document.body.classList.toggle('body--show');
     })
 
+    //Gallery
     const lightbox = GLightbox({
         selector: '[data-gallery="gallery"]',
         touchNavigation: true,
         loop: true,
+    });
+
+    //ListToggleElement
+    let listToggleElements = [...document.querySelectorAll('[data-behaviour="list-toggle"]')];
+    listToggleElements.forEach((element) => {
+        element.addEventListener("click", (e) => {
+            e.preventDefault();
+            const item = element.parentNode.parentNode;
+            item.classList.toggle("list_item--visible")
+
+            listToggleElements.filter(e => e.parentNode.parentNode != item).forEach((e) => {
+                e.parentNode.parentNode.classList.remove("list_item--visible")
+            });
+        })
     });
 
     window.addEventListener('scroll', () => {
