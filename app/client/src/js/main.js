@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.body.classList.toggle('body--show');
     })
 
+    totopbutton.addEventListener('click', () => {
+        topFunction();
+    })
+
     //Gallery
     const lightbox = GLightbox({
         selector: '[data-gallery="gallery"]',

@@ -24,6 +24,10 @@
 @import "layout/blog";
 @import "layout/blogentry";
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: $colorBackground;
     scroll-behavior: smooth;
@@ -34,12 +38,6 @@ body {
   padding: 0px 30px;
   transition: filter 0.3s;
   width: 100%;
-
-  @media screen and (max-width: 992px) {
-    .body--show &{
-      //filter: grayscale(100%);
-    }
-  }
 
   &.section--fullwidth{
     max-width: 100%;
