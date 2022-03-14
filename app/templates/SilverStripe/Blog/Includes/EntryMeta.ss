@@ -1,13 +1,10 @@
 <div class="blog_post_meta">
-    <% if $Categories.exists %>
-        <p>
-            <%t SilverStripe\\Blog\\Model\\Blog.PostedIn "Posted in" %>
+    <p>$PublishDate.Format('dd.MM.YY')
+        <% if $Categories.exists %>
+            |
             <% loop $Categories %>
-                $Title<% if not Last %>, <% end_if %>
+                <a href="$Link">$Title</a><% if not Last %>, <% end_if %>
             <% end_loop %>
-        </p>
-    <% end_if %>
-
-    <p><%t SilverStripe\\Blog\\Model\\Blog.Posted "Posted" %>
-    $PublishDate.ago</p>
+        <% end_if %>
+    </p>
 </div>

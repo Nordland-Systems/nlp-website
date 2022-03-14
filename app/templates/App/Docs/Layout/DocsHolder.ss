@@ -4,8 +4,8 @@
             <h1>$Title</h1>
         </div>
         <div class="docscategories_list">
-            <% loop getDocsCategories %>
-                <% if $Docs %>
+            <% loop getDocsCategories.Filter('Visible','1') %>
+                <% if $Docs.Filter('Visible','1') %>
                     <div class="docscategory_wrap">
                         <div class="docscategory">
                             <h2>$Title</h2>
