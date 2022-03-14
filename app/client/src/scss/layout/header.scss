@@ -299,6 +299,7 @@
             transition: max-height 0.3s, opacity 0.3s;
             opacity: 0;
             background-color: $colorDarkGrayTrans;
+            pointer-events: none;
 
             ul{
                 list-style: none;
@@ -358,6 +359,7 @@
 
             .body--show &{
                 opacity: 1;
+                pointer-events: all;
                 max-height: 400px;
             }
         }

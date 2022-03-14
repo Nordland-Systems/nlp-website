@@ -1,0 +1,63 @@
+.section.section--docsholder{
+    .section_content{
+        padding: 80px 0;
+        min-height: 80vh;
+        .docscategories_list{
+            display: flex;
+            flex-wrap: wrap;
+            margin: -10px;
+            .docscategory_wrap{
+                width: 33%;
+                padding: 10px;
+                .docscategory{
+                    overflow: hidden;
+                    border-radius: 20px;
+                    padding: 10px;
+                    height: 100%;
+                    text-align: center;
+                    background-color: $colorBackgroundDark;
+
+                    h2{
+                        margin: 10px 0 0 0;
+                    }
+
+                    .docs_list{
+                        display: block;
+                        padding: 5px;
+                        .list_item{
+                            margin: 10px 0;
+                            display: block;
+                            padding: 10px;
+                            background-color: transparent;
+                            border: 1px solid $colorWhite;
+                            color: $colorWhite;
+                            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+                            border-radius: 20px;
+
+                            &:hover {
+                                color: $colorBlack;
+                                background-color: white;
+                            }
+
+                            &:last-of-type{
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+
+                @include media("<desktop") {
+                    width: 50%;
+                }
+
+                @include media("<smartphone") {
+                    width: 100%;
+                }
+            }
+        }
+
+        @include media("<=medium") {
+            padding: 10px 0 60px 0;
+        }
+    }
+}
