@@ -16,7 +16,7 @@ class DocsPageController extends PageController {
         "view"
     );
 
-    public function getNews() {
+    public function getDocs() {
         return Docs::get();
     }
 

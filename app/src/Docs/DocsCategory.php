@@ -2,7 +2,6 @@
 
 namespace App\Docs;
 
-use SilverStripe\Assets\Image;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
@@ -13,10 +12,9 @@ use SilverStripe\ORM\DataObject;
  * @property string $Title
  * @property string $Description
  * @property boolean $Visible
- * @property int $CategoryID
- * @method \App\Docs\DocsCategory Category()
+ * @method \SilverStripe\ORM\DataList|\App\Docs\Docs[] Docs()
  */
-class Docs extends DataObject
+class DocsCategory extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
@@ -28,8 +26,8 @@ class Docs extends DataObject
         "Visible" => true,
     ];
 
-    private static $has_one = [
-        "Category" => DocsCategory::class
+    private static $has_many = [
+        "Docs" => Docs::class
     ];
 
     private static $default_sort = "Title DESC";
@@ -38,7 +36,6 @@ class Docs extends DataObject
         "Title" => "Titel",
         "Description" => "Kurzbeschreibung",
         "Visible" => "Sichtbar für Gäste",
-        "Category" => "Kategorie"
     ];
 
     private static $summary_fields = [
@@ -50,14 +47,7 @@ class Docs extends DataObject
         "Title", "Description",
     ];
 
-    private static $table_name = "Docs";
-
-    private static $url_segment = "docs";
-
-    public function populateDefaults()
-    {
-        parent::populateDefaults();
-    }
+    private static $table_name = "DocsCategory";
 
     public function canView($member = null)
     {
@@ -104,7 +94,7 @@ class Docs extends DataObject
 
     public function CMSEditLink()
     {
-        $admin = DocsAdmin::singleton();
+        $admin = DocsCategoryAdmin::singleton();
         $urlClass = str_replace('\\', '-', self::class);
         return $admin->Link("/{$urlClass}/EditForm/field/{$urlClass}/item/{$this->ID}/edit");
     }
