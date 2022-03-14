@@ -3,16 +3,6 @@
         <a href="$Link">
             $FeaturedImage.ScaleWidth(795)
         </a>
-    </div>
-    <div class="post_text">
-        <a href="$Link">
-            <h2>
-                <% if $MenuTitle %>$MenuTitle
-                <% else %>$Title<% end_if %>
-            </h2>
-        </a>
-
-
         <% if $Categories.exists %>
             <div class="category_icons">
                 <% loop $Categories.Limit(3) %>
@@ -52,6 +42,14 @@
                 <% end_loop %>
             </div>
         <% end_if %>
+    </div>
+    <div class="post_text">
+        <a href="$Link">
+            <h2>
+                <% if $MenuTitle %>$MenuTitle
+                <% else %>$Title<% end_if %>
+            </h2>
+        </a>
 
         <% if $Summary %>
             $Summary
