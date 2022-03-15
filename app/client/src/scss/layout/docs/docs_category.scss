@@ -1,0 +1,52 @@
+.section.section--docs_category{
+    min-height: 800px;
+    padding: 0 0 40px 0;
+    .section_header{
+        display: block;
+        height: 500px;
+        width: 100%;
+        position: relative;
+        
+        .header_text{
+            max-width: $maxWidthContent;
+            margin: 0 auto;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        &.header--withoutimage{
+            height: 200px;
+        }
+    }
+
+    .section_content{
+        text-align: center;
+        .docs_list{
+            display: flex;
+            flex-wrap: wrap;
+            .list_item{
+                margin: 0 auto;
+                display: block;
+                padding: 5px;
+                width: 75%;
+                a{
+                    display: block;
+                    padding: 20px 20px;
+                    text-align: center;
+                    border: 1px solid $colorPrimary;
+                    border-radius: 50px;
+
+                    &:hover{
+                        background-color: $colorPrimary;
+                        h4{
+                            color: $colorWhite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

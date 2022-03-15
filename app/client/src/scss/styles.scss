@@ -20,17 +20,23 @@
 @import "layout/chronic";
 
 @import "layout/docs/docsholder";
+@import "layout/docs/docs_category";
+@import "layout/docs/docs_image";
+@import "layout/docs/docs_content";
 
 @import "layout/blog";
 @import "layout/blogentry";
 
 html{
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
     background-color: $colorBackground;
     scroll-behavior: smooth;
+    padding-top: 30px;
+    min-height: 100%;
 }
 
 .section {

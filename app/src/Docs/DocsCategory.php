@@ -5,6 +5,7 @@ namespace App\Docs;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Assets\Image;
 
 /**
  * Class \App\Docs\Docs
@@ -12,7 +13,9 @@ use SilverStripe\ORM\DataObject;
  * @property string $Title
  * @property string $Description
  * @property boolean $Visible
- * @method \SilverStripe\ORM\DataList|\App\Docs\Docs[] Docs()
+ * @property int $ImageID
+ * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\ORM\ManyManyList|\App\Docs\Docs[] Docs()
  */
 class DocsCategory extends DataObject
 {
@@ -22,11 +25,19 @@ class DocsCategory extends DataObject
         "Visible" => "Boolean"
     ];
 
+    private static $has_one = [
+        "Image" => Image::class,
+    ];
+
+    private static $owns = [
+        "Image"
+    ];
+
     private static $defaults = [
         "Visible" => true,
     ];
 
-    private static $has_many = [
+    private static $belongs_many_many = [
         "Docs" => Docs::class
     ];
 
