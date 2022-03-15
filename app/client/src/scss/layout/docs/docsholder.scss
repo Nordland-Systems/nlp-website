@@ -43,6 +43,21 @@
                                 margin-bottom: 0;
                             }
                         }
+
+                        .list_more{
+                            max-width: 75%;
+                            border: none;
+                            margin: 20px auto 5px auto;
+                            display: block;
+                            color: $colorWhite;
+                            h5{
+                                margin: 0;
+                            }
+
+                            &:hover {
+                                color: $colorPrimary;
+                            }
+                        }
                     }
                 }
 

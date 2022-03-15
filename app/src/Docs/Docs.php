@@ -3,6 +3,7 @@
 namespace App\Docs;
 
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
@@ -13,8 +14,7 @@ use SilverStripe\ORM\DataObject;
  * @property string $Title
  * @property string $Description
  * @property boolean $Visible
- * @property int $CategoryID
- * @method \App\Docs\DocsCategory Category()
+ * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
  */
 class Docs extends DataObject
 {
@@ -28,8 +28,8 @@ class Docs extends DataObject
         "Visible" => true,
     ];
 
-    private static $has_one = [
-        "Category" => DocsCategory::class
+    private static $many_many = [
+        "Categories" => DocsCategory::class
     ];
 
     private static $default_sort = "Title DESC";
@@ -86,7 +86,7 @@ class Docs extends DataObject
 
     public function Link()
     {
-        $holder = DocsPage::get()->sort("ID", "ASC")->First();
+        $holder = DocsHolder::get()->sort("ID", "ASC")->First();
         if ($holder) {
             return $holder->Link("view/") . $this->ID;
         }
@@ -95,10 +95,11 @@ class Docs extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        if(!$this->exists()) {
-            $fields->addFieldToTab("Root.Main",
-                new LiteralField("Introduction", "<p><strong>Bitte speichern, um Inhaltselemente hinzuzufügen</strong></p>"));
-        }
+        $fields->removeByName("Categories");
+        $category_map = [];
+        if($categories = DocsCategory::get())
+            $category_map = $categories->map();
+        $fields->addFieldToTab("Root.Main", new CheckboxSetField("Categories", "Kategorien", $category_map));
         return $fields;
     }
 
