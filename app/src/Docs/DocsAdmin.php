@@ -6,7 +6,7 @@ use SilverStripe\Admin\ModelAdmin;
  * Class \App\Docs\DocsAdmin
  *
  */
-class DocAdmin extends ModelAdmin {
+class DocsAdmin extends ModelAdmin {
 
     private static $managed_models = array (
         Docs::class,

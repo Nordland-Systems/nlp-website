@@ -3,10 +3,9 @@
 namespace App\Docs;
 
 use SilverStripe\Assets\Image;
-use SilverStripe\Forms\CheckboxSetField;
-use SilverStripe\Forms\LiteralField;
-use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\CheckboxSetField;
 
 /**
  * Class \App\Docs\Docs
@@ -14,6 +13,8 @@ use SilverStripe\ORM\DataObject;
  * @property string $Title
  * @property string $Description
  * @property boolean $Visible
+ * @property int $ImageID
+ * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
  */
 class Docs extends DataObject
@@ -22,6 +23,14 @@ class Docs extends DataObject
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
         "Visible" => "Boolean"
+    ];
+
+    private static $has_one = [
+        "Image" => Image::class,
+    ];
+
+    private static $owns = [
+        "Image"
     ];
 
     private static $defaults = [
@@ -36,7 +45,7 @@ class Docs extends DataObject
 
     private static $field_labels = [
         "Title" => "Titel",
-        "Description" => "Kurzbeschreibung",
+        "Description" => "Inhalt",
         "Visible" => "Sichtbar für Gäste",
         "Category" => "Kategorie"
     ];

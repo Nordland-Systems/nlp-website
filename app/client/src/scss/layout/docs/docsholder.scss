@@ -1,7 +1,6 @@
 .section.section--docsholder{
     .section_content{
-        padding: 80px 0;
-        min-height: 80vh;
+        min-height: 50vh;
         .docscategories_list{
             display: flex;
             flex-wrap: wrap;
@@ -15,7 +14,8 @@
                     padding: 10px;
                     height: 100%;
                     text-align: center;
-                    background-color: $colorBackgroundDark;
+                    background-color: $colorBackground;
+                    border: 1px solid $colorPrimary;
 
                     h2{
                         margin: 10px 0 0 0;
@@ -29,14 +29,20 @@
                             display: block;
                             padding: 10px;
                             background-color: transparent;
-                            border: 1px solid $colorWhite;
+                            border: 1px solid $colorPrimary;
                             color: $colorWhite;
-                            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+                            transition: background-color 0.2s ease-in-out;
                             border-radius: 20px;
 
+                            h4{
+                                transition: color 0.2s ease-in-out;
+                            }
+
                             &:hover {
-                                color: $colorBlack;
-                                background-color: white;
+                                h4{
+                                    color: $colorWhite;
+                                }
+                                background-color: $colorPrimary;
                             }
 
                             &:last-of-type{
@@ -49,13 +55,13 @@
                             border: none;
                             margin: 20px auto 5px auto;
                             display: block;
-                            color: $colorWhite;
+                            color: $colorPrimary;
                             h5{
                                 margin: 0;
                             }
 
                             &:hover {
-                                color: $colorPrimary;
+                                color: $colorPrimaryDark;
                             }
                         }
                     }
