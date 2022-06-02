@@ -1,0 +1,24 @@
+name: Update live server
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Update Server
+    runs-on: ubuntu-latest
+    steps:
+    - name: Updating staging server for 
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        port: 222
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.KEY }}
+        debug: true
+        script: |
+          cd public_html/nordland-park/2022
+          git pull
+          composer install
+          yarn build
+          vendor/bin/sake
