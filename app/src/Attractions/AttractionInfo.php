@@ -10,6 +10,7 @@ use SilverStripe\ORM\DataObject;
  *
  * @property string $InfoTitle
  * @property string $InfoContent
+ * @property int $SortOrder
  * @property int $ParentID
  * @method \App\Attractions\Attraction Parent()
  */
@@ -17,6 +18,7 @@ class AttractionInfo extends DataObject {
     private static $db = [
         "InfoTitle" => "Varchar(255)",
         "InfoContent" => "HTMLText",
+        "SortOrder" => "Int",
     ];
 
     private static $has_one = [

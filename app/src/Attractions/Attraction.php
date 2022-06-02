@@ -100,16 +100,19 @@ class Attraction extends DataObject
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName("GalleryImages");
+        $fields->removeByName("AttractionInfos");
+
         $gridFieldConfig = GridFieldConfig_RecordEditor::create(200);
-        $sorter = new GridFieldSortableRows('Sort');
+        $sorter = new GridFieldSortableRows('SortOrder');
         $gridFieldConfig->addComponent($sorter);
-        $gridfield = new GridField("Bild", "Bilder", $this->GalleryImages(), $gridFieldConfig);
+        $gridfield = new GridField("GalleryImages", "Bilder", $this->GalleryImages(), $gridFieldConfig);
         $fields->addFieldToTab('Root.Galerie', $gridfield);
 
         $gridFieldConfig2 = GridFieldConfig_RecordEditor::create(200);
-        $sorter2 = new GridFieldSortableRows('Sort');
+        $sorter2 = new GridFieldSortableRows('SortOrder');
         $gridFieldConfig2->addComponent($sorter2);
-        $gridfield2 = new GridField("Info", "Infos", $this->AttractionInfos(), $gridFieldConfig2);
+        $gridfield2 = new GridField("AttractionInfos", "Infos", $this->AttractionInfos(), $gridFieldConfig2);
         $fields->addFieldToTab('Root.Infos', $gridfield2);
 
         return $fields;
