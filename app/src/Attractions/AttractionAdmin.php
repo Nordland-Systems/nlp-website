@@ -15,7 +15,7 @@ class AttractionAdmin extends ModelAdmin {
 
     private static $url_segment = "attractions";
 
-    private static $menu_title = "Attractions";
+    private static $menu_title = "Attraktionen";
 
     private static $menu_icon = "app/client/icons/coaster.svg";
 

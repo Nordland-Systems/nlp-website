@@ -4,6 +4,7 @@ namespace App\News;
 
 use App\News\NewsPage;
 use App\News\NewsAdmin;
+use App\Events\EventAdmin;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\LiteralField;
@@ -64,6 +65,9 @@ class News extends DataObject
     ];
 
     private static $table_name = "News";
+
+    private static $singular_name = "News";
+    private static $plural_name = "News";
 
     private static $url_segment = "news";
 
@@ -136,7 +140,7 @@ class News extends DataObject
 
     public function CMSEditLink()
     {
-        $admin = NewsAdmin::singleton();
+        $admin = EventAdmin::singleton();
         $urlClass = str_replace('\\', '-', self::class);
         return $admin->Link("/{$urlClass}/EditForm/field/{$urlClass}/item/{$this->ID}/edit");
     }

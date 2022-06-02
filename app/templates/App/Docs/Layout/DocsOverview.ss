@@ -5,13 +5,13 @@
                 <div class="header_image" style="background-image:url($Image.ScaleWidth(1400).Link)">
                 </div>
             </div>
-            
+
             <div class="header_text">
                 <h1>$Title</h1>
             </div>
         </div>
     <% else %>
-        <div class="section_content withoutimage">            
+        <div class="section_content withoutimage">
             <div class="header_text">
                 <h1>$Title</h1>
             </div>

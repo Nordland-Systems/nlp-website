@@ -27,6 +27,10 @@
 @import "layout/docs/docs_image";
 @import "layout/docs/docs_content";
 
+@import "layout/attractions/attractions_headerimage.scss";
+@import "layout/attractions/attractions_overview.scss";
+@import "layout/attractions/attractions_item.scss";
+
 @import "layout/blog";
 @import "layout/blogentry";
 
@@ -40,6 +44,10 @@ body {
     scroll-behavior: smooth;
     padding-top: 30px;
     min-height: 100%;
+
+    @include media("<medium") {
+        padding-top: 0;
+    }
 }
 
 .section {

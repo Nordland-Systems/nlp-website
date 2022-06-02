@@ -12,9 +12,9 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  */
-class DocsHolder extends Page
+class DocsOverview extends Page
 {
-    private static $table_name = 'DocsHolder';
+    private static $table_name = 'DocsOverview';
 
     private static $has_one = [
         "Image" => Image::class,
@@ -24,8 +24,7 @@ class DocsHolder extends Page
         "Image"
     ];
 
-    private static $menu_icon_class = "font-icon-p-news-item";
-    
+    private static $icon = "app/client/icons/docs.svg";
 
     public function getCMSFields()
     {

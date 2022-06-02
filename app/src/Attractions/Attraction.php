@@ -83,7 +83,7 @@ class Attraction extends DataObject
 
     public function Link()
     {
-        $holder = AttractionPage::get()->sort("ID", "ASC")->First();
+        $holder = AttractionsOverview::get()->sort("ID", "ASC")->First();
         if ($holder) {
             return $holder->Link("view/") . $this->ID;
         }

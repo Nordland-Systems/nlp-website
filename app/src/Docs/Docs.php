@@ -47,12 +47,13 @@ class Docs extends DataObject
         "Title" => "Titel",
         "Description" => "Inhalt",
         "Visible" => "Sichtbar für Gäste",
-        "Category" => "Kategorie"
+        "Categories" => "Kategorien"
     ];
 
     private static $summary_fields = [
         "Title" => "Titel",
-        "Visible" => "Sichtbar"
+        "Visible" => "Sichtbar",
+        "Category" => "Kategorien"
     ];
 
     private static $searchable_fields = [
@@ -60,6 +61,9 @@ class Docs extends DataObject
     ];
 
     private static $table_name = "Docs";
+
+    private static $singular_name = "Doc";
+    private static $plural_name = "Docs";
 
     private static $url_segment = "docs";
 
@@ -117,5 +121,10 @@ class Docs extends DataObject
         $admin = DocsAdmin::singleton();
         $urlClass = str_replace('\\', '-', self::class);
         return $admin->Link("/{$urlClass}/EditForm/field/{$urlClass}/item/{$this->ID}/edit");
+    }
+
+    public function getFirstCategory()
+    {
+        return $this->Categories->first();
     }
 }
