@@ -1,0 +1,10 @@
+.section.section--attractions_overview {
+    padding: 0;
+    .section_content{
+        display: block;
+        width: 100%;
+        max-width: $maxWidthContent;
+        position: relative;
+        padding: 5px 10px 30px;
+    }
+}

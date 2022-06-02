@@ -6,11 +6,11 @@ use PageController;
 /**
  * Class \App\Docs\DocsPageController
  *
- * @property \App\Docs\DocsHolder dataRecord
- * @method \App\Docs\DocsHolder data()
- * @mixin \App\Docs\DocsHolder dataRecord
+ * @property \App\Docs\DocsOverview dataRecord
+ * @method \App\Docs\DocsOverview data()
+ * @mixin \App\Docs\DocsOverview dataRecord
  */
-class DocsHolderController extends PageController {
+class DocsOverviewController extends PageController {
 
     private static $allowed_actions = [
         "view",

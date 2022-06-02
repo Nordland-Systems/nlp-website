@@ -60,6 +60,9 @@ class DocsCategory extends DataObject
 
     private static $table_name = "DocsCategory";
 
+    private static $singular_name = "Kategorie";
+    private static $plural_name = "Kategorien";
+
     public function canView($member = null)
     {
         return true;
@@ -96,16 +99,12 @@ class DocsCategory extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        if(!$this->exists()) {
-            $fields->addFieldToTab("Root.Main",
-                new LiteralField("Introduction", "<p><strong>Bitte speichern, um Inhaltselemente hinzuzufügen</strong></p>"));
-        }
         return $fields;
     }
 
     public function CMSEditLink()
     {
-        $admin = DocsCategoryAdmin::singleton();
+        $admin = DocsAdmin::singleton();
         $urlClass = str_replace('\\', '-', self::class);
         return $admin->Link("/{$urlClass}/EditForm/field/{$urlClass}/item/{$this->ID}/edit");
     }

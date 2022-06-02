@@ -58,6 +58,9 @@ class Event extends DataObject
 
     private static $table_name = "Event";
 
+    private static $singular_name = "Event";
+    private static $plural_name = "Events";
+
     public function HasStartTime() {
         $formatted = $this->dbObject('StartTime')->Format("HH:mm");
         return $formatted && $formatted != "00:00";
