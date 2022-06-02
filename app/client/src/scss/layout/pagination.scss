@@ -1,0 +1,19 @@
+.section_pagination {
+    padding: 20px 0;
+
+    .page {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      padding-top: 5px;
+      background-color: $colorWhite;
+      color: $colorPrimary;
+      text-decoration: none;
+
+      &.page--current {
+        background-color: $colorPrimary;
+        color: $colorWhite;
+      }
+    }
+  }

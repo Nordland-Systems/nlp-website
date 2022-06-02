@@ -1,0 +1,74 @@
+.section.section--news{
+    .news_item{
+        position: relative;
+        display: flex;
+        padding: 10px 0;
+        .news_item_image{
+            padding-left: 15px;
+            width: 30%;
+            height: 200px;
+            flex-shrink: 0;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .news_item_text{
+            width: 100%;
+            .news_moreinfo{
+                color: $colorPrimary;
+                position: relative;
+                &::after{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    right: -20px;
+                    top: 7px;
+                    transform-origin: center;
+                    transform: rotate(-135deg);
+                    width:10px;
+                    height: 10px;
+                    border-left: 2px solid $colorPrimary;
+                    border-bottom: 2px solid $colorPrimary;
+                    transition: top 0.3s ease-in-out, transform 0.3s ease-in-out;
+                }
+            }
+
+            .news_description{
+                opacity: 0;
+                max-height: 0px;
+                transition: max-height 0.5s ease-in-out, opacity 0.3s;
+                overflow: hidden;
+            }
+
+            &.showhide--selected{
+                .news_moreinfo::after{
+                    top: 5px;
+                    transform: rotate(-45deg);
+                }
+                .news_description{
+                    opacity: 1;
+                    max-height: 500px;
+                }
+            }
+        }
+
+        @include media("<medium"){
+            flex-wrap: wrap;
+
+            .news_item_image{
+                position: absolute;
+                top: 55px;
+                width: 100%;
+                height: 300px;
+                padding: 0;
+            }
+
+            .news_title{
+                padding-bottom: 300px;
+            }
+        }
+    }
+}
