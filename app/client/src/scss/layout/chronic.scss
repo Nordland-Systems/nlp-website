@@ -48,12 +48,16 @@
                         overflow: hidden;
                         transition: max-height 0.2s ease-in-out;
                         margin-bottom: 10px;
+
+                        img{
+                            display: block;
+                        }
                     }
                 }
 
                 &.list_item--visible{
                     .list_item_content_text{
-                        max-height: 400px;
+                        max-height: 2000px;
                     }
                 }
 
