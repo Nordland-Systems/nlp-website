@@ -8,7 +8,7 @@ use PageController;
  *
  * @property \App\Attractions\AttractionsOverview dataRecord
  * @method \App\Attractions\AttractionsOverview data()
- * @mixin \App\Attractions\AttractionsOverview
+ * @mixin \App\Attractions\AttractionsOverview dataRecord
  */
 class AttractionsOverviewController extends PageController {
 

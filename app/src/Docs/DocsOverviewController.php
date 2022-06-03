@@ -2,6 +2,7 @@
 namespace App\Docs;
 
 use PageController;
+use App\Attractions\Attraction;
 
 /**
  * Class \App\Docs\DocsPageController

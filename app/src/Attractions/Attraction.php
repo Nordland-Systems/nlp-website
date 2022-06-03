@@ -17,6 +17,8 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property string $Type
  * @property string $Description
  * @property string $Area
+ * @property string $Price
+ * @property string $Capacity
  * @property int $HeaderImageID
  * @property int $SvgIconID
  * @method \SilverStripe\Assets\Image HeaderImage()
@@ -32,6 +34,8 @@ class Attraction extends DataObject
         "Type" => "Varchar(255)",
         "Description" => "HTMLText",
         "Area" => "Varchar(255)",
+        "Price" => "Varchar(255)",
+        "Capacity" => "Varchar(255)"
     ];
 
     private static $has_one = [
@@ -61,7 +65,9 @@ class Attraction extends DataObject
         "Area" => "Themenbereich",
         "HeaderImage" => "Headerbild",
         "GalleryImages" => "Galeriebilder",
-        "AttractionInfos" => "Infos"
+        "AttractionInfos" => "Infos",
+        "Price" => "Vorraussichtliche Kosten",
+        "Capacity" => "Kapazität pro Stunde"
     ];
 
     private static $summary_fields = [
