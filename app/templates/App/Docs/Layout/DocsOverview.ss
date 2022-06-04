@@ -1,44 +1,37 @@
-<div class="section section--docs_image">
+<div class="section section--docs_header">
     <% if $Image %>
         <div class="section_content">
             <div class="header_image_wrap">
                 <div class="header_image" style="background-image:url($Image.ScaleWidth(1400).Link)">
                 </div>
             </div>
-
-            <div class="header_text">
-                <h1>$Title</h1>
-            </div>
-        </div>
-    <% else %>
-        <div class="section_content withoutimage">
-            <div class="header_text">
-                <h1>$Title</h1>
-            </div>
         </div>
     <% end_if %>
 </div>
 
-<div class="section section--docsholder">
+<div class="section section--docs_title">
     <div class="section_content">
-        <div class="docscategories_list">
+        <h1 class="header_text_title centered">$Title</h1>
+    </div>
+</div>
+
+<div class="section section--docs_categorylist">
+    <div class="section_content">
+        <h2 class="centered">Kategorien</h2>
+        <div class="categorylist">
             <% loop getDocsCategories.Filter('Visible','1') %>
                 <% if $Docs.Filter('Visible','1') %>
-                    <div class="docscategory_wrap">
-                        <div class="docscategory">
-                        <a href="$Top.Link('category')/$ID"><h2>$Title</h2></a>
-                            <div class="docs_list">
-                                <% loop $Docs.Sort("Title", "ASC").Limit(5) %>
-                                    <a href="$Top.Link('view')/$ID" class="list_item">
-                                        <h4>$Title</h4>
-                                    </a>
-                                <% end_loop %>
-                                <% if $Docs.Count > 5 %>
-                                    <a href="$Top.Link('category')/$ID" class="list_more">
-                                        <h5>Mehr $Title ></h5>
-                                    </a>
-                                <% end_if %>
-                            </div>
+                    <div class="docs_category">
+                        <a href="$Top.Link('category')/$ID">
+                            <h2 class="white centered">$Title</h2>
+                        </a>
+                        <div class="docs_list">
+                            <% loop $Docs.Sort("Title", "ASC").Limit(5) %>
+                                <a href="$Top.Link('view')/$ID" class="list_item link--button hollow white">$Title</a>
+                            <% end_loop %>
+                            <% if $Docs.Count > 1 %>
+                                <a href="$Top.Link('category')/$ID" class="list_more white centered">Mehr $Title ></a>
+                            <% end_if %>
                         </div>
                     </div>
                 <% end_if %>
@@ -46,4 +39,31 @@
         </div>
     </div>
 </div>
+
+<div class="section section--docs_attractionslist">
+    <div class="section_content">
+        <h2 class="centered">Attraktionen</h2>
+        <% loop Attractions %>
+            <a href="$Top.Link('attraction')/$ID" class="attraction_item">
+                <% if $HeaderImage %>
+                    <div class="item_image">
+                        $HeaderImage
+                    </div>
+                <% end_if %>
+                <h2 class="item_title">$Title</h2>
+                <p class="item_id">$AttractionID ($Type in $Area)</p>
+                <% if PhotoGalleryImages %>
+                    <div class="item_gallery">
+                        <% loop PhotoGalleryImages.Limit(3) %>
+                            <div class="item_gallery_image">
+                                $Image.FocusFill(80,80)
+                            </div>
+                        <% end_loop %>
+                    </div>
+                <% end_if %>
+            </a>
+        <% end_loop %>
+    </div>
+</div>
+
 $ElementalArea

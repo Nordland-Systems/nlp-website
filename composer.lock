@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9361b843038cc02d297692d99ae1b920",
+    "content-hash": "c95bf52a5218e69ba2680a5f7e62b8e3",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -1878,6 +1878,59 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "purplespider/silverstripe-basic-gallery-extension",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/purplespider/silverstripe-basic-gallery-extension.git",
+                "reference": "be52b3df2142f4b24ba30b691a2b825442faec29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/purplespider/silverstripe-basic-gallery-extension/zipball/be52b3df2142f4b24ba30b691a2b825442faec29",
+                "reference": "be52b3df2142f4b24ba30b691a2b825442faec29",
+                "shasum": ""
+            },
+            "require": {
+                "colymba/gridfield-bulk-editing-tools": "3.*",
+                "silverstripe/cms": "^4.1",
+                "silverstripe/framework": "^4.1",
+                "silverstripe/lumberjack": "2.*",
+                "symbiote/silverstripe-gridfieldextensions": "^3"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "James Cocker",
+                    "email": "ssmodules@pswd.biz"
+                }
+            ],
+            "description": "Silverstripe CMS Image Gallery Extension",
+            "homepage": "https://github.com/purplespider/silverstripe-basic-gallery-extension",
+            "keywords": [
+                "bulk",
+                "extension",
+                "gallery",
+                "image",
+                "photo",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/purplespider/silverstripe-basic-gallery-extension/issues",
+                "source": "https://github.com/purplespider/silverstripe-basic-gallery-extension/tree/3.0.0"
+            },
+            "time": "2021-07-16T11:44:12+00:00"
         },
         {
             "name": "ralouphie/getallheaders",

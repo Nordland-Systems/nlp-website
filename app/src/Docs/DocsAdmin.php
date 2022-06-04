@@ -10,6 +10,7 @@ class DocsAdmin extends ModelAdmin {
 
     private static $managed_models = array (
         Docs::class,
+        DocsAttraction::class,
         DocsCategory::class,
     );
 

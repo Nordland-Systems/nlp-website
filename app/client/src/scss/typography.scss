@@ -1,115 +1,126 @@
-@font-face {
-    font-family: Metropolis;
-    font-style: normal;
-    font-weight: normal;
-    src: local(''),
-    url('../fonts/Metropolis-Regular.woff') format("woff"),
-    url('../fonts/Metropolis-Regular.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: normal;
-    font-style: italic;
-    src: local(''),
-    url('../fonts/Metropolis-RegularItalic.woff') format("woff"),
-    url('../fonts/Metropolis-RegularItalic.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: 100;
-    font-style: normal;
-    src: local(''),
-    url('../fonts/Metropolis-Thin.woff') format("woff"),
-    url('../fonts/Metropolis-Thin.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: 100;
-    font-style: italic;
-    src: local(''),
-    url('../fonts/Metropolis-ThinItalic.woff') format("woff"),
-    url('../fonts/Metropolis-ThinItalic.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: 400;
-    font-style: normal;
-    src: local(''),
-    url('../fonts/Metropolis-Medium.woff') format("woff"),
-    url('../fonts/Metropolis-Medium.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: 400;
-    font-style: italic;
-    src: local(''),
-    url('../fonts/Metropolis-MediumItalic.woff') format("woff"),
-    url('../fonts/Metropolis-MediumItalic.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: 300;
-    font-style: normal;
-    src: local(''),
-    url('../fonts/Metropolis-Light.woff') format("woff"),
-    url('../fonts/Metropolis-Light.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: 300;
-    font-style: italic;
-    src: local(''),
-    url('../fonts/Metropolis-LightItalic.woff') format("woff"),
-    url('../fonts/Metropolis-LightItalic.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: bold;
-    font-style: normal;
-    src: local(''),
-    url('../fonts/Metropolis-Bold.woff') format("woff"),
-    url('../fonts/Metropolis-Bold.otf') format("opentype");
-}
-
-@font-face {
-    font-family: Metropolis;
-    font-weight: bold;
-    font-style: italic;
-    src: local(''),
-    url('../fonts/Metropolis-BoldItalic.woff') format("woff"),
-    url('../fonts/Metropolis-BoldItalic.otf') format("opentype");
-}
-
 body{
     font-family: 'Metropolis', sans-serif;
     font-size: 16px;
 }
 
+p{
+    margin-top: 0;
+
+    &.white{
+        color: $colorWhite;
+    }
+
+    &.centered{
+        text-align: center;
+    }
+}
+
 h1,h2,h3,h4{
     color: $colorPrimary;
+    padding: 0;
+    margin: 10px 0 0 0;
+
+    &.white{
+        color: $colorWhite;
+    }
+
+    &.centered{
+        text-align: center;
+    }
 }
 
 h1{
     font-size: 35px;
     font-weight: 600;
+    line-height: 35px;
+}
+
+h2{
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 30px;
 }
 
 h4{
     padding: 0;
-    margin: 0;
     font-size: 16px;
+    line-height: 16px;
     font-weight: 400;
 }
 
 a{
     cursor: pointer;
+    color: $colorPrimary;
     text-decoration: none;
+
+    &.centered{
+        text-align: center;
+    }
+
+    &:hover {
+        font-weight: bold;
+    }
+
+    &.white{
+        color: $colorWhite;
+    }
+
+    &.link--button{
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: $colorPrimary;
+        border-radius: 20px;
+        color: $colorWhite;
+
+        &.centered{
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &.hollow{
+            background-color: transparent;
+            border: 1px solid $colorPrimary;
+            color: $colorPrimary;
+
+            &:hover {
+                background-color: $colorPrimary;
+                color: $colorWhite;
+            }
+
+            &.white{
+                border-color: $colorWhite;
+                color: $colorWhite;
+            }
+        }
+
+        &:hover {
+            text-decoration: none;
+            background-color: $colorPrimaryDark;
+        }
+    }
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+    &.center{
+        margin: 0 auto;
+    }
+
+    &.rightAlone{
+        margin-left: auto;
+    }
+
+    &.left{
+        float: left;
+        padding-right: 20px;
+    }
+
+    &.right{
+        float: right;
+        padding-left: 20px;
+    }
 }

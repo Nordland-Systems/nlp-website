@@ -1,0 +1,43 @@
+.section.section--docs_attraction{
+    padding: 0 0 40px 0;
+
+    .section_content{
+        border-top: 1px solid $colorPrimary;
+        border-bottom: 1px solid $colorPrimary;
+        padding: 20px 0;
+        overflow: auto;
+        position: relative;
+
+        .attraction_gallery{
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            overflow-x: scroll;
+            gap: 20px;
+            background-color: $colorPrimaryDark;
+            border-radius: 20px;
+            padding: 20px;
+
+            .item_gallery_image{
+                display: block;
+                width: 200px;
+                height: 200px;
+                flex-shrink: 0;
+            }
+
+
+        }
+
+        ::-webkit-scrollbar {
+            height: 10px;              /* height of horizontal scrollbar ← You're missing this */
+            width: 4px;
+            border: 1px solid #d5d5d5;
+            background: $colorBackground;
+        }
+
+        ::-webkit-scrollbar-thumb:horizontal{
+            background: $colorPrimary;
+            border-radius: 10px;
+        }
+    }
+}

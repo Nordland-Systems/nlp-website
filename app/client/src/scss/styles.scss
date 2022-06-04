@@ -1,6 +1,7 @@
 @import "include-media";
 @import "~glightbox/dist/css/glightbox.css";
 
+@import "fonts";
 @import "normalize";
 @import "variables";
 @import "typography";
@@ -22,13 +23,21 @@
 @import "layout/news";
 @import "layout/pagination";
 
-@import "layout/docs/docsholder";
-@import "layout/docs/docs_category";
-@import "layout/docs/docs_image";
-@import "layout/docs/docs_content";
+//@import "layout/docsold/docsholder";
+//@import "layout/docsold/docs_category";
+//@import "layout/docsold/docs_image";
+//@import "layout/docsold/docs_content";
 
-@import "layout/attractions/attractions_headerimage.scss";
-@import "layout/attractions/attractions_overview.scss";
+@import "layout/docs/docs_header";
+@import "layout/docs/docs_title";
+@import "layout/docs/docs_categorylist";
+@import "layout/docs/docs_attractionslist";
+@import "layout/docs/docs_content";
+@import "layout/docs/docs_category";
+@import "layout/docs/docs_attraction";
+
+//@import "layout/attractions/attractions_headerimage.scss";
+//@import "layout/attractions/attractions_overview.scss";
 @import "layout/attractions/attractions_item.scss";
 
 @import "layout/blog";

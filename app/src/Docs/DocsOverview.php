@@ -36,11 +36,6 @@ class DocsOverview extends Page
         return $fields;
     }
 
-    public function getDocsCategories()
-    {
-        return DocsCategory::get()->sort('Title', 'ASC');
-    }
-
     public function canView($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);

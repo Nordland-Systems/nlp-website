@@ -1,39 +1,33 @@
 <?php
 
-namespace App\Attractions;
+namespace App\Docs;
 
-use SilverStripe\Assets\Image;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
 
 /**
  * Class \App\Elements\FaceItem
  *
- * @property string $Title
+ * @property string $InfoTitle
+ * @property string $InfoContent
  * @property int $SortOrder
  * @property int $ParentID
- * @property int $ImageID
- * @method \App\Attractions\Attraction Parent()
- * @method \SilverStripe\Assets\Image Image()
+ * @method \App\Docs\DocsAttraction Parent()
  */
-class AttractionImage extends DataObject {
+class DocsAttractionInfo extends DataObject {
     private static $db = [
-        "Title" => "Varchar(255)",
+        "InfoTitle" => "Varchar(255)",
+        "InfoContent" => "HTMLText",
         "SortOrder" => "Int",
     ];
 
     private static $has_one = [
-        "Parent" => Attraction::class,
-        "Image" => Image::class
-    ];
-
-    private static $owns = [
-        "Image"
+        "Parent" => DocsAttraction::class
     ];
 
     private static $field_labels = [
-        "Title" => "Überschrift",
-        "Image" => "Bild"
+        "InfoTitle" => "Titel",
+        "InfoContent" => "Inhalt",
     ];
 
     private static $default_sort = 'SortOrder ASC, ID ASC';
@@ -42,18 +36,18 @@ class AttractionImage extends DataObject {
 
     private static $summary_fields = [
         'ID' => 'ID',
-        'CMSThumbnail' => 'Bild',
-        'Title' => 'Titel'
+        'InfoTitle' => 'Titel',
     ];
 
     private static $searchable_fields = [
-        "Title",
+        "InfoTitle",
+        "InfoContent",
     ];
 
-    private static $table_name = "AttractionImage";
+    private static $table_name = "AttractionInfo";
 
-    private static $singular_name = "Attraktionsbild";
-    private static $plural_name = "Attraktionsbilder";
+    private static $singular_name = "Attraktionsinfo";
+    private static $plural_name = "Attraktionsinfos";
 
 
     // tidy up the CMS by not showing these fields
@@ -62,12 +56,6 @@ class AttractionImage extends DataObject {
         $fields->removeFieldFromTab("Root.Main","ParentID");
         $fields->removeFieldFromTab("Root.Main","SortOrder");
         return $fields;
-    }
-
-    // this function creates the thumbnail for the summary fields to use
-    public function getCMSThumbnail() {
-        if($image = $this->Image())
-            return $image->CMSThumbnail();
     }
 
     public function canView($member = null) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Attractions;
+namespace App\Docs;
 
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
@@ -23,10 +23,11 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property int $SvgIconID
  * @method \SilverStripe\Assets\Image HeaderImage()
  * @method \SilverStripe\Assets\File SvgIcon()
- * @method \SilverStripe\ORM\DataList|\App\Attractions\AttractionImage[] GalleryImages()
- * @method \SilverStripe\ORM\DataList|\App\Attractions\AttractionInfo[] AttractionInfos()
+ * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
+ * @method \SilverStripe\ORM\DataList|\App\Docs\DocsAttractionInfo[] AttractionInfos()
+ * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
  */
-class Attraction extends DataObject
+class DocsAttraction extends DataObject
 {
     private static $db = [
         "AttractionID" => "Varchar(10)",
@@ -44,14 +45,12 @@ class Attraction extends DataObject
     ];
 
     private static $has_many = [
-        "GalleryImages" => AttractionImage::class,
-        "AttractionInfos" => AttractionInfo::class
+        "AttractionInfos" => DocsAttractionInfo::class
     ];
 
     private static $owns = [
         "HeaderImage",
         "SvgIcon",
-        "GalleryImages",
         "AttractionInfos"
     ];
 
@@ -64,7 +63,6 @@ class Attraction extends DataObject
         "Description" => "Kurzbeschreibung",
         "Area" => "Themenbereich",
         "HeaderImage" => "Headerbild",
-        "GalleryImages" => "Galeriebilder",
         "AttractionInfos" => "Infos",
         "Price" => "Vorraussichtliche Kosten",
         "Capacity" => "Kapazität pro Stunde"
@@ -89,9 +87,9 @@ class Attraction extends DataObject
 
     public function Link()
     {
-        $holder = AttractionsOverview::get()->sort("ID", "ASC")->First();
+        $holder = DocsOverview::get()->sort("ID", "ASC")->First();
         if ($holder) {
-            return $holder->Link("view/") . $this->ID;
+            return $holder->Link("attraction/") . $this->ID;
         }
     }
 
@@ -106,14 +104,7 @@ class Attraction extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName("GalleryImages");
         $fields->removeByName("AttractionInfos");
-
-        $gridFieldConfig = GridFieldConfig_RecordEditor::create(200);
-        $sorter = new GridFieldSortableRows('SortOrder');
-        $gridFieldConfig->addComponent($sorter);
-        $gridfield = new GridField("GalleryImages", "Bilder", $this->GalleryImages(), $gridFieldConfig);
-        $fields->addFieldToTab('Root.Galerie', $gridfield);
 
         $gridFieldConfig2 = GridFieldConfig_RecordEditor::create(200);
         $sorter2 = new GridFieldSortableRows('SortOrder');

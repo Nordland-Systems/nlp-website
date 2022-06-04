@@ -407,88 +407,112 @@ optgroup {
   font-weight: bold;
 }
 
-@font-face {
-  font-family: Metropolis;
-  font-style: normal;
-  font-weight: normal;
-  src: local(""), url(../fonts/Metropolis-Regular.woff?2088a6d54e2e1738aa22523134cf29a8) format("woff"), url(../fonts/Metropolis-Regular.otf?67a1988d7b65b0aaa16da42bcb97acc3) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: normal;
-  font-style: italic;
-  src: local(""), url(../fonts/Metropolis-RegularItalic.woff?916cd57e0f30fbbe78b3b6507798747c) format("woff"), url(../fonts/Metropolis-RegularItalic.otf?6f16ffe9127c905cc77dac6f67765d7a) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: 100;
-  font-style: normal;
-  src: local(""), url(../fonts/Metropolis-Thin.woff?13e6128c8d3e17fbfc754b10a9bb1190) format("woff"), url(../fonts/Metropolis-Thin.otf?90c6171184f230bfa07a635d8ec33797) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: 100;
-  font-style: italic;
-  src: local(""), url(../fonts/Metropolis-ThinItalic.woff?5aab752c4f378a6383eb65bb8ce014be) format("woff"), url(../fonts/Metropolis-ThinItalic.otf?4f80c943cd36efc9423383cfd1752a9b) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: 400;
-  font-style: normal;
-  src: local(""), url(../fonts/Metropolis-Medium.woff?fa2b7c5af55858ca9abbace8d5e3aa3b) format("woff"), url(../fonts/Metropolis-Medium.otf?cdcce86268fb4a504ff582dd54e1bbe9) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: 400;
-  font-style: italic;
-  src: local(""), url(../fonts/Metropolis-MediumItalic.woff?e51f5434e086c98bbb5609de57c9a9f2) format("woff"), url(../fonts/Metropolis-MediumItalic.otf?9f90cbf85282400da96846ca80e36522) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: 300;
-  font-style: normal;
-  src: local(""), url(../fonts/Metropolis-Light.woff?3ccd9c3c74e5378d3961cde7504282b8) format("woff"), url(../fonts/Metropolis-Light.otf?5813789eac597edf6ef412303458003b) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: 300;
-  font-style: italic;
-  src: local(""), url(../fonts/Metropolis-LightItalic.woff?71ff9ed7909b8a4a57f7bcbd38d27866) format("woff"), url(../fonts/Metropolis-LightItalic.otf?7aa2b6e18c73c83faefc61f69c65660a) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: bold;
-  font-style: normal;
-  src: local(""), url(../fonts/Metropolis-Bold.woff?57a16ab1a576ceb5ba2ba4f3202be3ef) format("woff"), url(../fonts/Metropolis-Bold.otf?c5e04fafcff6fc79cd76e3fe6666259c) format("opentype");
-}
-@font-face {
-  font-family: Metropolis;
-  font-weight: bold;
-  font-style: italic;
-  src: local(""), url(../fonts/Metropolis-BoldItalic.woff?d41ee62a78c28c4dd5c6623fecac436d) format("woff"), url(../fonts/Metropolis-BoldItalic.otf?1eb34a2ff06aec00a72ca6a8418d28e6) format("opentype");
-}
 body {
   font-family: "Metropolis", sans-serif;
   font-size: 16px;
 }
 
+p {
+  margin-top: 0;
+}
+p.white {
+  color: #FFFFFF;
+}
+p.centered {
+  text-align: center;
+}
+
 h1, h2, h3, h4 {
   color: #1685C6;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+h1.white, h2.white, h3.white, h4.white {
+  color: #FFFFFF;
+}
+h1.centered, h2.centered, h3.centered, h4.centered {
+  text-align: center;
 }
 
 h1 {
   font-size: 35px;
   font-weight: 600;
+  line-height: 35px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 h4 {
   padding: 0;
-  margin: 0;
   font-size: 16px;
+  line-height: 16px;
   font-weight: 400;
 }
 
 a {
   cursor: pointer;
+  color: #1685C6;
   text-decoration: none;
+}
+a.centered {
+  text-align: center;
+}
+a:hover {
+  font-weight: bold;
+}
+a.white {
+  color: #FFFFFF;
+}
+a.link--button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1685C6;
+  border-radius: 20px;
+  color: #FFFFFF;
+}
+a.link--button.centered {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+a.link--button.hollow {
+  background-color: transparent;
+  border: 1px solid #1685C6;
+  color: #1685C6;
+}
+a.link--button.hollow:hover {
+  background-color: #1685C6;
+  color: #FFFFFF;
+}
+a.link--button.hollow.white {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+a.link--button:hover {
+  text-decoration: none;
+  background-color: #0c476a;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+img.center {
+  margin: 0 auto;
+}
+img.rightAlone {
+  margin-left: auto;
+}
+img.left {
+  float: left;
+  padding-right: 20px;
+}
+img.right {
+  float: right;
+  padding-left: 20px;
 }
