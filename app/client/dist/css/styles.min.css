@@ -844,7 +844,6 @@ iframe.wait-autoplay {
   }
 }
 
-@charset "UTF-8";
 @font-face {
   font-family: Metropolis;
   font-style: normal;
@@ -2822,16 +2821,20 @@ img.right {
 }
 .section.section--docs_header .section_content {
   display: block;
-  height: 300px;
+  height: 400px;
   width: 100%;
   max-width: 100%;
   position: relative;
 }
 .section.section--docs_header .section_content .header_image_wrap {
+  position: relative;
+  top: 30px;
   display: block;
   width: 100%;
+  max-width: 1200px;
   height: 100%;
-  background: linear-gradient(180deg, #e1e1e1 10%, rgba(225, 225, 225, 0) 30%, rgba(225, 225, 225, 0) 50%, rgba(225, 225, 225, 0.9) 80%, #e1e1e1 100%);
+  margin: 0 auto;
+  background: linear-gradient(180deg, #e1e1e1 0%, rgba(225, 225, 225, 0) 10%, rgba(225, 225, 225, 0) 50%, rgba(225, 225, 225, 0.9) 80%, #e1e1e1 100%);
   background-color: transparent;
   overflow: hidden;
   position: relative;
@@ -2869,6 +2872,12 @@ img.right {
   top: 15px;
   width: 150px;
   height: 150px;
+}
+.section.section--docs_title .section_content .attraction_icon img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 999px) {
   .section.section--docs_title .section_content .attraction_icon {
@@ -2926,6 +2935,9 @@ img.right {
   margin: 20px 0;
   gap: 10px;
   color: white;
+  position: relative;
+  z-index: 10;
+  transition: 0.3s ease-in-out;
 }
 .section.section--docs_attractionslist .section_content .attraction_item p {
   margin: 0;
@@ -2942,17 +2954,41 @@ img.right {
 .section.section--docs_attractionslist .section_content .attraction_item .item_image img {
   height: 100%;
   width: 100%;
+  transform: scale(1);
+  transition: 0.3 ease-in-out;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.section.section--docs_attractionslist .section_content .attraction_item .item_icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%) rotate(-10deg);
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  z-index: 10;
+}
+.section.section--docs_attractionslist .section_content .attraction_item .item_icon img {
+  filter: grayscale(1);
+  filter: brightness(0);
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .section.section--docs_attractionslist .section_content .attraction_item .item_title {
   grid-column: 2/3;
   color: white;
   padding: 15px 5px 5px 0;
   margin: 0;
+  z-index: 15;
+  transition: 0.2s;
 }
 .section.section--docs_attractionslist .section_content .attraction_item .item_id {
   grid-column: 2/3;
+  z-index: 15;
+  font-weight: 300;
 }
 .section.section--docs_attractionslist .section_content .attraction_item .item_gallery {
   grid-column: 3/4;
@@ -2960,6 +2996,14 @@ img.right {
   display: flex;
   gap: 10px;
   align-items: center;
+  z-index: 15;
+}
+.section.section--docs_attractionslist .section_content .attraction_item .item_gallery .item_gallery_image {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.section.section--docs_attractionslist .section_content .attraction_item:hover {
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
 }
 @media (max-width: 699px) {
   .section.section--docs_attractionslist .section_content .attraction_item {
@@ -2969,6 +3013,10 @@ img.right {
   .section.section--docs_attractionslist .section_content .attraction_item .item_image {
     grid-column: 1/-1;
     grid-row: 1/2;
+  }
+  .section.section--docs_attractionslist .section_content .attraction_item .item_icon {
+    left: 10%;
+    transform: translateY(-25%) translateX(-50%) rotate(-10deg);
   }
   .section.section--docs_attractionslist .section_content .attraction_item .item_title {
     padding: 0px 5px;
@@ -3019,8 +3067,34 @@ img.right {
   border-top: 1px solid #1685C6;
   border-bottom: 1px solid #1685C6;
   padding: 20px 0;
-  overflow: auto;
+  overflow: visible;
   position: relative;
+}
+.section.section--docs_attraction .section_content .attraction_attributes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px 20px 10px;
+}
+.section.section--docs_attraction .section_content .attraction_attributes .attribute {
+  display: flex;
+  overflow: hidden;
+  border-radius: 20px;
+  color: #FFFFFF;
+}
+.section.section--docs_attraction .section_content .attraction_attributes .attribute .title {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  font-weight: 100;
+  background-color: #28a0e7;
+}
+.section.section--docs_attraction .section_content .attraction_attributes .attribute .value {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  background-color: #1685C6;
 }
 .section.section--docs_attraction .section_content .attraction_gallery {
   position: relative;
@@ -3028,26 +3102,59 @@ img.right {
   overflow: hidden;
   overflow-x: scroll;
   gap: 20px;
-  background-color: #0c476a;
+  background-color: #1685C6;
   border-radius: 20px;
   padding: 20px;
+  margin-bottom: 30px;
 }
 .section.section--docs_attraction .section_content .attraction_gallery .item_gallery_image {
   display: block;
   width: 200px;
   height: 200px;
   flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .section.section--docs_attraction .section_content ::-webkit-scrollbar {
   height: 10px;
-  /* height of horizontal scrollbar ← You're missing this */
   width: 4px;
   border: 1px solid #d5d5d5;
   background: #E1E1E1;
 }
 .section.section--docs_attraction .section_content ::-webkit-scrollbar-thumb:horizontal {
-  background: #1685C6;
+  background-color: #28a0e7;
   border-radius: 10px;
+}
+.section.section--docs_attraction .section_content .attraction_info .info_name {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.section.section--docs_attraction .section_content .attraction_info .info_name::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform-origin: center;
+  transform: translateY(-50%) rotate(-45deg);
+  right: -20px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #1685C6;
+  border-bottom: 2px solid #1685C6;
+  transition: 0.3s;
+}
+.section.section--docs_attraction .section_content .attraction_info .info_content {
+  opacity: 0;
+  max-height: 0px;
+  transition: 0.3s;
+}
+.section.section--docs_attraction .section_content .attraction_info.list_item--visible .info_name::after {
+  transform: translateY(-70%) rotate(45deg);
+}
+.section.section--docs_attraction .section_content .attraction_info.list_item--visible .info_content {
+  opacity: 1;
+  max-height: 2000px;
 }
 
 .attraction_item {

@@ -4,16 +4,20 @@
 
     .section_content{
         display: block;
-        height: 300px;
+        height: 400px;
         width: 100%;
         max-width: 100%;
         position: relative;
 
         .header_image_wrap {
+            position: relative;
+            top: 30px;
             display: block;
             width: 100%;
+            max-width: $maxWidth;
             height: 100%;
-            background: linear-gradient(180deg, rgba($colorBackground, 1) 10%, rgba($colorBackground, 0) 30%, rgba($colorBackground, 0) 50%, rgba($colorBackground, 0.9) 80%, rgba($colorBackground, 1) 100%);
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba($colorBackground, 1) 0%, rgba($colorBackground, 0) 10%, rgba($colorBackground, 0) 50%, rgba($colorBackground, 0.9) 80%, rgba($colorBackground, 1) 100%);
 
             background-color: transparent;
             overflow: hidden;
