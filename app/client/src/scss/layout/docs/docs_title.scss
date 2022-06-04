@@ -19,6 +19,12 @@
             width: 150px;
             height: 150px;
 
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+
             @include media("<desktop") {
                 opacity: 0.2;
             }

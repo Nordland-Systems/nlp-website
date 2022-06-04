@@ -5,8 +5,39 @@
         border-top: 1px solid $colorPrimary;
         border-bottom: 1px solid $colorPrimary;
         padding: 20px 0;
-        overflow: auto;
+        overflow: visible;
         position: relative;
+
+        .attraction_attributes{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 10px 20px 10px;
+
+            .attribute{
+                display: flex;
+                overflow: hidden;
+                border-radius: 20px;
+                color: $colorWhite;
+
+                .title{
+                    margin: 0;
+                    padding: 10px;
+                    text-align: center;
+                    font-weight: 100;
+                    background-color: $colorPrimaryLight;
+                }
+
+                .value{
+                    margin: 0;
+                    padding: 10px;
+                    text-align: center;
+                    background-color: $colorPrimary;
+                }
+            }
+
+        }
 
         .attraction_gallery{
             position: relative;
@@ -14,30 +45,70 @@
             overflow: hidden;
             overflow-x: scroll;
             gap: 20px;
-            background-color: $colorPrimaryDark;
+            background-color: $colorPrimary;
             border-radius: 20px;
             padding: 20px;
+            margin-bottom: 30px;
 
             .item_gallery_image{
                 display: block;
                 width: 200px;
                 height: 200px;
                 flex-shrink: 0;
+                border-radius: 10px;
+                overflow: hidden;
             }
-
-
         }
 
         ::-webkit-scrollbar {
-            height: 10px;              /* height of horizontal scrollbar ← You're missing this */
+            height: 10px;
             width: 4px;
             border: 1px solid #d5d5d5;
             background: $colorBackground;
         }
 
         ::-webkit-scrollbar-thumb:horizontal{
-            background: $colorPrimary;
+            background-color: $colorPrimaryLight;
             border-radius: 10px;
+        }
+
+        .attraction_info{
+            .info_name{
+                display: inline-block;
+                position: relative;
+                cursor: pointer;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    top: 50%;
+                    transform-origin: center;
+                    transform: translateY(-50%) rotate(-45deg);
+                    right: -20px;
+                    width: 10px;
+                    height: 10px;
+                    border-right: 2px solid $colorPrimary;
+                    border-bottom: 2px solid $colorPrimary;
+                    transition: 0.3s;
+                }
+            }
+
+            .info_content{
+                opacity: 0;
+                max-height: 0px;
+                transition: 0.3s;
+            }
+
+            &.list_item--visible{
+                .info_name::after{
+                    transform: translateY(-70%) rotate(45deg);
+                }
+
+                .info_content{
+                    opacity: 1;
+                    max-height: 2000px;
+                }
+            }
         }
     }
 }

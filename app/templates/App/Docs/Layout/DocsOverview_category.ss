@@ -3,7 +3,7 @@
         <% if $Image %>
             <div class="section_content">
                 <div class="header_image_wrap">
-                    <div class="header_image" style="background-image:url($Image.ScaleWidth(1400).Link)">
+                    <div class="header_image" data-behaviour="parallax" data-speed="0.5" style="background-image:url($Image.ScaleWidth(1400).Link)">
                     </div>
                 </div>
             </div>

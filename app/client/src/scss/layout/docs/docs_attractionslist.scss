@@ -12,6 +12,9 @@
             margin: 20px 0;
             gap: 10px;
             color: white;
+            position: relative;
+            z-index: 10;
+            transition: 0.3s ease-in-out;
 
             p{
                 margin: 0;
@@ -30,7 +33,27 @@
                 img{
                     height: 100%;
                     width: 100%;
+                    transform: scale(1);
+                    transition: 0.3 ease-in-out;
                     object-fit: cover;
+                }
+            }
+
+            .item_icon{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%) translateX(-50%) rotate(-10deg);
+                left: 50%;
+                width: 150px;
+                height: 150px;
+                opacity: 0.3;
+                z-index: 10;
+                img{
+                    filter: grayscale(1);
+                    filter: brightness(0);
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
                 }
             }
 
@@ -39,10 +62,14 @@
                 color: white;
                 padding: 15px 5px 5px 0;
                 margin: 0;
+                z-index: 15;
+                transition: 0.2s;
             }
 
             .item_id{
                 grid-column: 2/3;
+                z-index: 15;
+                font-weight: 300;
             }
 
             .item_gallery{
@@ -52,6 +79,16 @@
                 display: flex;
                 gap: 10px;
                 align-items: center;
+                z-index: 15;
+
+                .item_gallery_image{
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+            }
+
+            &:hover{
+                box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
             }
 
             @include media("<medium") {
@@ -61,6 +98,11 @@
                 .item_image{
                     grid-column: 1 / -1;
                     grid-row: 1 / 2;
+                }
+
+                .item_icon{
+                    left: 10%;
+                    transform: translateY(-25%) translateX(-50%) rotate(-10deg);
                 }
 
                 .item_title{

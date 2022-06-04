@@ -36,6 +36,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     });
 
+    //SelfToggleElement
+    let parentToggleElements = [...document.querySelectorAll('[data-behaviour="parent-toggle"]')];
+    parentToggleElements.forEach((element) => {
+        element.addEventListener("click", (e) => {
+            e.preventDefault();
+            const item = element.parentNode;
+            item.classList.toggle("list_item--visible")
+
+            listToggleElements.filter(e => e.parentNode.parentNode != item).forEach((e) => {
+                e.parentNode.parentNode.classList.remove("list_item--visible")
+            });
+        })
+    });
+
     window.addEventListener('scroll', () => {
         parallax();
 

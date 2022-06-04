@@ -2,7 +2,7 @@
     <% if $Image %>
         <div class="section_content">
             <div class="header_image_wrap">
-                <div class="header_image" style="background-image:url($Image.ScaleWidth(1400).Link)">
+                <div class="header_image" data-behaviour="parallax" data-speed="0.5" style="background-image:url($Image.ScaleWidth(1400).Link)">
                 </div>
             </div>
         </div>
@@ -47,11 +47,16 @@
             <a href="$Top.Link('attraction')/$ID" class="attraction_item">
                 <% if $HeaderImage %>
                     <div class="item_image">
-                        $HeaderImage
+                        $HeaderImage.FocusFill(300, 200)
+                    </div>
+                <% end_if %>
+                <% if $SvgIcon %>
+                    <div class="item_icon">
+                        <img src="$SvgIcon.Url">
                     </div>
                 <% end_if %>
                 <h2 class="item_title">$Title</h2>
-                <p class="item_id">$AttractionID ($Type in $Area)</p>
+                <p class="item_id">$AttractionID (<% if $Type %> $Type <% end_if %> <% if $Area %> in $Area <% end_if %>)</p>
                 <% if PhotoGalleryImages %>
                     <div class="item_gallery">
                         <% loop PhotoGalleryImages.Limit(3) %>
