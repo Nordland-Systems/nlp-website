@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Docs;
-use Page;
 
+use Page;
 use SilverStripe\Assets\Image;
+
+use App\Attractions\Attraction;
+use SilverStripe\Security\Permission;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
 /**
@@ -33,8 +36,8 @@ class DocsOverview extends Page
         return $fields;
     }
 
-    public function getDocsCategories()
+    public function canView($member = null)
     {
-        return DocsCategory::get()->sort('Title', 'ASC');
+        return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 }

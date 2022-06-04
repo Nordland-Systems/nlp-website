@@ -2,6 +2,7 @@
 
 namespace App\Docs;
 
+use App\Attractions\Attraction;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
@@ -99,7 +100,7 @@ class Docs extends DataObject
 
     public function Link()
     {
-        $holder = DocsHolder::get()->sort("ID", "ASC")->First();
+        $holder = DocsOverview::get()->sort("ID", "ASC")->First();
         if ($holder) {
             return $holder->Link("view/") . $this->ID;
         }

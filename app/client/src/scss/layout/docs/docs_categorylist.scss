@@ -1,0 +1,39 @@
+.section.section--docs_categorylist{
+    .section_content{
+        .categorylist{
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, calc(33% - 10px));
+            justify-content: space-between;
+            gap: 20px;
+            .docs_category{
+                background-color: $colorPrimaryDark;
+                border-radius: 20px;
+                padding: 10px 10px 20px 10px;
+                overflow: hidden;
+
+                .docs_list{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    padding-top: 10px;
+
+                    .list_more{
+                        font-weight: 200;
+                        padding-top: 10px;
+                    }
+                }
+            }
+
+            @include media("<desktop") {
+                grid-template-columns: repeat(2, calc(50% - 10px));
+            }
+
+            @include media("<medium") {
+                grid-template-columns: 100%;
+            }
+        }
+    }
+}

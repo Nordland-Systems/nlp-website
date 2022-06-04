@@ -45,6 +45,10 @@
             opacity: 1;
             transition: opacity 0.3s ease-in-out;
             padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
             .social_button{
                 height: 100%;
                 img{

@@ -1,6 +1,10 @@
 .section.section--docs_content{
-    padding-bottom: 40px;
+    padding: 0 0 40px 0;
+
     .section_content{
-        
+        border-top: 1px solid $colorPrimary;
+        border-bottom: 1px solid $colorPrimary;
+        padding: 20px 0;
+        overflow: auto;
     }
 }

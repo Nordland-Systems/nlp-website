@@ -1,0 +1,9 @@
+App\Docs\DocsAttraction:
+  extensions:
+    - PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
+  gallery-title: Image Gallery
+  gallery-cms-tab: Galerie
+  content-cms-tab: Top Content
+
+PurpleSpider\BasicGalleryExtension\PhotoGalleryImage:
+  ondelete_delete_image_files: true

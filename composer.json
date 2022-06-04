@@ -15,7 +15,8 @@
         "tractorcow/silverstripe-fluent": "5",
         "silverstripe/login-forms": "^4.6",
         "silverstripe/blog": "dev-master",
-        "dnadesign/silverstripe-elemental-userforms": "3.x-dev"
+        "dnadesign/silverstripe-elemental-userforms": "3.x-dev",
+        "purplespider/silverstripe-basic-gallery-extension": "3"
     },
     "require-dev": {
         "sminnee/phpunit": "^5.7",

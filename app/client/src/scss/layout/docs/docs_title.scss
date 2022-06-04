@@ -1,0 +1,27 @@
+.section.section--docs_title{
+    .section_content{
+        position: relative;
+        margin: 0 auto;
+        a{
+            margin-top: 10px;
+            margin-bottom: 30px;
+            opacity: 0.3;
+            &:hover{
+
+            opacity: 1;
+            }
+        }
+
+        .attraction_icon{
+            position: absolute;
+            right: 0;
+            top: 15px;
+            width: 150px;
+            height: 150px;
+
+            @include media("<desktop") {
+                opacity: 0.2;
+            }
+        }
+    }
+}

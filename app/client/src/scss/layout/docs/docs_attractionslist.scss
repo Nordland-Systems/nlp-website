@@ -1,0 +1,85 @@
+.section.section--docs_attractionslist {
+    .section_content{
+        padding-bottom: 40px;
+        .attraction_item{
+            display: grid;
+            grid-template-columns: 20% 49% 31%;
+            grid-template-rows: 50px 50px;
+            width: 100%;
+            background-color: $colorPrimaryDark;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 20px 0;
+            gap: 10px;
+            color: white;
+
+            p{
+                margin: 0;
+                padding: 0;
+            }
+
+            p:last-of-type{
+                margin: 0;
+                padding: 0 5px 10px 5px;
+            }
+
+            .item_image{
+                grid-column: 1/2;
+                grid-row:1/-1;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .item_title{
+                grid-column: 2/3;
+                color: white;
+                padding: 15px 5px 5px 0;
+                margin: 0;
+            }
+
+            .item_id{
+                grid-column: 2/3;
+            }
+
+            .item_gallery{
+                grid-column: 3/4;
+                grid-row: 1/3;
+
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+
+            @include media("<medium") {
+                grid-template-rows: 100px auto;
+                grid-template-columns: 100%;
+
+                .item_image{
+                    grid-column: 1 / -1;
+                    grid-row: 1 / 2;
+                }
+
+                .item_title{
+                    padding: 0px 5px;
+                    text-align: center;
+                    grid-column: 1 / -1;
+                }
+
+                .item_id{
+                    padding: 0px 10px;
+                    text-align: center;
+                    grid-column: 1 / -1;
+                }
+
+                .item_gallery{
+                    display: none;
+                }
+            }
+        }
+
+    }
+}

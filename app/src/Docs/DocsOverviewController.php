@@ -15,11 +15,8 @@ class DocsOverviewController extends PageController {
     private static $allowed_actions = [
         "view",
         "category",
+        "attraction",
     ];
-
-    public function getDocs() {
-        return Docs::get();
-    }
 
     public function view() {
         $id = $this->getRequest()->param("ID");
@@ -31,6 +28,35 @@ class DocsOverviewController extends PageController {
     }
 
     public function category() {
+        $id = $this->getRequest()->param("ID");
+        $article = DocsCategory::get()->byId($id);
+        return array(
+            "Category" => $article,
+        );
+    }
+
+    public function attraction() {
+        $id = $this->getRequest()->param("ID");
+        $article = DocsAttraction::get()->byId($id);
+        return array(
+            "Attraction" => $article,
+        );
+    }
+
+    public function getDocsCategories()
+    {
+        return DocsCategory::get()->sort('Title', 'ASC');
+    }
+
+    public function getAttractions() {
+        return DocsAttraction::get();
+    }
+
+    public function getDocs() {
+        return Docs::get();
+    }
+
+    public function getCategory() {
         $id = $this->getRequest()->param("ID");
         $article = DocsCategory::get()->byId($id);
         return array(
