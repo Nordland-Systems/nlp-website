@@ -4,3 +4,4 @@
 /public/_resources/
 /.idea
 /node_modules
+/app/client/dist/

@@ -9,7 +9,7 @@
         <% end_if %>
         <div class="text_content">$Text</div>
         <% if $ButtonText && $ButtonLink %>
-            <a href="$ButtonLink" class="text_text_button readmore">$ButtonText</a>
+            <a href="$ButtonLink.Url" class="text_text_button readmore">$ButtonText</a>
         <% end_if %>
     </div>
 </div>

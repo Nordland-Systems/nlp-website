@@ -14,7 +14,7 @@ Member::set_password_validator($validator);
 i18n::set_locale('de_DE');
 \SilverStripe\ORM\Search\FulltextSearchable::enable();
 
-CMSMenu::remove_menu_class(CampaignAdmin::class);
+//CMSMenu::remove_menu_class(CampaignAdmin::class);
 
 $menuItems = array(
     'CMSPagesController',

@@ -16,7 +16,14 @@
         "silverstripe/login-forms": "^4.6",
         "silverstripe/blog": "dev-master",
         "dnadesign/silverstripe-elemental-userforms": "3.x-dev",
-        "purplespider/silverstripe-basic-gallery-extension": "3"
+        "purplespider/silverstripe-basic-gallery-extension": "3",
+        "silverstripe/linkfield": "1.x-dev"
+    },
+    "repositories": {
+        "silverstripe/linkfield": {
+          "type": "git",
+          "url": "https://github.com/silverstripe/silverstripe-linkfield.git"
+        }
     },
     "require-dev": {
         "sminnee/phpunit": "^5.7",
