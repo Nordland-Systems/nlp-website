@@ -2,8 +2,10 @@
 
 namespace App\Elements;
 
-use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TreeDropdownField;
+use DNADesign\Elemental\Models\BaseElement;
 
 /**
  * Class \App\Elements\TextImageElement
@@ -12,7 +14,8 @@ use SilverStripe\Forms\DropdownField;
  * @property string $AlignVariant
  * @property string $ColorVariant
  * @property string $ButtonText
- * @property string $ButtonLink
+ * @property int $ButtonLinkID
+ * @method \SilverStripe\CMS\Model\SiteTree ButtonLink()
  */
 class TextElement extends BaseElement
 {
@@ -22,7 +25,6 @@ class TextElement extends BaseElement
         "AlignVariant" => "Varchar(20)",
         "ColorVariant" => "Varchar(20)",
         "ButtonText" => "Varchar(255)",
-        "ButtonLink" => "Varchar(255)",
     ];
 
     private static $field_labels = [
@@ -40,9 +42,22 @@ class TextElement extends BaseElement
         'ButtonLink'
     ];
 
+    private static $has_one = [
+        "ButtonLink" => SiteTree::class,
+    ];
+
     public function getType()
     {
         return "Text";
+    }
+
+    public function RenderLink() {
+        if ($this->LinkExtern) {
+            return $this->LinkExtern;
+        }
+        if ($page = $this->ButtonLink()) {
+            return $page->Link();
+        }
     }
 
     public function getCMSFields()

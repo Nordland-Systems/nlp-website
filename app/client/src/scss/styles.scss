@@ -50,6 +50,14 @@ body {
     }
 }
 
+html[data-theme='dark'] {
+    --colorPrimary: $colorPrimary;
+    --colorPrimaryDark: $colorPrimaryDark;
+    --colorPrimaryExtraDark: $colorPrimaryExtraDark;
+    --colorPrimaryLight: $colorPrimaryLight;
+    --colorSecondary: $colorSecondary;
+}
+
 .section {
   margin: 0px auto;
   padding: 0px 30px;
