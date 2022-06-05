@@ -36,6 +36,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     });
 
+    //Dark Mode Toggle
+    var checkbox = document.querySelector('input[name=darkmode]');
+    checkbox.addEventListener('change', function() {
+        if(this.checked) {
+            document.body.classList.add('theme--dark');
+        } else {
+            document.body.classList.remove('theme--dark');
+        }
+    });
+
+    let dark_mode_wanted = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if(dark_mode_wanted){
+        document.body.classList.add('theme--dark');
+        checkbox.checked = true;
+    }
+
     //SelfToggleElement
     let parentToggleElements = [...document.querySelectorAll('[data-behaviour="parent-toggle"]')];
     parentToggleElements.forEach((element) => {

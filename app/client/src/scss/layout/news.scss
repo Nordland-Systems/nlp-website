@@ -18,7 +18,7 @@
         .news_item_text{
             width: 100%;
             .news_moreinfo{
-                color: $colorPrimary;
+                color: var(--colorPrimary);
                 position: relative;
                 &::after{
                     content: "";
@@ -30,8 +30,8 @@
                     transform: rotate(-135deg);
                     width:10px;
                     height: 10px;
-                    border-left: 2px solid $colorPrimary;
-                    border-bottom: 2px solid $colorPrimary;
+                    border-left: 2px solid var(--colorPrimary);
+                    border-bottom: 2px solid var(--colorPrimary);
                     transition: top 0.3s ease-in-out, transform 0.3s ease-in-out;
                 }
             }

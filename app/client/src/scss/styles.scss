@@ -40,22 +40,15 @@ html{
 }
 
 body {
-    background-color: $colorBackground;
+    background-color: var(--colorBackground);
     scroll-behavior: smooth;
     padding-top: 30px;
     min-height: 100%;
+    transition: background-color 0.3s ease-in-out;
 
     @include media("<medium") {
         padding-top: 0;
     }
-}
-
-html[data-theme='dark'] {
-    --colorPrimary: $colorPrimary;
-    --colorPrimaryDark: $colorPrimaryDark;
-    --colorPrimaryExtraDark: $colorPrimaryExtraDark;
-    --colorPrimaryLight: $colorPrimaryLight;
-    --colorSecondary: $colorSecondary;
 }
 
 .section {
@@ -78,13 +71,13 @@ html[data-theme='dark'] {
     display: inline-block;
     padding: 10px 15px;
     background-color: transparent;
-    border: 1px solid $colorWhite;
-    color: $colorWhite;
+    border: 1px solid var(--colorWhite);
+    color: var(--colorWhite);
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
     border-radius: 20px;
 
     &:hover {
-        color: $colorBlack;
+        color: var(--colorBlack);
         background-color: white;
     }
 }

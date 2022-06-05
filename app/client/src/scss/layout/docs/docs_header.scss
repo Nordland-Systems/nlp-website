@@ -17,7 +17,7 @@
             //max-width: $maxWidth;
             height: 100%;
             margin: 0 auto;
-            background: linear-gradient(180deg, rgba($colorBackground, 1) 0%, rgba($colorBackground, 0) 10%, rgba($colorBackground, 0) 50%, rgba($colorBackground, 0.9) 80%, rgba($colorBackground, 1) 100%);
+            background: linear-gradient(180deg, rgba(var(--colorBackground), 1) 0%, rgba(var(--colorBackground), 0) 10%, rgba(var(--colorBackground), 0) 50%, rgba(var(--colorBackground), 0.9) 80%, rgba(var(--colorBackground), 1) 100%);
 
             background-color: transparent;
             overflow: hidden;

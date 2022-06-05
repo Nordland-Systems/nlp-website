@@ -1,6 +1,7 @@
 body{
     font-family: 'Metropolis', sans-serif;
     font-size: 16px;
+    color: var(--colorBlack);
 }
 
 p{
@@ -16,7 +17,7 @@ p{
 }
 
 h1,h2,h3,h4{
-    color: $colorPrimary;
+    color: var(--colorPrimaryDark);
     padding: 0;
     margin: 10px 0 0 0;
 
@@ -26,6 +27,10 @@ h1,h2,h3,h4{
 
     &.centered{
         text-align: center;
+    }
+
+    .theme--dark &{
+        color: $colorWhite;
     }
 }
 
@@ -50,7 +55,7 @@ h4{
 
 a{
     cursor: pointer;
-    color: $colorPrimary;
+    color: var(--colorPrimaryDark);
     text-decoration: none;
 
     &.centered{
@@ -68,9 +73,9 @@ a{
     &.link--button{
         display: inline-block;
         padding: 10px 20px;
-        background-color: $colorPrimary;
+        background-color: var(--colorPrimaryDark);
         border-radius: 20px;
-        color: $colorWhite;
+        color: var(--colorWhite);
 
         &.centered{
             position: relative;
@@ -80,23 +85,23 @@ a{
 
         &.hollow{
             background-color: transparent;
-            border: 1px solid $colorPrimary;
-            color: $colorPrimary;
+            border: 1px solid var(--colorPrimaryDark);
+            color: var(--colorPrimaryDark);
 
             &:hover {
-                background-color: $colorPrimary;
-                color: $colorWhite;
+                background-color: var(--colorPrimaryDark);
+                color: var(--colorWhite);
             }
 
             &.white{
-                border-color: $colorWhite;
-                color: $colorWhite;
+                border-color: var(--colorWhite);
+                color: var(--colorWhite);
             }
         }
 
         &:hover {
             text-decoration: none;
-            background-color: $colorPrimaryDark;
+            background-color: var(--colorPrimaryDark);
         }
     }
 }

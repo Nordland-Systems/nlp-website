@@ -9,7 +9,7 @@
         margin: 0 auto;
         height: 50%;
         display: block;
-        border-bottom: 2px solid $colorPrimaryDark;
+        border-bottom: 2px solid var(--colorPrimaryDark);
     }
 
     .section_diamond{
@@ -25,7 +25,7 @@
         .section_diamond_line{
             width: 50%;
             display: block;
-            border-bottom: 2px solid $colorPrimaryDark;
+            border-bottom: 2px solid var(--colorPrimaryDark);
         }
 
         .section_diamond_inner{
@@ -37,7 +37,7 @@
             transform-origin: center;
             transform: rotate(45deg);
             margin: 10px;
-            background-color: $colorPrimaryDark;
+            background-color: var(--colorPrimaryDark);
         }
     }
 
@@ -54,7 +54,7 @@
         .section_icon_line{
             width: 50%;
             display: block;
-            border-bottom: 2px solid $colorPrimaryDark;
+            border-bottom: 2px solid var(--colorPrimaryDark);
         }
 
         .section_icon_image{
@@ -67,7 +67,7 @@
             display: block;
             transform-origin: center;
             margin: 10px;
-            background-color: $colorPrimaryDark;
+            background-color: var(--colorPrimaryDark);
         }
     }
 
@@ -81,8 +81,7 @@
         overflow: hidden;
 
         .wave {
-            background: linear-gradient(0deg, rgba($colorPrimaryExtraDark,1) 0%, rgba($colorPrimary,0.8) 100%);
-            //background: $colorPrimaryExtraDark;
+            background: linear-gradient(0deg, rgba(var(--colorPrimaryExtraDark),1) 0%, rgba(var(--colorPrimary),0.8) 100%);
             mask-image: url("../../images/space-wave.svg");
             mask-repeat: repeat-x;
             position: absolute;

@@ -44,23 +44,23 @@
     }
 
     &.overlay--primary{
-        background-color: rgba($colorPrimaryDark, 0.7);
+        background-color: rgba(var(--colorPrimaryDark), 0.7);
     }
 
     &.overlay--secondary{
-        background-color: rgba($colorSecondary, 0.5);
+        background-color: rgba(var(--colorSecondary), 0.5);
     }
 
     &.overlay--fadeout{
-        background: $colorBackground;
-        background: linear-gradient(0deg, rgba($colorBackground, 1) 0%, rgba($colorBackground, 0) 30%, rgba($colorBackground, 0) 70%, rgba($colorBackground, 1) 100%);
+        background: var(--colorBackground);
+        background: linear-gradient(0deg, rgba(var(--colorBackground), 1) 0%, rgba(var(--colorBackground), 0) 30%, rgba(var(--colorBackground), 0) 70%, rgba(var(--colorBackground), 1) 100%);
     }
 
     &.overlay--fadeout2{
-        background: $colorBackground;
-        background: linear-gradient(0deg, rgba($colorBackground, 1) 0%, rgba($colorBlack, 0.3) 100%);
+        background: var(--colorBackground);
+        background: linear-gradient(0deg, rgba(var(--colorBackground), 1) 0%, rgba(var(--colorBlack), 0.3) 100%);
         .section_description{
-            color: $colorBlack;
+            color: var(--colorBlack);
         }
     }
 
@@ -77,7 +77,7 @@
         max-width: $maxWidth;
         margin: 50px auto;
         max-width: $maxWidthContent;
-        box-shadow: 0px 0px 10px black;
+        box-shadow: 0px 0px 10px var(--colorBlack);
         border-radius: 20px;
 
         .section_description{

@@ -2,12 +2,12 @@
     padding: 0 0 40px 0;
 
     .section_content{
-        border-top: 1px solid $colorPrimary;
-        border-bottom: 1px solid $colorPrimary;
+        border-top: 1px solid var(--colorPrimary);
+        border-bottom: 1px solid var(--colorPrimary);
         padding: 20px 0;
 
         .docs_list{
-            border-top: 1px solid $colorPrimary;
+            border-top: 1px solid var(--colorPrimary);
             padding-top: 20px;
             display: flex;
             flex-direction: column;
