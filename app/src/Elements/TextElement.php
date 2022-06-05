@@ -2,9 +2,9 @@
 
 namespace App\Elements;
 
-use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\LinkField\Models\Link;
+use SilverStripe\LinkField\Form\LinkField;
 use DNADesign\Elemental\Models\BaseElement;
 
 /**
@@ -15,7 +15,7 @@ use DNADesign\Elemental\Models\BaseElement;
  * @property string $ColorVariant
  * @property string $ButtonText
  * @property int $ButtonLinkID
- * @method \SilverStripe\CMS\Model\SiteTree ButtonLink()
+ * @method \SilverStripe\LinkField\Models\Link ButtonLink()
  */
 class TextElement extends BaseElement
 {
@@ -43,7 +43,7 @@ class TextElement extends BaseElement
     ];
 
     private static $has_one = [
-        "ButtonLink" => SiteTree::class,
+        "ButtonLink" => Link::class,
     ];
 
     public function getType()
@@ -51,18 +51,11 @@ class TextElement extends BaseElement
         return "Text";
     }
 
-    public function RenderLink() {
-        if ($this->LinkExtern) {
-            return $this->LinkExtern;
-        }
-        if ($page = $this->ButtonLink()) {
-            return $page->Link();
-        }
-    }
-
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName("ButtonLinkID");
+        $fields->insertAfter('ButtonText', LinkField::create('ButtonLink'));
         $fields->replaceField('AlignVariant', new DropdownField('AlignVariant', 'Ausrichtungs-Variante', [
             "style--text-left" => "Text linksbündig",
             "style--text-center" => "Text zentriert",
@@ -73,6 +66,7 @@ class TextElement extends BaseElement
             "color--darker" => "dunklerer Hintergrund",
             "color--blue" => "blauer Hintergrund",
         ]));
+
         return $fields;
     }
 
