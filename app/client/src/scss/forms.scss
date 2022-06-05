@@ -50,7 +50,7 @@
                             label{
                                 &::after{
                                     content: "*";
-                                    color: $colorSecondary;
+                                    color: var(--colorSecondary);
                                 }
                             }
                         }
@@ -58,7 +58,7 @@
 
                     &::after{
                         content: "* required";
-                        color: $colorSecondary;
+                        color: var(--colorSecondary);
                     }
                 }
             }
@@ -71,14 +71,14 @@
                     display: inline-block;
                     padding: 10px 15px;
                     background-color: transparent;
-                    border: 1px solid $colorPrimaryDark;
-                    color: $colorPrimaryDark;
+                    border: 1px solid var(--colorPrimaryDark);
+                    color: var(--colorPrimaryDark);
                     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
                     border-radius: 20px;
 
                     &:hover {
-                        color: $colorWhite;
-                        background-color: $colorPrimaryDark;
+                        color: var(--colorWhite);
+                        background-color: var(--colorPrimaryDark);
                     }
                 }
             }

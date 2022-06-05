@@ -20,10 +20,19 @@
                     gap: 10px;
                     padding-top: 10px;
 
+                    .list_item{
+                        color: $colorWhite;
+                        border: 1px solid $colorWhite;
+                    }
+
                     .list_more{
                         font-weight: 200;
                         padding-top: 10px;
+                        color: $colorWhite;
                     }
+                }
+                h2{
+                    color: $colorWhite;
                 }
             }
 

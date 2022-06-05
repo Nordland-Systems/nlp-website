@@ -18,8 +18,8 @@
         }
 
         .text_text_button{
-            border-color: $colorPrimary;
-            color: $colorPrimary;
+            border-color: var(--colorPrimary);
+            color: var(--colorPrimary);
             border-radius: 20px;
         }
 
@@ -54,24 +54,24 @@
     }
 
     &.color--darker{
-        background-color: $colorBackgroundDark;
+        background-color: var(--colorBackgroundDark);
     }
 
     &.color--blue{
-        background-color: $colorPrimary;
-        color: $colorWhite;
+        background-color: var(--colorPrimary);
+        color: var(--colorWhite);
 
         .section_content{
 
             .text_title{
-                color: $colorWhite;
+                color: var(--colorWhite);
             }
 
             .text_text_button{
-                border-color: $colorWhite;
-                color: $colorWhite;
+                border-color: var(--colorWhite);
+                color: var(--colorWhite);
                 &:hover{
-                    color: $colorPrimary;
+                    color: var(--colorPrimary);
                 }
             }
         }

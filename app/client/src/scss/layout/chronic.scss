@@ -22,7 +22,7 @@
                         width: 15px;
                         height: 15px;
                         border-radius: 20px;
-                        background-color: $colorPrimaryDark;
+                        background-color: var(--colorPrimaryDark);
                     }
                     .line{
                         position: absolute;
@@ -31,7 +31,7 @@
                         height: calc(100% - 35px);
                         display: block;
                         width: 2px;
-                        background-color: $colorPrimaryDark;
+                        background-color: var(--colorPrimaryDark);
                     }
                 }
 

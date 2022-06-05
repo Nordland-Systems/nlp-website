@@ -45,7 +45,7 @@
         }
 
         &.highlighted{
-            background-color: $colorPrimary;
+            background-color: var(--colorPrimary);
 
 
             .textimage_text {
@@ -58,10 +58,10 @@
                 }
 
                 .textimage_text_title{
-                    color: $colorWhite;
+                    color: var(--colorWhite);
                 }
 
-                color: $colorWhite;
+                color: var(--colorWhite);
 
                 @include media("<medium") {
                     padding: 20px;

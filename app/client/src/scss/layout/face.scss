@@ -3,7 +3,7 @@
     .section_content{
         display: flex;
         align-items: center;
-        background-color: $colorPrimary;
+        background-color: var(--colorPrimary);
         border-radius: 20px;
 
         .content_face{
@@ -24,10 +24,10 @@
             width: 100%;
             height: auto;
             padding: 40px 40px 40px 20px;
-            color: $colorWhite;
+            color: var(--colorWhite);
             .text_title{
                 margin-top: 0;
-                color: $colorWhite;
+                color: var(--colorWhite);
             }
 
             .text_socials{

@@ -2,8 +2,8 @@
     padding: 0 0 40px 0;
 
     .section_content{
-        border-top: 1px solid $colorPrimary;
-        border-bottom: 1px solid $colorPrimary;
+        border-top: 1px solid var(--colorPrimary);
+        border-bottom: 1px solid var(--colorPrimary);
         padding: 20px 0;
         overflow: visible;
         position: relative;
@@ -27,7 +27,7 @@
             padding: 0 20px 20px 0;
             grid-column: 1/2;
             grid-row: 2/3;
-            background-color: $colorPrimaryLight;
+            background-color: var(--colorPrimaryLight);
             border-radius: 20px;
             padding: 20px;
             margin-right: 20px;
@@ -67,7 +67,7 @@
             overflow: hidden;
             overflow-x: auto;
             gap: 20px;
-            background-color: $colorPrimary;
+            background-color: var(--colorPrimary);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 30px;
@@ -87,12 +87,12 @@
         ::-webkit-scrollbar {
             height: 10px;
             width: 4px;
-            border: 1px solid #d5d5d5;
+            border: 1px solid var(--colorPrimaryLight);
             background: $colorBackground;
         }
 
         ::-webkit-scrollbar-thumb:horizontal{
-            background-color: $colorPrimaryLight;
+            background-color: var(--colorPrimaryLight);
             border-radius: 10px;
         }
 
@@ -117,8 +117,8 @@
                         right: -20px;
                         width: 10px;
                         height: 10px;
-                        border-right: 2px solid $colorPrimary;
-                        border-bottom: 2px solid $colorPrimary;
+                        border-right: 2px solid var(--colorPrimary);
+                        border-bottom: 2px solid var(--colorPrimary);
                         transition: 0.3s;
                     }
                 }

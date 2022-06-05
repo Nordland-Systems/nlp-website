@@ -7,28 +7,48 @@ $breakpoints: (
   'desktop': 1000px
 );
 
-
-$breakpoint-desktop: 1200px;
-$breakpoint-tablet: 768px;
-$breakpoint-phone: 500px;
-
+//Primary Colors
 $colorPrimary: #1685C6;
 $colorPrimaryDark: darken($colorPrimary, 20%);
 $colorPrimaryExtraDark: #041824;
 $colorPrimaryLight: lighten($colorPrimary, 10%);
 
+//Secondary Colors
 $colorSecondary: #F79E02;
 $colorSecondaryLight: lighten($colorSecondary, 30%);
+$colorWhite: #FFFFFF;
+$colorBlack: #000000;
 
+//Background Colors
 $colorBackground: #E1E1E1;
 $colorBackgroundDark: #cfcfcf;
 
+//Special Colors
 $colorImportant: #7e0000;
 $colorHint: #d68800;
 
-$colorDarkGray: #1C1C1C;
-$colorDarkGrayTrans: rgba($colorDarkGray, 0.8);
+html{
+    --colorPrimary: #{$colorPrimary};
+    --colorPrimaryDark: #{$colorPrimaryDark};
+    --colorPrimaryExtraDark: #{$colorPrimaryExtraDark};
+    --colorPrimaryLight: #{$colorPrimaryLight};
+    --colorSecondary: #{$colorSecondary};
+    --colorSecondaryLight: #{$colorSecondaryLight};
+    --colorBackground: #{$colorBackground};
+    --colorBackgroundDark: #{$colorBackgroundDark};
+    --colorWhite: #{$colorWhite};
+    --colorBlack: #{$colorBlack};
+}
 
-$colorWhite: #FFFFFF;
-$colorBlack: #000000;
-$colorLightGray: #C4C4C4;
+body.theme--dark{
+    --colorPrimary: #{$colorPrimary};
+    --colorPrimaryDark: #{$colorPrimaryDark};
+    --colorPrimaryExtraDark: #{$colorPrimaryDark};
+    --colorPrimaryLight: #{$colorPrimaryDark};
+    --colorSecondary: #{$colorSecondary};
+    --colorSecondaryLight: #{$colorSecondaryLight};
+    --colorBackground: #{$colorPrimaryExtraDark};
+    --colorBackgroundDark: #{$colorBackgroundDark};
+    --colorWhite: #{$colorBlack};
+    --colorBlack: #{$colorWhite};
+}

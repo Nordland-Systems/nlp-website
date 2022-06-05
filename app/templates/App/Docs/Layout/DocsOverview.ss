@@ -55,8 +55,8 @@
                         <img src="$SvgIcon.Url">
                     </div>
                 <% end_if %>
-                <h2 class="item_title">$Title</h2>
-                <p class="item_id">$AttractionID (<% if $Type %> $Type <% end_if %> <% if $Area %> in $Area <% end_if %>)</p>
+                <h2 class="item_title white">$Title</h2>
+                <p class="item_id white">$AttractionID (<% if $Type %> $Type <% end_if %> <% if $Area %> in $Area <% end_if %>)</p>
                 <% if PhotoGalleryImages %>
                     <div class="item_gallery">
                         <% loop PhotoGalleryImages.Limit(3) %>

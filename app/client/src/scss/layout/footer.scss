@@ -1,5 +1,5 @@
 .section.footer{
-    background-color: $colorPrimaryExtraDark;
+    background-color: var(--colorPrimaryExtraDark);
     margin: 0;
     padding-bottom: 0px;
     width: 100%;
@@ -13,13 +13,19 @@
             width: 100%;
             height: auto;
         }
+
+        .theme--dark &{
+            img{
+                filter: grayscale(1) brightness(100);
+            }
+        }
     }
 
     .footer_menu_container{
         position: relative;
         top: -20px;
         left: 0;
-        color: $colorWhite;
+        color: var(--colorWhite);
         text-align: center;
         height: 50px;
 
@@ -33,7 +39,7 @@
                 margin: 0px;
                 list-style: none;
                 a{
-                    color: white;
+                    color: var(--colorWhite);
                     padding: 10px 20px;
                 }
             }
