@@ -80,6 +80,16 @@
                         color: var(--colorWhite);
                         background-color: var(--colorPrimaryDark);
                     }
+
+                    .theme--dark &{
+                        color: $colorWhite;
+                        border: 1px solid $colorWhite;
+
+                        &:hover {
+                            color: $colorPrimaryExtraDark;
+                            background-color: $colorWhite;
+                        }
+                    }
                 }
             }
         }

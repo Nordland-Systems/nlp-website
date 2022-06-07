@@ -13,9 +13,8 @@ use DNADesign\Elemental\Models\BaseElement;
  * @property string $Text
  * @property string $AlignVariant
  * @property string $ColorVariant
- * @property string $ButtonText
- * @property int $ButtonLinkID
- * @method \SilverStripe\LinkField\Models\Link ButtonLink()
+ * @property int $ButtonID
+ * @method \SilverStripe\LinkField\Models\Link Button()
  */
 class TextElement extends BaseElement
 {
@@ -24,13 +23,11 @@ class TextElement extends BaseElement
         "Text" => "HTMLText",
         "AlignVariant" => "Varchar(20)",
         "ColorVariant" => "Varchar(20)",
-        "ButtonText" => "Varchar(255)",
     ];
 
     private static $field_labels = [
         "Text" => "Text",
-        "ButtonText" => "Button Text",
-        "ButtonLink" => "Button Link"
+        "Button" => "Button"
     ];
 
     private static $table_name = 'TextElement';
@@ -38,12 +35,11 @@ class TextElement extends BaseElement
 
     private static $translate = [
         'Text',
-        'ButtonText',
-        'ButtonLink'
+        'Button'
     ];
 
     private static $has_one = [
-        "ButtonLink" => Link::class,
+        "Button" => Link::class,
     ];
 
     public function getType()
@@ -54,8 +50,8 @@ class TextElement extends BaseElement
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName("ButtonLinkID");
-        $fields->insertAfter('ButtonText', LinkField::create('ButtonLink'));
+        $fields->removeByName("ButtonID");
+        $fields->insertAfter('ColorVariant', LinkField::create('Button'));
         $fields->replaceField('AlignVariant', new DropdownField('AlignVariant', 'Ausrichtungs-Variante', [
             "style--text-left" => "Text linksbündig",
             "style--text-center" => "Text zentriert",

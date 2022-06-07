@@ -8,8 +8,8 @@
             <% end_if %>
         <% end_if %>
         <div class="text_content">$Text</div>
-        <% if $ButtonText && $ButtonLink %>
-            <a href="$ButtonLink.Url" class="text_text_button readmore">$ButtonText</a>
+        <% if $Button %>
+            <a href="$Button.Url" <% if $Button.OpenInNew %> target="_blank"<% end_if %> class="link--button hollow text_text_button readmore">$Button.Title</a>
         <% end_if %>
     </div>
 </div>

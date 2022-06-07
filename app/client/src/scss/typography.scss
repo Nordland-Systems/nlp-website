@@ -76,6 +76,8 @@ a{
         background-color: var(--colorPrimaryDark);
         border-radius: 20px;
         color: var(--colorWhite);
+        font-weight: 500;
+        transition: 0.2s ease-in-out;
 
         &.centered{
             position: relative;
@@ -91,11 +93,21 @@ a{
             &:hover {
                 background-color: var(--colorPrimaryDark);
                 color: var(--colorWhite);
+
+                .theme--dark &{
+                    background-color: $colorWhite;
+                    color: $colorBlack;
+                }
+
+                &.white{
+                    background-color: $colorWhite;
+                    color: $colorPrimaryDark;
+                }
             }
 
             &.white{
-                border-color: var(--colorWhite);
-                color: var(--colorWhite);
+                border-color: $colorWhite;
+                color: $colorWhite;
             }
         }
 

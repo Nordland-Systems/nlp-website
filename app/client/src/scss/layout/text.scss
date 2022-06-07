@@ -10,6 +10,7 @@
 
         .text_title{
             margin-top: 0;
+            margin-bottom: 10px;
             padding-top: 0;
         }
 
@@ -18,9 +19,21 @@
         }
 
         .text_text_button{
-            border-color: var(--colorPrimary);
-            color: var(--colorPrimary);
-            border-radius: 20px;
+            border-color: var(--colorPrimaryDark);
+            color: var(--colorPrimaryDark);
+
+            .theme--dark &{
+                border-color: $colorWhite;
+                color: $colorWhite;
+
+                &:hover{
+                    color: $colorPrimaryDark;
+                }
+            }
+
+            &:hover{
+                color: $colorWhite;
+            }
         }
 
         @include media("<medium") {
@@ -59,19 +72,20 @@
 
     &.color--blue{
         background-color: var(--colorPrimary);
-        color: var(--colorWhite);
+        color: $colorWhite;
 
         .section_content{
 
             .text_title{
-                color: var(--colorWhite);
+                color: $colorWhite;
             }
 
             .text_text_button{
-                border-color: var(--colorWhite);
-                color: var(--colorWhite);
+                border-color: $colorWhite;
+                color: $colorWhite;
                 &:hover{
-                    color: var(--colorPrimary);
+                    background-color: $colorWhite;
+                    color: $colorPrimary;
                 }
             }
         }

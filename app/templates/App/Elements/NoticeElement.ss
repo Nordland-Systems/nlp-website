@@ -5,8 +5,8 @@
                 <h2 class="inner_title">$Title</h2>
             <% end_if %>
             <p>$Text</p>
-            <% if $ButtonText && $ButtonLink %>
-                <a href="$ButtonLink" class="inner_button readmore">$ButtonText</a>
+            <% if $Button %>
+                <a href="$Button.Url" <% if $Button.OpenInNew %> target="_blank"<% end_if %> class="link--button hollow white">$Button.Title</a>
             <% end_if %>
         </div>
 

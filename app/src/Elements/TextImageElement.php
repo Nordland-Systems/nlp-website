@@ -4,6 +4,8 @@ namespace App\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
+use SilverStripe\LinkField\Models\Link;
+use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\Forms\DropdownField;
 
 /**
@@ -13,10 +15,10 @@ use SilverStripe\Forms\DropdownField;
  * @property string $Variant
  * @property string $Highlight
  * @property string $ImgWidth
- * @property string $ButtonText
- * @property string $ButtonLink
  * @property int $ImageID
+ * @property int $ButtonID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\LinkField\Models\Link Button()
  */
 class TextImageElement extends BaseElement
 {
@@ -26,12 +28,11 @@ class TextImageElement extends BaseElement
         "Variant" => "Varchar(20)",
         "Highlight" => "Varchar(20)",
         "ImgWidth" => "Varchar(20)",
-        "ButtonText" => "Varchar(50)",
-        "ButtonLink" => "Varchar(500)"
     ];
 
     private static $has_one = [
         "Image" => Image::class,
+        "Button" => Link::class,
     ];
 
     private static $owns = [
@@ -41,8 +42,7 @@ class TextImageElement extends BaseElement
     private static $field_labels = [
         "Text" => "Text",
         "Image" => "Bild",
-        "ButtonText" => "Button Text",
-        "ButtonLink" => "Button Link"
+        "Button" => "Button"
     ];
 
     private static $table_name = 'TextImageElement';
@@ -51,7 +51,7 @@ class TextImageElement extends BaseElement
     private static $translate = [
         'Text',
         'Image',
-        'ButtonText',
+        'Button',
     ];
 
     public function getType()
@@ -62,6 +62,8 @@ class TextImageElement extends BaseElement
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName("ButtonID");
+        $fields->insertAfter('ImgWidth', LinkField::create('Button'));
         $fields->replaceField('Variant', new DropdownField('Variant', 'Variante', [
             "" => "Bild links",
             "image-right" => "Bild rechts",

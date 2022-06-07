@@ -106,11 +106,11 @@ class DocsAttraction extends DataObject
 
         $fields->removeByName("AttractionInfos");
 
-        $gridFieldConfig2 = GridFieldConfig_RecordEditor::create(200);
-        $sorter2 = new GridFieldSortableRows('SortOrder');
-        $gridFieldConfig2->addComponent($sorter2);
-        $gridfield2 = new GridField("AttractionInfos", "Infos", $this->AttractionInfos(), $gridFieldConfig2);
-        $fields->addFieldToTab('Root.Infos', $gridfield2);
+        $gridFieldConfig = GridFieldConfig_RecordEditor::create(200);
+        $sorter = new GridFieldSortableRows('SortOrder');
+        $gridFieldConfig->addComponent($sorter);
+        $gridfield = new GridField("AttractionInfos", "Infos", $this->AttractionInfos(), $gridFieldConfig);
+        $fields->addFieldToTab('Root.Infos', $gridfield);
 
         return $fields;
     }

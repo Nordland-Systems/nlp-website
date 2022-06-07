@@ -24,14 +24,15 @@
             width: 100%;
             height: auto;
             padding: 40px 40px 40px 20px;
-            color: var(--colorWhite);
+            color: $colorWhite;
             .text_title{
                 margin-top: 0;
-                color: var(--colorWhite);
+                color: $colorWhite;
             }
 
             .text_socials{
                 height: 30px;
+                display: flex;
                 .social_button{
                     padding: 0 5px 0 5px;
                     img{

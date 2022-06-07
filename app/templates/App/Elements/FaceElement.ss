@@ -2,7 +2,7 @@
     <div class="section_content">
         <% if $Image %>
             <div class="content_face">
-                $Image.ScaleWidth(800)
+                $Image.FocusFill(800,800)
             </div>
         <% end_if %>
         <div class="content_text">
