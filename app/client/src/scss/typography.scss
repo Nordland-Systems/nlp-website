@@ -75,7 +75,7 @@ a{
         padding: 10px 20px;
         background-color: var(--colorPrimaryDark);
         border-radius: 20px;
-        color: var(--colorWhite);
+        color: $colorWhite;
         font-weight: 500;
         transition: 0.2s ease-in-out;
 

@@ -15,7 +15,7 @@
         z-index: 90;
         box-shadow: none;
         padding-right: 10px;
-        transition: height 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
 
         ul{
             display: flex;
@@ -166,6 +166,11 @@
             ul{
                 padding: 0;
                 margin: 0;
+                li{
+                    a{
+                        font-weight: 500;
+                    }
+                }
             }
         }
 
@@ -339,7 +344,7 @@
             .bar1, .bar2, .bar3, .bar4 {
                 width: 35px;
                 height: 5px;
-                background-color: var(--colorWhite);
+                background-color: $colorWhite;
                 transition: 0.4s;
                 position: absolute;
             }
@@ -395,7 +400,7 @@
 
                     a{
                         background-color: var(--colorPrimaryDark);
-                        color: var(--colorWhite);
+                        color: $colorWhite;
                         padding: 30px;
                         display: block;
                     }
@@ -482,7 +487,7 @@
             left: 13px;
             width: 50%;
             height: 50%;
-            border: solid var(--colorWhite);
+            border: solid $colorWhite;
             border-width: 0 10px 10px 0;
             display: inline-block;
             padding: 5px;

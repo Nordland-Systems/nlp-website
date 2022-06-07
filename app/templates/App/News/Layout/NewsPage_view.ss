@@ -5,7 +5,7 @@
     </div>
     <% if $Image %>
     <div class="section section_newsimage">
-        $Image.ScaleWidth(600)
+        $Image.FocusFill(600,1200)
         <% if $ImageDescription %><p>$ImageDescription</p><% end_if %>
     </div>
     <% end_if %>
