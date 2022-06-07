@@ -25,7 +25,7 @@
         position: relative;
         top: -20px;
         left: 0;
-        color: var(--colorWhite);
+        color: $colorWhite;
         text-align: center;
         height: 50px;
 
@@ -39,7 +39,7 @@
                 margin: 0px;
                 list-style: none;
                 a{
-                    color: var(--colorWhite);
+                    color: $colorWhite;
                     padding: 10px 20px;
                 }
             }
