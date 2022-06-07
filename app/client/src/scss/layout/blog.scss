@@ -86,10 +86,10 @@
 
 
                         .meta {
-                            color:rgba(0, 0, 0, 0.3);
+                            color:var(--colorBlack);
                             .blog_post_meta {
                                 a{
-                                    color:rgba(0, 0, 0, 0.3);
+                                    color:var(--colorBlack);
                                 }
                             }
                         }

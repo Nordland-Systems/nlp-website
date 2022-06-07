@@ -15,9 +15,9 @@ article{
                 max-width: $maxWidthContent;
                 padding: 0px 30px;
                 p{
-                    color:rgba(0, 0, 0, 0.3);
+                    color: var(--colorBlack);
                     a{
-                        color:rgba(0, 0, 0, 0.3);
+                        color: var(--colorBlack);
                     }
                 }
             }

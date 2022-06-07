@@ -2,7 +2,7 @@
 
 <% if $FeaturedImage %>
 <section class="section section--imagebanner" style="height: 500px" >
-    <div class="section_content" data-behaviour="parallax" data-speed="0.2" style="background-image:url($FeaturedImage.ScaleWidth(800).Link)">
+    <div class="section_content" data-behaviour="parallax" data-speed="0.2" style="background-image:url($FeaturedImage.FocusFill(1400,600).Link)">
     </div>
 </section>
 <% end_if %>
