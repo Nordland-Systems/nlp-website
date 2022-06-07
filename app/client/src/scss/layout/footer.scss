@@ -27,7 +27,7 @@
         left: 0;
         color: $colorWhite;
         text-align: center;
-        height: 50px;
+        //height: 50px;
 
         ul{
             display: flex;
@@ -43,6 +43,13 @@
                     padding: 10px 20px;
                 }
             }
+
+            @include media("<medium") {
+                flex-direction: column;
+                li{
+                    padding: 10px;
+                }
+            }
         }
 
         .footer_menu_socials{
@@ -56,7 +63,7 @@
             gap: 10px;
 
             .social_button{
-                height: 100%;
+                height: 30px;
                 img{
                     width: auto;
                     height: 100%;
