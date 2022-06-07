@@ -50,6 +50,7 @@
             background-color: var(--colorPrimaryDark);
             padding: 5px;
             border-radius: 20px;
+            left: 0px;
             transition: 0.2s ease-in-out;
 
             .checkbox {
@@ -506,7 +507,8 @@
                 opacity: 0;
             }
             .header_topbar_darkmode{
-                @media only screen and (max-width: calc($maxWidth + 500px)){
+                left: 180px;
+                @media only screen and (max-width: calc($maxWidth + 200px)){
                     opacity: 0;
                 }
             }
