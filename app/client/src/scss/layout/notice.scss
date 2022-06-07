@@ -9,14 +9,14 @@
 
         .section_content_inner{
             padding: 40px;
-            border: 1px solid var(--colorWhite);
+            border: 1px solid $colorWhite;
             border-radius: 20px;
-            color: var(--colorWhite);
+            color: $colorWhite;
 
             .inner_title{
                 padding: 0;
                 margin: 0 0 10px 0;
-                color: var(--colorWhite);
+                color: $colorWhite;
             }
         }
 
@@ -50,20 +50,20 @@
 
     &.style--important{
         .section_content{
-            background-color: var(--colorImportant);
+            background-color: $colorImportant;
 
             .section_content_icon{
-                background-color: var(--colorImportant);
+                background-color: $colorImportant;
             }
         }
     }
 
     &.style--hint{
         .section_content{
-            background-color: var(--colorHint);
+            background-color: $colorHint;
 
             .section_content_icon{
-                background-color: var(--colorHint);
+                background-color: $colorHint;
             }
         }
     }

@@ -9,13 +9,20 @@
         margin: 0 auto;
         height: 50%;
         display: block;
-        border-bottom: 2px solid var(--colorPrimaryDark);
+        &::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-bottom: 2px solid var(--colorPrimaryDark);
+        }
+
     }
 
     .section_diamond{
         padding: 0 30px;
         max-width: $maxWidth;
-        background-color: $colorBackground;
+        background-color: var(--colorBackground);
         display: flex;
         align-items: center;
         margin: 0 auto;
@@ -44,7 +51,7 @@
     .section_icon{
         padding: 0 30px;
         max-width: $maxWidth;
-        background-color: $colorBackground;
+        background-color: var(--colorBackground);
         display: flex;
         align-items: center;
         margin: 0 auto;
@@ -77,11 +84,11 @@
         position:relative;
         bottom:0;
         left: 0;
-        background: $colorBackground;
+        background: var(--colorBackground);
         overflow: hidden;
 
         .wave {
-            background: linear-gradient(0deg, rgba(var(--colorPrimaryExtraDark),1) 0%, rgba(var(--colorPrimary),0.8) 100%);
+            background: linear-gradient(0deg, rgba($colorPrimaryExtraDark,1) 0%, rgba(var(--colorPrimary),0.8) 100%);
             mask-image: url("../../images/space-wave.svg");
             mask-repeat: repeat-x;
             position: absolute;

@@ -44,23 +44,35 @@
     }
 
     &.overlay--primary{
-        background-color: rgba(var(--colorPrimaryDark), 0.7);
+        background-color: rgba($colorPrimary, 0.7);
     }
 
     &.overlay--secondary{
-        background-color: rgba(var(--colorSecondary), 0.5);
+        background-color: rgba($colorSecondary, 0.5);
     }
 
     &.overlay--fadeout{
-        background: var(--colorBackground);
-        background: linear-gradient(0deg, rgba(var(--colorBackground), 1) 0%, rgba(var(--colorBackground), 0) 30%, rgba(var(--colorBackground), 0) 70%, rgba(var(--colorBackground), 1) 100%);
+        background: $colorBackground;
+        background: linear-gradient(0deg, rgba($colorBackground, 1) 0%, rgba($colorBackground, 0) 30%, rgba($colorBackground, 0) 70%, rgba($colorBackground, 1) 100%);
+
+        .section_description{
+            color: var(--colorBlack);
+        }
+
+        .theme--dark &{
+            background: linear-gradient(0deg, rgba($colorPrimaryExtraDark, 1) 0%, rgba($colorPrimaryExtraDark, 0) 30%, rgba($colorPrimaryExtraDark, 0) 70%, rgba($colorPrimaryExtraDark, 1) 100%);
+        }
     }
 
     &.overlay--fadeout2{
-        background: var(--colorBackground);
-        background: linear-gradient(0deg, rgba(var(--colorBackground), 1) 0%, rgba(var(--colorBlack), 0.3) 100%);
+        background: $colorBackground;
+        background: linear-gradient(0deg, rgba($colorBackground, 1) 0%, rgba($colorBackground, 0.3) 100%);
         .section_description{
             color: var(--colorBlack);
+        }
+
+        .theme--dark &{
+            background: linear-gradient(0deg, rgba($colorPrimaryExtraDark, 1) 0%, rgba($colorPrimaryExtraDark, 0.3) 100%);
         }
     }
 

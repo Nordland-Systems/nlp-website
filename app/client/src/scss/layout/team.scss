@@ -1,12 +1,12 @@
 .section.section--team{
     .section_content{
         background-color: var(--colorPrimary);
-        color: var(--colorWhite);
+        color: $colorWhite;
         padding: 30px;
         border-radius: 20px;
 
         h2{
-            color: var(--colorWhite);
+            color: $colorWhite;
             text-align: center;
             margin: 0px 0 20px 0;
         }
@@ -38,14 +38,13 @@
                 }
 
                 .face_name{
-                    color: var(--colorWhite);
                     margin: 10px 0 20px 0;
-                    font-size: 100%;
+                    font-size: 20px;
+                    font-weight: bold;
                     height: 1.5em;
                 }
 
                 .face_profession{
-                    color: var(--colorWhite);
                     margin: 0 0 10px 0;
                 }
 

@@ -22,12 +22,14 @@ $colorBlack: #000000;
 //Background Colors
 $colorBackground: #E1E1E1;
 $colorBackgroundDark: #cfcfcf;
+$colorBackgroundExtraDark: #141c20;
 
 //Special Colors
 $colorImportant: #7e0000;
 $colorHint: #d68800;
 
 html{
+    transition: 0.1s ease-in-out;
     --colorPrimary: #{$colorPrimary};
     --colorPrimaryDark: #{$colorPrimaryDark};
     --colorPrimaryExtraDark: #{$colorPrimaryExtraDark};
@@ -41,14 +43,14 @@ html{
 }
 
 body.theme--dark{
-    --colorPrimary: #{$colorPrimary};
+    --colorPrimary: #{$colorPrimaryDark};
     --colorPrimaryDark: #{$colorPrimaryDark};
     --colorPrimaryExtraDark: #{$colorPrimaryDark};
     --colorPrimaryLight: #{$colorPrimaryDark};
     --colorSecondary: #{$colorSecondary};
     --colorSecondaryLight: #{$colorSecondaryLight};
     --colorBackground: #{$colorPrimaryExtraDark};
-    --colorBackgroundDark: #{$colorBackgroundDark};
+    --colorBackgroundDark: #{$colorBackgroundExtraDark};
     --colorWhite: #{$colorBlack};
     --colorBlack: #{$colorWhite};
 }

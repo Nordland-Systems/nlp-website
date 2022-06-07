@@ -4,6 +4,8 @@ namespace App\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
+use SilverStripe\LinkField\Models\Link;
+use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\Forms\DropdownField;
 
 /**
@@ -11,10 +13,10 @@ use SilverStripe\Forms\DropdownField;
  *
  * @property string $Variant
  * @property string $Text
- * @property string $ButtonText
- * @property string $ButtonLink
  * @property int $ImageID
+ * @property int $ButtonID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\LinkField\Models\Link Button()
  */
 class NoticeElement extends BaseElement
 {
@@ -22,12 +24,11 @@ class NoticeElement extends BaseElement
     private static $db = [
         "Variant" => "Varchar(20)",
         "Text" => "HTMLText",
-        "ButtonText" => "Varchar(255)",
-        "ButtonLink" => "Varchar(255)",
     ];
 
     private static $has_one = [
         "Image" => Image::class,
+        "Button" => Link::class,
     ];
 
     private static $owns = [
@@ -37,8 +38,7 @@ class NoticeElement extends BaseElement
     private static $field_labels = [
         "Text" => "Text",
         "Image" => "Icon (transparenter Hintergrund und möglichst quadratisch)",
-        "ButtonText" => "Button Text",
-        "ButtonLink" => "Button Link"
+        "Button" => "Button"
     ];
 
     private static $table_name = 'NoticeElement';
@@ -52,6 +52,8 @@ class NoticeElement extends BaseElement
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName("ButtonID");
+        $fields->insertAfter('Text', LinkField::create('Button'));
         $fields->replaceField('Variant', new DropdownField('Variant', 'Variante', [
             "style--none" => "Keiner",
             "style--important" => "Wichtig",

@@ -506,7 +506,9 @@
                 opacity: 0;
             }
             .header_topbar_darkmode{
-                opacity: 0;
+                @media only screen and (max-width: calc($maxWidth + 500px)){
+                    opacity: 0;
+                }
             }
         }
         .header_mainbar{

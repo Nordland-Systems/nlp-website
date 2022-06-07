@@ -8,19 +8,19 @@
             <% loop $Faces %>
                 <div class="face">
                     <% if $Name %>
-                        <h3 class="face_name">
+                        <p class="face_name">
                             $Name
-                        </h3>
+                        </p>
                     <% end_if %>
                     <% if $Image %>
                         <div class="face_image">
-                            $Image.Fill(300,300)
+                            $Image.FocusFill(300,300)
                         </div>
                     <% end_if %>
                     <% if $Profession %>
-                        <h4 class="face_profession">
+                        <p class="face_profession">
                             $Profession
-                        </h4>
+                        </p>
                     <% end_if %>
                     <% if $Description %>
                         <div class="face_description">
