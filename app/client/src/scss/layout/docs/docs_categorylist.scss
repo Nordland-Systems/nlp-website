@@ -23,6 +23,10 @@
                     .list_item{
                         color: $colorWhite;
                         border: 1px solid $colorWhite;
+
+                        &:hover{
+                            color: $colorPrimaryDark;
+                        }
                     }
 
                     .list_more{
