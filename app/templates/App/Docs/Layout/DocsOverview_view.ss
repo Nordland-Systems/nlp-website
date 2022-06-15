@@ -18,7 +18,12 @@
     </div>
 
     <div class="section section--docs_content">
-        <div class="section_content">
+        <div class="tableofcontents_wrap">
+            <div class="tableofcontents" data-behaviour="tableofcontents">
+                <h2>Inhaltsverzeichnis</h2>
+            </div>
+        </div>
+        <div class="section_content" data-behaviour="textContent">
             $Description
         </div>
     </div>
