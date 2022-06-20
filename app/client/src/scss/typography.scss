@@ -118,6 +118,15 @@ a{
     }
 }
 
+strong{
+    font-weight: 700;
+    color: $colorPrimary;
+
+    .theme--dark &{
+        color: $colorSecondary;
+    }
+}
+
 img{
     display: block;
     max-width: 100%;

@@ -87,3 +87,21 @@
     url('../fonts/Metropolis-BoldItalic.woff') format("woff"),
     url('../fonts/Metropolis-BoldItalic.otf') format("opentype");
 }
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: 700;
+    font-style: normal;
+    src: local(''),
+    url('../fonts/Metropolis-Black.woff') format("woff"),
+    url('../fonts/Metropolis-Black.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: 700;
+    font-style: italic;
+    src: local(''),
+    url('../fonts/Metropolis-BlackItalic.woff') format("woff"),
+    url('../fonts/Metropolis-BlackItalic.otf') format("opentype");
+}
