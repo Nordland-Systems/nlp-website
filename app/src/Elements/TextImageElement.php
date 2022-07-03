@@ -54,10 +54,7 @@ class TextImageElement extends BaseElement
         'Button',
     ];
 
-    public function getType()
-    {
-        return "Text+Bild";
-    }
+    public function getType() { return "Text + Bild"; }
 
     public function getCMSFields()
     {

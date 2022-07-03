@@ -49,10 +49,7 @@ class ImageBannerElement extends BaseElement
         'Text',
     ];
 
-    public function getType()
-    {
-        return "Bildbanner";
-    }
+    public function getType() { return "Bildbanner"; }
 
     public function getCMSFields()
     {

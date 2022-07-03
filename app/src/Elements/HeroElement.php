@@ -49,10 +49,7 @@ class HeroElement extends BaseElement
         'Subline',
     ];
 
-    public function getType()
-    {
-        return "Hero";
-    }
+    public function getType() { return "Hero"; }
 
     public function getCMSFields()
     {

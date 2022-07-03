@@ -38,10 +38,7 @@ class SpaceElement extends BaseElement
     private static $table_name = 'SpaceElement';
     private static $icon = 'font-icon-caret-up-down';
 
-    public function getType()
-    {
-        return "Abstand";
-    }
+    public function getType() { return "Abstand"; }
 
     public function getCMSFields()
     {
