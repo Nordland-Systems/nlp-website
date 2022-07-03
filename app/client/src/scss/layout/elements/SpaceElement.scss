@@ -89,7 +89,7 @@
 
         .wave {
             background: linear-gradient(0deg, rgba($colorPrimaryExtraDark,1) 0%, rgba(var(--colorPrimary),0.8) 100%);
-            mask-image: url("../../images/space-wave.svg");
+            mask-image: url("../../../images/space-wave.svg");
             mask-repeat: repeat-x;
             position: absolute;
             bottom: 0px;

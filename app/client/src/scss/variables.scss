@@ -9,13 +9,14 @@ $breakpoints: (
 
 //Primary Colors
 $colorPrimary: #1685C6;
-$colorPrimaryDark: darken($colorPrimary, 20%);
+$colorPrimaryDark: #0C476AFF;
 $colorPrimaryExtraDark: #041824;
 $colorPrimaryLight: lighten($colorPrimary, 10%);
 
 //Secondary Colors
 $colorSecondary: #F79E02;
 $colorSecondaryLight: lighten($colorSecondary, 30%);
+$colorSecondaryDark: #D68800FF;
 $colorWhite: #FFFFFF;
 $colorBlack: #000000;
 

@@ -42,14 +42,11 @@ class TeamElement extends BaseElement {
         return false;
     }
 
-    public function getType()
-    {
-        return _t(__CLASS__ . '.BlockType', 'Gesicht Element');
-    }
+    public function getType() { return "Team"; }
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
-        $fields->removeByName("Faces");
+        $fields->removeByName("Team");
 
         $gridFieldConfig = GridFieldConfig_RecordEditor::create(200);
         $sorter = new GridFieldSortableRows( 'SortOrder' );

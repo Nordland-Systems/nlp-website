@@ -1,0 +1,128 @@
+.section.section--faq{
+    .section_content{
+        padding: 40px 0;
+        .section_title{
+            text-align: center;
+        }
+
+        .section_list_filter{
+            text-align: center;
+            .filter_item{
+                display: inline-block;
+                border: 1px solid $colorPrimaryDark;
+                background-color: transparent;
+                border-radius: 20px;
+                padding: 5px 10px;
+                text-decoration: none;
+
+                &.hidden{
+                    display: none;
+                    color: $colorWhite;
+                }
+
+                &.active{
+                    background-color: $colorPrimaryDark;
+                }
+            }
+        }
+
+        .section_list{
+            .list_item{
+                display: flex;
+                align-items: stretch;
+                transition: max-height 1s ease-in-out, opacity 0.3s ease-in-out;
+                overflow: hidden;
+
+                .list_item_timeline{
+                    min-width: 50px;
+                    position: relative;
+
+                    .circle{
+                        display: block;
+                        position: absolute;
+                        left: 15px;
+                        top: 25px;
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 20px;
+                        background-color: $colorWhite;
+                    }
+                    .line{
+                        position: absolute;
+                        left: 21px;
+                        top: 50px;
+                        height: calc(100% - 35px);
+                        display: block;
+                        width: 2px;
+                        background-color: $colorWhite;
+                    }
+                }
+
+                .list_item_content{
+                    transition: transform 0.1s ease-in-out;
+
+                    .list_item_content_title{
+                        &:hover{
+                            color: $colorWhite;
+                        }
+                    }
+                    .list_item_content_date{
+                        h3{
+                            color: $colorWhite;
+
+                        }
+                        h4{
+                            margin-top: 21px;
+                            color: $colorWhite;
+                        }
+                        color: $colorWhite;
+                    }
+
+                    .list_item_content_text{
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.2s ease-in-out;
+                        margin-bottom: 10px;
+
+                        img{
+                            width: 100%;
+                            height: auto;
+                            object-fit: contain;
+                        }
+                    }
+
+                    &:hover{
+                        transform: translateX(5px);
+                    }
+                }
+
+                &.list_item--visible{
+                    .list_item_content_text{
+                        max-height: 400px;
+                    }
+                }
+
+                &:last-of-type{
+                    .list_item_timeline{
+                        .line{
+                            height: calc(100% - 60px);
+                        }
+                    }
+                }
+
+                &.inactive{
+                    max-height: 0px;
+                    opacity: 0;
+                }
+
+                &.active{
+                    max-height: 400px;
+                    opacity: 1;
+                    &.list_item--visible{
+                        max-height: 500px;
+                    }
+                }
+            }
+        }
+    }
+}

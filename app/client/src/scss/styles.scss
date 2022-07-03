@@ -9,19 +9,18 @@
 
 @import "layout/footer";
 @import "layout/header";
-@import "layout/textimage";
-@import "layout/text";
-@import "layout/imagebanner";
-@import "layout/space";
-@import "layout/notice";
-@import "layout/face";
-@import "layout/embed";
-@import "layout/hero";
-@import "layout/team";
-@import "layout/chronic";
 
-@import "layout/news";
-@import "layout/pagination";
+@import "layout/elements/EmbedElement.scss";
+@import "layout/elements/FaceElement.scss";
+@import "layout/elements/FAQElement.scss";
+@import "layout/elements/HeroElement.scss";
+@import "layout/elements/ImageBannerElement.scss";
+@import "layout/elements/NoticeElement.scss";
+@import "layout/elements/SpaceElement.scss";
+@import "layout/elements/TeamElement.scss";
+@import "layout/elements/TextElement.scss";
+@import "layout/elements/TextImageElement.scss";
+@import "layout/elements/TimelineElement.scss";
 
 @import "layout/docs/docs_header";
 @import "layout/docs/docs_title";
@@ -33,6 +32,8 @@
 
 @import "layout/blog";
 @import "layout/blogentry";
+@import "layout/news";
+@import "layout/pagination";
 
 html{
     scroll-behavior: smooth;

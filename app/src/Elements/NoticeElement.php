@@ -44,10 +44,7 @@ class NoticeElement extends BaseElement
     private static $table_name = 'NoticeElement';
     private static $icon = 'font-icon-attention';
 
-    public function getType()
-    {
-        return "Hinweis";
-    }
+    public function getType() { return "Hinweis"; }
 
     public function getCMSFields()
     {

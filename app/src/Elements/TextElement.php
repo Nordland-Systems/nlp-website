@@ -42,10 +42,7 @@ class TextElement extends BaseElement
         "Button" => Link::class,
     ];
 
-    public function getType()
-    {
-        return "Text";
-    }
+    public function getType() { return "Text"; }
 
     public function getCMSFields()
     {

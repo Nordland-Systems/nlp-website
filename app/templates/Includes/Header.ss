@@ -104,3 +104,31 @@
         <span></span>
     </a>
 </div>
+
+<% if $ShowHeroImage == "hide" %>
+    <section class="section section--space" style="height: 200px" >
+
+    </section>
+<% else %>
+    <% if $Image %>
+        <section class="section section--imagebanner overlay--hero" style="height: 350px" >
+            <div class="section_content" data-behaviour="parallax" data-speed="0.3" style="background-image:url($Image.ScaleWidth(1400).Link)">
+
+            </div>
+            <% if $ShowHeroImage == "show-with-title"  %>
+                <div class="section_title">
+                        <h1>$Title</h1>
+                </div>
+            <% end_if %>
+        </section>
+    <% else %>
+        <section class="section section--imagebanner overlay--hero" style="height: 150px" >
+            <% if $ShowHeroImage == "show-with-title"  %>
+                <div class="section_title">
+                        <h1>$Title</h1>
+                </div>
+            <% end_if %>
+        </section>
+    <% end_if %>
+<% end_if %>
+
