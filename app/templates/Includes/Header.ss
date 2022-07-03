@@ -106,9 +106,6 @@
 </div>
 
 <% if $ShowHeroImage == "hide" %>
-    <section class="section section--space" style="height: 200px" >
-
-    </section>
 <% else %>
     <% if $Image %>
         <section class="section section--imagebanner overlay--hero" style="height: 350px" >
