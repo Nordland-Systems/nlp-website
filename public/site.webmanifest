@@ -1,0 +1,8 @@
+{
+    "name": "Nordland Park",
+    "short_name": "NLP",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color" : "#041824" ,
+    "description": "Ein Freizeitparkprojekt in Norddeutschland"
+}

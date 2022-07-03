@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="../site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff">
 
     <meta property="og:title" content="$Title - $SiteConfig.Title" />
@@ -21,8 +21,8 @@
     <% if $Image %>
     <meta property="og:image" content="$Image.Link" />
     <% else %>
-    <meta property="og:image" content="../_resources/app/client/images/socialmedia.png" />
-    <meta property="og:image:alt" content="Ein Bild vom Nordland-Park" />
+    <meta property="og:image" content="../socialmedia.png" />
+    <meta property="og:image:alt" content="Das Nordland-Park-Logo mit Konzept Art" />
     <% end_if %>
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
