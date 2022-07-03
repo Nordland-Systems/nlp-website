@@ -29,12 +29,18 @@
         text-align: center;
         margin: 0 auto;
         width: 100%;
+
+        @include media("<medium") {
+            bottom: 0px;
+            h1{
+                font-size: 30px;
+            }
+        }
     }
 
     &.overlay--hero{
         background: transparent;
         position: relative;
-        //background: linear-gradient(0deg, rgba($colorBackground, 1) 0%, rgba($colorBackground, 0) 30%, rgba($colorBackground, 0) 100%);
 
         &::after{
             content: "";

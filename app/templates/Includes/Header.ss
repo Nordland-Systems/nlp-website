@@ -68,7 +68,7 @@
             <a href="https://twitter.com/NordlandPark" class="social_button"><img src="images/social_media/logo_twitter.png"></a>
             <a href="https://discord.gg/V3nCVXn" class="social_button"><img src="images/social_media/logo_discord.png"></a>
         </div>
-        <a href="#" class="nav_brand">
+        <a href="../" class="nav_brand">
             <img src="images/NLP_LogoBanner_SVG_wot.svg">
         </a>
         <div class="nav_button" data-behaviour="toggle-menu">
