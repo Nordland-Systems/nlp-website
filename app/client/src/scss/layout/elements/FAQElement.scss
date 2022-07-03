@@ -18,6 +18,7 @@
                     .list_item_content_title{
                         display: inline-block;
                         position: relative;
+                        padding-bottom: 10px;
 
                         &:hover{
                             color: $colorWhite;
@@ -34,7 +35,7 @@
                             height: 10px;
                             position: absolute;
                             right: -15px;
-                            top: calc(50% - 2px);
+                            top: calc(50% - 7px);
                             border-top: 2px solid var(--colorBlack);
                             border-right: 2px solid var(--colorBlack);
                             transform-origin: center;
@@ -77,14 +78,14 @@
                         &::after{
                             transform: translateX(0px) rotate(135deg);
                             right: -20px;
-                            top: calc(50% - 5px);
+                            top: calc(50% - 9px);
                         }
 
                         &:hover{
                             &::after{
                                 transform: translateX(3px) rotate(135deg);
                                 right: -20px;
-                                top: calc(50% - 5px);
+                                top: calc(50% - 9px);
                             }
                         }
                     }
