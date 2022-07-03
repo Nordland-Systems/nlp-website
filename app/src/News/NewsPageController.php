@@ -3,6 +3,7 @@ namespace App\News;
 
 use App\News\News;
 use PageController;
+use App\Events\Event;
 use SilverStripe\ORM\PaginatedList;
 
 /**
@@ -21,7 +22,14 @@ class NewsPageController extends PageController {
     public function getNews() {
         $news = News::get();
         $pagelist = new PaginatedList($news, $this->request);
-        $pagelist->setPageLength(20);
+        $pagelist->setPageLength(10);
+        return $pagelist;
+    }
+
+    public function getEvents() {
+        $news = Event::get();
+        $pagelist = new PaginatedList($news, $this->request);
+        $pagelist->setPageLength(3);
         return $pagelist;
     }
 

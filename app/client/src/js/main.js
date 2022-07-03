@@ -95,7 +95,7 @@ function TableOfContents() {
     const textContent = document.querySelector('[data-behaviour="textContent"]');
     const tableofcontents = document.querySelector('[data-behaviour="tableofcontents"]');
 
-    if(textContent){
+    if(textContent != null){
         textContent.innerHTML =
             textContent.innerHTML.replace(
                 /<h([\d])>([^<]+)<\/h([\d])>/gi,

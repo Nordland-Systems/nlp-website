@@ -9,10 +9,8 @@ use SilverStripe\ORM\DataObject;
  * Class \App\Events\Event
  *
  * @property string $Title
- * @property string $StartDate
- * @property string $EndDate
- * @property string $StartTime
- * @property string $EndTime
+ * @property string $Start
+ * @property string $End
  * @property string $Description
  * @property string $Link
  * @property int $ImageID
@@ -22,10 +20,8 @@ class Event extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
-        "StartDate" => "Date",
-        "EndDate" => "Date",
-        "StartTime" => "Time",
-        "EndTime" => "Time",
+        "Start" => "Datetime",
+        "End" => "Datetime",
         "Description" => "HTMLText",
         "Link" => "Varchar(255)"
     ];
@@ -38,22 +34,23 @@ class Event extends DataObject
         "Image",
     ];
 
-    private static $default_sort = "StartDate DESC";
+    private static $default_sort = "Start DESC";
 
     private static $field_labels = [
         "Title" => "Titel",
-        "StartDate" => "Datum",
+        "Start" => "Start",
+        "End" => "Ende",
         "Description" => "Kurzbeschreibung",
         "Link" => "Link"
     ];
 
     private static $summary_fields = [
-        "FormattedDate" => "Datum",
+        "FormattedStartDate" => "Datum",
         "Title" => "Titel",
     ];
 
     private static $searchable_fields = [
-        "StartDate", "Title", "Description",
+        "Start", "Title", "Description",
     ];
 
     private static $table_name = "Event";
@@ -62,18 +59,24 @@ class Event extends DataObject
     private static $plural_name = "Events";
 
     public function HasStartTime() {
-        $formatted = $this->dbObject('StartTime')->Format("HH:mm");
+        $formatted = $this->dbObject('Start')->Format("HH:mm");
         return $formatted && $formatted != "00:00";
     }
 
     public function HasEndTime() {
-        $formatted = $this->dbObject('EndTime')->Format("HH:mm");
+        $formatted = $this->dbObject('End')->Format("HH:mm");
         return $formatted && $formatted != "00:00";
     }
 
-    public function FormattedDate() {
-        $date = $this->dbObject('StartDate');
+    public function FormattedStartDate() {
+        $date = $this->dbObject('Start');
         if($date)
-            return $date->Format("dd.MM.yyyy");
+            return $date->Format("dd.MM.yy (HH:mm)");
+    }
+
+    public function FormattedEndDate() {
+        $date = $this->dbObject('End');
+        if($date)
+            return $date->Format("dd.MM.yy (HH:mm)");
     }
 }

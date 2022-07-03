@@ -2,7 +2,7 @@
     <div class="news_item_text">
         <p class="text_undertitle news">$FormattedDate</p>
         <a href="$Link">
-            <h2 class="news_title">$Title</h2>
+            <h3 class="news_title">$Title</h3>
         </a>
         <div class="news_moreinfo" data-behaviour="showhide">
             <a class="news_moreinfo_text">Mehr Infos</a>
