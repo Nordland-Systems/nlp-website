@@ -18,8 +18,6 @@ SilverStripe\ORM\Connect\MySQLDatabase:
 SilverStripe\Assets\File:
   allowed_extensions:
     - svg
-  extensions:
-    - Symbiote\ContextAwareUpload\ForceRootToDefaultExtension
 SilverStripe\Forms\HTMLEditor\TinyMCEConfig:
   editor_css:
     - 'app/client/dist/css/editor.css'
