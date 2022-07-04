@@ -138,7 +138,6 @@ class News extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->dataFieldByName("Image")->setFolderName("news");
         return $fields;
     }
 
