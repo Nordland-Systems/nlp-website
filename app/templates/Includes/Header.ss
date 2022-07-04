@@ -109,7 +109,7 @@
 <% else %>
     <% if $Image %>
         <section class="section section--headerimage overlay--hero" style="height: 350px" >
-            <div class="section_content" data-behaviour="parallax" data-speed="0.3" style="background-image:url($Image.FocusFill(1400,500).Link)">
+            <div class="section_content" data-behaviour="parallax" data-speed="0.3" style="background-image:url($Image.FocusFill(2000,1000).Link)">
 
             </div>
             <% if $ShowHeroImage == "show-with-title"  %>
