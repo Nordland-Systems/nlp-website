@@ -36,7 +36,8 @@ class TextImageElement extends BaseElement
     ];
 
     private static $owns = [
-        "Image"
+        "Image",
+        "Link"
     ];
 
     private static $field_labels = [

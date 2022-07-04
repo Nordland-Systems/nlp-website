@@ -19,7 +19,7 @@ class NewsPage extends Page {
     public function getCMSFields()
         {
             $fields = parent::getCMSFields();
-            $fields->addFieldToTab("Root.Seiteneinstellungen", new TextField("YoutubeLink", "Youtube-Link"));
+            $fields->addFieldToTab("Root.Seiteneinstellungen", new TextField("YoutubeLink", "Youtube-Link (nur ID!)"));
             return $fields;
         }
 }

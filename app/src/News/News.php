@@ -16,6 +16,7 @@ use SilverStripe\Forms\CheckboxSetField;
  *
  * @property string $Title
  * @property string $Date
+ * @property string $Summary
  * @property string $Description
  * @property string $ImageDescription
  * @property boolean $Visible
@@ -27,6 +28,7 @@ class News extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Date" => "Datetime",
+        "Summary" => "Varchar(255)",
         "Description" => "HTMLText",
         "ImageDescription" => "Varchar(255)",
         "Visible" => "Boolean"
@@ -49,6 +51,7 @@ class News extends DataObject
     private static $field_labels = [
         "Title" => "Titel",
         "Date" => "Datum",
+        "Summary" => "Vorschautext",
         "Description" => "Inhalt",
         "Visible" => "Sichtbar für Gäste",
         "Category" => "Kategorie"
@@ -57,6 +60,7 @@ class News extends DataObject
     private static $summary_fields = [
         "ID" => "ID",
         "Title" => "Titel",
+        "Summary" => "Kurzfassung",
         "Visible" => "Sichtbar"
     ];
 

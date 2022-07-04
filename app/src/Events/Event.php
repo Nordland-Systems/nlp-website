@@ -3,6 +3,8 @@
 namespace App\Events;
 
 use SilverStripe\Assets\Image;
+use SilverStripe\LinkField\Models\Link;
+use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\ORM\DataObject;
 
 /**
@@ -12,9 +14,10 @@ use SilverStripe\ORM\DataObject;
  * @property string $Start
  * @property string $End
  * @property string $Description
- * @property string $Link
  * @property int $ImageID
+ * @property int $LinkID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\LinkField\Models\Link Link()
  */
 class Event extends DataObject
 {
@@ -22,16 +25,17 @@ class Event extends DataObject
         "Title" => "Varchar(255)",
         "Start" => "Datetime",
         "End" => "Datetime",
-        "Description" => "HTMLText",
-        "Link" => "Varchar(255)"
+        "Description" => "HTMLText"
     ];
 
     private static $has_one = [
-        "Image" => Image::class
+        "Image" => Image::class,
+        "Link" => Link::class,
     ];
 
     private static $owns = [
         "Image",
+        "Link"
     ];
 
     private static $default_sort = "Start DESC";
@@ -57,6 +61,15 @@ class Event extends DataObject
 
     private static $singular_name = "Event";
     private static $plural_name = "Events";
+
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+        $fields->removeByName("LinkID");
+        $fields->insertAfter('Description', LinkField::create('Link'));
+        return $fields;
+    }
+
 
     public function HasStartTime() {
         $formatted = $this->dbObject('Start')->Format("HH:mm");

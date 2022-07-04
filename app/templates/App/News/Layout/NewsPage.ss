@@ -9,7 +9,7 @@
 
         <% if $Events.Count > 0 %>
             <div class="news_events">
-                <h2>Anstehende Events:</h2>
+                <h2><%t App.CURRENTEVENTS 'Anstehende Events' %></h2>
                 <% loop $Events %>
                     <div class="event_item">
                         <div class="event_item_image">
@@ -18,6 +18,9 @@
                         <div class="event_item_text">
                             <p>$FormattedStartDate<% if $HasEndTime %> - $FormattedEndDate<% end_if %></p>
                             <h3>$Title</h3>
+                            <% if $Link %>
+                                <a href="$Link.Url" <% if $Link.OpenInNew %> target="_blank"<% end_if %> class="link--button hollow white readmore">$Link.Title</a>
+                            <% end_if %>
                         </div>
                     </div>
                 <% end_loop %>
@@ -28,7 +31,7 @@
         <div class="news_grid">
 
             <div class="news_posts">
-                <h2>Aktuelle Beiträge</h2>
+                <h2><%t App.CURRENTPOSTS 'Aktuelle Beiträge' %></h2>
                 <% if $News.Count > 0 %>
                 <div class="news">
                     <% loop $News %>
@@ -37,17 +40,24 @@
                 </div>
                 <% include Pagination ItemList=$News %>
                 <% else %>
-                    <p class="centered">- Keine Beiträge gefunden -</p>
+                    <p class="centered"><%t App.NORESULTS '- Keine Ergebnisse -' %></p>
                 <% end_if %>
             </div>
 
             <div class="news_youtube">
-                <h2>Aktuelles Video</h2>
-                <iframe width="560" height="auto" src="$YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h2><%t App.CURRENTVIDEO 'Aktuelles Video' %></h2>
+                <div class="youtube_wrap" data-behaviour="youtube_wrap">
+                    <iframe width="560" height="315" data-src="https://www.youtube-nocookie.com/embed/$YoutubeLink" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
             </div>
 
             <div class="news_twitter">
-                <a class="twitter-timeline" href="https://twitter.com/NordlandPark?ref_src=twsrc%5Etfw" data-tweet-limit="3" data-chrome="nofooter noborders">Aktuelle Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <div class="twitter_light">
+                    <a class="twitter-timeline light" href="https://twitter.com/NordlandPark?ref_src=twsrc%5Etfw" data-theme="light" data-tweet-limit="3" data-chrome="nofooter noborders transparent">Aktuelle Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div class="twitter_dark">
+                    <a class="twitter-timeline dark" href="https://twitter.com/NordlandPark?ref_src=twsrc%5Etfw" data-theme="dark" data-tweet-limit="3" data-chrome="nofooter noborders transparent">Aktuelle Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
             </div>
         </div>
     </div>

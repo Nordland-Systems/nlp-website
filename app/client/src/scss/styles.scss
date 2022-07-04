@@ -89,11 +89,16 @@ body {
     height: 35px;
     margin: 10px;
     transition: transform 0.1s ease-in-out;
+    filter: invert(1);
 
     img{
         width: 100%;
         height: 100%;
         object-fit: contain;
+    }
+
+    .theme--dark &{
+        filter: invert(0);
     }
 
     &:hover{
@@ -105,4 +110,17 @@ body {
         width: 35px;
         margin: 5px;
     }
+}
+
+.youtube_consent_missing{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $colorImportant;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    color: $colorWhite;
 }
