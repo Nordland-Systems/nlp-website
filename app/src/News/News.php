@@ -46,7 +46,7 @@ class News extends DataObject
         "Visible" => true,
     ];
 
-    private static $default_sort = "Title DESC";
+    private static $default_sort = "Date DESC";
 
     private static $field_labels = [
         "Title" => "Titel",

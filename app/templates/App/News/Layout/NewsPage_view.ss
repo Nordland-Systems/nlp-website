@@ -1,17 +1,18 @@
 <% with $News %>
-    <div class="section section--news">
-        <p class="news_date">$Date.Format("dd.MM.yyyy")</p>
-        <h1>$Title</h1>
-    </div>
-    <% if $Image %>
-    <div class="section section_newsimage">
-        $Image.FocusFill(600,1200)
-        <% if $ImageDescription %><p>$ImageDescription</p><% end_if %>
-    </div>
-    <% end_if %>
-    <div class="section section_textblock section_textblock--description">
-        <div class="section_text">
-            $Description
+    <div class="section section--news_view">
+        <div class="section_content">
+            <% if $Image %>
+            <div class="newsview_image">
+                $Image.FocusFill(1200,500)
+                <% if $ImageDescription %><p>$ImageDescription</p><% end_if %>
+            </div>
+            <% end_if %>
+
+            <h1 class="newsview_title">$Title</h1>
+            <div class="newsview_text">
+                $Description
+            </div>
+            <p class="newsview_date">$Date.Format("dd.MM.yyyy")</p>
         </div>
     </div>
 

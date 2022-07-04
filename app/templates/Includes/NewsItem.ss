@@ -12,7 +12,7 @@
             <% end_if %>
         </div>
         <div class="news_moreinfo" data-behaviour="showhide">
-            <a class="news_moreinfo_text"><%t App.READMORE 'Weiterlesen...' %></a>
+            <a class="news_moreinfo_text" href="$Link"><%t App.READMORE 'Weiterlesen...' %></a>
         </div>
     </div>
     <a class="news_item_image" href="$Link">
