@@ -95,7 +95,7 @@ function TableOfContents() {
     const textContent = document.querySelector('[data-behaviour="textContent"]');
     const tableofcontents = document.querySelector('[data-behaviour="tableofcontents"]');
 
-    if(textContent){
+    if(textContent != null){
         textContent.innerHTML =
             textContent.innerHTML.replace(
                 /<h([\d])>([^<]+)<\/h([\d])>/gi,
@@ -146,4 +146,55 @@ function parallax() {
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+
+
+//Cookie Consent
+let ytelements = document.querySelectorAll('[data-behaviour="youtube_wrap"]');
+
+if(hasAcceptedCookieConsent()){
+    ytelements.forEach(element => {
+
+        var yturl = element.children[0].getAttribute('data-src');
+        console.log("accepted Cookie found " + yturl);
+        element.innerHTML = '<iframe width="560" height="315" src="' + yturl + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    });
+} else {
+    ytelements.forEach(element => {
+        var yturl = element.getAttribute('data-src');
+        element.innerHTML = `
+        <div class="youtube_consent_missing">
+            <p><b>Du hast unsere Cookies noch nicht akzeptiert!</p></b>
+            <p>Deshalb können wir dir hier kein Youtube-Video anzeigen</p>
+            <a class="link--button hollow white" data-behaviour="youtube_accept">Cookies akzeptieren</a>
+        </div>
+        `;
+    });
+}
+
+var ytAcceptBtn = document.querySelector('[data-behaviour="youtube_accept"]');
+if(ytAcceptBtn){
+    ytAcceptBtn.addEventListener("click", function() {
+        setCookie('acceptedCookieConsent', 'yes', 30);
+        window.location.reload();
+        console.log("Cookies accepted!");
+    }, false);
+}
+
+function hasAcceptedCookieConsent(){
+    var hasCookie = false;
+
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('acceptedCookieConsent='))) {
+        hasCookie = true;
+    }
+    return hasCookie;
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
 }
