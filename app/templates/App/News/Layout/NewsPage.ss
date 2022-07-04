@@ -47,7 +47,7 @@
             <div class="news_youtube">
                 <h2><%t App.CURRENTVIDEO 'Aktuelles Video' %></h2>
                 <div class="youtube_wrap" data-behaviour="youtube_wrap">
-                    <iframe width="560" height="315" data-src="https://www.youtube-nocookie.com/embed/$YoutubeLink" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe width="560" height="315" data-src="https://www.youtube-nocookie.com/embed/videoseries?list=$YoutubeLink" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
 
