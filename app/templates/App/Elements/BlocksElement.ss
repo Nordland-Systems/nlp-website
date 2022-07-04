@@ -7,17 +7,35 @@
         <% end_if %>
         <div class="section_list">
             <% loop $Blocks %>
-                <div class="list_item">
-                    <div class="list_item_image">
-                        $Image.FocusFill(300,300)
+                <% if $Link %>
+                    <a href="$Link.URL" <% if $Link.OpenInNew %> target="_blank" <% end_if %> class="block">
+                        <div class="block_image">
+                            $Image.FocusFill(300,300)
+                        </div>
+                        <div class="block_text">
+                            <h3 class="block_text_title">
+                                $Title
+                            </h3>
+                            <div class="block_text_content">
+                                $Text.LimitWordCount(15,'...')
+                            </div>
+                        </div>
+                    </a>
+                <% else %>
+                    <div class="block">
+                        <div class="block_image">
+                            $Image.FocusFill(300,300)
+                        </div>
+                        <div class="block_text">
+                            <h3 class="block_text_title">
+                                $Title
+                            </h3>
+                            <div class="block_text_content">
+                                $Text.LimitWordCount(15,'...')
+                            </div>
+                        </div>
                     </div>
-                    <div class="list_item_content_title">
-                        <h3>$Title</h3>
-                    </div>
-                    <div class="list_item_content_text">
-                        $Text
-                    </div>
-                </div>
+                <% end_if %>
             <% end_loop %>
         </div>
     </div>

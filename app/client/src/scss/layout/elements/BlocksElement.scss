@@ -1,0 +1,70 @@
+.section.section--blocks{
+    .section_content{
+        .section_title{
+            margin-bottom: 20px;
+        }
+
+        .section_list{
+            display: grid;
+            grid-template-columns: repeat(3, calc(100% / 3));
+            gap: 20px;
+
+            .block{
+                display: block;
+                height: 100%;
+                width: 100%;
+                background-color: var(--colorBackgroundDark);
+                border-radius: 20px;
+                overflow: hidden;
+                aspect-ratio: 1;
+                position: relative;
+
+                .block_image{
+                    height: 100%;
+                    width: 100%;
+                    z-index: -10;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .block_text{
+                    position: absolute;
+                    bottom: -22%;
+                    text-align: center;
+                    color: var(--colorBlack);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    height: 40%;
+                    width: 100%;
+                    padding: 0px 10px;
+                    background-color: var(--colorBackgroundDark);
+                    transition: bottom 0.2s ease-in-out;
+
+                    .block_text_title{
+                        height: 25%;
+                        margin: 20px 0 0 0;
+                    }
+
+                    .block_text_content{
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in-out;
+                    }
+                }
+
+                &:hover{
+                    .block_text{
+                        bottom: 0;
+                        .block_text_content {
+                            opacity: 1;
+                            font-weight: normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
