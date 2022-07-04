@@ -6,7 +6,7 @@
 
         .section_list{
             display: grid;
-            grid-template-columns: repeat(3, calc(100% / 3));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
 
             .block{
@@ -20,7 +20,7 @@
                 position: relative;
 
                 .block_image{
-                    height: 100%;
+                    height: 90%;
                     width: 100%;
                     z-index: -10;
                     img{
@@ -64,6 +64,23 @@
                         }
                     }
                 }
+            }
+
+            @include media("<desktop") {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include media("<medium") {
+                .block{
+                    .block_text{
+                        height: 60%;
+                        bottom: -30%;
+                    }
+                }
+            }
+
+            @include media("<smartphone") {
+                grid-template-columns: repeat(1, 1fr);
             }
         }
     }
