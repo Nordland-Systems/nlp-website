@@ -10,22 +10,35 @@
         <% if $Events.Count > 0 %>
             <div class="news_events">
                 <h2><%t App.CURRENTEVENTS 'Anstehende Events' %></h2>
-                <% loop $Events %>
+                <% loop $FutureEvents %>
                     <div class="event_item">
-                        <div class="event_item_image">
-                            $Image.FocusFill(1000,300)
-                        </div>
+                        <% if $Image %>
+                            <div class="event_item_image">
+                                $Image.FocusFill(1000,300)
+                            </div>
+                        <% end_if %>
                         <div class="event_item_text">
-                            <p>$FormattedStartDate<% if $HasEndTime %> - $FormattedEndDate<% end_if %></p>
-                            <h3>$Title</h3>
+                            <div class="item_part title">
+                                <p class="event_date">$FormattedStartDate</p>
+                                <% if $HasEndTime %><p class="event_date"> - $FormattedEndDate</p><% end_if %>
+                                <h3>$Title</h3>
+
+
+
+                            </div>
+                            <div class="item_part description">
+                                $Description
+                            </div>
                             <% if $Link %>
-                                <a href="$Link.Url" <% if $Link.OpenInNew %> target="_blank"<% end_if %> class="link--button hollow white readmore">$Link.Title</a>
+                                <div class="item_part link">
+                                    <a href="$Link.Url" <% if $Link.OpenInNew %> target="_blank"<% end_if %> class="link--button hollow white readmore">$Link.Title</a>
+                                </div>
                             <% end_if %>
                         </div>
                     </div>
                 <% end_loop %>
             </div>
-            <% include Pagination ItemList=$Events %>
+            <% include Pagination ItemList=$FutureEvents %>
         <% end_if %>
 
         <div class="news_grid">
