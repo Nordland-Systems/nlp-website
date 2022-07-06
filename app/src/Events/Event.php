@@ -103,11 +103,11 @@ class Event extends DataObject
         $dateEnd = $this->dbObject('End');
         if($this->Allday){
             if($date)
-                return $date->Format("dd.MM.yy") + " (Ganztägig)";
+                return $date->Format("dd.MM.yy") . " (Ganztägig)";
         } else {
             if($dateEnd){
                 if($date)
-                return $date->Format("dd.MM.yy (HH:mm)") + " - " + $dateEnd->Format("dd.MM.yy (HH:mm)");
+                return $date->Format("dd.MM.yy (HH:mm)") . " - " . $dateEnd->Format("dd.MM.yy (HH:mm)");
             } else {
                 if($date) {
                     return $date->Format("dd.MM.yy (HH:mm)");
