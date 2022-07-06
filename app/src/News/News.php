@@ -61,6 +61,7 @@ class News extends DataObject
         "ID" => "ID",
         "Title" => "Titel",
         "Summary" => "Kurzfassung",
+        "Date" => "Datum",
         "Visible" => "Sichtbar"
     ];
 
