@@ -55,7 +55,6 @@ class Event extends DataObject
 
     private static $summary_fields = [
         "FormattedSummaryDate" => "Datum",
-        "End" => "Enddatum",
         "Title" => "Titel",
     ];
 
@@ -101,12 +100,21 @@ class Event extends DataObject
 
     public function FormattedSummaryDate() {
         $date = $this->dbObject('Start');
+        $dateEnd = $this->dbObject('End');
         if($this->Allday){
             if($date)
-                return $date->Format("dd.MM.yy (Ganztägig)");
+                return $date->Format("dd.MM.yy") + " (Ganztägig)";
         } else {
-            if($date)
-                return $date->Format("dd.MM.yy (HH:mm)");
+            if($dateEnd){
+                if($date)
+                return $date->Format("dd.MM.yy (HH:mm)") + " - " + $dateEnd->Format("dd.MM.yy (HH:mm)");
+            } else {
+                if($date) {
+                    return $date->Format("dd.MM.yy (HH:mm)");
+                } else{
+                    return "Kein Datum";
+                }
+            }
         }
     }
 
