@@ -1,19 +1,23 @@
 .section_pagination {
     padding: 20px 0;
+    text-align: center;
 
     .page {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      text-align: center;
-      padding-top: 5px;
-      background-color: var(--colorWhite);
-      color: var(--colorPrimary);
-      text-decoration: none;
+        display: inline-block;
+        width: 36px;
+        text-align: center;
+        padding: 10px;
+        background-color: $colorPrimaryLight;
+        color: $colorWhite;
+        text-decoration: none;
+        border-radius: 50%;
 
-      &.page--current {
-        background-color: var(--colorPrimary);
-        color: var(--colorWhite);
-      }
+        .theme--dark &{
+            background-color: $colorPrimary;
+        }
+
+        &.page--current {
+            background-color: $colorPrimaryDark;
+        }
     }
-  }
+}

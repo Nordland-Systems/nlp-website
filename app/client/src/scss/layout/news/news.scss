@@ -12,6 +12,7 @@
             border-radius: 20px;
             overflow: hidden;
             background-color: var(--colorPrimaryDark);
+            margin: 10px 0;
 
             .event_item_image{
                 width: 100%;
@@ -25,14 +26,29 @@
 
             .event_item_text{
                 padding: 10px;
-                text-align: center;
+                text-align: left;
                 color: $colorWhite;
-                h3{
-                    color: $colorWhite;
+                display: flex;
+                align-items: center;
+
+                .event_date{
+                    margin-bottom: 5px;
                 }
 
-                .readmore{
-                    margin: 10px 0;
+                .item_part{
+                    display: block;
+                    padding: 10px 20px;
+                    p{
+                        margin-bottom: 0px;
+                    }
+
+                    &.title{
+                        flex-shrink: 0;
+                    }
+
+                    &.link{
+                        flex-shrink: 0;
+                    }
                 }
             }
         }

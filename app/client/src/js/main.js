@@ -167,7 +167,7 @@ if(hasAcceptedCookieConsent()){
         element.innerHTML = `
         <div class="youtube_consent_missing">
             <p><b>Du hast unsere Cookies noch nicht akzeptiert!</p></b>
-            <p>Deshalb können wir dir hier kein Youtube-Video anzeigen</p>
+            <p>Deshalb können wir Dir hier kein Youtube-Video anzeigen</p>
             <a class="link--button hollow white" data-behaviour="youtube_accept">Cookies akzeptieren</a>
         </div>
         `;
