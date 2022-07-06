@@ -3,9 +3,11 @@
 namespace App\Events;
 
 use SilverStripe\Assets\Image;
-use SilverStripe\LinkField\Models\Link;
-use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\LinkField\Models\Link;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\LinkField\Form\LinkField;
+use SilverStripe\ORM\FieldType\DBDatetime;
 
 /**
  * Class \App\Events\Event
@@ -13,6 +15,7 @@ use SilverStripe\ORM\DataObject;
  * @property string $Title
  * @property string $Start
  * @property string $End
+ * @property boolean $Allday
  * @property string $Description
  * @property int $ImageID
  * @property int $LinkID
@@ -25,6 +28,7 @@ class Event extends DataObject
         "Title" => "Varchar(255)",
         "Start" => "Datetime",
         "End" => "Datetime",
+        "Allday" => "Boolean",
         "Description" => "HTMLText"
     ];
 
@@ -45,7 +49,8 @@ class Event extends DataObject
         "Start" => "Start",
         "End" => "Ende",
         "Description" => "Kurzbeschreibung",
-        "Link" => "Link"
+        "Link" => "Link",
+        "Allday" => "Ganztägig",
     ];
 
     private static $summary_fields = [
@@ -56,6 +61,12 @@ class Event extends DataObject
     private static $searchable_fields = [
         "Start", "Title", "Description",
     ];
+
+    public function populateDefaults()
+    {
+        $this->Start = date('Y-m-d H:00:00');
+        parent::populateDefaults();
+    }
 
     private static $table_name = "Event";
 
@@ -85,6 +96,12 @@ class Event extends DataObject
         $date = $this->dbObject('Start');
         if($date)
             return $date->Format("dd.MM.yy (HH:mm)");
+    }
+
+    public function AllDayDate() {
+        $date = $this->dbObject('Start');
+        if($date)
+            return $date->Format("dd.MM.yy");
     }
 
     public function FormattedEndDate() {

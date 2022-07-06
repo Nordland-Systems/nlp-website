@@ -19,16 +19,25 @@
                         <% end_if %>
                         <div class="event_item_text">
                             <div class="item_part title">
-                                <p class="event_date">$FormattedStartDate</p>
-                                <% if $HasEndTime %><p class="event_date"> - $FormattedEndDate</p><% end_if %>
+                                <% if $Allday %>
+                                    <p class="event_date">$AllDayDate <span>(<%t App.ALLDAY 'Ganztägig' %>)</span></p>
+                                <% else %>
+                                    <p class="event_date">$FormattedStartDate</p>
+                                    <% if $HasEndTime %><p class="event_date"> - $FormattedEndDate</p><% end_if %>
+                                <% end_if %>
                                 <h3>$Title</h3>
 
 
 
                             </div>
+                            <% if $Description %>
                             <div class="item_part description">
                                 $Description
                             </div>
+                            <% else %>
+                                <div class="placeholder">
+                                </div>
+                            <% end_if %>
                             <% if $Link %>
                                 <div class="item_part link">
                                     <a href="$Link.Url" <% if $Link.OpenInNew %> target="_blank"<% end_if %> class="link--button hollow white readmore">$Link.Title</a>
