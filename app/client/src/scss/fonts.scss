@@ -54,6 +54,24 @@
 
 @font-face {
     font-family: Metropolis;
+    font-weight: 500;
+    font-style: normal;
+    src: local(''),
+    url('../fonts/Metropolis-SemiBold.woff') format("woff"),
+    url('../fonts/Metropolis-SemiBold.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
+    font-weight: 500;
+    font-style: italic;
+    src: local(''),
+    url('../fonts/Metropolis-SemiBoldItalic.woff') format("woff"),
+    url('../fonts/Metropolis-SemiBoldItalic.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Metropolis;
     font-weight: 300;
     font-style: normal;
     src: local(''),
