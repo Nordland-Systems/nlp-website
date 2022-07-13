@@ -21,7 +21,7 @@
         <div class="header_topbar_socials">
             <a href="https://twitter.com/NordlandPark" class="social_button"><img src="images/social_media/logo_twitter.png"></a>
             <a href="https://discord.gg/V3nCVXn" class="social_button"><img src="images/social_media/logo_discord.png"></a>
-            <a href="https://github.com/Nordland-Systems/nlp-silverstripe" class="social_button"><img src="images/social_media/logo_github.png"></a>
+            <a href="https://github.com/Nordland-Systems/nlp-website" class="social_button"><img src="images/social_media/logo_github.png"></a>
         </div>
         <% if $Locales %>
             <div class="header_topbar_language">
