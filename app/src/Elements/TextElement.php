@@ -18,7 +18,6 @@ use DNADesign\Elemental\Models\BaseElement;
  */
 class TextElement extends BaseElement
 {
-
     private static $db = [
         "Text" => "HTMLText",
         "AlignVariant" => "Varchar(20)",
@@ -42,7 +41,10 @@ class TextElement extends BaseElement
         "Button" => Link::class,
     ];
 
-    public function getType() { return "Text"; }
+    public function getType()
+    {
+        return "Text";
+    }
 
     public function getCMSFields()
     {
@@ -62,6 +64,4 @@ class TextElement extends BaseElement
 
         return $fields;
     }
-
-
 }

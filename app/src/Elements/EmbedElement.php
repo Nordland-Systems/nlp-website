@@ -25,9 +25,13 @@ class EmbedElement extends BaseElement
     private static $table_name = 'EmbedElement';
     private static $icon = 'font-icon-code';
 
-    public function getType() { return "Embed"; }
+    public function getType()
+    {
+        return "Embed";
+    }
 
-    public function getCMSFields() {
+    public function getCMSFields()
+    {
         $fields = parent::getCMSFields();
         $fields->replaceField("EmbedCode", new TextareaField('EmbedCode', 'Embed Code'));
         return $fields;

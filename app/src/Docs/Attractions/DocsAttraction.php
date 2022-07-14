@@ -96,8 +96,9 @@ class DocsAttraction extends DataObject
     // this function creates the thumbnail for the summary fields to use
     public function getCMSThumbnail()
     {
-        if ($image = $this->HeaderImage())
+        if ($image = $this->HeaderImage()) {
             return $image->CMSThumbnail();
+        }
     }
 
     public function getCMSFields()

@@ -16,27 +16,31 @@ use SilverStripe\ORM\PaginatedList;
  * @method \App\News\NewsPage data()
  * @mixin \App\News\NewsPage dataRecord
  */
-class NewsPageController extends PageController {
+class NewsPageController extends PageController
+{
 
     private static $allowed_actions = array (
         "view"
     );
 
-    public function getNews() {
+    public function getNews()
+    {
         $news = News::get();
         $pagelist = new PaginatedList($news, $this->request);
         $pagelist->setPageLength(10);
         return $pagelist;
     }
 
-    public function getEvents() {
+    public function getEvents()
+    {
         $news = Event::get();
         $pagelist = new PaginatedList($news, $this->request);
         $pagelist->setPageLength(3);
         return $pagelist;
     }
 
-    public function getFutureEvents() {
+    public function getFutureEvents()
+    {
         $today = date("Y-m-d H:i:s", strtotime('-3 hours'));
         $events = Event::get()
             ->filter(array('Start:GreaterThanOrEqual' => $today))
@@ -46,7 +50,8 @@ class NewsPageController extends PageController {
         return $pagelist;
     }
 
-    public function view() {
+    public function view()
+    {
         $id = $this->getRequest()->param("ID");
         $article = News::get()->byId($id);
         return array(

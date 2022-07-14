@@ -5,12 +5,12 @@ namespace {
     use SilverStripe\CMS\Controllers\ContentController;
 
     /**
- * Class \PageController
- *
- * @property \Page dataRecord
- * @method \Page data()
- * @mixin \Page dataRecord
- */
+     * Class \PageController
+     *
+     * @property \Page dataRecord
+     * @method \Page data()
+     * @mixin \Page dataRecord
+     */
     class PageController extends ContentController
     {
         /**

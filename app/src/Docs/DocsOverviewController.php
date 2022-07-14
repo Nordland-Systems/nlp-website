@@ -14,7 +14,8 @@ use SilverStripe\Forms\PasswordField;
  * @method \App\Docs\DocsOverview data()
  * @mixin \App\Docs\DocsOverview dataRecord
  */
-class DocsOverviewController extends PageController {
+class DocsOverviewController extends PageController
+{
 
     private static $allowed_actions = [
         "PasswordForm",
@@ -24,7 +25,8 @@ class DocsOverviewController extends PageController {
         "attraction",
     ];
 
-    public function PasswordForm() {
+    public function PasswordForm()
+    {
         $fields = new FieldList(
             new PasswordField('Password', 'Passwort')
         );
@@ -35,19 +37,22 @@ class DocsOverviewController extends PageController {
         return $form;
     }
 
-    public function login($data, $form) {
+    public function login($data, $form)
+    {
         $session = $this->getRequest()->getSession();
-        $session->set("PWD".$this->URLSegment, $data["Password"]);
+        $session->set("PWD" . $this->URLSegment, $data["Password"]);
         return $this->redirect($this->Link());
     }
 
-    public function logout($request) {
+    public function logout($request)
+    {
         $session = $this->getRequest()->getSession();
-        $session->set("PWD".$this->URLSegment, "");
+        $session->set("PWD" . $this->URLSegment, "");
         return $this->redirect($this->Link());
     }
 
-    public function view() {
+    public function view()
+    {
         $id = $this->getRequest()->param("ID");
         $article = Docs::get()->byId($id);
         return array(
@@ -56,7 +61,8 @@ class DocsOverviewController extends PageController {
         );
     }
 
-    public function category() {
+    public function category()
+    {
         $id = $this->getRequest()->param("ID");
         $article = DocsCategory::get()->byId($id);
         return array(
@@ -64,7 +70,8 @@ class DocsOverviewController extends PageController {
         );
     }
 
-    public function attraction() {
+    public function attraction()
+    {
         $id = $this->getRequest()->param("ID");
         $article = DocsAttraction::get()->byId($id);
         return array(
@@ -77,15 +84,18 @@ class DocsOverviewController extends PageController {
         return DocsCategory::get()->sort('Title', 'ASC');
     }
 
-    public function getAttractions() {
+    public function getAttractions()
+    {
         return DocsAttraction::get();
     }
 
-    public function getDocs() {
+    public function getDocs()
+    {
         return Docs::get();
     }
 
-    public function getCategory() {
+    public function getCategory()
+    {
         $id = $this->getRequest()->param("ID");
         $article = DocsCategory::get()->byId($id);
         return array(
@@ -94,9 +104,10 @@ class DocsOverviewController extends PageController {
         );
     }
 
-    public function checkLogin(){
+    public function checkLogin()
+    {
         $session = $this->getRequest()->getSession();
-        if($session->get("PWD".$this->URLSegment) == $this->Password) {
+        if ($session->get("PWD" . $this->URLSegment) == $this->Password) {
             return true;
         } else {
             return false;

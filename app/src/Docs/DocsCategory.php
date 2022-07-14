@@ -2,7 +2,6 @@
 
 namespace App\Docs;
 
-use SilverStripe\Forms\LiteralField;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
@@ -84,15 +83,16 @@ class DocsCategory extends DataObject
     }
 
     //Needed to use ElementalArea in template
-    public function CanArchive($member=null) {
+    public function CanArchive($member = null)
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
     public function Link()
     {
-        $holder = DocsPage::get()->sort("ID", "ASC")->First();
+        $holder = DocsOverview::get()->sort("ID", "ASC")->First();
         if ($holder) {
-            return $holder->Link("view/") . $this->ID;
+            return $holder->Link("category/") . $this->ID;
         }
     }
 

@@ -14,7 +14,8 @@ use SilverStripe\ORM\DataObject;
  * @property int $ParentID
  * @method \App\Docs\DocsAttraction Parent()
  */
-class DocsAttractionInfo extends DataObject {
+class DocsAttractionInfo extends DataObject
+{
     private static $db = [
         "InfoTitle" => "Varchar(255)",
         "InfoContent" => "HTMLText",
@@ -51,27 +52,31 @@ class DocsAttractionInfo extends DataObject {
 
 
     // tidy up the CMS by not showing these fields
-    public function getCMSFields() {
+    public function getCMSFields()
+    {
         $fields = parent::getCMSFields();
-        $fields->removeFieldFromTab("Root.Main","ParentID");
-        $fields->removeFieldFromTab("Root.Main","SortOrder");
+        $fields->removeFieldFromTab("Root.Main", "ParentID");
+        $fields->removeFieldFromTab("Root.Main", "SortOrder");
         return $fields;
     }
 
-    public function canView($member = null) {
+    public function canView($member = null)
+    {
         return true;
     }
 
-    public function canEdit($member = null) {
+    public function canEdit($member = null)
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
-    public function canDelete($member = null) {
+    public function canDelete($member = null)
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
-    public function canCreate($member = null, $context=[]) {
+    public function canCreate($member = null, $context = [])
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
-
 }

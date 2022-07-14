@@ -2,7 +2,6 @@
 
 namespace App\Docs;
 
-use App\Attractions\Attraction;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
@@ -94,7 +93,8 @@ class Docs extends DataObject
     }
 
     //Needed to use ElementalArea in template
-    public function CanArchive($member=null) {
+    public function CanArchive($member = null)
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
@@ -111,8 +111,9 @@ class Docs extends DataObject
         $fields = parent::getCMSFields();
         $fields->removeByName("Categories");
         $category_map = [];
-        if($categories = DocsCategory::get())
+        if ($categories = DocsCategory::get()) {
             $category_map = $categories->map();
+        }
         $fields->addFieldToTab("Root.Main", new CheckboxSetField("Categories", "Kategorien", $category_map));
         return $fields;
     }

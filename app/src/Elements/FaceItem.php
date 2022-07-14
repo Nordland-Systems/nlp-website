@@ -3,11 +3,8 @@
 namespace App\Elements;
 
 use SilverStripe\Assets\Image;
-use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\DropdownField;
 
 /**
  * Class \App\Elements\FaceItem
@@ -36,7 +33,8 @@ use SilverStripe\Forms\DropdownField;
  * @method \App\Elements\TeamElement Parent()
  * @method \SilverStripe\Assets\Image Image()
  */
-class FaceItem extends DataObject {
+class FaceItem extends DataObject
+{
     private static $db = [
         "Name" => "Varchar(255)",
         "Description" => "Varchar(255)",
@@ -96,29 +94,32 @@ class FaceItem extends DataObject {
     private static $singular_name = "Gesicht";
     private static $plural_name = "Gesichter";
 
-
     // tidy up the CMS by not showing these fields
-    public function getCMSFields() {
+    public function getCMSFields()
+    {
         $fields = parent::getCMSFields();
-        $fields->removeFieldFromTab("Root.Main","ParentID");
-        $fields->removeFieldFromTab("Root.Main","SortOrder");
+        $fields->removeFieldFromTab("Root.Main", "ParentID");
+        $fields->removeFieldFromTab("Root.Main", "SortOrder");
         return $fields;
     }
 
-    public function canView($member = null) {
+    public function canView($member = null)
+    {
         return true;
     }
 
-    public function canEdit($member = null) {
+    public function canEdit($member = null)
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
-    public function canDelete($member = null) {
+    public function canDelete($member = null)
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
-    public function canCreate($member = null, $context=[]) {
+    public function canCreate($member = null, $context = [])
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
-
 }
