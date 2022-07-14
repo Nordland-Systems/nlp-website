@@ -3,7 +3,7 @@
 
     .section_content{
         max-width: $maxWidthContent;
-        padding: 0 20px;
+        padding: 0;
         margin: 50px auto;
 
         .userform{
@@ -14,17 +14,22 @@
 
                         label{
                             display: inline-block;
-                             margin-bottom: 10px;
+                            margin-bottom: 10px;
+                            font-weight: normal;
                         }
 
-                        &.text{
-                            input{
-                                padding: 10px;
-                                width: 100%;
-                                height: 40px;
-                                border: white;
-                                border-radius: 20px;
-                            }
+                        input{
+                            border-radius: $simpleRadius;
+                            border: transparent;
+                            padding: 10px;
+                            width: 100%;
+                            height: 40px;
+                        }
+
+                        .error.message{
+                            display: block;
+                            padding: 10px 0;
+                            color: red;
                         }
 
                         &.checkbox{
@@ -32,24 +37,80 @@
                             align-items: center;
                             justify-content: flex-start;
 
+                            .middleColumn{
+                                display: flex;
+                                align-items: center;
+                                label{
+                                    padding-left: 10px;
+                                    margin: 0;
+                                }
+                            }
+
                             input{
                                 width: 20px;
                                 height: 20px;
+                            }
+                        }
 
+                        &.optionset{
+                            padding: 10px;
+                            border-radius: $simpleRadius;
+                            margin-left: -10px;
+
+                            legend{
+                                padding: 10px;
+                            }
+                            .middleColumn{
+                                margin-top: -15px;
+                                .odd{
+                                    display: flex;
+                                    width: 100%;
+                                    align-items: center;
+                                    justify-content: flex-start;
+                                    padding: 10px 0;
+                                    input{
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                    label{
+                                        padding-left: 10px;
+                                        margin: 0;
+                                    }
+                                }
+
+                                .even{
+                                    display: flex;
+                                    width: 100%;
+                                    align-items: center;
+                                    justify-content: flex-start;
+                                    padding: 10px 0;
+                                    input{
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                    label{
+                                        padding-left: 10px;
+                                        margin: 0;
+                                    }
+                                }
                             }
                         }
 
                         &.file{
+                            .middleColumn {
+
+                            }
                             input{
-                                width: 100%;
-                                padding: 20px;
+                                background-color: var(--colorBackgroundDark);
+                                border-radius: $simpleRadius;
+                                padding: 7px 10px;
                             }
                         }
 
                         &.requiredField{
                             label{
                                 &::after{
-                                    content: "*";
+                                    content: " *";
                                     color: var(--colorSecondary);
                                 }
                             }
@@ -58,6 +119,8 @@
 
                     &::after{
                         content: "* required";
+                        display: block;
+                        margin-top: 20px;
                         color: var(--colorSecondary);
                     }
                 }
