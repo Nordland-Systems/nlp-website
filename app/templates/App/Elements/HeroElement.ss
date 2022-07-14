@@ -1,5 +1,5 @@
 <section class="section section--hero $Overlay">
-    <div class="section_content" data-behaviour="parallax" data-speed="$Parallax" style="background-image:url($BackgroundImage.FocusScaleMaxHeight(1000).Link)">
+    <div class="section_content" data-behaviour="parallax" data-speed="$Parallax" style="background-image:url($BackgroundImage.FocusFill(2000, 1000).Link)">
     </div>
     <div class="section_inner" data-behaviour="parallax" data-speed="0.2">
         $Image.ScaleWidth(600)
