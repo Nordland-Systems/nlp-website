@@ -32,7 +32,8 @@ class NoticeElement extends BaseElement
     ];
 
     private static $owns = [
-        "Image"
+        "Image",
+        "Button"
     ];
 
     private static $field_labels = [

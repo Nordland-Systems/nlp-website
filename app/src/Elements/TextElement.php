@@ -24,6 +24,14 @@ class TextElement extends BaseElement
         "ColorVariant" => "Varchar(20)",
     ];
 
+    private static $has_one = [
+        "Button" => Link::class,
+    ];
+
+    private static $owns = [
+        "Button",
+    ];
+
     private static $field_labels = [
         "Text" => "Text",
         "Button" => "Button"
@@ -35,10 +43,6 @@ class TextElement extends BaseElement
     private static $translate = [
         'Text',
         'Button'
-    ];
-
-    private static $has_one = [
-        "Button" => Link::class,
     ];
 
     public function getType()
