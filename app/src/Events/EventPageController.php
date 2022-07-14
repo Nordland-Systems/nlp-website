@@ -10,13 +10,15 @@ use PageController;
  * @method \App\Events\EventPage data()
  * @mixin \App\Events\EventPage dataRecord
  */
-class EventPageController extends PageController {
+class EventPageController extends PageController
+{
 
     private static $allowed_actions = array (
         "view"
     );
 
-    public function getEvents() {
+    public function getEvents()
+    {
         $today = date("Y-m-d");
         $events = Event::get()
             ->filter(array("StartDate:GreaterThanOrEqual" => $today))
@@ -24,7 +26,8 @@ class EventPageController extends PageController {
         return $events;
     }
 
-    public function view() {
+    public function view()
+    {
         $id = $this->getRequest()->param("ID");
         $article = Event::get()->byId($id);
         return array(

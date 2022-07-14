@@ -2,11 +2,13 @@
 namespace App\Docs;
 
 use SilverStripe\Admin\ModelAdmin;
+
 /**
  * Class \App\Docs\DocsAdmin
  *
  */
-class DocsAdmin extends ModelAdmin {
+class DocsAdmin extends ModelAdmin
+{
 
     private static $managed_models = array (
         Docs::class,
@@ -20,8 +22,8 @@ class DocsAdmin extends ModelAdmin {
 
     private static $menu_icon = "app/client/icons/docs.svg";
 
-    public function init() {
+    public function init()
+    {
         parent::init();
     }
-
 }

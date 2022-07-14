@@ -9,7 +9,8 @@ use SilverStripe\Forms\TextField;
  *
  * @property string $YoutubeLink
  */
-class NewsPage extends Page {
+class NewsPage extends Page
+{
     private static $db = [
         "YoutubeLink" => "Varchar(255)"
     ];
@@ -17,9 +18,9 @@ class NewsPage extends Page {
     private static $table_name = "App_News_NewsPage";
 
     public function getCMSFields()
-        {
-            $fields = parent::getCMSFields();
-            $fields->addFieldToTab("Root.Seiteneinstellungen", new TextField("YoutubeLink", "Youtube-Link (nur ID!)"));
-            return $fields;
-        }
+    {
+        $fields = parent::getCMSFields();
+        $fields->addFieldToTab("Root.Seiteneinstellungen", new TextField("YoutubeLink", "Youtube-Link (nur ID!)"));
+        return $fields;
+    }
 }

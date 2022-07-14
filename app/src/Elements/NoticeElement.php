@@ -32,7 +32,8 @@ class NoticeElement extends BaseElement
     ];
 
     private static $owns = [
-        "Image"
+        "Image",
+        "Button"
     ];
 
     private static $field_labels = [
@@ -44,7 +45,10 @@ class NoticeElement extends BaseElement
     private static $table_name = 'NoticeElement';
     private static $icon = 'font-icon-attention';
 
-    public function getType() { return "Hinweis"; }
+    public function getType()
+    {
+        return "Hinweis";
+    }
 
     public function getCMSFields()
     {

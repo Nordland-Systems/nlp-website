@@ -37,7 +37,7 @@ class TextImageElement extends BaseElement
 
     private static $owns = [
         "Image",
-        "Link"
+        "Button"
     ];
 
     private static $field_labels = [
@@ -55,7 +55,10 @@ class TextImageElement extends BaseElement
         'Button',
     ];
 
-    public function getType() { return "Text + Bild"; }
+    public function getType()
+    {
+        return "Text + Bild";
+    }
 
     public function getCMSFields()
     {

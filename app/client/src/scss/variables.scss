@@ -29,6 +29,9 @@ $colorBackgroundExtraDark: #0d202b;
 $colorImportant: #7e0000;
 $colorHint: #d68800;
 
+$simpleRadius: 10px;
+$doubleRadius: 20px;
+
 html{
     transition: 0.1s ease-in-out;
     --colorPrimary: #{$colorPrimary};

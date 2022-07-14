@@ -3,7 +3,6 @@
 namespace App\Elements;
 
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\DropdownField;
 use SilverStripe\Security\Permission;
 
 /**

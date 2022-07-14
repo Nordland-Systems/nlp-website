@@ -26,7 +26,10 @@ class BlocksElement extends BaseElement
         return false;
     }
 
-    public function getType() { return "Blöcke"; }
+    public function getType()
+    {
+        return "Blöcke";
+    }
 
     public function getCMSFields()
     {

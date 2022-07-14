@@ -20,7 +20,9 @@
             }
         }
         .content_text{
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             width: 100%;
             height: auto;
             padding: 40px 40px 40px 20px;
@@ -53,6 +55,7 @@
                 text-align: center;
                 padding: 20px;
                 .text_socials{
+                    justify-content: center;
                     height: 40px;
                 }
             }

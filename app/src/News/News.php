@@ -3,13 +3,10 @@
 namespace App\News;
 
 use App\News\NewsPage;
-use App\News\NewsAdmin;
 use App\Events\EventAdmin;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\LiteralField;
 use SilverStripe\Security\Permission;
-use SilverStripe\Forms\CheckboxSetField;
 
 /**
  * Class \App\Docs\Docs
@@ -82,16 +79,19 @@ class News extends DataObject
         parent::populateDefaults();
     }
 
-    public function FormattedDate() {
+    public function FormattedDate()
+    {
         $date = $this->dbObject('Date');
-        if($date)
+        if ($date) {
             return $date->Format("dd.MM.yyyy");
+        }
     }
 
-    protected function onAfterWrite() {
+    protected function onAfterWrite()
+    {
         parent::onAfterWrite();
         $image = $this->Image();
-        if($image->exists()) {
+        if ($image->exists()) {
             $image->publishRecursive();
         }
     }
@@ -117,7 +117,8 @@ class News extends DataObject
     }
 
     //Needed to use ElementalArea in template
-    public function CanArchive($member=null) {
+    public function CanArchive($member = null)
+    {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
@@ -132,8 +133,9 @@ class News extends DataObject
     // this function creates the thumnail for the summary fields to use
     public function getCMSThumbnail()
     {
-        if ($image = $this->Image())
+        if ($image = $this->Image()) {
             return $image->CMSThumbnail();
+        }
     }
 
     public function getCMSFields()

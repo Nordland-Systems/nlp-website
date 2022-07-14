@@ -82,51 +82,62 @@ class Event extends DataObject
     }
 
 
-    public function HasStartTime() {
+    public function HasStartTime()
+    {
         $formatted = $this->dbObject('Start')->Format("HH:mm");
         return $formatted && $formatted != "00:00";
     }
 
-    public function HasEndTime() {
+    public function HasEndTime()
+    {
         $formatted = $this->dbObject('End')->Format("HH:mm");
         return $formatted && $formatted != "00:00";
     }
 
-    public function FormattedStartDate() {
+    public function FormattedStartDate()
+    {
         $date = $this->dbObject('Start');
-        if($date)
+        if ($date) {
             return $date->Format("dd.MM.yy (HH:mm)");
+        }
     }
 
-    public function FormattedSummaryDate() {
+    public function FormattedSummaryDate()
+    {
         $date = $this->dbObject('Start');
         $dateEnd = $this->dbObject('End');
-        if($this->Allday){
-            if($date)
+        if ($this->Allday) {
+            if ($date) {
                 return $date->Format("dd.MM.yy") . " (Ganztägig)";
+            }
         } else {
-            if($dateEnd){
-                if($date)
-                return $date->Format("dd.MM.yy (HH:mm)") . " - " . $dateEnd->Format("dd.MM.yy (HH:mm)");
+            if ($dateEnd) {
+                if ($date) {
+                    return $date->Format("dd.MM.yy (HH:mm)") . " - " . $dateEnd->Format("dd.MM.yy (HH:mm)");
+                }
             } else {
-                if($date) {
+                if ($date) {
                     return $date->Format("dd.MM.yy (HH:mm)");
-                } else{
+                } else {
                     return "Kein Datum";
                 }
             }
         }
     }
 
-    public function AllDayDate() {
+    public function AllDayDate()
+    {
         $date = $this->dbObject('Start');
-        if($date)
+        if ($date) {
             return $date->Format("dd.MM.yy");
+        }
     }
 
-    public function FormattedEndDate() {
+    public function FormattedEndDate()
+    {
         $date = $this->dbObject('End');
-        if($date)
+        if ($date) {
             return $date->Format("dd.MM.yy (HH:mm)");
+        }
     }
 }

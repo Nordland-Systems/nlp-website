@@ -40,7 +40,10 @@ class FAQElement extends BaseElement
         return false;
     }
 
-    public function getType() { return "FAQ"; }
+    public function getType()
+    {
+        return "FAQ";
+    }
 
     public function getCMSFields()
     {

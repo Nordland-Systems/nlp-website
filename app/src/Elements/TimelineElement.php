@@ -36,7 +36,10 @@ class TimelineElement extends BaseElement
         return false;
     }
 
-    public function getType() { return "Zeitleiste"; }
+    public function getType()
+    {
+        return "Zeitleiste";
+    }
 
     public function getCMSFields()
     {

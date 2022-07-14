@@ -4,10 +4,7 @@ namespace App\Docs;
 
 use Page;
 use SilverStripe\Assets\Image;
-
-use App\Attractions\Attraction;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Security\Permission;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
 /**

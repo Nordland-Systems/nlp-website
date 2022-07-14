@@ -8,7 +8,8 @@ use SilverStripe\Admin\ModelAdmin;
  * Class \App\Events\EventAdmin
  *
  */
-class EventAdmin extends ModelAdmin {
+class EventAdmin extends ModelAdmin
+{
 
     private static $managed_models = array (
         Event::class,
@@ -21,8 +22,8 @@ class EventAdmin extends ModelAdmin {
 
     private static $menu_icon = "app/client/icons/aktuelles.svg";
 
-    public function init() {
+    public function init()
+    {
         parent::init();
     }
-
 }

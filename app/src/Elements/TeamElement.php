@@ -2,12 +2,10 @@
 
 namespace App\Elements;
 
-use Colymba\BulkUpload\BulkUploader;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
-use SilverStripe\Forms\DropdownField;
 
 /**
  * Class \App\Elements\TeamElement
@@ -15,7 +13,8 @@ use SilverStripe\Forms\DropdownField;
  * @property string $Text
  * @method \SilverStripe\ORM\DataList|\App\Elements\FaceItem[] Faces()
  */
-class TeamElement extends BaseElement {
+class TeamElement extends BaseElement
+{
     private static $db = [
         "Text" => "Varchar(250)",
     ];
@@ -38,22 +37,26 @@ class TeamElement extends BaseElement {
 
     private static $icon = "font-icon-menu-security";
 
-    public function inlineEditable() {
+    public function inlineEditable()
+    {
         return false;
     }
 
-    public function getType() { return "Team"; }
+    public function getType()
+    {
+        return "Team";
+    }
 
-    public function getCMSFields() {
+    public function getCMSFields()
+    {
         $fields = parent::getCMSFields();
         $fields->removeByName("Team");
 
         $gridFieldConfig = GridFieldConfig_RecordEditor::create(200);
-        $sorter = new GridFieldSortableRows( 'SortOrder' );
+        $sorter = new GridFieldSortableRows('SortOrder');
         $gridFieldConfig->addComponent($sorter);
-        $gridfield = new GridField( "Items", "Gesicht", $this->Faces(), $gridFieldConfig );
-        $fields->addFieldToTab( 'Root.Main', $gridfield );
+        $gridfield = new GridField("Items", "Gesicht", $this->Faces(), $gridFieldConfig);
+        $fields->addFieldToTab('Root.Main', $gridfield);
         return $fields;
     }
-
 }

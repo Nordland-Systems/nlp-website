@@ -47,7 +47,10 @@ class FaceElement extends BaseElement
     private static $table_name = 'FaceElement';
     private static $icon = 'font-icon-happy';
 
-    public function getType() { return "Gesicht"; }
+    public function getType()
+    {
+        return "Gesicht";
+    }
 
     public function getCMSFields()
     {
