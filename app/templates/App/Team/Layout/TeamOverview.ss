@@ -31,7 +31,7 @@
             <h2><%t Team.FORMERS 'Ehemalige' %></h2>
             <div class="teammember_list">
                 <% loop $TeamMembers.Sort("Importance", DESC).Filter("Status", "formerly") %>
-                    <% include TeamMember TopScope=$Top %>
+                    <% include TeamMember TopScope=$Top%>
                 <% end_loop %>
             </div>
         <% end_if %>

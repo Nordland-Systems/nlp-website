@@ -28,9 +28,8 @@
                 padding: 10px;
                 text-align: left;
                 color: $colorWhite;
-                display: grid;
-                grid-template-columns: 25% auto auto;
-                justify-content: space-between;
+                display: flex;
+                justify-content: left;
                 align-items: center;
 
                 .event_date{
@@ -40,12 +39,14 @@
                 .item_part{
                     display: block;
                     padding: 10px 10px;
-                    flex-shrink: 0;
+
                     p{
                         margin-bottom: 0px;
                     }
 
                     &.title{
+                        width: 25%;
+                        flex-shrink: 0;
                         .event_date{
                             opacity: 0.5;
                             &:first-of-type{
@@ -58,20 +59,29 @@
                         }
                     }
 
+                    &.description {
+                        display: block;
+                        width: 100%;
+                    }
+
                     &.link{
                         text-align: right;
                     }
                 }
 
                 @include media("<medium") {
-                    grid-template-columns: 100%;
+                    flex-direction: column;
 
                     .item_part{
                         &.title{
                             display: flex;
                             flex-wrap: wrap;
+                            width: 100%;
+                            text-align: center;
                             .event_date{
+                                width: 100%;
                                 padding-left: 7px;
+                                text-align: center;
                                 &:first-of-type{
                                     padding-left: 0;
                                 }
@@ -79,6 +89,10 @@
                             h3{
                                 width: 100%;
                             }
+                        }
+
+                        &.description{
+                            text-align: center;
                         }
 
                         &.link{

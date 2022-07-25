@@ -45,4 +45,13 @@ class TeamOverviewController extends PageController {
     {
         return TeamMember::get()->filter("Importance", "partner");
     }
+
+    public function getSource()
+        {
+            if (isset($_GET['source'])) {
+                return $_GET['source'];
+            } else {
+                return $this->Link;
+            }
+        }
 }
