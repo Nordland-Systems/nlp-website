@@ -7,3 +7,10 @@ en:
     CURRENTPOSTS: 'Current Posts'
     CURRENTVIDEO: 'Current Video'
     ALLDAY: 'All day'
+  Team:
+    ACTIVES: "Actives"
+    FOUNDERS: "Founders"
+    MEMBERS: "Northlanders"
+    PARTNERS: "Partners"
+    FORMERS: "Former Northlanders"
+    BACKTOOVERVIEW: "Back to Overview"

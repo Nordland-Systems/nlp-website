@@ -7,3 +7,10 @@ de:
     CURRENTPOSTS: 'Aktuelle Beiträge'
     CURRENTVIDEO: 'Aktuelles Video'
     ALLDAY: 'Ganztägig'
+  Team:
+    ACTIVES: "Aktive"
+    FOUNDERS: "Gründer"
+    MEMBERS: "Nordländer"
+    PARTNERS: "Partner"
+    FORMERS: "Ehemalige Nordländer"
+    BACKTOOVERVIEW: "Zurück zur Übersicht"

@@ -8,16 +8,16 @@ namespace {
     use SilverStripe\Forms\DropdownField;
 
     /**
-     * Class \Page
-     *
-     * @property string $MenuPosition
-     * @property string $ShowHeroImage
-     * @property int $ElementalAreaID
-     * @property int $ImageID
-     * @method \DNADesign\Elemental\Models\ElementalArea ElementalArea()
-     * @method \SilverStripe\Assets\Image Image()
-     * @mixin \DNADesign\Elemental\Extensions\ElementalPageExtension
-     */
+ * Class \Page
+ *
+ * @property string $MenuPosition
+ * @property string $ShowHeroImage
+ * @property int $ElementalAreaID
+ * @property int $ImageID
+ * @method \DNADesign\Elemental\Models\ElementalArea ElementalArea()
+ * @method \SilverStripe\Assets\Image Image()
+ * @mixin \DNADesign\Elemental\Extensions\ElementalPageExtension
+ */
     class Page extends SiteTree
     {
         private static $db = [
