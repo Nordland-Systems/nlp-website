@@ -51,5 +51,36 @@ namespace {
             $fields->addFieldToTab("Root.Seiteneinstellungen", new UploadField("Image", "Headerbild"));
             return $fields;
         }
+
+        private static $casting = [
+            'AgeShortcode' => 'HTMLText'
+        ];
+
+        public static function AgeShortcode($arguments, $content = null, $parser = null, $tagName = null)
+        {
+            if (!array_key_exists("format", $arguments)) {
+                if (array_key_exists("date", $arguments)) {
+                    $dob = new DateTime($arguments["date"]);
+                    $now = new DateTime();
+
+                    $difference = $now->diff($dob);
+                    $age = $difference->y;
+                    return $age;
+                } else {
+                    return "-- ERROR! Date for age is missing! Use [age,date='dd.mm.yyyy'] --";
+                }
+            } else {
+                if (array_key_exists("date", $arguments)) {
+                    $dob = new DateTime($arguments["date"]);
+                    $now = new DateTime();
+
+                    $difference = $now->diff($dob);
+                    $age = $difference->format($arguments["format"]);
+                    return $age;
+                } else {
+                    return "-- ERROR! Date for age is missing! Use [age,date='dd.mm.yyyy'] --";
+                }
+            }
+        }
     }
 }

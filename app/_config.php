@@ -1,11 +1,11 @@
 <?php
 
 use SilverStripe\i18n\i18n;
-use SilverStripe\Security\PasswordValidator;
+use SilverStripe\Admin\CMSMenu;
 use SilverStripe\Security\Member;
 
-use SilverStripe\CampaignAdmin\CampaignAdmin;
-use SilverStripe\Admin\CMSMenu;
+use SilverStripe\Security\PasswordValidator;
+use SilverStripe\View\Parsers\ShortcodeParser;
 
 // remove PasswordValidator for SilverStripe 5.0
 $validator = PasswordValidator::create();
@@ -14,8 +14,6 @@ Member::set_password_validator($validator);
 i18n::set_locale('de_DE');
 \SilverStripe\ORM\Search\FulltextSearchable::enable();
 
-//CMSMenu::remove_menu_class(CampaignAdmin::class);
-
 $menuItems = array(
     'CMSPagesController',
     'AssetAdmin',
@@ -23,3 +21,5 @@ $menuItems = array(
     'EventAdmin',
     'SecurityAdmin',
 );
+
+ShortcodeParser::get('default')->register('age', ['Page', 'AgeShortcode']);

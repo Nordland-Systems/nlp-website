@@ -28,7 +28,7 @@
             justify-content: center;
 
             .teammember_item{
-                width: calc(100% / 3);
+                width: calc(100% / 4);
                 padding: 10px;
                 transform: scale(1);
                 transition: transform 0.1s ease-in-out;
@@ -76,6 +76,16 @@
                         background-color: $colorPrimary;
                         aspect-ratio: auto;
                     }
+                }
+
+                @include media("<desktop") {
+                    width: calc(100% / 3);
+                }
+                @include media("<medium") {
+                    width: calc(100% / 2);
+                }
+                @include media("<smartphone") {
+                    width: calc(100% / 1);
                 }
             }
 
