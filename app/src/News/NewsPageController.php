@@ -1,13 +1,11 @@
 <?php
 namespace App\News;
 
-use DateTime;
-use DateInterval;
 use App\News\News;
 use PageController;
 use App\Events\Event;
-use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Control\RSS\RSSFeed;
 
 /**
  * Class \App\Events\EventPageController
@@ -20,7 +18,8 @@ class NewsPageController extends PageController
 {
 
     private static $allowed_actions = array (
-        "view"
+        "view",
+        'rss'
     );
 
     public function getNews()
@@ -58,5 +57,31 @@ class NewsPageController extends PageController
         return array(
             "News" => $article,
         );
+    }
+
+    public function init()
+    {
+        parent::init();
+
+        RSSFeed::linkToFeed($this->Link("rss"), "Aktuelle News");
+    }
+
+    public function rss()
+    {
+        $rss = new RSSFeed(
+            $this->LatestUpdates(),
+            $this->Link(),
+            "Aktuelle News",
+            "Zeigt die aktuellen News aus dem Nordland-Park"
+        );
+
+        $rss->setTemplate('NewsRss');
+
+        return $rss->outputToBrowser();
+    }
+
+    public function LatestUpdates()
+    {
+        return News::get()->sort("Date", "DESC")->limit(20);
     }
 }
