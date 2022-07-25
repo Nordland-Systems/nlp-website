@@ -1,0 +1,20 @@
+.section.section--team_details{
+    .section_content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .back{
+            margin: 20px 0;
+        }
+
+        .teammember_item_image{
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+    }
+}

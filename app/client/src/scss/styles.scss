@@ -6,6 +6,7 @@
 @import "variables";
 @import "typography";
 @import "forms";
+@import "animations";
 
 @import "layout/footer";
 @import "layout/header";
@@ -33,6 +34,9 @@
 
 @import "layout/news/news";
 @import "layout/news/newsview";
+
+@import "layout/team/TeamOverview";
+@import "layout/team/TeamDetails";
 
 @import "layout/blog";
 @import "layout/blogentry";

@@ -43,7 +43,8 @@ class NewsPageController extends PageController
     {
         $today = date("Y-m-d H:i:s", strtotime('-3 hours'));
         $events = Event::get()
-            ->filter(array('Start:GreaterThanOrEqual' => $today))
+            ->filterAny(['Start:GreaterThanOrEqual' => $today,
+            "End:GreaterThanOrEqual" =>  $today])
             ->sort('Start ASC');
         $pagelist = new PaginatedList($events, $this->request);
         $pagelist->setPageLength(3);
