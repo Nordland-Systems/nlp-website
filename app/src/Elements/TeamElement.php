@@ -25,9 +25,9 @@ class TeamElement extends BaseElement
 
     private static $table_name = 'TeamElement';
 
-    private static $singular_name = 'Gesicht Element';
+    private static $singular_name = 'Team Element';
 
-    private static $plural_name = 'Gesichter Elemente';
+    private static $plural_name = 'Team Elemente';
 
     private static $description = '';
 
