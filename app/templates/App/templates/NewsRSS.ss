@@ -6,7 +6,7 @@
         <atom:link href="$Link/rss" rel="self" type="application/rss+xml" />
         <description>$Description.CDATA</description>
 
-        <lastBuildDate><% loop $Entries.Sort("Date", DESC).Limit(1) %>$Date<% end_loop %></lastBuildDate>
+        <lastBuildDate><% loop $Entries.Sort("Date", DESC).Limit(1) %>$Date.RFC822<% end_loop %></lastBuildDate>
         <language>de-DE</language>
         <sy:updatePeriod>hourly</sy:updatePeriod>
         <sy:updateFrequency>1</sy:updateFrequency>
@@ -25,7 +25,7 @@
                 <link>$AbsoluteLink.CDATA</link>
                 <description>$Summary.CDATA</description>
                 <% if $Date %><pubDate>$Date</pubDate>
-                <% else %><pubDate>$Created</pubDate><% end_if %>
+                <% else %><pubDate>$Created.RFC822</pubDate><% end_if %>
                 <guid isPermaLink="true">$AbsoluteLink</guid>
             </item>
         <% end_loop %>
