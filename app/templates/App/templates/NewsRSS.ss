@@ -29,6 +29,7 @@
             <item>
                 <title>$Title.CDATA</title>
                 <link>$AbsoluteLink.CDATA</link>
+                <image>$Image.CDATA</image>
                 <description>$Summary.CDATA</description>
                 <% if $Date %><pubDate>$Date.RFC822</pubDate>
                 <% else %><pubDate>$Created.RFC822</pubDate><% end_if %>
