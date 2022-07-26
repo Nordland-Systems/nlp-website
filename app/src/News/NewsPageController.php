@@ -63,7 +63,7 @@ class NewsPageController extends PageController
     {
         parent::init();
 
-        RSSFeed::linkToFeed($this->Link("rss"), "Aktuelle News");
+        RSSFeed::linkToFeed($this->Link("rss"), "Nordland-Park News");
     }
 
     public function rss()
@@ -71,8 +71,8 @@ class NewsPageController extends PageController
         $rss = new RSSFeed(
             $this->LatestUpdates(),
             $this->Link(),
-            "Aktuelle News",
-            "Zeigt die aktuellen News aus dem Nordland-Park"
+            "Nordland-Park News",
+            "Alles Aktuelle aus dem Nordland-Park"
         );
 
         $rss->setTemplate('NewsRss');

@@ -47,6 +47,7 @@
                     &.title{
                         width: 25%;
                         flex-shrink: 0;
+                        color: $colorWhite;
                         .event_date{
                             opacity: 0.5;
                             &:first-of-type{
