@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>$Title</title>
+        <title>$Title.CDATA</title>
         <link>$Link</link>
-        <atom:link href="$Link" rel="self" type="application/rss+xml" />
-        <description>$Description.XML</description>
+        <atom:link href="$Link/rss" rel="self" type="application/rss+xml" />
+        <description>$Description.CDATA</description>
 
         <lastBuildDate><% loop $Entries.Sort("Date", DESC).Limit(1) %>$Date<% end_loop %></lastBuildDate>
         <language>de-DE</language>
@@ -21,12 +21,12 @@
 
         <% loop $Entries %>
             <item>
-                <title>$Title.XML</title>
-                <link>$AbsoluteLink.XML</link>
-                <description>$Summary</description>
+                <title>$Title.CDATA</title>
+                <link>$AbsoluteLink.CDATA</link>
+                <description>$Summary.CDATA</description>
                 <% if $Date %><pubDate>$Date</pubDate>
                 <% else %><pubDate>$Created</pubDate><% end_if %>
-                <guid>$AbsoluteLink</guid>
+                <guid isPermaLink="true">$AbsoluteLink</guid>
             </item>
         <% end_loop %>
     </channel>
