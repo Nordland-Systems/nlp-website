@@ -9,7 +9,11 @@
         <% loop $Entries %>
             <item>
                 <title>$Title.XML</title>
+                <link>$AbsoluteLink.XML</link>
                 <description>$Summary</description>
+                <% if $Date %><pubDate>$Date</pubDate>
+                <% else %><pubDate>$Created</pubDate><% end_if %>
+                <guid>$AbsoluteLink</guid>
             </item>
         <% end_loop %>
     </channel>
