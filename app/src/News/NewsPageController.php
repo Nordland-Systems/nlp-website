@@ -75,7 +75,7 @@ class NewsPageController extends PageController
             "Alles Aktuelle aus dem Nordland-Park"
         );
 
-        $rss->setTemplate('NewsRss');
+        $rss->setTemplate('NewsRSS');
 
         return $rss->outputToBrowser();
     }
