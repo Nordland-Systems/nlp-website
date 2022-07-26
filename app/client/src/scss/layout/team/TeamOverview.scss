@@ -40,7 +40,7 @@
                     background: linear-gradient(45deg, rgba(22,133,198,1) 0%);
                     transition: 0.5s ease-in-out;
                     overflow: hidden;
-                    border: 1px solid var(--colorWhite);
+                    border: 1px solid $colorWhite;
 
                     .teammember_texts{
                         color: $colorWhite;
@@ -74,7 +74,7 @@
                     transform: scale(1.02);
 
                     .teammember_border{
-                        background-color: $colorPrimary;
+                        background-color: var(--colorPrimaryDark);
                         aspect-ratio: auto;
                     }
                 }

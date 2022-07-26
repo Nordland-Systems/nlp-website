@@ -7,10 +7,10 @@
         <description>$Description.XML</description>
 
         <% loop $Entries %>
-        <item>
-            <title>$Title.XML</title>
-            <team>$Team.Title</team>
-        </item>
+            <item>
+                <title>$Title.XML</title>
+                <description>$Summary</description>
+            </item>
         <% end_loop %>
     </channel>
 </rss>
