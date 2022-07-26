@@ -30,7 +30,7 @@
                 <title>$Title.CDATA</title>
                 <link>$AbsoluteLink.CDATA</link>
                 <description>$Summary.CDATA</description>
-                <% if $Date %><pubDate>$Date</pubDate>
+                <% if $Date %><pubDate>$Date.RFC822</pubDate>
                 <% else %><pubDate>$Created.RFC822</pubDate><% end_if %>
                 <guid isPermaLink="true">$AbsoluteLink</guid>
             </item>
