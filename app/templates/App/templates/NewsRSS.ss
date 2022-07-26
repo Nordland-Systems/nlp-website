@@ -18,9 +18,9 @@
         <sy:updateFrequency>1</sy:updateFrequency>
 
         <image>
-            <url>../../favicon-32x32.png</url>
+            <url>https://new.nordland-park.de/favicon-32x32.png</url>
             <title>$Title</title>
-            <link>https://www.nordland-park.de</link>
+            <link>$Link</link>
             <width>32</width>
             <height>32</height>
         </image>
