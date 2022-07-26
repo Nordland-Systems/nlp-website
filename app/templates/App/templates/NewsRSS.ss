@@ -6,6 +6,19 @@
         <atom:link href="$Link" rel="self" type="application/rss+xml" />
         <description>$Description.XML</description>
 
+        <lastBuildDate><% loop $Entries.Sort("Date", DESC).Limit(1) %>$Date<% end_loop %></lastBuildDate>
+        <language>de-DE</language>
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+
+        <image>
+            <url>../../favicon-32x32.png</url>
+            <title>$Title</title>
+            <link>https://www.nordland-park.de</link>
+            <width>32</width>
+            <height>32</height>
+        </image>
+
         <% loop $Entries %>
             <item>
                 <title>$Title.XML</title>
