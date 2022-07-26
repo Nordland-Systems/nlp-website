@@ -21,7 +21,7 @@
         <% if $Image %>
         <meta property="og:image" content="$Image.Link" />
         <% else %>
-        <meta property="og:image" content="../socialmedia.png" />
+        <meta property="og:image" content="https://new.nordland-park.de/socialmedia.png" />
         <meta property="og:image:alt" content="Das Nordland-Park-Logo mit Konzept Art" />
         <% end_if %>
         <meta property="og:image:type" content="image/jpeg" />
