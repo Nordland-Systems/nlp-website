@@ -74,7 +74,7 @@
                     transform: scale(1.02);
 
                     .teammember_border{
-                        background-color: var(--colorPrimaryDark);
+                        background-color: $colorPrimaryDark;
                         aspect-ratio: auto;
                     }
                 }
