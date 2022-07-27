@@ -9,7 +9,7 @@
     <channel>
         <title>$Title.CDATA</title>
         <link>$Link</link>
-        <atom:link href="https://new.nordland-park.de/neuigkeiten/rss" rel="self" type="application/rss+xml" />
+        <atom:link href="https://nordland-park.de/neuigkeiten/rss" rel="self" type="application/rss+xml" />
         <description>$Description.CDATA</description>
 
         <lastBuildDate><% loop $Entries.Sort("Date", DESC).Limit(1) %>$Date.RFC822<% end_loop %></lastBuildDate>
@@ -18,7 +18,7 @@
         <sy:updateFrequency>1</sy:updateFrequency>
 
         <image>
-            <url>https://new.nordland-park.de/favicon-32x32.png</url>
+            <url>https://nordland-park.de/favicon-32x32.png</url>
             <title>$Title</title>
             <link>$Link</link>
             <width>32</width>
