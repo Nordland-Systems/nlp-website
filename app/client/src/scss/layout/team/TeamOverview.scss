@@ -37,7 +37,6 @@
                     border-radius: $doubleRadius;
                     height: 100%;
                     padding: 10px;
-                    background: linear-gradient(45deg, rgba(22,133,198,1) 0%);
                     transition: 0.5s ease-in-out;
                     overflow: hidden;
                     border: 1px solid $colorWhite;
@@ -76,6 +75,10 @@
                     .teammember_border{
                         background-color: $colorPrimaryDark;
                         aspect-ratio: auto;
+
+                        .theme--dark &{
+                            background-color: $colorPrimary;
+                        }
                     }
                 }
 
