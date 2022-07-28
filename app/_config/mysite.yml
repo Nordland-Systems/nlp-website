@@ -25,3 +25,5 @@ SilverStripe\Forms\HTMLEditor\TinyMCEConfig:
 SilverStripe\Core\Injector\Injector:
   DataListFilter.FulltextBoolean:
     class: App\ORM\FulltextBooleanFilter
+DNADesign\ElementalUserForms\Model\ElementForm:
+  block_default_userforms_js: true
