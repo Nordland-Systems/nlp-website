@@ -50,7 +50,7 @@ class News extends DataObject
         "Date" => "Datum",
         "Summary" => "Vorschautext",
         "Description" => "Inhalt",
-        "Visible" => "Sichtbar für Gäste",
+        "Visible" => "Sichtbar",
         "Category" => "Kategorie"
     ];
 

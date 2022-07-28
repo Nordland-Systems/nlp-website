@@ -24,7 +24,11 @@ class NewsPageController extends PageController
 
     public function getNews()
     {
-        $news = News::get();
+        $now = date("Y-m-d H:i:s");
+        $news = News::get()->filter(array(
+            "Date:LessThan" => $now,
+            "Visible" => true
+        ))->sort("Date", "DESC");
         $pagelist = new PaginatedList($news, $this->request);
         $pagelist->setPageLength(10);
         return $pagelist;
@@ -82,6 +86,10 @@ class NewsPageController extends PageController
 
     public function LatestUpdates()
     {
-        return News::get()->sort("Date", "DESC")->limit(20);
+        $now = date("Y-m-d H:i:s");
+        return News::get()->filter(array(
+            "Date:LessThan" => $now,
+            "Visible" => true
+        ))->sort("Date", "DESC")->limit(20);
     }
 }
