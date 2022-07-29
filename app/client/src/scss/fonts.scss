@@ -5,6 +5,7 @@
     src: local(''),
     url('../fonts/Metropolis-Regular.woff') format("woff"),
     url('../fonts/Metropolis-Regular.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -14,6 +15,7 @@
     src: local(''),
     url('../fonts/Metropolis-RegularItalic.woff') format("woff"),
     url('../fonts/Metropolis-RegularItalic.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -23,6 +25,7 @@
     src: local(''),
     url('../fonts/Metropolis-Thin.woff') format("woff"),
     url('../fonts/Metropolis-Thin.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -32,6 +35,7 @@
     src: local(''),
     url('../fonts/Metropolis-ThinItalic.woff') format("woff"),
     url('../fonts/Metropolis-ThinItalic.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -41,6 +45,7 @@
     src: local(''),
     url('../fonts/Metropolis-Medium.woff') format("woff"),
     url('../fonts/Metropolis-Medium.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -50,6 +55,7 @@
     src: local(''),
     url('../fonts/Metropolis-MediumItalic.woff') format("woff"),
     url('../fonts/Metropolis-MediumItalic.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -59,6 +65,7 @@
     src: local(''),
     url('../fonts/Metropolis-SemiBold.woff') format("woff"),
     url('../fonts/Metropolis-SemiBold.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -68,6 +75,7 @@
     src: local(''),
     url('../fonts/Metropolis-SemiBoldItalic.woff') format("woff"),
     url('../fonts/Metropolis-SemiBoldItalic.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -77,6 +85,7 @@
     src: local(''),
     url('../fonts/Metropolis-Light.woff') format("woff"),
     url('../fonts/Metropolis-Light.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -86,6 +95,7 @@
     src: local(''),
     url('../fonts/Metropolis-LightItalic.woff') format("woff"),
     url('../fonts/Metropolis-LightItalic.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -95,6 +105,7 @@
     src: local(''),
     url('../fonts/Metropolis-Bold.woff') format("woff"),
     url('../fonts/Metropolis-Bold.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -104,6 +115,7 @@
     src: local(''),
     url('../fonts/Metropolis-BoldItalic.woff') format("woff"),
     url('../fonts/Metropolis-BoldItalic.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -113,6 +125,7 @@
     src: local(''),
     url('../fonts/Metropolis-Black.woff') format("woff"),
     url('../fonts/Metropolis-Black.otf') format("opentype");
+    font-display: swap;
 }
 
 @font-face {
@@ -122,4 +135,5 @@
     src: local(''),
     url('../fonts/Metropolis-BlackItalic.woff') format("woff"),
     url('../fonts/Metropolis-BlackItalic.otf') format("opentype");
+    font-display: swap;
 }

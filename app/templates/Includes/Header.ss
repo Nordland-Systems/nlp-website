@@ -19,9 +19,9 @@
             </label>
         </div>
         <div class="header_topbar_socials">
-            <a href="https://twitter.com/NordlandPark" target="_blank" class="social_button"><img src="images/social_media/logo_twitter.png"></a>
-            <a href="https://discord.gg/V3nCVXn" target="_blank" class="social_button"><img src="images/social_media/logo_discord.png"></a>
-            <a href="https://github.com/Nordland-Systems/nlp-website" target="_blank" class="social_button"><img src="images/social_media/logo_github.png"></a>
+            <a href="https://twitter.com/NordlandPark" target="_blank" class="social_button twitter"><img alt="Twitter Logo" src="images/social_media/logo_twitter.png"></a>
+            <a href="https://discord.gg/V3nCVXn" target="_blank" class="social_button discord"><img alt="Discord Logo" src="images/social_media/logo_discord.png"></a>
+            <a href="https://github.com/Nordland-Systems/nlp-website" target="_blank" class="social_button github"><img alt="Github Logo" src="images/social_media/logo_github.png"></a>
         </div>
         <% if $Locales %>
             <div class="header_topbar_language">
@@ -42,11 +42,11 @@
     <div class="header_mainbar">
         <nav class="header_mainbar_nav">
             <div class="nav_logo">
-                <a href="" class="nav_brand_white">
-                    <img src="images/NLP_LogoBannerWhite_SVG_wot.svg">
+                <a href="" class="nav_brand_white home">
+                    <img alt="Logo des Nordland-Parks in weiß" src="images/NLP_LogoBannerWhite_SVG_wot.svg">
                 </a>
-                <a href="" class="nav_brand">
-                    <img src="images/NLP_LogoBanner_SVG_wot.svg">
+                <a href="" class="nav_brand home">
+                    <img alt="Logo des Nordland-Parks" src="images/NLP_LogoBanner_SVG_wot.svg">
                 </a>
             </div>
             <div class="nav_menu">
@@ -65,11 +65,11 @@
 
     <div class="header_mobile">
         <div class="header_mobile_socials">
-            <a href="https://twitter.com/NordlandPark" class="social_button"><img src="images/social_media/logo_twitter.png"></a>
-            <a href="https://discord.gg/V3nCVXn" class="social_button"><img src="images/social_media/logo_discord.png"></a>
+            <a href="https://twitter.com/NordlandPark" class="social_button twitter"><img alt="Twitter Logo" src="images/social_media/logo_twitter.png"></a>
+            <a href="https://discord.gg/V3nCVXn" class="social_button discord"><img alt="Discord Logo" src="images/social_media/logo_discord.png"></a>
         </div>
         <a href="../" class="nav_brand">
-            <img src="images/NLP_LogoBanner_SVG_wot.svg">
+            <img alt="Logo des Nordland-Parks" src="images/NLP_LogoBanner_SVG_wot.svg">
         </a>
         <div class="nav_button" data-behaviour="toggle-menu">
             <div class="bar1"></div>
