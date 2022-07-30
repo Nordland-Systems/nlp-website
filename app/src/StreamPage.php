@@ -9,8 +9,11 @@ namespace {
     /**
  * Class \Page
  *
+ * @property int $ElementalAreaID
  * @property int $ImageID
+ * @method \DNADesign\Elemental\Models\ElementalArea ElementalArea()
  * @method \SilverStripe\Assets\Image Image()
+ * @mixin \DNADesign\Elemental\Extensions\ElementalPageExtension
  */
     class StreamPage extends SiteTree
     {

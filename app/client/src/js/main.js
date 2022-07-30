@@ -7,13 +7,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const sticky_menu = document.querySelector('[data-behaviour="sticky-header"]');
 
     //Mobile Menubutton
-    menu_button.addEventListener('click', () => {
-        document.body.classList.toggle('body--show');
-    })
+    if(menu_button){
+        menu_button.addEventListener('click', () => {
+            document.body.classList.toggle('body--show');
+        })
+    }
 
-    totopbutton.addEventListener('click', () => {
-        topFunction();
-    })
+    if(totopbutton){
+        totopbutton.addEventListener('click', () => {
+            topFunction();
+        })
+    }
 
     //Gallery
     const lightbox = GLightbox({
@@ -38,19 +42,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     //Dark Mode Toggle
     var checkbox = document.querySelector('input[name=darkmode]');
-    checkbox.addEventListener('change', function() {
-        if(this.checked) {
-            document.body.classList.add('theme--dark');
-            if(hasAcceptedCookieConsent) {
-                setCookie("darkmode", true, 30);
+    if(checkbox){
+        checkbox.addEventListener('change', function() {
+            if(this.checked) {
+                document.body.classList.add('theme--dark');
+                if(hasAcceptedCookieConsent) {
+                    setCookie("darkmode", true, 30);
+                }
+            } else {
+                document.body.classList.remove('theme--dark');
+                if(hasAcceptedCookieConsent) {
+                    setCookie("darkmode", false, 30);
+                }
             }
-        } else {
-            document.body.classList.remove('theme--dark');
-            if(hasAcceptedCookieConsent) {
-                setCookie("darkmode", false, 30);
-            }
-        }
-    });
+        });
+    }
 
     let dark_mode_wanted = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -60,7 +66,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if(dark_mode_wanted){
         document.body.classList.add('theme--dark');
-        checkbox.checked = true;
+        if(checkbox){
+            checkbox.checked = true;
+        }
     }
 
     //SelfToggleElement
@@ -93,9 +101,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //Table of Contents
     const textContent = document.querySelector('[data-behaviour="textContent"]');
     const tableofcontents = document.querySelector('[data-behaviour="tableofcontents"]');
-    window.onload = function () {
-        TableOfContents();
-    };
+    if(tableofcontents){
+        window.onload = function () {
+            TableOfContents();
+        };
+    }
+
+    //Countdown
+    const countdown = document.querySelector('[data-behaviour="countdown"]');
+    if(countdown) {
+        countdown.innerHTML = "Einen Moment... Es lädt...";
+        const countdownDate = new Date(countdown.getAttribute('data-time')).getTime();
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdown.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdown.innerHTML = "Gleich gehts los!";
+            }
+        }, 1000);
+    }
 });
 
 function setCookie(name,value,days) {

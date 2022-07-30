@@ -1,2 +1,2 @@
-<h1> TEST!</h1>
-Test!
+<h1>Countdown</h1>
+<p data-behaviour="countdown" data-time="$CountdownDateTime"></p>
