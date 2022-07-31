@@ -17,6 +17,7 @@ use SilverStripe\ORM\FieldType\DBDatetime;
  * @property string $End
  * @property boolean $Allday
  * @property string $Description
+ * @property boolean $IsStream
  * @property int $ImageID
  * @property int $LinkID
  * @method \SilverStripe\Assets\Image Image()
@@ -29,7 +30,8 @@ class Event extends DataObject
         "Start" => "Datetime",
         "End" => "Datetime",
         "Allday" => "Boolean",
-        "Description" => "HTMLText"
+        "IsStream" => "Boolean",
+        "Description" => "HTMLText",
     ];
 
     private static $has_one = [
@@ -51,6 +53,8 @@ class Event extends DataObject
         "Description" => "Kurzbeschreibung",
         "Link" => "Link",
         "Allday" => "Ganztägig",
+        "Image" => "Bild",
+        "IsStream" => "Ist Stream",
     ];
 
     private static $summary_fields = [

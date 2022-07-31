@@ -10,6 +10,18 @@
 	}
 }
 
+@keyframes flimmer {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @keyframes bounce {
     0%, 20%, 60%, 100% {
       transform: translateY(0);
@@ -23,3 +35,23 @@
       transform: translateY(-10px);
     }
 }
+
+@keyframes slight_perspective_move {
+    0%, 100% {
+      perspective-origin: 60% 40%;
+    }
+
+    30% {
+        perspective-origin: 50% 50%;
+    }
+
+    70% {
+        perspective-origin: 40% 30%;
+    }
+}
+
+@keyframes firework {
+    0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+    50% { width: 0.5vmin; opacity: 1; }
+    100% { width: var(--finalSize); opacity: 0; }
+  }

@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //Countdown
     const countdown = document.querySelector('[data-behaviour="countdown"]');
     if(countdown) {
-        countdown.innerHTML = "Einen Moment... Es lädt...";
+        countdown.innerHTML = "<span>00</span><span>00</span><span>00</span>";
         const countdownDate = new Date(countdown.getAttribute('data-time')).getTime();
         const countdownInterval = setInterval(function() {
             const now = new Date().getTime();
@@ -119,10 +119,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            countdown.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+            var $countdownString = '<span>' + hours + '</span> <span>';
+            if(minutes < 10) {
+                $countdownString += '0';
+            }
+            $countdownString += minutes + '</span> <span>';
+            if(seconds < 10) {
+                $countdownString += '0';
+            }
+            $countdownString += seconds + '</span>';
+            countdown.innerHTML = $countdownString;
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                countdown.innerHTML = "Gleich gehts los!";
+                countdown.innerHTML = "";
+                document.body.classList.add('countdown--ended');
             }
         }, 1000);
     }
