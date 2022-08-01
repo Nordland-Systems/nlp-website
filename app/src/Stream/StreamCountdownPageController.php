@@ -12,8 +12,6 @@ use PageController;
  */
 class StreamCountdownPageController extends PageController
 {
-
     private static $allowed_actions = array (
-
     );
 }

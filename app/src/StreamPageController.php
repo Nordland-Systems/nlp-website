@@ -9,7 +9,7 @@ namespace {
  *
  * @property \StreamPage dataRecord
  * @method \StreamPage data()
- * @mixin \StreamPage
+ * @mixin \StreamPage dataRecord
  */
     class StreamPageController extends ContentController
     {

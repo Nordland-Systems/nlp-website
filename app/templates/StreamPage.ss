@@ -3,7 +3,8 @@
     <head>
         <% base_tag %>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <meta name="description" content="$MetaDescription">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8">
         <title>$Title - $SiteConfig.Title</title>
@@ -16,7 +17,7 @@
         <meta property="og:title" content="$Title - $SiteConfig.Title" />
         <meta property="og:site_name" content="$Title" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="$Description">
+        <meta property="og:description" content="$MetaDescription">
         <meta property="og:url" content="$Link" />
         <% if $Image %>
         <meta property="og:image" content="$Image.Link" />
