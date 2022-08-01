@@ -21,7 +21,7 @@
         align-items: center;
         justify-content: center;
         width: 50%;
-        padding-bottom: 50px;
+        padding-bottom: 100px;
 
         h1{
             font-size: 5vh;
@@ -87,6 +87,7 @@
             .countdown_keys{
                 display: flex;
                 font-size: 3vh;
+                margin: 5px 0;
                 span{
                     display: block;
                     padding: px;
@@ -101,7 +102,7 @@
             }
 
             .countdown_starting_next{
-                display: block;
+                display: none;
                 max-height: 0px;
                 opacity: 0;
                 font-size: 7vh;
