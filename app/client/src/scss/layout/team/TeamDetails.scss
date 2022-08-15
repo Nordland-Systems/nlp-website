@@ -12,10 +12,14 @@
 
         .teammember_item_image{
             width: 100%;
-            max-width: 500px;
+            max-width: 300px;
             aspect-ratio: 1;
             overflow: hidden;
             border-radius: 50%;
+        }
+
+        .social_icons{
+            display: flex;
         }
     }
 }

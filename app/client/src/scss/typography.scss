@@ -59,9 +59,13 @@ h4{
     font-weight: 400;
 }
 
+li{
+    line-height: 1.4;
+}
+
 a{
     cursor: pointer;
-    color: var(--colorPrimaryDark);
+    color: $colorPrimary;
     text-decoration: none;
 
     &.centered{
@@ -74,6 +78,10 @@ a{
 
     &.white{
         color: $colorWhite;
+    }
+
+    .theme--dark &{
+        color: $colorSecondary;
     }
 
     &.link--button{
