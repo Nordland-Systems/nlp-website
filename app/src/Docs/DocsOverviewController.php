@@ -6,6 +6,8 @@ use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\PasswordField;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\PermissionProvider;
 
 /**
  * Class \App\Docs\DocsPageController
@@ -14,7 +16,7 @@ use SilverStripe\Forms\PasswordField;
  * @method \App\Docs\DocsOverview data()
  * @mixin \App\Docs\DocsOverview dataRecord
  */
-class DocsOverviewController extends PageController
+class DocsOverviewController extends PageController implements PermissionProvider
 {
 
     private static $allowed_actions = [
@@ -54,7 +56,8 @@ class DocsOverviewController extends PageController
     public function view()
     {
         $id = $this->getRequest()->param("ID");
-        $article = Docs::get()->byId($id);
+        $deformatted = str_replace('_', ' ', $id);
+        $article = Docs::get()->filter("Title", $deformatted)->first();
         return array(
             "Doc" => $article,
             "OtherDocs" => Docs::get()->exclude("ID", $id),
@@ -73,7 +76,8 @@ class DocsOverviewController extends PageController
     public function attraction()
     {
         $id = $this->getRequest()->param("ID");
-        $article = DocsAttraction::get()->byId($id);
+        $deformatted = str_replace('_', ' ', $id);
+        $article = DocsAttraction::get()->filter("Title", $deformatted)->first();
         return array(
             "Attraction" => $article,
         );
@@ -112,5 +116,17 @@ class DocsOverviewController extends PageController
         } else {
             return false;
         }
+    }
+
+    public function providePermissions()
+    {
+        return [
+            'VIEW_DOCS' => 'Access Docs'
+        ];
+    }
+
+    public function getDocsPermission()
+    {
+        return Permission::check("VIEW_DOCS");
     }
 }

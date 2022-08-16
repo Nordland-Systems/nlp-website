@@ -12,13 +12,15 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 /**
  * Class \App\Events\Event
  *
- * @property string $AttractionID
  * @property string $Title
+ * @property string $AttractionID
  * @property string $Type
  * @property string $Description
  * @property string $Area
  * @property string $Price
  * @property string $Capacity
+ * @property boolean $VisibleToGuests
+ * @property boolean $VisibleToDreamteam
  * @property int $HeaderImageID
  * @property int $SvgIconID
  * @method \SilverStripe\Assets\Image HeaderImage()
@@ -30,13 +32,15 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 class DocsAttraction extends DataObject
 {
     private static $db = [
-        "AttractionID" => "Varchar(10)",
         "Title" => "Varchar(255)",
+        "AttractionID" => "Varchar(10)",
         "Type" => "Varchar(255)",
         "Description" => "HTMLText",
         "Area" => "Varchar(255)",
         "Price" => "Varchar(255)",
-        "Capacity" => "Varchar(255)"
+        "Capacity" => "Varchar(255)",
+        "VisibleToGuests" => "Boolean",
+        "VisibleToDreamteam" => "Boolean"
     ];
 
     private static $has_one = [
@@ -52,6 +56,11 @@ class DocsAttraction extends DataObject
         "HeaderImage",
         "SvgIcon",
         "AttractionInfos"
+    ];
+
+    private static $defaults = [
+        "VisibleToGuests" => false,
+        "VisibleToDreamteam" => true,
     ];
 
     private static $default_sort = "Title DESC";
@@ -114,5 +123,10 @@ class DocsAttraction extends DataObject
         $fields->addFieldToTab('Root.Infos', $gridfield);
 
         return $fields;
+    }
+
+    public function getFormattedName()
+    {
+        return str_replace(' ', '_', $this->Title);
     }
 }

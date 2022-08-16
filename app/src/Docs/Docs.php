@@ -12,7 +12,8 @@ use SilverStripe\Forms\CheckboxSetField;
  *
  * @property string $Title
  * @property string $Description
- * @property boolean $Visible
+ * @property boolean $VisibleToGuests
+ * @property boolean $VisibleToDreamteam
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
@@ -22,7 +23,8 @@ class Docs extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
-        "Visible" => "Boolean"
+        "VisibleToGuests" => "Boolean",
+        "VisibleToDreamteam" => "Boolean"
     ];
 
     private static $has_one = [
@@ -34,7 +36,8 @@ class Docs extends DataObject
     ];
 
     private static $defaults = [
-        "Visible" => true,
+        "VisibleToGuests" => false,
+        "VisibleToDreamteam" => true,
     ];
 
     private static $many_many = [
@@ -128,5 +131,10 @@ class Docs extends DataObject
     public function getFirstCategory()
     {
         return $this->Categories->first();
+    }
+
+    public function getFormattedName()
+    {
+        return str_replace(' ', '_', $this->Title);
     }
 }
