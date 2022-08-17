@@ -25,6 +25,9 @@
         </div>
         <div class="section_content" data-behaviour="textContent">
             $Description
+            <a href="{$Top.Link}pdf/$FormattedName" class="link--export" target="_blank">
+                <p>Als PDF exportieren</p>
+            </a>
         </div>
     </div>
 

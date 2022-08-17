@@ -11,8 +11,8 @@ use SilverStripe\Assets\Image;
  *
  * @property string $Title
  * @property string $Description
- * @property boolean $VisibleToGuests
- * @property boolean $VisibleToDreamteam
+ * @property bool $VisibleToGuests
+ * @property bool $VisibleToDreamteam
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\Docs[] Docs()
@@ -48,7 +48,8 @@ class DocsCategory extends DataObject
     private static $field_labels = [
         "Title" => "Titel",
         "Description" => "Kurzbeschreibung",
-        "Visible" => "Sichtbar für Gäste",
+        "VisibleToGuests" => "Sichtbar für Gäste",
+        "VisibleToDreamteam" => "Sichtbar für Dreamteam",
     ];
 
     private static $summary_fields = [

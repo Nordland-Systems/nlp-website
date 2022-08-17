@@ -8,7 +8,7 @@ use PageController;
  *
  * @property \App\Stream\StreamCountdownPage dataRecord
  * @method \App\Stream\StreamCountdownPage data()
- * @mixin \App\Stream\StreamCountdownPage dataRecord
+ * @mixin \App\Stream\StreamCountdownPage
  */
 class StreamCountdownPageController extends PageController
 {

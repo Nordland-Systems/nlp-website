@@ -14,7 +14,7 @@ namespace {
  *
  * @property \Page dataRecord
  * @method \Page data()
- * @mixin \Page dataRecord
+ * @mixin \Page
  */
     class PageController extends ContentController
     {

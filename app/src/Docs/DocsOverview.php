@@ -11,7 +11,7 @@ use SilverStripe\Forms\CheckboxField;
 /**
  * Class \App\Docs\DocsHolder
  *
- * @property boolean $VisibleToGuests
+ * @property bool $VisibleToGuests
  */
 class DocsOverview extends Page
 {

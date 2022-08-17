@@ -12,8 +12,8 @@ use SilverStripe\Forms\CheckboxSetField;
  *
  * @property string $Title
  * @property string $Description
- * @property boolean $VisibleToGuests
- * @property boolean $VisibleToDreamteam
+ * @property bool $VisibleToGuests
+ * @property bool $VisibleToDreamteam
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
@@ -49,7 +49,8 @@ class Docs extends DataObject
     private static $field_labels = [
         "Title" => "Titel",
         "Description" => "Inhalt",
-        "Visible" => "Sichtbar für Gäste",
+        "VisibleToGuests" => "Sichtbar für Gäste",
+        "VisibleToDreamteam" => "Sichtbar für Dreamteam",
         "Categories" => "Kategorien"
     ];
 
@@ -136,5 +137,11 @@ class Docs extends DataObject
     public function getFormattedName()
     {
         return str_replace(' ', '_', $this->Title);
+    }
+
+    // Can be used to link to pdf in templates etc
+    public function PDFLink()
+    {
+        return 'docs/view/' . $this->getFormattedName() . '/pdf';
     }
 }

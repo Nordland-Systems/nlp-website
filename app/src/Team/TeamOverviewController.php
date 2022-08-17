@@ -8,7 +8,7 @@ use PageController;
  *
  * @property \App\Team\TeamOverview dataRecord
  * @method \App\Team\TeamOverview data()
- * @mixin \App\Team\TeamOverview dataRecord
+ * @mixin \App\Team\TeamOverview
  */
 class TeamOverviewController extends PageController {
 

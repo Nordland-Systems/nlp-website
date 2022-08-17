@@ -19,8 +19,8 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property string $Area
  * @property string $Price
  * @property string $Capacity
- * @property boolean $VisibleToGuests
- * @property boolean $VisibleToDreamteam
+ * @property bool $VisibleToGuests
+ * @property bool $VisibleToDreamteam
  * @property int $HeaderImageID
  * @property int $SvgIconID
  * @method \SilverStripe\Assets\Image HeaderImage()
@@ -74,7 +74,9 @@ class DocsAttraction extends DataObject
         "HeaderImage" => "Headerbild",
         "AttractionInfos" => "Infos",
         "Price" => "Vorraussichtliche Kosten",
-        "Capacity" => "Kapazität pro Stunde"
+        "Capacity" => "Kapazität pro Stunde",
+        "VisibleToGuests" => "Sichtbar für Gäste",
+        "VisibleToDreamteam" => "Sichtbar für Dreamteam",
     ];
 
     private static $summary_fields = [
