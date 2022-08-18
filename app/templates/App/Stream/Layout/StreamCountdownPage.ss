@@ -57,5 +57,13 @@
             <img alt="Discord Logo" src="images/social_media/logo_discord.png">
             <p>discord.gg/V3nCVXn</p>
         </div>
+        <div class="social_button instagram">
+            <img alt="Instagram Logo" src="images/social_media/logo_instagram.png">
+            <p>nordlandpark</p>
+        </div>
+        <div class="social_button website">
+            <img alt="Website Logo" src="images/social_media/logo_website2.png">
+            <p>nordland-park.de</p>
+        </div>
     </div>
 </div>
