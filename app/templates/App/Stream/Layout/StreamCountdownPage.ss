@@ -7,8 +7,11 @@
                     <% if $NextStream %>
                         <h1>$NextStream.Title</h1>
                         <h2>startet in etwa</h2>
-                        <p class="countdown" data-behaviour="countdown" data-time="$NextStream.Start"></p>
-                        <p class="countdown_keys"><span>Stunden</span><span>Minuten</span><span>Sekunden</span></p>
+                        <div class="countdown" data-behaviour="countdown" data-time="$NextStream.Start">
+                            <p class="countdown_part" data-behaviour="countdown_hours"></p>
+                            <p class="countdown_part" data-behaviour="countdown_minutes"></p>
+                            <p class="countdown_part" data-behaviour="countdown_seconds"></p>
+                        </div>
                         <p class="countdown_starting_next">Gleich geht es los!</p>
                         <div class="stream_description">$NextStream.Description</div>
                     <% else %>
