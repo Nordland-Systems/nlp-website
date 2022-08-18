@@ -1,9 +1,5 @@
 .section.section--chronic{
     .section_content{
-        padding: 40px 0;
-        .section_title{
-
-        }
 
         .section_list{
             .list_item{
@@ -11,13 +7,13 @@
                 align-items: stretch;
 
                 .list_item_timeline{
-                    min-width: 50px;
+                    min-width: 30px;
                     position: relative;
 
                     .circle{
                         display: block;
                         position: absolute;
-                        left: 15px;
+                        left: px;
                         top: 25px;
                         width: 15px;
                         height: 15px;
@@ -26,7 +22,7 @@
                     }
                     .line{
                         position: absolute;
-                        left: 21px;
+                        left: 6px;
                         top: 50px;
                         height: calc(100% - 35px);
                         display: block;
@@ -48,6 +44,10 @@
                         overflow: hidden;
                         transition: max-height 0.2s ease-in-out;
                         margin-bottom: 10px;
+
+                        img{
+                            max-width: 100%;
+                        }
                     }
                 }
 

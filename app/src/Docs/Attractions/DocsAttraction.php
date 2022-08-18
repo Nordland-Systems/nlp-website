@@ -63,7 +63,7 @@ class DocsAttraction extends DataObject
         "VisibleToDreamteam" => true,
     ];
 
-    private static $default_sort = "Title DESC";
+    private static $default_sort = "Title ASC";
 
     private static $field_labels = [
         "AttractionID" => "Attraktions-ID",

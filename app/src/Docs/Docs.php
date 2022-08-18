@@ -46,7 +46,7 @@ class Docs extends DataObject
         "Categories" => DocsCategory::class
     ];
 
-    private static $default_sort = "Title DESC";
+    private static $default_sort = "Title ASC";
 
     private static $field_labels = [
         "Title" => "Titel",
