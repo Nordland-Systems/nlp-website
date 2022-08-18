@@ -109,8 +109,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     //Countdown
     const countdown = document.querySelector('[data-behaviour="countdown"]');
+    const countdown_hours = document.querySelector('[data-behaviour="countdown_hours"]');
+    const countdown_minutes = document.querySelector('[data-behaviour="countdown_minutes"]');
+    const countdown_seconds = document.querySelector('[data-behaviour="countdown_seconds"]');
     if(countdown) {
-        countdown.innerHTML = "<span>00</span><span>00</span><span>00</span>";
         const countdownDate = new Date(countdown.getAttribute('data-time')).getTime();
         const countdownInterval = setInterval(function() {
             const now = new Date().getTime();
@@ -119,16 +121,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            var $countdownString = '<span>' + hours + '</span> <span>';
-            if(minutes < 10) {
-                $countdownString += '0';
+            const totalhours = (days*24)+hours;
+
+            if(totalhours > 0){
+                var $countdownStringHours = '<p>' + hours + '</p> <p class="small">Stunden</p>';
+                countdown_hours.innerHTML = $countdownStringHours;
+            } else {
+                countdown_hours.classList.add('countdown--hiddenpart');
             }
-            $countdownString += minutes + '</span> <span>';
-            if(seconds < 10) {
-                $countdownString += '0';
+
+            if(totalhours < 1 && minutes < 1){
+                countdown_minutes.classList.add('countdown--hiddenpart');
+            } else {
+                if(minutes > 9){
+                    countdown_minutes.innerHTML = '<p>' + minutes + '</p> <p class="small">Minuten</p>';
+                } else {
+                    countdown_minutes.innerHTML = '<p>0' + minutes + '</p> <p class="small">Minuten</p>';
+                }
             }
-            $countdownString += seconds + '</span>';
-            countdown.innerHTML = $countdownString;
+
+            if(seconds > 9){
+                countdown_seconds.innerHTML = '<p>' + seconds + '</p> <p class="small">Sekunden</p>';
+            } else {
+                countdown_seconds.innerHTML = '<p>0' + seconds + '</p> <p class="small">Sekunden</p>';
+            }
+
             if (distance < 0) {
                 clearInterval(countdownInterval);
                 countdown.innerHTML = "";
