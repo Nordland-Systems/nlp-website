@@ -5,7 +5,9 @@ namespace App\Docs;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
+use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\SnapshotAdmin\SnapshotHistoryExtension;
 
 /**
  * Class \App\Docs\Docs

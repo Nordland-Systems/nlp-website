@@ -28,7 +28,11 @@
             <a href="{$Top.Link}pdf/$FormattedName" class="link--export" target="_blank">
                 <p>Als PDF exportieren</p>
             </a>
+            <br>
+            <br>
+            <p>Zuletzt bearbeitet am $LastEdited.Format(d.m.Y HH:mm)</p>
         </div>
     </div>
+
 
 <% end_with %>
