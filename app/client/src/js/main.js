@@ -119,7 +119,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            var $countdownString = '<span>' + hours + '</span> <span>';
+            const totalhours = (days*24)+hours;
+            var $countdownString = '<span>' + totalhours + '</span> <span>';
             if(minutes < 10) {
                 $countdownString += '0';
             }

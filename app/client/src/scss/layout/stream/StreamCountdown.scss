@@ -20,7 +20,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 50%;
+        width: 100%;
         padding-bottom: 100px;
 
         h1{
@@ -43,99 +43,131 @@
             display: block;
             text-align: center;
             max-width: 30%;
+            max-height: 300px;
             margin-bottom: 5px;
         }
 
-        .countdown_timer{
-            display: block;
-            text-align: center;
-            width: 100%;
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 40px;
-            background-color: rgba(0,0,0,0.2);
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        .countdown_middle{
+            display: flex;
+            width: 90%;
+            min-height: 500px;
+            justify-content: center;
+            align-items: center;
 
-            .countdown{
-                display: grid;
-                margin-top: 20px;
-                margin-bottom: 5px;
-                grid-template-columns: repeat(3, calc(100% / 3));
-                font-size: 5vh;
-                span{
-                    margin: 0 20px;
+            p, h1, h2{
+                color:white;
+            }
+
+            .countdown_timer{
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                backdrop-filter: blur(10px);
+                padding: 30px;
+                border-radius: 40px;
+                background-color: rgba(0,0,0,0.2);
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+                .countdown{
+                    width: 100%;
+                    display: grid;
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                    grid-template-columns: repeat(3, calc(100% / 3));
+                    font-size: 5vh;
+                    span{
+                        margin: 0 20px;
+                        display: block;
+                        padding: 0 15px;
+                        font-size: 12vh;
+                        line-height: 130%;
+                        font-weight: 500;
+                        border-radius: $simpleRadius;
+                        background-color: $colorPrimary;
+                    }
+
+                    .countdown--ended & {
+                        margin: 0;
+                    }
+                }
+
+                .no_planned_stream{
                     display: block;
-                    padding: 0 15px;
-                    font-size: 12vh;
-                    line-height: 130%;
+                    font-size: 5vh;
+                    margin: 0;
+                }
+
+                .countdown_keys{
+                    display: grid;
+                    font-size: 3vh;
+                    margin: 5px 0;
+                    width: 100%;
+                    grid-template-columns: repeat(3, calc(100% / 3));
+                    justify-content: center;
+                    span{
+                        display: block;
+                    }
+
+                    .countdown--ended & {
+                        opacity: 0;
+                        max-height: 0px;
+                        margin: 0;
+                    }
+                }
+
+                .countdown_starting_next{
+                    display: none;
+                    max-height: 0px;
+                    opacity: 0;
+                    font-size: 7vh;
+                    line-height: 150%;
                     font-weight: 500;
                     border-radius: $simpleRadius;
                     background-color: $colorPrimary;
-                }
-
-                .countdown--ended & {
+                    padding: 20px;
+                    width: 100%;
+                    transition: 0.5s ease-in-out;
+                    overflow: hidden;
                     margin: 0;
+
+                    .countdown--ended &{
+                        display: block;
+                        opacity: 1;
+                        max-height: 200px;
+                    }
                 }
-            }
 
-            .no_planned_stream{
-                display: block;
-                font-size: 5vh;
-                margin: 0;
-            }
-
-            .countdown_keys{
-                display: flex;
-                font-size: 3vh;
-                margin: 5px 0;
-                span{
+                .stream_description{
                     display: block;
-                    padding: px;
-                    width: calc(100% / 3);
+                    font-size: 2vh;
+
+                    .countdown--ended & {
+                        margin-top: 20px;
+                    }
                 }
 
-                .countdown--ended & {
-                    opacity: 0;
-                    max-height: 0px;
-                    margin: 0;
-                }
-            }
-
-            .countdown_starting_next{
-                display: none;
-                max-height: 0px;
-                opacity: 0;
-                font-size: 7vh;
-                line-height: 150%;
-                font-weight: 500;
-                border-radius: $simpleRadius;
-                background-color: $colorPrimary;
-                padding: 20px;
-                width: 100%;
-                transition: 0.5s ease-in-out;
-                overflow: hidden;
-                margin: 0;
-
-                .countdown--ended &{
+                .stream_logo{
                     display: block;
-                    opacity: 1;
-                    max-height: 200px;
+                    max-width: 300px;
+                    margin: 0 auto;
                 }
             }
 
-            .stream_description{
+            .countdown_chat{
+                width: 25%;
+                height: 100%;
                 display: block;
-                font-size: 2vh;
-
-                .countdown--ended & {
-                    margin-top: 20px;
-                }
-            }
-
-            .stream_logo{
-                display: block;
-                max-width: 300px;
-                margin: 0 auto;
+                text-align: center;
+                backdrop-filter: blur(10px);
+                padding: 30px;
+                margin-left: 5%;
+                border-radius: 40px;
+                background-color: rgba(0,0,0,0.2);
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
             }
         }
     }
