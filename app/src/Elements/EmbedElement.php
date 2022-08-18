@@ -8,7 +8,6 @@ use SilverStripe\Forms\TextareaField;
 /**
  * Class \App\Elements\EmbedElement
  *
- * @package elemental
  * @property string $EmbedCode
  */
 class EmbedElement extends BaseElement

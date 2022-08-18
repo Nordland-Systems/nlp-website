@@ -13,6 +13,11 @@
             <% end_loop %>
 
         </ul>
+        <% if $CurrentMember %>
+            <div class="footer_loginstatus">
+                <p class="currentuser">Eingeloggt als '$CurrentUser.Name' <a class="button hollow white" href="home/logout">Logout</a></p>
+            </div>
+        <% end_if %>
         <div class="footer_menu_socials">
             <a href="https://twitter.com/NordlandPark" target="_blank" class="social_button"><img alt="Twitter Logo" src="images/social_media/logo_twitter.png"></a>
             <a href="https://discord.gg/V3nCVXn" target="_blank" class="social_button"><img alt="Discord Logo" src="images/social_media/logo_discord.png"></a>

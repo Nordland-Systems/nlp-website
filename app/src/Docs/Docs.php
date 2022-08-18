@@ -12,7 +12,8 @@ use SilverStripe\Forms\CheckboxSetField;
  *
  * @property string $Title
  * @property string $Description
- * @property boolean $Visible
+ * @property bool $VisibleToGuests
+ * @property bool $VisibleToDreamteam
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
@@ -22,7 +23,8 @@ class Docs extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
-        "Visible" => "Boolean"
+        "VisibleToGuests" => "Boolean",
+        "VisibleToDreamteam" => "Boolean"
     ];
 
     private static $has_one = [
@@ -34,7 +36,8 @@ class Docs extends DataObject
     ];
 
     private static $defaults = [
-        "Visible" => true,
+        "VisibleToGuests" => false,
+        "VisibleToDreamteam" => true,
     ];
 
     private static $many_many = [
@@ -46,7 +49,8 @@ class Docs extends DataObject
     private static $field_labels = [
         "Title" => "Titel",
         "Description" => "Inhalt",
-        "Visible" => "Sichtbar für Gäste",
+        "VisibleToGuests" => "Sichtbar für Gäste",
+        "VisibleToDreamteam" => "Sichtbar für Dreamteam",
         "Categories" => "Kategorien"
     ];
 
@@ -128,5 +132,16 @@ class Docs extends DataObject
     public function getFirstCategory()
     {
         return $this->Categories->first();
+    }
+
+    public function getFormattedName()
+    {
+        return str_replace(' ', '_', $this->Title);
+    }
+
+    // Can be used to link to pdf in templates etc
+    public function PDFLink()
+    {
+        return 'docs/view/' . $this->getFormattedName() . '/pdf';
     }
 }

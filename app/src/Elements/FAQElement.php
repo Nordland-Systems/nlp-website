@@ -10,7 +10,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 /**
  * Class \App\Elements\TimelineElement
  *
- * @property boolean $IsCollapsible
+ * @property bool $IsCollapsible
  * @method \SilverStripe\ORM\DataList|\App\Elements\FAQItem[] FAQItems()
  */
 class FAQElement extends BaseElement

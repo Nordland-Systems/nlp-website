@@ -1,0 +1,6 @@
+---
+Name: routes
+---
+SilverStripe\Control\Director:
+  rules:
+    'pdf': 'mynamespace/PDFController'

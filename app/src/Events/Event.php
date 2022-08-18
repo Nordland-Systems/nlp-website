@@ -15,9 +15,9 @@ use SilverStripe\ORM\FieldType\DBDatetime;
  * @property string $Title
  * @property string $Start
  * @property string $End
- * @property boolean $Allday
+ * @property bool $Allday
+ * @property bool $IsStream
  * @property string $Description
- * @property boolean $IsStream
  * @property int $ImageID
  * @property int $LinkID
  * @method \SilverStripe\Assets\Image Image()

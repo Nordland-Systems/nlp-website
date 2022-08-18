@@ -16,7 +16,7 @@ use SilverStripe\Security\Permission;
  * @property string $Summary
  * @property string $Description
  * @property string $ImageDescription
- * @property boolean $Visible
+ * @property bool $Visible
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  */

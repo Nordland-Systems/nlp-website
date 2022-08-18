@@ -11,7 +11,8 @@ use SilverStripe\Assets\Image;
  *
  * @property string $Title
  * @property string $Description
- * @property boolean $Visible
+ * @property bool $VisibleToGuests
+ * @property bool $VisibleToDreamteam
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\Docs[] Docs()
@@ -21,7 +22,8 @@ class DocsCategory extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
-        "Visible" => "Boolean"
+        "VisibleToGuests" => "Boolean",
+        "VisibleToDreamteam" => "Boolean"
     ];
 
     private static $has_one = [
@@ -33,7 +35,8 @@ class DocsCategory extends DataObject
     ];
 
     private static $defaults = [
-        "Visible" => true,
+        "VisibleToGuests" => true,
+        "VisibleToDreamteam" => true,
     ];
 
     private static $belongs_many_many = [
@@ -45,7 +48,8 @@ class DocsCategory extends DataObject
     private static $field_labels = [
         "Title" => "Titel",
         "Description" => "Kurzbeschreibung",
-        "Visible" => "Sichtbar für Gäste",
+        "VisibleToGuests" => "Sichtbar für Gäste",
+        "VisibleToDreamteam" => "Sichtbar für Dreamteam",
     ];
 
     private static $summary_fields = [
@@ -107,5 +111,15 @@ class DocsCategory extends DataObject
         $admin = DocsAdmin::singleton();
         $urlClass = str_replace('\\', '-', self::class);
         return $admin->Link("/{$urlClass}/EditForm/field/{$urlClass}/item/{$this->ID}/edit");
+    }
+
+    public function PublicDocs()
+    {
+        return $this->Docs()->filter(["VisibleToGuests" => true]);
+    }
+
+    public function getFormattedName()
+    {
+        return str_replace(' ', '_', $this->Title);
     }
 }

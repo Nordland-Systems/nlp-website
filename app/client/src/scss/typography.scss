@@ -84,6 +84,57 @@ a{
         color: $colorSecondary;
     }
 
+    &.link--export{
+        border-color: $colorPrimary;
+
+        padding: 5px 15px 5px 45px;
+        position: relative;
+        display: inline-block;
+        border: 1px solid $colorPrimary;
+        border-radius: 20px;
+        font-weight: 500;
+        transition: 0.2s ease-in-out;
+        p{
+            color: $colorPrimary;
+            margin: 0;
+            padding: 0;
+        }
+
+        &::before{
+            content: "";
+            mask-image: url('../../icons/docs.svg');
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: $colorPrimary;
+        }
+
+        &:hover{
+            background-color: $colorPrimary;
+
+            p{
+                color: $colorWhite;
+            }
+
+            &::before{
+                content: "";
+                mask-image: url('../../icons/docs.svg');
+                display: inline-block;
+                height: 20px;
+                width: 20px;
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: $colorWhite;
+            }
+        }
+    }
+
     &.link--button{
         display: inline-block;
         padding: 10px 20px;
@@ -97,6 +148,12 @@ a{
             position: relative;
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        &.right{
+            position: relative;
+            right: 0px;
+            text-align: right;
         }
 
         &.hollow{

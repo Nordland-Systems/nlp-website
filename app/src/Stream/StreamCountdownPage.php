@@ -11,7 +11,7 @@ use SilverStripe\Forms\DatetimeField;
  * Class \App\Docs\DocsPage
  *
  * @property string $CountdownDateTime
- * @property boolean $UseNextStream
+ * @property bool $UseNextStream
  */
 class StreamCountdownPage extends StreamPage
 {

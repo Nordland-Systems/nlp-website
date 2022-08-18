@@ -12,7 +12,7 @@ use SilverStripe\Control\RSS\RSSFeed;
  *
  * @property \App\News\NewsPage dataRecord
  * @method \App\News\NewsPage data()
- * @mixin \App\News\NewsPage dataRecord
+ * @mixin \App\News\NewsPage
  */
 class NewsPageController extends PageController
 {
