@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const totalhours = (days*24)+hours;
 
             if(totalhours > 0){
-                var $countdownStringHours = '<p>' + hours + '</p> <p class="small">Stunden</p>';
+                var $countdownStringHours = '<p>' + totalhours + '</p> <p class="small">Stunden</p>';
                 countdown_hours.innerHTML = $countdownStringHours;
             } else {
                 countdown_hours.classList.add('countdown--hiddenpart');
