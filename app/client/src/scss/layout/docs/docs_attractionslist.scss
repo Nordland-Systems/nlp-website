@@ -122,5 +122,28 @@
             }
         }
 
+        .area_list{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            .area_item{
+                background-color: var(--colorPrimaryDark);
+                overflow: hidden;
+                border-radius: 20px;
+                margin: 20px 0;
+                padding: 10px;
+                gap: 10px;
+                color: var(--colorWhite);
+                position: relative;
+                z-index: 10;
+                transition: 0.3s ease-in-out;
+
+                h2{
+                    margin: 0;
+                }
+            }
+        }
     }
 }
