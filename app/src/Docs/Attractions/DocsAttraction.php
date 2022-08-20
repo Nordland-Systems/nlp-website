@@ -21,6 +21,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property string $Capacity
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
+ * @property int $ThrillIntensity
  * @property int $HeaderImageID
  * @property int $SvgIconID
  * @property int $AreaID
@@ -42,7 +43,8 @@ class DocsAttraction extends DataObject
         "Price" => "Varchar(255)",
         "Capacity" => "Varchar(255)",
         "VisibleToGuests" => "Boolean",
-        "VisibleToDreamteam" => "Boolean"
+        "VisibleToDreamteam" => "Boolean",
+        "ThrillIntensity" => "Int",
     ];
 
     private static $has_one = [
@@ -64,6 +66,7 @@ class DocsAttraction extends DataObject
     private static $defaults = [
         "VisibleToGuests" => false,
         "VisibleToDreamteam" => true,
+        "ThrillIntensity" => 5,
     ];
 
     private static $default_sort = "Title ASC";
@@ -73,7 +76,7 @@ class DocsAttraction extends DataObject
         "Title" => "Titel",
         "Type" => "Typ",
         "TypeLink" => "Link zum Typ",
-        "Description" => "Kurzbeschreibung",
+        "Description" => "Beschreibung",
         "Area" => "Themenbereich",
         "HeaderImage" => "Headerbild",
         "AttractionInfos" => "Infos",
@@ -81,6 +84,7 @@ class DocsAttraction extends DataObject
         "Capacity" => "Kapazität pro Stunde",
         "VisibleToGuests" => "Sichtbar für Gäste",
         "VisibleToDreamteam" => "Sichtbar für Dreamteam",
+        "ThrillIntensity" => "Thrill Intensität (0-10)",
     ];
 
     private static $summary_fields = [
@@ -88,11 +92,11 @@ class DocsAttraction extends DataObject
         "AttractionID" => "Attraktions-ID",
         "Title" => "Titel",
         "Type" => "Typ",
-        "Area" => "Themenbereich",
+        "Area.Title" => "Themenbereich",
     ];
 
     private static $searchable_fields = [
-        "AttractionID", "Title", "Type", "Description", "Area"
+        "AttractionID", "Title", "Type", "Description"
     ];
 
     private static $table_name = "Attraction";
