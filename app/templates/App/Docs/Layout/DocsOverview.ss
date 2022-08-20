@@ -42,6 +42,20 @@
     <% if $DocsPermission %>
         <div class="section section--docs_attractionslist">
             <div class="section_content">
+                <h2 class="centered">Themenbereiche</h2>
+                <div class="area_list">
+                    <% loop Areas.Filter("VisibleToDreamteam","1") %>
+                        <a href="$Top.Link('area')/$FormattedName" class="area_item">
+                            <% if $HeaderImage %>
+                                <div class="item_image">
+                                    $Image.FocusFill(300, 200)
+                                </div>
+                            <% end_if %>
+                            <h2 class="item_title white">$Title</h2>
+                        </a>
+                    <% end_loop %>
+                </div>
+
                 <h2 class="centered">Attraktionen</h2>
                 <% loop Attractions.Filter("VisibleToDreamteam","1") %>
                     <a href="$Top.Link('attraction')/$FormattedName" class="attraction_item">
@@ -56,7 +70,7 @@
                             </div>
                         <% end_if %>
                         <h2 class="item_title white">$Title</h2>
-                        <p class="item_id white">$AttractionID (<% if $Type %> $Type <% end_if %> <% if $Area %> in $Area <% end_if %>)</p>
+                        <p class="item_id white">$AttractionID (<% if $Type %> $Type <% end_if %> <% if $Area %> in $Area.Title <% end_if %>)</p>
                         <% if PhotoGalleryImages %>
                             <div class="item_gallery">
                                 <% loop PhotoGalleryImages.Limit(3) %>

@@ -15,16 +15,18 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property string $Title
  * @property string $AttractionID
  * @property string $Type
+ * @property string $TypeLink
  * @property string $Description
- * @property string $Area
  * @property string $Price
  * @property string $Capacity
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
  * @property int $HeaderImageID
  * @property int $SvgIconID
+ * @property int $AreaID
  * @method \SilverStripe\Assets\Image HeaderImage()
  * @method \SilverStripe\Assets\File SvgIcon()
+ * @method \App\Docs\DocsArea Area()
  * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
  * @method \SilverStripe\ORM\DataList|\App\Docs\DocsAttractionInfo[] AttractionInfos()
  * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
@@ -35,8 +37,8 @@ class DocsAttraction extends DataObject
         "Title" => "Varchar(255)",
         "AttractionID" => "Varchar(10)",
         "Type" => "Varchar(255)",
+        "TypeLink" => "Varchar(255)",
         "Description" => "HTMLText",
-        "Area" => "Varchar(255)",
         "Price" => "Varchar(255)",
         "Capacity" => "Varchar(255)",
         "VisibleToGuests" => "Boolean",
@@ -46,6 +48,7 @@ class DocsAttraction extends DataObject
     private static $has_one = [
         "HeaderImage" => Image::class,
         "SvgIcon" => File::class,
+        "Area" => DocsArea::class,
     ];
 
     private static $has_many = [
@@ -69,6 +72,7 @@ class DocsAttraction extends DataObject
         "AttractionID" => "Attraktions-ID",
         "Title" => "Titel",
         "Type" => "Typ",
+        "TypeLink" => "Link zum Typ",
         "Description" => "Kurzbeschreibung",
         "Area" => "Themenbereich",
         "HeaderImage" => "Headerbild",

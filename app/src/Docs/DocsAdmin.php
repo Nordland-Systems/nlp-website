@@ -12,8 +12,9 @@ class DocsAdmin extends ModelAdmin
 
     private static $managed_models = array (
         Docs::class,
-        DocsAttraction::class,
         DocsCategory::class,
+        DocsAttraction::class,
+        DocsArea::class,
     );
 
     private static $url_segment = "docs";
