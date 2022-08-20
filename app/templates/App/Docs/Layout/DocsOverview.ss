@@ -46,9 +46,9 @@
                 <div class="area_list">
                     <% loop Areas.Filter("VisibleToDreamteam","1") %>
                         <a href="$Top.Link('area')/$FormattedName" class="area_item">
-                            <% if $HeaderImage %>
+                            <% if $Image %>
                                 <div class="item_image">
-                                    $Image.FocusFill(300, 200)
+                                    $Image.FocusFill(200, 50)
                                 </div>
                             <% end_if %>
                             <h2 class="item_title white">$Title</h2>
