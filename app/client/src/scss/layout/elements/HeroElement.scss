@@ -18,8 +18,23 @@
         padding: 0;
         background-size: cover;
         background-position: center;
-        position: relative;
+        position: absolute;
         z-index: -100;
+        transition: opacity 0.1s ease-in-out;
+
+        &.light{
+            opacity: 1;
+            .theme--dark &{
+                opacity: 0;
+            }
+        }
+
+        &.dark{
+            opacity: 0;
+            .theme--dark &{
+                opacity: 1;
+            }
+        }
     }
 
     .section_inner{
