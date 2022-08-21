@@ -73,7 +73,7 @@ a{
     }
 
     &:hover {
-        font-weight: bold;
+        color: $colorPrimaryLight;
     }
 
     &.white{
@@ -132,6 +132,45 @@ a{
                 transform: translateY(-50%);
                 background-color: $colorWhite;
             }
+        }
+    }
+
+    &.link--external{
+        position: relative;
+        display: inline;
+        transition: 0.2s ease-in-out;
+        border-radius: $simpleRadius;
+        display: flex;
+        align-items: center;
+
+        &::after{
+            content: "";
+            mask-image: url('../../icons/external.svg');
+            display: inline;
+            height: 20px;
+            width: 20px;
+            background-color: $colorWhite;
+        }
+
+        &:hover{
+            background-color: $colorPrimary;
+
+            &::before{
+                background-color: $colorWhite;
+            }
+        }
+    }
+
+    &.link--internal{
+        position: relative;
+        display: inline;
+        transition: 0.2s ease-in-out;
+        border-radius: $simpleRadius;
+        display: flex;
+        align-items: center;
+
+        &:hover{
+            background-color: $colorPrimary;
         }
     }
 

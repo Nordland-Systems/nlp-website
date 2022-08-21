@@ -4,11 +4,11 @@
 
     .section_content{
         display: block;
-        height: 400px;
+        height: 500px;
         width: 100%;
-        max-width: 100%;
+        max-width: $maxWidth;
         position: relative;
-        margin-top: 0;
+        margin-top: -20px;
 
         .header_image_wrap {
             position: relative;
@@ -17,14 +17,15 @@
             width: 100%;
             height: 100%;
             margin: 0 auto;
-            background: linear-gradient(180deg, rgba($colorBackground, 1) 1%, rgba($colorBackground, 0) 20%, rgba($colorBackground, 0) 50%, rgba($colorBackground, 0.9) 80%, rgba($colorBackground, 1) 90%);
+            //box-shadow: 0 10px 5px 20px $colorBackground inset;
+            background: linear-gradient(180deg, rgba($colorBackground, 1) 1%, rgba($colorBackground, 0) 10%, rgba($colorBackground, 0) 50%, rgba($colorBackground, 0) 70%, rgba($colorBackground, 1) 90%);
 
             background-color: transparent;
             overflow: hidden;
             position: relative;
 
             .theme--dark &{
-                background: linear-gradient(180deg, rgba($colorPrimaryExtraDark, 1) 0%, rgba($colorPrimaryExtraDark, 0) 10%, rgba($colorPrimaryExtraDark, 0) 50%, rgba($colorPrimaryExtraDark, 0.9) 80%, rgba($colorPrimaryExtraDark, 1) 100%);
+                background: linear-gradient(180deg, rgba($colorPrimaryExtraDark, 1) 1%, rgba($colorPrimaryExtraDark, 0) 10%, rgba($colorPrimaryExtraDark, 0) 50%, rgba($colorPrimaryExtraDark, 0) 70%, rgba($colorPrimaryExtraDark, 1) 100%);
             }
 
             .header_image {

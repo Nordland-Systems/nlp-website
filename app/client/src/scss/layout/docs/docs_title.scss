@@ -1,7 +1,10 @@
 .section.section--docs_title{
+    margin-top: -70px;
     .section_content{
         position: relative;
         margin: 0 auto;
+        display: flex;
+        align-items: center;
         a{
             margin-top: 10px;
             margin-bottom: 30px;
@@ -10,6 +13,31 @@
 
             opacity: 1;
             }
+        }
+
+        .backbutton{
+            display: inline-block;
+            height: 26px;
+            width: 26px;
+            padding: 0;
+            margin: 0;
+            &::before{
+                content: "";
+                border-left: 2px solid white;
+                border-bottom: 2px solid white;
+                display: inline-block;
+                height: 13px;
+                width: 13px;
+                position: relative;
+                left: 8px;
+                top: 7px;
+                transform: rotate(45deg);
+            }
+        }
+
+        .header_text_title{
+            padding-left: 20px;
+            margin-top: 5px;
         }
 
         .attraction_icon{

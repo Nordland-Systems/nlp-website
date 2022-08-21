@@ -13,8 +13,8 @@
 
         <div class="section section--docs_title">
             <div class="section_content">
-                <a class="link--button centered" href="$Top.Link"> Zurück zu allen Docs</a>
-                <h1 class="header_text_title centered">$Title</h1>
+                <a class="link--button backbutton" href="$Top.Link"></a>
+                <h1 class="header_text_title">$Title</h1>
             </div>
         </div>
 
