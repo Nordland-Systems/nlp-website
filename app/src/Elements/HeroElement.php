@@ -14,8 +14,10 @@ use SilverStripe\Forms\DropdownField;
  * @property string $Parallax
  * @property int $ImageID
  * @property int $BackgroundImageID
+ * @property int $BackgroundImageDarkmodeID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\Assets\Image BackgroundImage()
+ * @method \SilverStripe\Assets\Image BackgroundImageDarkmode()
  */
 class HeroElement extends BaseElement
 {
@@ -29,17 +31,20 @@ class HeroElement extends BaseElement
     private static $has_one = [
         "Image" => Image::class,
         "BackgroundImage" => Image::class,
+        "BackgroundImageDarkmode" => Image::class,
     ];
 
     private static $owns = [
         "Image",
-        "BackgroundImage"
+        "BackgroundImage",
+        "BackgroundImageDarkmode",
     ];
 
     private static $field_labels = [
         "Subline" => "Unterüberschrift",
         "Image" => "Logo",
-        "BackgroundImage" => "Hintergrundbild"
+        "BackgroundImage" => "Hintergrundbild",
+        "BackgroundImageDarkmode" => "Hintergrundbild Darkmode"
     ];
 
     private static $table_name = 'HeroElement';
