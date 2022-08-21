@@ -4,7 +4,7 @@
             <% if $HeaderImage %>
                 <div class="section_content">
                     <div class="header_image_wrap">
-                        <div class="header_image" data-behaviour="parallax" data-speed="0.2" style="background-image:url($HeaderImage.FocusFill(1400,400).Link)">
+                        <div class="header_image" data-behaviour="parallax" data-speed="0.2" style="background-image:url($HeaderImage.FocusFill(1000,400).Link)">
                         </div>
                     </div>
                 </div>
@@ -13,8 +13,8 @@
 
         <div class="section section--docs_title">
             <div class="section_content">
-                <a class="link--button centered" href="$Top.Link"> Zurück zu den Docs</a>
-                <h1 class="header_text_title centered">$Title</h1>
+                <a class="link--button backbutton" href="$Top.Link"></a>
+                <h1 class="header_text_title">$Title</h1>
                 <% if $SvgIcon %>
                     <div class="attraction_icon">
                         <img src="$SvgIcon.Url">
@@ -50,13 +50,13 @@
                     <% if $Type %>
                         <div class="attribute">
                             <img class="title" src="_resources/app/client/icons/type.svg">
-                            <% if $TypeLink %><a href="$TypeLink"><% end_if %><p class="value">$Type</p><% if $TypeLink %></a><% end_if %>
+                            <% if $TypeLink %><a href="$TypeLink" target="_blank" class="link--external"><% end_if %><p class="value">$Type</p><% if $TypeLink %></a><% end_if %>
                         </div>
                     <% end_if %>
                     <% if $Area %>
                         <div class="attribute">
                             <img class="title" src="_resources/app/client/icons/area.svg">
-                            <a href="$Area.Link"><p class="value">$Area.Title</p></a>
+                            <a href="$Area.Link" class="link--internal"><p class="value">$Area.Title</p></a>
                         </div>
                     <% end_if %>
                     <% if $Price %>
