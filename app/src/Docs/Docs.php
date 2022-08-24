@@ -13,20 +13,23 @@ use SilverStripe\SnapshotAdmin\SnapshotHistoryExtension;
  * Class \App\Docs\Docs
  *
  * @property string $Title
+ * @property string $Status
  * @property string $Description
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Docs extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
+        "Status" => "Enum('ToDo, InProgress, Live, NeedsRefreshing, Archived', 'ToDo')",
         "Description" => "HTMLText",
         "VisibleToGuests" => "Boolean",
-        "VisibleToDreamteam" => "Boolean"
+        "VisibleToDreamteam" => "Boolean",
     ];
 
     private static $has_one = [
@@ -53,7 +56,8 @@ class Docs extends DataObject
         "Description" => "Inhalt",
         "VisibleToGuests" => "Sichtbar für Gäste",
         "VisibleToDreamteam" => "Sichtbar für Dreamteam",
-        "Categories" => "Kategorien"
+        "Categories" => "Kategorien",
+        "Status" => "Status",
     ];
 
     private static $summary_fields = [

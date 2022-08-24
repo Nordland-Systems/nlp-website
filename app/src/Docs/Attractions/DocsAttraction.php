@@ -31,6 +31,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
  * @method \SilverStripe\ORM\DataList|\App\Docs\DocsAttractionInfo[] AttractionInfos()
  * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class DocsAttraction extends DataObject
 {

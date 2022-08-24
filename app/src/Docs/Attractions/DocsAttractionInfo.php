@@ -13,6 +13,7 @@ use SilverStripe\ORM\DataObject;
  * @property int $SortOrder
  * @property int $ParentID
  * @method \App\Docs\DocsAttraction Parent()
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class DocsAttractionInfo extends DataObject
 {
