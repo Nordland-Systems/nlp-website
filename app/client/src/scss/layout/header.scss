@@ -17,11 +17,6 @@
         padding-right: 10px;
         transition: background-color 0.3s ease-in-out;
 
-        @include media("<medium") {
-            right: 100px;
-            height: 60px;
-        }
-
         ul{
             display: flex;
             justify-content: space-between;
@@ -180,6 +175,39 @@
                         font-weight: 500;
                     }
                 }
+            }
+        }
+
+        @include media("<medium") {
+            top: 60px;
+            right: 0;
+            height: 50px;
+            justify-content: space-between;
+            margin: 0;
+            padding: 10px;
+            top: -60px;
+            opacity: 0%;
+            pointer-events: none;
+            position: absolute;
+
+            .header_topbar_language{
+                ul{
+                    display: block;
+                }
+            }
+
+            .header_topbar_socials{
+                display: none;
+            }
+
+            ul{
+                display: none;
+            }
+
+            .body--show &{
+                top: 60px;
+                opacity: 100%;
+                pointer-events: all;
             }
         }
     }
@@ -396,6 +424,8 @@
             transition: max-height 0.3s, opacity 0.3s;
             opacity: 0;
             pointer-events: none;
+            position: relative;
+            top: 50px;
 
             ul{
                 list-style: none;
@@ -407,7 +437,7 @@
                     a{
                         background-color: var(--colorPrimaryDark);
                         color: $colorWhite;
-                        padding: 30px;
+                        padding: 20px;
                         display: block;
                     }
 
@@ -416,15 +446,15 @@
                         position: relative;
                         a{
                             padding-left: 40px;
-                            background-color: var(--colorPrimary);
+                            background-color: $colorPrimary;
                         }
                         &::after{
                             position: absolute;
                             left: 0px;
                             top: 28px;
                             content: "";
-                            width: 40px;
-                            height: 40px;
+                            width: 30px;
+                            height: 30px;
                             transform: rotate(-45deg) translate(-10px, -25px);
                             background-color: var(--colorSecondary);
                         }
@@ -436,10 +466,9 @@
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                padding: 5px;
+                border-top: 2px solid var(--colorSecondary);
                 li{
-                    padding: 5px;
-                    width: 50%;
+                    width: 100%;
                     a{
                         height: 100%;
                         padding: 15px;
