@@ -17,6 +17,11 @@
         padding-right: 10px;
         transition: background-color 0.3s ease-in-out;
 
+        @include media("<medium") {
+            right: 100px;
+            height: 60px;
+        }
+
         ul{
             display: flex;
             justify-content: space-between;
@@ -161,6 +166,9 @@
                     }
                 }
             }
+            @include media("<medium") {
+                display: none;
+            }
         }
 
         .header_topbar_language{
@@ -173,10 +181,6 @@
                     }
                 }
             }
-        }
-
-        @include media("<medium") {
-            display: none;
         }
     }
 

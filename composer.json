@@ -17,7 +17,8 @@
         "dnadesign/silverstripe-elemental-userforms": "3.x-dev",
         "purplespider/silverstripe-basic-gallery-extension": "3",
         "silverstripe/linkfield": "1.x-dev",
-        "dompdf/dompdf": "^2.0"
+        "dompdf/dompdf": "^2.0",
+        "tractorcow/silverstripe-sliderfield": "dev-master"
     },
     "repositories": {
         "silverstripe/linkfield": {

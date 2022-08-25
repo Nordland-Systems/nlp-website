@@ -79,8 +79,16 @@
                             </div>
                         </div>
                     <% end_if %>
-                    <% if $Targetgroups.Count > 0 %>
-                        <p>TODO: Add Targetgroups
+
+                    <% if $TargetGroups.Count > 0 %>
+                        <div class="attribute">
+                            <img class="title" src="_resources/app/client/icons/target.svg">
+                            <div class="value">
+                                <% loop $TargetGroups %>
+                                    $Title<% if not $Last %>, <% end_if %>
+                                <% end_loop %>
+                            </div>
+                        </div>
                     <% end_if %>
                 </div>
 

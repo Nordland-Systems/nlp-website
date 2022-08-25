@@ -13,25 +13,10 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * Class \App\Events\Event
  *
  * @property string $Title
- * @property string $AttractionID
- * @property string $Type
- * @property string $TypeLink
- * @property string $Description
- * @property string $Price
- * @property string $Capacity
- * @property bool $VisibleToGuests
- * @property bool $VisibleToDreamteam
- * @property int $ThrillIntensity
- * @property int $HeaderImageID
+ * @property int $SortOrder
  * @property int $SvgIconID
- * @property int $AreaID
- * @method \SilverStripe\Assets\Image HeaderImage()
  * @method \SilverStripe\Assets\File SvgIcon()
- * @method \App\Docs\DocsArea Area()
- * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
- * @method \SilverStripe\ORM\DataList|\App\Docs\DocsAttractionInfo[] AttractionInfos()
- * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
- * @mixin \TractorCow\Fluent\Extension\FluentExtension
+ * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsAttraction[] Attractions()
  */
 class DocsAttractionTargetgroup extends DataObject
 {
@@ -41,12 +26,15 @@ class DocsAttractionTargetgroup extends DataObject
     ];
 
     private static $has_one = [
-        "Parent" => DocsAttraction::class,
         "SvgIcon" => File::class,
     ];
 
     private static $owns = [
         "SvgIcon",
+    ];
+
+    private static $belongs_many_many = [
+        "Attractions" => DocsAttraction::class
     ];
 
     private static $default_sort = "Title ASC";
