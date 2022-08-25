@@ -14,7 +14,7 @@
                                     <% loop $Docs.Filter('VisibleToDreamteam','1').Sort("Title", "ASC").Limit(5) %>
                                         <a href="$Top.Link('view')/$FormattedName" class="list_item link--button hollow white $Status">
                                             <p class="list_item_title">$Title</p>
-                                            <p class="list_item_flair $Status"></p>
+                                            <p class="list_item_flair $Status">$Status</p>
                                         </a>
                                     <% end_loop %>
                                     <% if $Docs.Filter('VisibleToDreamteam','1').Count > 5 %>
@@ -32,7 +32,7 @@
                                 <% loop $Docs.Filter("VisibleToGuests", "1").Sort("Title", "ASC").Limit(5) %>
                                     <a href="$Top.Link('view')/$FormattedName" class="list_item link--button hollow white $Status">
                                         <p class="list_item_title">$Title</p>
-                                        <p class="list_item_flair $Status"></p>
+                                        <p class="list_item_flair $Status">$Status</p>
                                     </a>
                                 <% end_loop %>
                                 <% if $Docs.Filter("VisibleToGuests", "1").Count > 5 %>

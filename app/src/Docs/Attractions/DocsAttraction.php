@@ -55,7 +55,8 @@ class DocsAttraction extends DataObject
     ];
 
     private static $has_many = [
-        "AttractionInfos" => DocsAttractionInfo::class
+        "AttractionInfos" => DocsAttractionInfo::class,
+        "AttractionTargetgroups" => DocsAttractionTargetgroup::class,
     ];
 
     private static $owns = [

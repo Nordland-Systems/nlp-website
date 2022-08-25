@@ -71,18 +71,32 @@
                             <p class="value">$Capacity Besucher/Stunde</p>
                         </div>
                     <% end_if %>
-                </div>
-
-                <div class="attraction_infolist">
-                    <% loop AttractionInfos %>
-                        <div class="attraction_info">
-                            <h2 class="info_name" data-behaviour="parent-toggle">$InfoTitle</h2>
-                            <div class="info_content">
-                                $InfoContent
+                    <% if $ThrillIntensity > 0 %>
+                        <div class="attribute">
+                            <img class="title" src="_resources/app/client/icons/intensity.svg">
+                            <div class="value bar">
+                                <p style="width: {$ThrillIntensity}0%;"></p>
                             </div>
                         </div>
-                    <% end_loop %>
+                    <% end_if %>
+                    <% if $Targetgroups.Count > 0 %>
+                        <p>TODO: Add Targetgroups
+                    <% end_if %>
                 </div>
+
+                <% if $AttractionInfos.Count > 0 %>
+                    <div class="attraction_infolist">
+                        <h2>Weitere Informationen</h2>
+                        <% loop AttractionInfos %>
+                            <div class="attraction_info">
+                                <h3 class="info_name" data-behaviour="parent-toggle">$InfoTitle</h3>
+                                <div class="info_content">
+                                    $InfoContent
+                                </div>
+                            </div>
+                        <% end_loop %>
+                    </div>
+                <% end_if %>
             </div>
         </div>
 

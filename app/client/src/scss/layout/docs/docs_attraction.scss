@@ -52,6 +52,26 @@
                     text-align: left;
                     color: $colorWhite;
                     border-radius: 20px;
+
+                    &.bar{
+                        width: 100%;
+                        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                        overflow: hidden;
+                        mask-size: 100% 100%;
+                        padding: 0;
+                        border-radius: 0;
+                        background-color: $colorPrimary;
+
+                        .theme--dark &{
+                            background-color: $colorPrimaryExtraDark;
+                        }
+
+                        p{
+                            height: 20px;
+                            background-color: $colorWhite;
+                            margin: 0;
+                        }
+                    }
                 }
             }
 
