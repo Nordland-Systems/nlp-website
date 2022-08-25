@@ -19,6 +19,7 @@ use SilverStripe\Security\Permission;
  * @property bool $Visible
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class News extends DataObject
 {

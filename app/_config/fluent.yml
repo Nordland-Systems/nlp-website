@@ -43,3 +43,18 @@ App\Docs\DocsAttractionInfo:
   translate:
     - InfoTitle
     - InfoContent
+
+App\Events\Event:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  translate:
+    - Title
+    - Description
+
+App\News\News:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  translate:
+    - Title
+    - Summary
+    - Description
