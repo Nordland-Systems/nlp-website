@@ -5,6 +5,9 @@ namespace App\Docs;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\TextField;
+use TractorCow\SliderField\SliderField;
+use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
@@ -30,7 +33,9 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @method \App\Docs\DocsArea Area()
  * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
  * @method \SilverStripe\ORM\DataList|\App\Docs\DocsAttractionInfo[] AttractionInfos()
+ * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsAttractionTargetgroup[] AttractionTargetgroups()
  * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class DocsAttraction extends DataObject
 {
@@ -54,7 +59,11 @@ class DocsAttraction extends DataObject
     ];
 
     private static $has_many = [
-        "AttractionInfos" => DocsAttractionInfo::class
+        "AttractionInfos" => DocsAttractionInfo::class,
+    ];
+
+    private static $many_many = [
+        "AttractionTargetgroups" => DocsAttractionTargetgroup::class
     ];
 
     private static $owns = [
@@ -132,11 +141,29 @@ class DocsAttraction extends DataObject
         $gridfield = new GridField("AttractionInfos", "Infos", $this->AttractionInfos(), $gridFieldConfig);
         $fields->addFieldToTab('Root.Infos', $gridfield);
 
+        $fields->removeByName("AttractionTargetgroups");
+        $targetgroups_map = [];
+        if ($targetgroups = DocsAttractionTargetgroup::get()) {
+            $targetgroups_map = $targetgroups->map();
+        }
+        $fields->addFieldToTab("Root.Main", new CheckboxSetField("AttractionTargetgroups", "Zielgruppen", $targetgroups_map));
+
+        $fields->removeByName("ThrillIntensity");
+        $fields->addFieldToTab("Root.Main", new SliderField("ThrillIntensity", "Thrill Intensität (0-10)", 0, 10));
+
+        $fields->removeByName("Locales");
+
         return $fields;
     }
 
     public function getFormattedName()
     {
         return str_replace(' ', '_', $this->Title);
+    }
+
+    public function getTargetGroups()
+    {
+
+        return $this->AttractionTargetgroups();
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "134a90b78af88c763db955c737ac89b8",
+    "content-hash": "6011e70c75056e3958ea8f501572a67c",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -6175,6 +6175,61 @@
             "time": "2022-03-27T21:59:01+00:00"
         },
         {
+            "name": "tractorcow/silverstripe-sliderfield",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tractorcow/silverstripe-sliderfield.git",
+                "reference": "804b0b494daa2fd93966d67c0a2a5249296817f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tractorcow/silverstripe-sliderfield/zipball/804b0b494daa2fd93966d67c0a2a5249296817f7",
+                "reference": "804b0b494daa2fd93966d67c0a2a5249296817f7",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "^4.0",
+                "silverstripe/vendor-plugin": "^1.0"
+            },
+            "default-branch": true,
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                },
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "TractorCow\\Sliderfield\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Mooyman",
+                    "email": "damian.mooyman@gmail.com"
+                }
+            ],
+            "description": "Simple slider field for Silverstripe",
+            "keywords": [
+                "jQueryUI",
+                "silverstripe",
+                "slider"
+            ],
+            "support": {
+                "issues": "https://github.com/tractorcow/silverstripe-sliderfield/issues",
+                "source": "https://github.com/tractorcow/silverstripe-sliderfield/tree/master"
+            },
+            "time": "2020-05-27T01:51:50+00:00"
+        },
+        {
             "name": "ua-parser/uap-php",
             "version": "v3.9.14",
             "source": {
@@ -6715,7 +6770,8 @@
     "stability-flags": {
         "silverstripe/blog": 20,
         "dnadesign/silverstripe-elemental-userforms": 20,
-        "silverstripe/linkfield": 20
+        "silverstripe/linkfield": 20,
+        "tractorcow/silverstripe-sliderfield": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -6724,5 +6780,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

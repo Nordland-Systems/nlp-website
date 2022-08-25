@@ -70,6 +70,12 @@ body {
   &.section--fullwidth{
     max-width: 100%;
   }
+
+    @include media("<medium") {
+        .body--show &{
+            filter: brightness(0.5) blur(2px);
+        }
+    }
 }
 
 .section_content{

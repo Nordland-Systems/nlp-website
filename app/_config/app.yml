@@ -1,7 +1,7 @@
 App\Docs\DocsAttraction:
   extensions:
     - PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
-  gallery-title: Image Gallery
+  gallery-title: Galerie
   gallery-cms-tab: Galerie
   content-cms-tab: Top Content
 
