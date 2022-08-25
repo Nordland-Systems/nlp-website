@@ -46,7 +46,7 @@
                     <img alt="Logo des Nordland-Parks in weiß" src="images/NLP_LogoBannerWhite_SVG_wot.svg">
                 </a>
                 <a href="" class="nav_brand home">
-                    <img alt="Logo des Nordland-Parks" src="images/NLP_LogoBanner_SVG_wot.svg">
+                    <img alt="Logo des Nordland-Parks" src="images/NLP_LogoBannerWhite_SVG_wot.svg">
                 </a>
             </div>
             <div class="nav_menu">
