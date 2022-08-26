@@ -93,10 +93,12 @@
             @include media("<medium") {
                 grid-template-rows: 100px auto;
                 grid-template-columns: 100%;
+                align-items: center;
 
                 .item_image{
                     grid-column: 1 / -1;
                     grid-row: 1 / 2;
+                    height: 100%;
                 }
 
                 .item_icon{
@@ -105,7 +107,7 @@
                 }
 
                 .item_title{
-                    padding: 0px 5px;
+                    padding: 5px 5px;
                     text-align: center;
                     grid-column: 1 / -1;
                 }
