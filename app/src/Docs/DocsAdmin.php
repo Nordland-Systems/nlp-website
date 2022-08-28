@@ -15,7 +15,7 @@ class DocsAdmin extends ModelAdmin
         DocsCategory::class,
         DocsAttraction::class,
         DocsArea::class,
-        DocsAttractionTargetgroup::class,
+        DocsTargetgroup::class,
     );
 
     private static $url_segment = "docs";

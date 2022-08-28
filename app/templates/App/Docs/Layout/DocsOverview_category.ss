@@ -21,10 +21,14 @@
         <div class="section section--docs_category">
             <div class="section_content">
                 $Description
+                <h3>Einträge:</h3>
                 <div class="docs_list">
-                    <h3>Einträge:</h3>
+
                     <% loop $Docs.Filter('VisibleToDreamteam','1') %>
-                        <a class="link--button" href="$Top.Link('view')/$ID">$Title</a>
+                        <a href="$Top.Link('view')/$FormattedName" class="list_item link--button hollow white $Status">
+                            <p class="list_item_title">$Title</p>
+                            <p class="list_item_flair $Status">$Status</p>
+                        </a>
                     <% end_loop %>
                 </div>
             </div>

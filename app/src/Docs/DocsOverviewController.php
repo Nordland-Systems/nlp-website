@@ -29,6 +29,7 @@ class DocsOverviewController extends PageController implements PermissionProvide
         "category",
         "attraction",
         "area",
+        "targetgroup"
     ];
 
     public function PasswordForm()
@@ -78,6 +79,16 @@ class DocsOverviewController extends PageController implements PermissionProvide
         $article = DocsArea::get()->filter("Title", $deformatted)->first();
         return array(
             "Area" => $article,
+        );
+    }
+
+    public function targetgroup()
+    {
+        $id = $this->getRequest()->param("ID");
+        $deformatted = str_replace('_', ' ', $id);
+        $article = DocsTargetgroup::get()->filter("Title", $deformatted)->first();
+        return array(
+            "Targetgroup" => $article,
         );
     }
 
@@ -138,6 +149,11 @@ class DocsOverviewController extends PageController implements PermissionProvide
     public function getAreas()
     {
         return DocsArea::get();
+    }
+
+    public function getTargetgroups()
+    {
+        return DocsTargetgroup::get();
     }
 
     public function getDocs()

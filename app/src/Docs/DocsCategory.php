@@ -35,7 +35,7 @@ class DocsCategory extends DataObject
     ];
 
     private static $defaults = [
-        "VisibleToGuests" => true,
+        "VisibleToGuests" => false,
         "VisibleToDreamteam" => true,
     ];
 
