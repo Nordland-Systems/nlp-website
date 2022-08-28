@@ -142,7 +142,12 @@ class Docs extends DataObject
 
     public function getFormattedName()
     {
-        return str_replace(' ', '_', $this->Title);
+        $original = $this->Title;
+        $formatted = str_replace(" ", "_", $original);
+        $formatted = str_replace("ä", "%ae", $formatted);
+        $formatted = str_replace("ö", "%oe", $formatted);
+        $formatted = str_replace("ü", "%ue", $formatted);
+        return $formatted;
     }
 
     // Can be used to link to pdf in templates etc

@@ -61,6 +61,9 @@ class DocsOverviewController extends PageController implements PermissionProvide
     {
         $id = $this->getRequest()->param("ID");
         $deformatted = str_replace('_', ' ', $id);
+        $deformatted = str_replace('%ae', 'ä', $deformatted);
+        $deformatted = str_replace('%oe', 'ö', $deformatted);
+        $deformatted = str_replace('%ue', 'ü', $deformatted);
         $article = Docs::get()->filter("Title", $deformatted)->first();
         return array(
             "Doc" => $article,

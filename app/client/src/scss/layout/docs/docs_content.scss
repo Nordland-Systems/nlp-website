@@ -1,5 +1,5 @@
 .section.section--docs_content{
-    padding: 0 0 40px 0;
+    padding: 0px 30px 40px 30px;
 
     .tableofcontents_wrap{
         display: block;
@@ -47,11 +47,16 @@
         border-bottom: 1px solid var(--colorPrimary);
         padding: 20px 0;
         overflow: auto;
+        margin-top: 20px;
         h1,h2,h3,h4{
             margin: 20px 0 10px 0;
         }
         a{
             color: var(--colorBlack);
+        }
+
+        .timing{
+            font-size: 0.8em;
         }
     }
 }
