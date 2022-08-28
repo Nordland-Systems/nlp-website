@@ -11,7 +11,7 @@
             <% end_if %>
         </div>
 
-        <div class="section section--docs_title">
+    <div class="section section--docs_title <% if not $Image %>noimage<% end_if %>">
             <div class="section_content">
                 <a class="link--button backbutton" href="$Top.Link"></a>
                 <h1 class="header_text_title">$Title</h1>
@@ -26,12 +26,11 @@
             </div>
             <div class="section_content" data-behaviour="textContent">
                 $Description
+                <p class="timing"><i>Zuletzt bearbeitet am $LastEdited.Format(d.m.Y HH:mm)</i></p>
                 <a href="{$Top.Link}pdf/$FormattedName" class="link--export" target="_blank">
                     <p>Als PDF exportieren</p>
                 </a>
-                <br>
-                <br>
-                <p>Zuletzt bearbeitet am $LastEdited.Format(d.m.Y HH:mm)</p>
+
             </div>
         </div>
     <% end_with %>

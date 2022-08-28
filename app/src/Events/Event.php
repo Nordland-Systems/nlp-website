@@ -22,6 +22,7 @@ use SilverStripe\ORM\FieldType\DBDatetime;
  * @property int $LinkID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\LinkField\Models\Link Link()
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Event extends DataObject
 {
