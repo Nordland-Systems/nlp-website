@@ -22,13 +22,21 @@
             <div class="section_content">
                 $Description
                 <div class="docs_list">
-                    <h3>Attraktionen:</h3>
+                    <h3 class="centered">Attraktionen</h3>
                     <% if $AllAttractions.Filter('VisibleToDreamteam','1').Count > 0 %>
                         <% loop $AllAttractions.Filter('VisibleToDreamteam','1') %>
                             <% include AttractionCard Parent=$Top %>
                         <% end_loop %>
                     <% else %>
-                        <p>Es sind noch keine Attraktionen in diesem Themenbereich eingespeichert.</p>
+                        <p class="centered">Es sind noch keine Attraktionen in diesem Themenbereich eingespeichert.</p>
+                    <% end_if %>
+                    <h3 class="centered">Restaurants</h3>
+                    <% if $AllRestaurants.Filter('VisibleToDreamteam','1').Count > 0 %>
+                        <% loop $AllRestaurants.Filter('VisibleToDreamteam','1') %>
+                            <% include RestaurantCard Parent=$Top %>
+                        <% end_loop %>
+                    <% else %>
+                        <p class="centered">Es sind noch keine Restaurants in diesem Themenbereich eingespeichert.</p>
                     <% end_if %>
                 </div>
             </div>
