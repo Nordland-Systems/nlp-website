@@ -1,0 +1,42 @@
+.section.section--docs_navigation{
+    .section_content{
+        position: fixed;
+        left: -175px;
+        top: 100px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        background-color: $colorPrimary;
+        padding: 10px;
+        border-radius: 0 $simpleRadius $simpleRadius 0;
+        z-index: 100;
+        padding-right: 30px;
+        transition: left 0.1s ease-in-out;
+
+        a{
+            padding: 10px 10px;
+            border-radius: $simpleRadius;
+            color: $colorWhite;
+
+            &:hover{
+                background-color: $colorPrimaryDark;
+            }
+
+            @include media("<medium") {
+                padding: 15px 10px;
+            }
+        }
+
+        &.docs-nav--open{
+            left: 0;
+        }
+
+        .nav_menu{
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%) rotate(-90deg);
+            cursor: pointer;
+        }
+    }
+}
