@@ -26,7 +26,7 @@
             </div>
             <div class="section_content" data-behaviour="textContent">
                 $Description
-                <p class="timing"><i>Zuletzt bearbeitet am $LastEdited.Format(d.m.Y HH:mm)</i></p>
+                <p class="timing"><i>Zuletzt bearbeitet am $LastEdited.Format(dd.MM.Y HH:mm)</i></p>
                 <a href="{$Top.Link}pdf/$FormattedName" class="link--export" target="_blank">
                     <p>Als PDF exportieren</p>
                 </a>

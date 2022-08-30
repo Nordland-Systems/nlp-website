@@ -21,6 +21,8 @@
         <div class="section section--docs_attractionslist">
             <div class="section_content">
                 $Description
+                <hr>
+                <a href="$Area.Link" >Standort: $Area.Title</a>
                 <div class="menu">
                     <h2>Speisekarte</h2>
                     <h3 class="centered">Essen:</h3>

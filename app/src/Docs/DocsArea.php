@@ -117,4 +117,9 @@ class DocsArea extends DataObject
     {
         return DocsAttraction::get()->filter(["AreaID" => $this->ID]);
     }
+
+    public function getAllRestaurants()
+    {
+        return DocsRestaurant::get()->filter(["AreaID" => $this->ID]);
+    }
 }
