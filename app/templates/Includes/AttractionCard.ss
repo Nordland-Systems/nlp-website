@@ -1,4 +1,4 @@
-<a href="$Top.Link('attraction')/$FormattedName" class="attraction_item">
+<a href="$Parent.Link('attraction')/$FormattedName" class="attraction_item">
     <% if $HeaderImage %>
         <div class="item_image">
             $HeaderImage.FocusFill(300, 200)

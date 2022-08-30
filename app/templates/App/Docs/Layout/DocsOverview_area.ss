@@ -25,7 +25,7 @@
                     <h3>Attraktionen:</h3>
                     <% if $AllAttractions.Filter('VisibleToDreamteam','1').Count > 0 %>
                         <% loop $AllAttractions.Filter('VisibleToDreamteam','1') %>
-                            <% include AttractionCard %>
+                            <% include AttractionCard Parent=$Top %>
                         <% end_loop %>
                     <% else %>
                         <p>Es sind noch keine Attraktionen in diesem Themenbereich eingespeichert.</p>

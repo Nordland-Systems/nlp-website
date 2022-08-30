@@ -78,7 +78,12 @@
 
                 <h2 class="centered">Attraktionen</h2>
                 <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                    <% include AttractionCard %>
+                    <% include AttractionCard Parent=$Top %>
+                <% end_loop %>
+
+                <h2 class="centered">Restaurants</h2>
+                <% loop Restaurants.Filter("VisibleToDreamteam","1") %>
+                    <% include RestaurantCard Parent=$Top %>
                 <% end_loop %>
             </div>
         </div>
@@ -87,7 +92,7 @@
             <div class="section_content">
                 <h2 class="centered">Attraktionen</h2>
                 <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                    <% include AttractionCard %>
+                    <% include AttractionCard Parent=$Top %>
                 <% end_loop %>
             </div>
         </div>
