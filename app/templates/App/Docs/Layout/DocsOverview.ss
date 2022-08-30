@@ -1,7 +1,19 @@
 <% if $DocsPermission || $VisibleToGuests %>
+    <div class="section section--docs_navigation">
+        <div class="section_content">
+            <a href="#Docs">Docs</a>
+            <a href="#Areas">Themenbereiche</a>
+            <a href="#Targetgroups">Zielgruppen</a>
+            <a href="#Attractions">Attraktionen</a>
+            <a href="#Restaurants">Restaurants</a>
+            <p class="nav_menu" data-behaviour="docs-nav">Navigation</p>
+        </div>
+    </div>
+
     <div class="section section--docs_categorylist">
         <div class="section_content">
-            <h2 class="centered">Kategorien</h2>
+            <a class="anchor" id="Docs"></a>
+            <h2 class="centered">Docs</h2>
             <div class="categorylist">
                 <% loop DocsCategories.Filter('VisibleToDreamteam','1') %>
                     <% if $Top.DocsPermission %>
@@ -48,6 +60,7 @@
     <% if $DocsPermission %>
         <div class="section section--docs_attractionslist">
             <div class="section_content">
+                <a class="anchor" id="Areas"></a>
                 <h2 class="centered">Themenbereiche</h2>
                 <div class="area_list">
                     <% loop Areas.Filter("VisibleToDreamteam","1") %>
@@ -62,6 +75,7 @@
                     <% end_loop %>
                 </div>
 
+                <a class="anchor" id="Targetgroups"></a>
                 <h2 class="centered">Zielgruppen</h2>
                 <div class="area_list">
                     <% loop Targetgroups %>
@@ -76,29 +90,39 @@
                     <% end_loop %>
                 </div>
 
+                <a class="anchor" id="Attractions"></a>
                 <h2 class="centered">Attraktionen</h2>
-                <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                    <% include AttractionCard Parent=$Top %>
-                <% end_loop %>
+                <div class="attractions">
+                    <% loop Attractions.Filter("VisibleToDreamteam","1") %>
+                        <% include AttractionCard Parent=$Top %>
+                    <% end_loop %>
+                </div>
 
+                <a class="anchor" id="Restaurants"></a>
                 <h2 class="centered">Restaurants</h2>
-                <% loop Restaurants.Filter("VisibleToDreamteam","1") %>
-                    <% include RestaurantCard Parent=$Top %>
-                <% end_loop %>
+                <div class="restaurants">
+                    <% loop Restaurants.Filter("VisibleToDreamteam","1") %>
+                        <% include RestaurantCard Parent=$Top %>
+                    <% end_loop %>
+                </div>
             </div>
         </div>
     <% else_if Attractions.Filter("VisibleToGuests","1").Count > 0 %>
         <div class="section section--docs_attractionslist">
             <div class="section_content">
+                <a class="anchor" id="Attractions"></a>
                 <h2 class="centered">Attraktionen</h2>
-                <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                    <% include AttractionCard Parent=$Top %>
-                <% end_loop %>
+                <div class="attractions">
+                    <% loop Attractions.Filter("VisibleToDreamteam","1") %>
+                        <% include AttractionCard Parent=$Top %>
+                    <% end_loop %>
+                </div>
             </div>
         </div>
     <% else %>
         <div class="section section--docs_login">
             <div class="section_content">
+                <a class="anchor" id="Attractions"></a>
                 <h2 class="centered">Attraktionen</h2>
                 <h3 class="centered">Aktuell sind noch keine geplanten Attraktionen öffentlich</h3>
                 <br>

@@ -31,6 +31,7 @@
 @import "layout/docs/docs_content";
 @import "layout/docs/docs_category";
 @import "layout/docs/docs_attraction";
+@import "layout/docs/docs_navigation";
 
 @import "layout/news/news";
 @import "layout/news/newsview";
@@ -139,3 +140,5 @@ body {
     padding: 10px;
     color: $colorWhite;
 }
+
+a.anchor{display: block; position: relative; top: -50px; visibility: hidden;}
