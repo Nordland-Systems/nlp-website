@@ -40,20 +40,14 @@
                     }
 
                     .list_item_content_text{
-                        max-height: 0;
+                        height: 0;
                         overflow: hidden;
-                        transition: max-height 0.2s ease-in-out;
+                        transition: 0.2s ease-in-out;
                         margin-bottom: 10px;
 
                         img{
                             max-width: 100%;
                         }
-                    }
-                }
-
-                &.list_item--visible{
-                    .list_item_content_text{
-                        max-height: 2000px;
                     }
                 }
 

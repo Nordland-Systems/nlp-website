@@ -20,7 +20,7 @@
                             <a class="list_item_content_title" href="" data-behaviour="list-toggle">
                                 <h3>$Headline</h3>
                             </a>
-                            <div class="list_item_content_text">
+                            <div class="list_item_content_text" data-behaviour="list-toggle-text">
                                 $Text
                             </div>
                         <% else %>
