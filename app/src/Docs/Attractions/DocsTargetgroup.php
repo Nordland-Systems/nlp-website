@@ -3,11 +3,7 @@
 namespace App\Docs;
 
 use SilverStripe\Assets\File;
-use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
  * Class \App\Events\Event
@@ -18,7 +14,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @method \SilverStripe\Assets\File SvgIcon()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsAttraction[] Attractions()
  */
-class DocsAttractionTargetgroup extends DataObject
+class DocsTargetgroup extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
@@ -51,7 +47,7 @@ class DocsAttractionTargetgroup extends DataObject
         "Title"
     ];
 
-    private static $table_name = "AttractionTargetGroup";
+    private static $table_name = "Targetgroup";
 
     private static $singular_name = "Zielgruppe";
     private static $plural_name = "Zielgruppen";
@@ -67,5 +63,10 @@ class DocsAttractionTargetgroup extends DataObject
     public function getFormattedName()
     {
         return str_replace(' ', '_', $this->Title);
+    }
+
+    public function AllAttractions()
+    {
+        return $this->Docs()->filter(["VisibleToDreamteam" => true]);
     }
 }

@@ -7,20 +7,18 @@ use SilverStripe\Admin\ModelAdmin;
  * Class \App\Docs\DocsAdmin
  *
  */
-class DocsAdmin extends ModelAdmin
+class DocsFoodAdmin extends ModelAdmin
 {
 
     private static $managed_models = array (
-        Docs::class,
-        DocsCategory::class,
-        DocsAttraction::class,
-        DocsArea::class,
-        DocsTargetgroup::class,
+        DocsRestaurant::class,
+        DocsRestaurantFood::class,
+        DocsRestaurantDrink::class,
     );
 
-    private static $url_segment = "docs";
+    private static $url_segment = "docsfood";
 
-    private static $menu_title = "Docs";
+    private static $menu_title = "Docs Restaurants";
 
     private static $menu_icon = "app/client/icons/docs.svg";
 

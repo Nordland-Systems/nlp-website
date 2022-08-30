@@ -6,13 +6,77 @@
         border-bottom: 1px solid var(--colorPrimary);
         padding: 20px 0;
 
+        h3{
+            text-align: center;
+        }
+
         .docs_list{
-            border-top: 1px solid var(--colorPrimary);
-            padding-top: 20px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
+            padding-top: 10px;
+
+            .list_item{
+                width: 50%;
+                border: 1px solid $colorWhite;
+                text-align: center;
+                position: relative;
+                background-color: $colorPrimaryDark;
+                overflow: hidden;
+
+                .list_item_title{
+                    width: calc(100% - 20px);
+                    margin: 0;
+                    color: $colorWhite;
+                }
+
+                .list_item_flair{
+                    position: absolute;
+                    bottom: -22px;
+                    left: 0;
+                    width: 100%;
+                    height: 25px;
+                    background-color: gray;
+                    margin: 0;
+                    z-index: 1;
+                    transition: bottom 0.2s ease-in-out;
+
+                    &.NeedsRefreshing{
+                        background-color: red;
+                    }
+
+                    &.ToDo{
+                        background-color: yellow;
+                    }
+
+                    &.Live{
+                        background-color: green;
+                    }
+
+                    &.InProgress{
+                        background-color: orange;
+                    }
+
+                    &:hover{
+                        bottom: 0;
+                    }
+                }
+
+                &:hover{
+                    color: $colorPrimaryDark;
+                }
+            }
+
+            .list_more{
+                font-weight: 200;
+                padding-top: 10px;
+                color: $colorWhite;
+            }
+        }
+        h2{
+            color: $colorWhite;
         }
     }
 }

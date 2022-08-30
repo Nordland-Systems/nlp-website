@@ -5,7 +5,6 @@ namespace App\Docs;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\TextField;
 use TractorCow\SliderField\SliderField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\GridField\GridField;
@@ -33,7 +32,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @method \App\Docs\DocsArea Area()
  * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
  * @method \SilverStripe\ORM\DataList|\App\Docs\DocsAttractionInfo[] AttractionInfos()
- * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsAttractionTargetgroup[] AttractionTargetgroups()
+ * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsTargetgroup[] AttractionTargetgroups()
  * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
@@ -63,7 +62,7 @@ class DocsAttraction extends DataObject
     ];
 
     private static $many_many = [
-        "AttractionTargetgroups" => DocsAttractionTargetgroup::class
+        "AttractionTargetgroups" => DocsTargetgroup::class
     ];
 
     private static $owns = [
@@ -143,7 +142,7 @@ class DocsAttraction extends DataObject
 
         $fields->removeByName("AttractionTargetgroups");
         $targetgroups_map = [];
-        if ($targetgroups = DocsAttractionTargetgroup::get()) {
+        if ($targetgroups = DocsTargetgroup::get()) {
             $targetgroups_map = $targetgroups->map();
         }
         $fields->addFieldToTab("Root.Main", new CheckboxSetField("AttractionTargetgroups", "Zielgruppen", $targetgroups_map));

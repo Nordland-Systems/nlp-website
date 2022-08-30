@@ -62,31 +62,28 @@
                     <% end_loop %>
                 </div>
 
+                <h2 class="centered">Zielgruppen</h2>
+                <div class="area_list">
+                    <% loop Targetgroups %>
+                        <a href="$Top.Link('targetgroup')/$FormattedName" class="area_item">
+                            <% if $Image %>
+                                <div class="item_image">
+                                    $Image.FocusFill(200, 50)
+                                </div>
+                            <% end_if %>
+                            <h2 class="item_title white">$Title</h2>
+                        </a>
+                    <% end_loop %>
+                </div>
+
                 <h2 class="centered">Attraktionen</h2>
                 <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                    <a href="$Top.Link('attraction')/$FormattedName" class="attraction_item">
-                        <% if $HeaderImage %>
-                            <div class="item_image">
-                                $HeaderImage.FocusFill(300, 200)
-                            </div>
-                        <% end_if %>
-                        <% if $SvgIcon %>
-                            <div class="item_icon">
-                                <img src="$SvgIcon.Url">
-                            </div>
-                        <% end_if %>
-                        <h2 class="item_title white">$Title</h2>
-                        <p class="item_id white">$AttractionID (<% if $Type %> $Type <% end_if %> <% if $Area %> in $Area.Title <% end_if %>)</p>
-                        <% if PhotoGalleryImages %>
-                            <div class="item_gallery">
-                                <% loop PhotoGalleryImages.Limit(3) %>
-                                    <div class="item_gallery_image">
-                                        $Image.FocusFill(80,80)
-                                    </div>
-                                <% end_loop %>
-                            </div>
-                        <% end_if %>
-                    </a>
+                    <% include AttractionCard Parent=$Top %>
+                <% end_loop %>
+
+                <h2 class="centered">Restaurants</h2>
+                <% loop Restaurants.Filter("VisibleToDreamteam","1") %>
+                    <% include RestaurantCard Parent=$Top %>
                 <% end_loop %>
             </div>
         </div>
@@ -95,29 +92,7 @@
             <div class="section_content">
                 <h2 class="centered">Attraktionen</h2>
                 <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                    <a href="$Top.Link('attraction')/$FormattedName" class="attraction_item">
-                        <% if $HeaderImage %>
-                            <div class="item_image">
-                                $HeaderImage.FocusFill(300, 200)
-                            </div>
-                        <% end_if %>
-                        <% if $SvgIcon %>
-                            <div class="item_icon">
-                                <img src="$SvgIcon.Url">
-                            </div>
-                        <% end_if %>
-                        <h2 class="item_title white">$Title</h2>
-                        <p class="item_id white">$AttractionID (<% if $Type %> $Type <% end_if %> <% if $Area %> in $Area <% end_if %>)</p>
-                        <% if PhotoGalleryImages %>
-                            <div class="item_gallery">
-                                <% loop PhotoGalleryImages.Limit(3) %>
-                                    <div class="item_gallery_image">
-                                        $Image.FocusFill(80,80)
-                                    </div>
-                                <% end_loop %>
-                            </div>
-                        <% end_if %>
-                    </a>
+                    <% include AttractionCard Parent=$Top %>
                 <% end_loop %>
             </div>
         </div>
