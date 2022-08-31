@@ -27,6 +27,10 @@
             }
         }
 
+        &:hover{
+            left: 0;
+        }
+
         &.docs-nav--open{
             left: 0;
         }
