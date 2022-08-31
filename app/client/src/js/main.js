@@ -92,15 +92,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     });
 
-    //Docs Navigation
-    const docsNav = document.querySelector('[data-behaviour="docs-nav"]');
-    if(docsNav){
-        docsNav.addEventListener('click', (e) => {
-            e.preventDefault();
-            docsNav.parentElement.classList.toggle('docs-nav--open');
-        });
-    }
-
     //Parallax
     window.addEventListener('scroll', () => {
         parallax();
