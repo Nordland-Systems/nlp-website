@@ -6,7 +6,7 @@
             <a href="#Targetgroups">Zielgruppen</a>
             <a href="#Attractions">Attraktionen</a>
             <a href="#Restaurants">Restaurants</a>
-            <p class="nav_menu" data-behaviour="docs-nav">Navigation</p>
+            <p class="nav_menu">Navigation</p>
         </div>
     </div>
 
