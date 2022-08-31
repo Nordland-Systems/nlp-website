@@ -46,7 +46,7 @@ class DocsRestaurantDrink extends DataObject
         "HeaderImage",
     ];
 
-    private static $many_many = [
+    private static $belongs_many_many = [
         "Restaurants" => DocsRestaurant::class
     ];
 
