@@ -168,12 +168,13 @@
                 justify-content: center;
                 align-items: stretch;
                 gap: 20px;
+                flex-wrap: wrap;
 
                 .food_menu_item{
                     background-color: $colorPrimary;
                     border-radius: $doubleRadius;
                     overflow: hidden;
-                    width: calc(100% / 3 - 10px);
+                    width: calc(100% / 3 - 20px);
                     box-shadow: 0 0 10px 0 $colorBlack;
 
                     .item_image{
