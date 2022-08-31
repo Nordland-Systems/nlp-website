@@ -9,6 +9,7 @@ use SilverStripe\ORM\DataObject;
  * Class \App\Events\Event
  *
  * @property string $Title
+ * @property string $Description
  * @property int $SortOrder
  * @property int $SvgIconID
  * @method \SilverStripe\Assets\File SvgIcon()
