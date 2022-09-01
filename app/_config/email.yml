@@ -8,7 +8,7 @@ SilverStripe\Core\Injector\Injector:
     class: Swift_SmtpTransport
     properties:
       Host: mail.your-server.de
-      Port: 25
+      Port: 587
       Encryption: tls
     calls:
       Username: [ setUsername, ['`APP_SMTP_USERNAME`'] ]
