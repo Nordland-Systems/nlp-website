@@ -23,6 +23,13 @@ DNADesign\Elemental\Models\BaseElement:
 TractorCow\Fluent\Extension\FluentDirectorExtension:
   disable_default_prefix: true
 
+SilverStripe\UserForms\Model\EditableFormField:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+SilverStripe\UserForms\Model\EditableFormField\EditableOption:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+
 App\Docs\Docs:
   extensions:
     - TractorCow\Fluent\Extension\FluentExtension
