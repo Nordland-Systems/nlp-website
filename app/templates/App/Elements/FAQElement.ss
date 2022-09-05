@@ -10,19 +10,13 @@
                 <div class="list_item <% if Up.IsCollapsible %><% else %>list_item--visible<% end_if %>">
                     <div class="list_item_content">
                         <% if Up.IsCollapsible %>
-                            <a class="list_item_content_date no_deco" href="" data-behaviour="list-toggle">
-                            <h4>$Year</h4>
-                            </a>
                             <a class="list_item_content_title no_deco" href="" data-behaviour="list-toggle">
                                 <h3>$Title</h3>
                             </a>
-                            <div class="list_item_content_text">
+                            <div class="list_item_content_text" data-behaviour="list-toggle-text">
                                 $Text
                             </div>
                         <% else %>
-                            <div class="list_item_content_date" href="">
-                                <h4>$Year</h4>
-                            </div>
                             <div class="list_item_content_title">
                                 <h3>$Title</h3>
                             </div>

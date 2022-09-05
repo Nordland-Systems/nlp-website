@@ -56,10 +56,10 @@
                     }
 
                     .list_item_content_text{
-                        max-height: 0;
                         overflow: hidden;
                         transition: max-height 0.2s ease-in-out;
                         margin-bottom: 10px;
+                        transition: height 0.2s ease-in-out;
 
                         img{
                             width: 100%;
@@ -70,9 +70,6 @@
                 }
 
                 &.list_item--visible{
-                    .list_item_content_text{
-                        max-height: 800px;
-                    }
 
                     .list_item_content_title{
                         &::after{

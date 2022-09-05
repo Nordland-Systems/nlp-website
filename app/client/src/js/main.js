@@ -29,22 +29,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //ListToggleElement
     let listToggleElements = [...document.querySelectorAll('[data-behaviour="list-toggle"]')];
     listToggleElements.forEach((element) => {
+        const item = element.parentNode.parentNode;
+        const text = element.parentNode.querySelector('[data-behaviour="list-toggle-text"]');
+        const neededHeight = text.scrollHeight;
         element.addEventListener("click", (e) => {
             e.preventDefault();
-            const item = element.parentNode.parentNode;
-            const text = element.parentNode.querySelector('[data-behaviour="list-toggle-text"]');
-            const neededHeight = text.scrollHeight;
+
             item.classList.toggle("list_item--visible")
             if(item.classList.contains("list_item--visible")){
                 text.style.height = neededHeight + "px";
             } else {
                 text.style.height = 0;
             }
-
-            listToggleElements.filter(e => e.parentNode.parentNode != item).forEach((e) => {
-                e.parentNode.parentNode.classList.remove("list_item--visible")
-            });
         })
+        if(item.classList.contains("list_item--visible")){
+            text.style.height = neededHeight + "px";
+        } else {
+            text.style.height = 0;
+        }
     });
 
     //Dark Mode Toggle
