@@ -18,7 +18,8 @@
         "purplespider/silverstripe-basic-gallery-extension": "3",
         "silverstripe/linkfield": "1.x-dev",
         "dompdf/dompdf": "^2.0",
-        "tractorcow/silverstripe-sliderfield": "dev-master"
+        "tractorcow/silverstripe-sliderfield": "dev-master",
+        "wilr/silverstripe-googlesitemaps": "^2.2"
     },
     "repositories": {
         "silverstripe/linkfield": {
