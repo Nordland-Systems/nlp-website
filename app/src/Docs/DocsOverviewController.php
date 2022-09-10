@@ -31,6 +31,7 @@ class DocsOverviewController extends PageController implements PermissionProvide
         "area",
         "targetgroup",
         "restaurant",
+        "character"
     ];
 
     public function PasswordForm()
@@ -80,6 +81,16 @@ class DocsOverviewController extends PageController implements PermissionProvide
         $article = DocsArea::get()->filter("Title", $deformatted)->first();
         return array(
             "Area" => $article,
+        );
+    }
+
+    public function character()
+    {
+        $id = $this->getRequest()->param("ID");
+        $deformatted = str_replace('_', ' ', $id);
+        $article = DocsCharacter::get()->filter("Title", $deformatted)->first();
+        return array(
+            "Character" => $article,
         );
     }
 
@@ -160,6 +171,11 @@ class DocsOverviewController extends PageController implements PermissionProvide
     public function getAreas()
     {
         return DocsArea::get();
+    }
+
+    public function getCharacters()
+    {
+        return DocsCharacter::get();
     }
 
     public function getRestaurants()

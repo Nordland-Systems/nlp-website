@@ -7,7 +7,7 @@
             <a href="https://www.instagram.com/nordlandpark/" class="social_icon"><img src="images/social_media/logo_instagram.png"></a>
         </div>
 
-        <% if $Events.Count > 0 %>
+        <% if $FutureEvents.Count > 0 %>
             <div class="news_events">
                 <h2><%t App.CURRENTEVENTS 'Anstehende Events' %></h2>
                 <% loop $FutureEvents %>
