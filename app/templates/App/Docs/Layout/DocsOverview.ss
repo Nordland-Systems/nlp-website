@@ -6,6 +6,7 @@
             <a href="#Targetgroups">Zielgruppen</a>
             <a href="#Attractions">Attraktionen</a>
             <a href="#Restaurants">Restaurants</a>
+            <a href="#Characters">Charaktere</a>
             <p class="nav_menu">Navigation</p>
         </div>
     </div>
@@ -103,6 +104,21 @@
                 <div class="restaurants">
                     <% loop Restaurants.Filter("VisibleToDreamteam","1") %>
                         <% include RestaurantCard Parent=$Top %>
+                    <% end_loop %>
+                </div>
+
+                <a class="anchor" id="Characters"></a>
+                <h2 class="centered">Charaktere</h2>
+                <div class="area_list">
+                    <% loop Characters.Filter("VisibleToDreamteam","1") %>
+                        <a href="$Top.Link('character')/$FormattedName" class="area_item">
+                            <% if $Image %>
+                                <div class="item_image">
+                                    $Image.FocusFill(200, 50)
+                                </div>
+                            <% end_if %>
+                            <h2 class="item_title white">$Title</h2>
+                        </a>
                     <% end_loop %>
                 </div>
             </div>
