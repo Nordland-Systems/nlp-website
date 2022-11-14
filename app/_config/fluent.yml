@@ -65,3 +65,9 @@ App\News\News:
     - Title
     - Summary
     - Description
+
+SilverStripe\LinkField\Models\Link:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  translate:
+    - Title
