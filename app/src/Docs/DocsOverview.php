@@ -21,7 +21,7 @@ class DocsOverview extends Page
         "VisibleToGuests" => "Boolean"
     );
 
-    private static $icon = "app/client/icons/docs.svg";
+    private static $icon = "app/client/icons/docsgray.svg";
 
     public function getCMSFields()
     {

@@ -4,6 +4,7 @@ namespace App\Docs;
 
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
+use SilverStripe\Assets\Thumbnail;
 use SilverStripe\ORM\DataObject;
 use TractorCow\SliderField\SliderField;
 use SilverStripe\Forms\CheckboxSetField;
@@ -104,7 +105,7 @@ class DocsAttraction extends DataObject
     ];
 
     private static $searchable_fields = [
-        "AttractionID", "Title", "Type", "Description"
+        "Title", "AttractionID", "Type", "Description"
     ];
 
     private static $table_name = "Attraction";
@@ -124,7 +125,12 @@ class DocsAttraction extends DataObject
     public function getCMSThumbnail()
     {
         if ($image = $this->HeaderImage()) {
-            return $image->CMSThumbnail();
+            //return $image->CMSThumbnail();
+            if ($image->exists()) {
+                return $image->Fill(120, 80);
+            } else {
+                return "(kein Bild)";
+            }
         }
     }
 
@@ -162,7 +168,6 @@ class DocsAttraction extends DataObject
 
     public function getTargetGroups()
     {
-
         return $this->AttractionTargetgroups();
     }
 }

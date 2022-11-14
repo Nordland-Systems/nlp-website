@@ -49,7 +49,7 @@ class DocsCharacter extends DataObject
 
     private static $summary_fields = [
         "Title" => "Titel",
-        "Visible" => "Sichtbar"
+        "VisibilitiesAsString" => "Sichtbar für"
     ];
 
     private static $searchable_fields = [
@@ -85,6 +85,18 @@ class DocsCharacter extends DataObject
     public function CanArchive($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
+    }
+
+    public function VisibilitiesAsString()
+    {
+        $visibilities = [];
+        if ($this->VisibleToGuests) {
+            $visibilities[] = "Gäste";
+        }
+        if ($this->VisibleToDreamteam) {
+            $visibilities[] = "Dreamteam";
+        }
+        return implode(", ", $visibilities);
     }
 
     public function Link()

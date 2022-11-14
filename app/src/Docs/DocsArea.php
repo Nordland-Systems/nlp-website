@@ -2,9 +2,10 @@
 
 namespace App\Docs;
 
-use SilverStripe\Security\Permission;
-use SilverStripe\ORM\DataObject;
+use App\Docs\DocsAttraction;
 use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Security\Permission;
 
 /**
  * Class \App\Docs\Docs
@@ -34,7 +35,7 @@ class DocsArea extends DataObject
     ];
 
     private static $defaults = [
-        "VisibleToGuests" => true,
+        "VisibleToGuests" => false,
         "VisibleToDreamteam" => true,
     ];
 
@@ -48,8 +49,11 @@ class DocsArea extends DataObject
     ];
 
     private static $summary_fields = [
+        "CMSThumbnail" => "Bild",
         "Title" => "Titel",
-        "Visible" => "Sichtbar"
+        "VisibilitiesAsString" => "Sichtbar für",
+        "AttractionCount" => "Attraktionen",
+        "RestaurantCount" => "Restaurants",
     ];
 
     private static $searchable_fields = [
@@ -87,6 +91,28 @@ class DocsArea extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    public function VisibilitiesAsString()
+    {
+        $visibilities = [];
+        if ($this->VisibleToGuests) {
+            $visibilities[] = "Gäste";
+        }
+        if ($this->VisibleToDreamteam) {
+            $visibilities[] = "Dreamteam";
+        }
+        return implode(", ", $visibilities);
+    }
+
+    public function AttractionCount()
+    {
+        return DocsAttraction::get()->filter("AreaID", $this->ID)->count();
+    }
+
+    public function RestaurantCount()
+    {
+        return DocsRestaurant::get()->filter("AreaID", $this->ID)->count();
+    }
+
     public function Link()
     {
         $holder = DocsOverview::get()->sort("ID", "ASC")->First();
@@ -99,6 +125,19 @@ class DocsArea extends DataObject
     {
         $fields = parent::getCMSFields();
         return $fields;
+    }
+
+    // this function creates the thumbnail for the summary fields to use
+    public function getCMSThumbnail()
+    {
+        if ($image = $this->Image()) {
+            //return $image->CMSThumbnail();
+            if ($image->exists()) {
+                return $image->Fill(120, 80);
+            } else {
+                return "(kein Bild)";
+            }
+        }
     }
 
     public function CMSEditLink()

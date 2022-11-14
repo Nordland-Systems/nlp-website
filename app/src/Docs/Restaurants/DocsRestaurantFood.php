@@ -63,8 +63,9 @@ class DocsRestaurantFood extends DataObject
     private static $default_sort = 'SortOrder ASC, ID ASC';
 
     private static $summary_fields = [
-        'ID' => 'ID',
+        'CMSThumbnail' => 'Bild',
         'Title' => 'Titel',
+        "FoodTags" => "Tags",
     ];
 
     private static $searchable_fields = [
@@ -105,5 +106,45 @@ class DocsRestaurantFood extends DataObject
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
+    }
+
+    // this function creates the thumbnail for the summary fields to use
+    public function getCMSThumbnail()
+    {
+        if ($image = $this->HeaderImage()) {
+            //return $image->CMSThumbnail();
+            if ($image->exists()) {
+                return $image->Fill(120, 80);
+            } else {
+                return "(kein Bild)";
+            }
+        }
+    }
+
+    public function getFoodTags()
+    {
+        $tags = [];
+        if ($this->Vegan) {
+            $tags[] = "A";
+        }
+        if ($this->Vegetarian) {
+            $tags[] = "V";
+        }
+        if ($this->GlutenFree) {
+            $tags[] = "G";
+        }
+        if ($this->LactoseFree) {
+            $tags[] = "L";
+        }
+        if ($this->NutFree) {
+            $tags[] = "N";
+        }
+        if ($this->Halal) {
+            $tags[] = "H";
+        }
+        if ($this->Kosher) {
+            $tags[] = "K";
+        }
+        return implode(", ", $tags);
     }
 }

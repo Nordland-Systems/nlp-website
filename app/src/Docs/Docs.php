@@ -26,7 +26,7 @@ class Docs extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
-        "Status" => "Enum('ToDo, InProgress, Live, NeedsRefreshing, Archived', 'ToDo')",
+        "Status" => "Enum('ToDo, InProgress, Review, Live, NeedsRefreshing, Archived', 'ToDo')",
         "Description" => "HTMLText",
         "VisibleToGuests" => "Boolean",
         "VisibleToDreamteam" => "Boolean",
@@ -62,8 +62,9 @@ class Docs extends DataObject
 
     private static $summary_fields = [
         "Title" => "Titel",
-        "Visible" => "Sichtbar",
-        "Category" => "Kategorien"
+        "Status" => "Status",
+        "VisibilitiesAsString" => "Sichtbar für",
+        "CategoriesAsString" => "Kategorien"
     ];
 
     private static $searchable_fields = [
@@ -106,6 +107,28 @@ class Docs extends DataObject
     public function CanArchive($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
+    }
+
+    public function CategoriesAsString()
+    {
+        $categories = $this->Categories();
+        $categoriesAsString = "";
+        foreach ($categories as $category) {
+            $categoriesAsString .= $category->Title . ", ";
+        }
+        return $categoriesAsString;
+    }
+
+    public function VisibilitiesAsString()
+    {
+        $visibilities = [];
+        if ($this->VisibleToGuests) {
+            $visibilities[] = "Gäste";
+        }
+        if ($this->VisibleToDreamteam) {
+            $visibilities[] = "Dreamteam";
+        }
+        return implode(", ", $visibilities);
     }
 
     public function Link()

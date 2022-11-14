@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8e7a8ad6943ac8940739f4a145bdb0b",
+    "content-hash": "c6312a014d6dae96d408bae945381130",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2660,6 +2660,54 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "ryanpotter/silverstripe-cms-theme",
+            "version": "3.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rhym/silverstripe-cms-theme.git",
+                "reference": "358a07bad9e45dd5a20af06992bc505165c3d57d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rhym/silverstripe-cms-theme/zipball/358a07bad9e45dd5a20af06992bc505165c3d57d",
+                "reference": "358a07bad9e45dd5a20af06992bc505165c3d57d",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1.0",
+                "silverstripe/framework": "^4.0",
+                "silverstripe/siteconfig": "^4.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "silverstripe-cms-theme",
+                "expose": [
+                    "dist"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Potter",
+                    "homepage": "http://ryanpotter.co.nz/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CMS Theme",
+            "keywords": [
+                "silverstripe",
+                "theme"
+            ],
+            "support": {
+                "issues": "https://github.com/Rhym/silverstripe-cms-theme/issues",
+                "source": "https://github.com/Rhym/silverstripe-cms-theme/tree/3.4.4"
+            },
+            "time": "2019-03-28T23:00:12+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -6852,5 +6900,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
