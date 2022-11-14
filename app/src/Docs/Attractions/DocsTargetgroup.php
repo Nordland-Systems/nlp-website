@@ -20,7 +20,6 @@ class DocsTargetgroup extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
-        "SortOrder" => "Int",
     ];
 
     private static $has_one = [
@@ -43,6 +42,7 @@ class DocsTargetgroup extends DataObject
 
     private static $summary_fields = [
         "Title" => "Titel",
+        "Attractions.Count" => "Attraktionen"
     ];
 
     private static $searchable_fields = [
@@ -58,7 +58,6 @@ class DocsTargetgroup extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeFieldFromTab("Root.Main", "ParentID");
-        $fields->removeFieldFromTab("Root.Main", "SortOrder");
         return $fields;
     }
 

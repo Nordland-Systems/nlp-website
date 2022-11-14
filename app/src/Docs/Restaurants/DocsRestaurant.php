@@ -75,6 +75,7 @@ class DocsRestaurant extends DataObject
         "Title" => "Titel",
         "Type" => "Typ",
         "Area.Title" => "Themenbereich",
+        "VisibilitiesAsString" => "Sichtbar für",
     ];
 
     private static $searchable_fields = [
@@ -98,7 +99,12 @@ class DocsRestaurant extends DataObject
     public function getCMSThumbnail()
     {
         if ($image = $this->HeaderImage()) {
-            return $image->CMSThumbnail();
+            //return $image->CMSThumbnail();
+            if ($image->exists()) {
+                return $image->Fill(120, 80);
+            } else {
+                return "(kein Bild)";
+            }
         }
     }
 
@@ -114,6 +120,18 @@ class DocsRestaurant extends DataObject
     public function getFormattedName()
     {
         return str_replace(' ', '_', $this->Title);
+    }
+
+    public function VisibilitiesAsString()
+    {
+        $visibilities = [];
+        if ($this->VisibleToGuests) {
+            $visibilities[] = "Gäste";
+        }
+        if ($this->VisibleToDreamteam) {
+            $visibilities[] = "Dreamteam";
+        }
+        return implode(", ", $visibilities);
     }
 
     public function getTargetGroups()

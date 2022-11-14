@@ -168,7 +168,6 @@ class DocsAttraction extends DataObject
 
     public function getTargetGroups()
     {
-
         return $this->AttractionTargetgroups();
     }
 }
