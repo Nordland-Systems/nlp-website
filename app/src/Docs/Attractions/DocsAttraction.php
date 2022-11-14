@@ -104,7 +104,7 @@ class DocsAttraction extends DataObject
     ];
 
     private static $searchable_fields = [
-        "AttractionID", "Title", "Type", "Description"
+        "Title", "AttractionID", "Type", "Description"
     ];
 
     private static $table_name = "Attraction";

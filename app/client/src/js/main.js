@@ -248,6 +248,24 @@ function topFunction() {
 }
 
 
+//Search Tool
+const searchBar = document.querySelector('#search-docs');
+if(searchBar){
+    searchBar.addEventListener('keyup', searchLocation);
+}
+
+function searchLocation(e) {
+    const searchValue = e.target.value.toLowerCase();
+    const searchables = document.querySelectorAll("[data-behaviour='searchable']");
+    searchables.forEach(searchable => {
+        console.log(searchable.innerHTML.toLowerCase() + " != " + searchValue);
+        if(searchable.innerHTML.toLowerCase().includes(searchValue)){
+            searchable.classList.remove("hidden_by_search");
+        } else {
+            searchable.classList.add("hidden_by_search");
+        }
+    })
+}
 
 
 //Cookie Consent

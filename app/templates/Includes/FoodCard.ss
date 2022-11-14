@@ -1,4 +1,4 @@
-<div class="food_menu_item">
+<div class="food_menu_item" data-behaviour="searchable">
     <% if $HeaderImage %>
         <div class="item_image">
             $HeaderImage.FocusFill(300, 200)

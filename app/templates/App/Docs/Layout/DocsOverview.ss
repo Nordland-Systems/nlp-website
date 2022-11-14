@@ -61,83 +61,102 @@
     <% if $DocsPermission %>
         <div class="section section--docs_attractionslist">
             <div class="section_content">
-                <a class="anchor" id="Areas"></a>
-                <h2 class="centered">Themenbereiche</h2>
-                <div class="area_list">
-                    <% loop Areas.Filter("VisibleToDreamteam","1") %>
-                        <a href="$Top.Link('area')/$FormattedName" class="area_item">
-                            <% if $Image %>
-                                <div class="item_image">
-                                    $Image.FocusFill(200, 50)
-                                </div>
-                            <% end_if %>
-                            <h2 class="item_title white">$Title</h2>
-                        </a>
-                    <% end_loop %>
+
+                <div class="search_bar" id="search-experience-bar">
+                    <input type="text" name="search" id="search-docs" placeholder="Suche nach bestimmten Docs..." />
                 </div>
 
-                <a class="anchor" id="Targetgroups"></a>
-                <h2 class="centered">Zielgruppen</h2>
-                <div class="area_list">
-                    <% loop Targetgroups %>
-                        <a href="$Top.Link('targetgroup')/$FormattedName" class="area_item">
-                            <% if $Image %>
-                                <div class="item_image">
-                                    $Image.FocusFill(200, 50)
-                                </div>
-                            <% end_if %>
-                            <h2 class="item_title white">$Title</h2>
-                        </a>
-                    <% end_loop %>
+                <div class="area_wrap" data-behaviour="searchable">
+                    <a class="anchor" id="Areas"></a>
+                    <h2 class="centered">Themenbereiche</h2>
+                    <div class="area_list">
+                        <% loop Areas.Filter("VisibleToDreamteam","1") %>
+                            <a href="$Top.Link('area')/$FormattedName" class="area_item" data-behaviour="searchable">
+                                <% if $Image %>
+                                    <div class="item_image">
+                                        $Image.FocusFill(200, 50)
+                                    </div>
+                                <% end_if %>
+                                <h2 class="item_title white">$Title</h2>
+                            </a>
+                        <% end_loop %>
+                    </div>
                 </div>
 
-                <a class="anchor" id="Attractions"></a>
-                <h2 class="centered">Attraktionen</h2>
-                <div class="attractions">
-                    <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                        <% include AttractionCard Parent=$Top %>
-                    <% end_loop %>
+                <div class="area_wrap" data-behaviour="searchable">
+                    <a class="anchor" id="Targetgroups"></a>
+                    <h2 class="centered">Zielgruppen</h2>
+                    <div class="area_list">
+                        <% loop Targetgroups %>
+                            <a href="$Top.Link('targetgroup')/$FormattedName" class="area_item" data-behaviour="searchable">
+                                <% if $Image %>
+                                    <div class="item_image">
+                                        $Image.FocusFill(200, 50)
+                                    </div>
+                                <% end_if %>
+                                <h2 class="item_title white">$Title</h2>
+                            </a>
+                        <% end_loop %>
+                    </div>
                 </div>
 
-                <a class="anchor" id="Restaurants"></a>
-                <h2 class="centered">Restaurants</h2>
-                <div class="restaurants">
-                    <% loop Restaurants.Filter("VisibleToDreamteam","1") %>
-                        <% include RestaurantCard Parent=$Top %>
-                    <% end_loop %>
+                <div class="area_wrap" data-behaviour="searchable">
+                    <a class="anchor" id="Attractions"></a>
+                    <h2 class="centered">Attraktionen</h2>
+                    <div class="attractions">
+                        <% loop Attractions.Filter("VisibleToDreamteam","1") %>
+                            <% include AttractionCard Parent=$Top %>
+                        <% end_loop %>
+                    </div>
                 </div>
 
-                <a class="anchor" id="Characters"></a>
-                <h2 class="centered">Charaktere</h2>
-                <div class="area_list">
-                    <% loop Characters.Filter("VisibleToDreamteam","1") %>
-                        <a href="$Top.Link('character')/$FormattedName" class="area_item">
-                            <% if $Image %>
-                                <div class="item_image">
-                                    $Image.FocusFill(200, 50)
-                                </div>
-                            <% end_if %>
-                            <h2 class="item_title white">$Title</h2>
-                        </a>
-                    <% end_loop %>
+                <div class="area_wrap" data-behaviour="searchable">
+                    <a class="anchor" id="Restaurants"></a>
+                    <h2 class="centered">Restaurants</h2>
+                    <div class="restaurants">
+                        <% loop Restaurants.Filter("VisibleToDreamteam","1") %>
+                            <% include RestaurantCard Parent=$Top %>
+                        <% end_loop %>
+                    </div>
+                </div>
+
+                <div class="area_wrap" data-behaviour="searchable">
+                    <a class="anchor" id="Characters"></a>
+                    <h2 class="centered">Charaktere</h2>
+                    <div class="area_list">
+                        <% loop Characters.Filter("VisibleToDreamteam","1") %>
+                            <a href="$Top.Link('character')/$FormattedName" class="area_item" data-behaviour="searchable">
+                                <% if $Image %>
+                                    <div class="item_image">
+                                        $Image.FocusFill(200, 50)
+                                    </div>
+                                <% end_if %>
+                                <h2 class="item_title white">$Title</h2>
+                            </a>
+                        <% end_loop %>
+                    </div>
                 </div>
             </div>
         </div>
     <% else_if Attractions.Filter("VisibleToGuests","1").Count > 0 %>
         <div class="section section--docs_attractionslist">
             <div class="section_content">
-                <a class="anchor" id="Attractions"></a>
-                <h2 class="centered">Attraktionen</h2>
-                <div class="attractions">
-                    <% loop Attractions.Filter("VisibleToDreamteam","1") %>
-                        <% include AttractionCard Parent=$Top %>
-                    <% end_loop %>
+
+                <div class="area_wrap" data-behaviour="searchable">
+                    <a class="anchor" id="Attractions"></a>
+                    <h2 class="centered">Attraktionen</h2>
+                    <div class="attractions">
+                        <% loop Attractions.Filter("VisibleToDreamteam","1") %>
+                            <% include AttractionCard Parent=$Top %>
+                        <% end_loop %>
+                    </div>
                 </div>
             </div>
         </div>
     <% else %>
         <div class="section section--docs_login">
             <div class="section_content">
+
                 <a class="anchor" id="Attractions"></a>
                 <h2 class="centered">Attraktionen</h2>
                 <h3 class="centered">Aktuell sind noch keine geplanten Attraktionen öffentlich</h3>
