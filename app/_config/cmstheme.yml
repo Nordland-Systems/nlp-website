@@ -1,0 +1,26 @@
+SilverStripe\SiteConfig\SiteConfig:
+  cms_logo: '_resources/app/client/src/images/nlpGmbhIconWhite.svg'
+  cms_logo_width: 60 # Optional width constraint
+
+SilverStripe\Admin\LeftAndMain:
+  cms_background: '#041824'
+  cms_border_color: '#041824'
+  cms_color: '#fff'
+  cms_hover_background: '#0C476AFF'
+  cms_hover_color: currentColor
+  cms_active_background: '#0C476AFF'
+  cms_active_color: currentColor
+  cms_drawer_background: '#0d202b'
+  cms_drawer_color: 'inherit'
+  cms_icon_color: #fff
+  menu_groups:
+    Other:
+      icon_class: 'fa fa-folder' # (optional) Defaults to 'fa fa-folder'
+      priority: -100 # (optional) Defaults to menu item order
+      items:
+        - TractorCow-Fluent-Control-LocaleAdmin
+        - SilverStripe-SiteConfig-SiteConfigLeftAndMain
+        - SilverStripe-Admin-SecurityAdmin
+        - SilverStripe-CampaignAdmin-CampaignAdmin
+        - SilverStripe-VersionedAdmin-ArchiveAdmin
+        - SilverStripe-Reports-ReportAdmin

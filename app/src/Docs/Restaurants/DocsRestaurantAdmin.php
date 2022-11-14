@@ -7,7 +7,7 @@ use SilverStripe\Admin\ModelAdmin;
  * Class \App\Docs\DocsAdmin
  *
  */
-class DocsFoodAdmin extends ModelAdmin
+class DocsRestaurantAdmin extends ModelAdmin
 {
 
     private static $managed_models = array (
@@ -16,11 +16,11 @@ class DocsFoodAdmin extends ModelAdmin
         DocsRestaurantDrink::class,
     );
 
-    private static $url_segment = "docsfood";
+    private static $url_segment = "restaurantdocs";
 
     private static $menu_title = "Docs Restaurants";
 
-    private static $menu_icon = "app/client/icons/docs.svg";
+    private static $menu_icon = "app/client/icons/docsrestaurants.svg";
 
     public function init()
     {

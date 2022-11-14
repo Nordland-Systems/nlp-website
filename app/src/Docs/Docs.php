@@ -26,7 +26,7 @@ class Docs extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
-        "Status" => "Enum('ToDo, InProgress, Live, NeedsRefreshing, Archived', 'ToDo')",
+        "Status" => "Enum('ToDo, InProgress, Review, Live, NeedsRefreshing, Archived', 'ToDo')",
         "Description" => "HTMLText",
         "VisibleToGuests" => "Boolean",
         "VisibleToDreamteam" => "Boolean",
