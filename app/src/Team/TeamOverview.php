@@ -25,7 +25,7 @@ class TeamOverview extends Page
         "HeaderImage"
     ];
 
-    private static $icon = "app/client/icons/team.svg";
+    private static $icon = "app/client/icons/teamgray.svg";
 
     public function getCMSFields()
     {
