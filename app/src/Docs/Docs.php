@@ -7,6 +7,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\SnapshotAdmin\SnapshotHistoryExtension;
 
 /**
@@ -17,6 +18,7 @@ use SilverStripe\SnapshotAdmin\SnapshotHistoryExtension;
  * @property string $Description
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
+ * @property string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
@@ -30,6 +32,7 @@ class Docs extends DataObject
         "Description" => "HTMLText",
         "VisibleToGuests" => "Boolean",
         "VisibleToDreamteam" => "Boolean",
+        "LinkTitle" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -109,6 +112,16 @@ class Docs extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    public function onBeforeWrite()
+    {
+        if ($this->LinkTitle == "") {
+            $filter = URLSegmentFilter::create();
+            $filteredTitle = $filter->filter($this->Title);
+            $this->LinkTitle = $filteredTitle;
+        }
+        parent::onBeforeWrite();
+    }
+
     public function CategoriesAsString()
     {
         $categories = $this->Categories();
@@ -135,7 +148,7 @@ class Docs extends DataObject
     {
         $holder = DocsOverview::get()->sort("ID", "ASC")->First();
         if ($holder) {
-            return $holder->Link("view/") . $this->ID;
+            return $holder->Link("view/") . $this->LinkTitle;
         }
     }
 

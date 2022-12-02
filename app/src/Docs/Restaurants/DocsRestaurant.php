@@ -8,6 +8,7 @@ use SilverStripe\ORM\DataObject;
 use TractorCow\SliderField\SliderField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
@@ -19,6 +20,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property string $Description
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
+ * @property string $LinkTitle
  * @property int $HeaderImageID
  * @property int $AreaID
  * @method \SilverStripe\Assets\Image HeaderImage()
@@ -34,6 +36,7 @@ class DocsRestaurant extends DataObject
         "Description" => "HTMLText",
         "VisibleToGuests" => "Boolean",
         "VisibleToDreamteam" => "Boolean",
+        "LinkTitle" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -115,6 +118,16 @@ class DocsRestaurant extends DataObject
         $fields->removeByName("Locales");
 
         return $fields;
+    }
+
+    public function onBeforeWrite()
+    {
+        if ($this->LinkTitle == "") {
+            $filter = URLSegmentFilter::create();
+            $filteredTitle = $filter->filter($this->Title);
+            $this->LinkTitle = $filteredTitle;
+        }
+        parent::onBeforeWrite();
     }
 
     public function getFormattedName()

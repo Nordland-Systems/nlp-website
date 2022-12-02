@@ -4,11 +4,12 @@ namespace App\Docs;
 
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
-use SilverStripe\Assets\Thumbnail;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Assets\Thumbnail;
 use TractorCow\SliderField\SliderField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
@@ -25,6 +26,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
  * @property int $ThrillIntensity
+ * @property string $LinkTitle
  * @property int $HeaderImageID
  * @property int $SvgIconID
  * @property int $AreaID
@@ -50,6 +52,7 @@ class DocsAttraction extends DataObject
         "VisibleToGuests" => "Boolean",
         "VisibleToDreamteam" => "Boolean",
         "ThrillIntensity" => "Int",
+        "LinkTitle" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -117,7 +120,7 @@ class DocsAttraction extends DataObject
     {
         $holder = DocsOverview::get()->sort("ID", "ASC")->First();
         if ($holder) {
-            return $holder->Link("attraction/") . $this->ID;
+            return $holder->Link("attraction/") . $this->LinkTitle;
         }
     }
 
@@ -159,6 +162,16 @@ class DocsAttraction extends DataObject
         $fields->removeByName("Locales");
 
         return $fields;
+    }
+
+    public function onBeforeWrite()
+    {
+        if ($this->LinkTitle == "") {
+            $filter = URLSegmentFilter::create();
+            $filteredTitle = $filter->filter($this->Title);
+            $this->LinkTitle = $filteredTitle;
+        }
+        parent::onBeforeWrite();
     }
 
     public function getFormattedName()

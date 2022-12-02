@@ -4,13 +4,14 @@ namespace App\Docs;
 
 use SilverStripe\Assets\File;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
  * Class \App\Events\Event
  *
  * @property string $Title
  * @property string $Description
- * @property int $SortOrder
+ * @property string $LinkTitle
  * @property int $SvgIconID
  * @method \SilverStripe\Assets\File SvgIcon()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsAttraction[] Attractions()
@@ -20,6 +21,7 @@ class DocsTargetgroup extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
+        "LinkTitle" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -59,6 +61,16 @@ class DocsTargetgroup extends DataObject
         $fields = parent::getCMSFields();
         $fields->removeFieldFromTab("Root.Main", "ParentID");
         return $fields;
+    }
+
+    public function onBeforeWrite()
+    {
+        if ($this->LinkTitle == "") {
+            $filter = URLSegmentFilter::create();
+            $filteredTitle = $filter->filter($this->Title);
+            $this->LinkTitle = $filteredTitle;
+        }
+        parent::onBeforeWrite();
     }
 
     public function getFormattedName()

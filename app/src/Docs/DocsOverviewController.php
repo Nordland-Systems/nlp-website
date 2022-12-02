@@ -62,23 +62,17 @@ class DocsOverviewController extends PageController implements PermissionProvide
 
     public function view()
     {
-        $id = $this->getRequest()->param("ID");
-        $deformatted = str_replace('_', ' ', $id);
-        $deformatted = str_replace('%ae', 'ä', $deformatted);
-        $deformatted = str_replace('%oe', 'ö', $deformatted);
-        $deformatted = str_replace('%ue', 'ü', $deformatted);
-        $article = Docs::get()->filter("Title", $deformatted)->first();
+        $title = $this->getRequest()->param("ID");
+        $article = Docs::get()->filter("LinkTitle", $title)->first();
         return array(
-            "Doc" => $article,
-            "OtherDocs" => Docs::get()->exclude("ID", $id),
+            "Doc" => $article
         );
     }
 
     public function area()
     {
-        $id = $this->getRequest()->param("ID");
-        $deformatted = str_replace('_', ' ', $id);
-        $article = DocsArea::get()->filter("Title", $deformatted)->first();
+        $title = $this->getRequest()->param("ID");
+        $article = DocsArea::get()->filter("LinkTitle", $title)->first();
         return array(
             "Area" => $article,
         );
@@ -86,9 +80,8 @@ class DocsOverviewController extends PageController implements PermissionProvide
 
     public function character()
     {
-        $id = $this->getRequest()->param("ID");
-        $deformatted = str_replace('_', ' ', $id);
-        $article = DocsCharacter::get()->filter("Title", $deformatted)->first();
+        $title = $this->getRequest()->param("ID");
+        $article = DocsCharacter::get()->filter("LinkTitle", $title)->first();
         return array(
             "Character" => $article,
         );
@@ -106,9 +99,8 @@ class DocsOverviewController extends PageController implements PermissionProvide
 
     public function restaurant()
     {
-        $id = $this->getRequest()->param("ID");
-        $deformatted = str_replace('_', ' ', $id);
-        $article = DocsRestaurant::get()->filter("Title", $deformatted)->first();
+        $title = $this->getRequest()->param("ID");
+        $article = DocsRestaurant::get()->filter("LinkTitle", $title)->first();
         return array(
             "Restaurant" => $article,
         );
@@ -150,9 +142,8 @@ class DocsOverviewController extends PageController implements PermissionProvide
 
     public function attraction()
     {
-        $id = $this->getRequest()->param("ID");
-        $deformatted = str_replace('_', ' ', $id);
-        $article = DocsAttraction::get()->filter("Title", $deformatted)->first();
+        $title = $this->getRequest()->param("ID");
+        $article = DocsAttraction::get()->filter("LinkTitle", $title)->first();
         return array(
             "Attraction" => $article,
         );
