@@ -1,7 +1,7 @@
 <div class="teammember_item">
     <div class="teammember_border">
         <% if $Description %>
-            <a class="teammember_texts no_deco" href="$TopScope.Link('view')/$FormattedName/?source=$TopScope.Link">
+            <a class="teammember_texts no_deco" href="$TopScope.Link('view')/$LinkTitle/?source=$TopScope.Link">
                 <div class="face">
                     $Image.FocusFill(400,400)
                 </div>

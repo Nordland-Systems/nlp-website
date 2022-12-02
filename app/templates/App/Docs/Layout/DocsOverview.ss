@@ -20,18 +20,18 @@
                     <% if $Top.DocsPermission %>
                         <% if $Docs.Filter('VisibleToDreamteam','1').Count > 0 %>
                             <div class="docs_category">
-                                <a href="$Top.Link('category')/$ID">
+                                <a href="$Top.Link('category')/$LinkTitle">
                                     <h2 class="white centered">$Title</h2>
                                 </a>
                                 <div class="docs_list">
                                     <% loop $Docs.Filter('VisibleToDreamteam','1').Sort("Title", "ASC").Limit(5) %>
-                                        <a href="$Top.Link('view')/$FormattedName" class="list_item link--button hollow white $Status">
+                                        <a href="$Top.Link('view')/$LinkTitle" class="list_item link--button hollow white $Status">
                                             <p class="list_item_title">$Title</p>
                                             <p class="list_item_flair $Status">$Status</p>
                                         </a>
                                     <% end_loop %>
                                     <% if $Docs.Filter('VisibleToDreamteam','1').Count > 5 %>
-                                        <a href="$Top.Link('category')/$FormattedName" class="list_more white centered $Status">Mehr $Title ></a>
+                                        <a href="$Top.Link('category')/$LinkTitle" class="list_more white centered $Status">Mehr $Title ></a>
                                     <% end_if %>
                                 </div>
                             </div>
@@ -43,13 +43,13 @@
                             </a>
                             <div class="docs_list">
                                 <% loop $Docs.Filter("VisibleToGuests", "1").Sort("Title", "ASC").Limit(5) %>
-                                    <a href="$Top.Link('view')/$FormattedName" class="list_item link--button hollow white $Status">
+                                    <a href="$Top.Link('view')/$LinkTitle" class="list_item link--button hollow white $Status">
                                         <p class="list_item_title">$Title</p>
                                         <p class="list_item_flair $Status">$Status</p>
                                     </a>
                                 <% end_loop %>
                                 <% if $Docs.Filter("VisibleToGuests", "1").Count > 5 %>
-                                    <a href="$Top.Link('category')/$FormattedName" class="list_more white centered $Status">Mehr $Title ></a>
+                                    <a href="$Top.Link('category')/$LinkTitle" class="list_more white centered $Status">Mehr $Title ></a>
                                 <% end_if %>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                     <h2 class="centered">Themenbereiche</h2>
                     <div class="area_list">
                         <% loop Areas.Filter("VisibleToDreamteam","1") %>
-                            <a href="$Top.Link('area')/$FormattedName" class="area_item" data-behaviour="searchable">
+                            <a href="$Top.Link('area')/$LinkTitle" class="area_item" data-behaviour="searchable">
                                 <% if $Image %>
                                     <div class="item_image">
                                         $Image.FocusFill(200, 50)
@@ -88,7 +88,7 @@
                     <h2 class="centered">Zielgruppen</h2>
                     <div class="area_list">
                         <% loop Targetgroups %>
-                            <a href="$Top.Link('targetgroup')/$FormattedName" class="area_item" data-behaviour="searchable">
+                            <a href="$Top.Link('targetgroup')/$LinkTitle" class="area_item" data-behaviour="searchable">
                                 <% if $Image %>
                                     <div class="item_image">
                                         $Image.FocusFill(200, 50)
@@ -125,7 +125,7 @@
                     <h2 class="centered">Charaktere</h2>
                     <div class="area_list">
                         <% loop Characters.Filter("VisibleToDreamteam","1") %>
-                            <a href="$Top.Link('character')/$FormattedName" class="area_item" data-behaviour="searchable">
+                            <a href="$Top.Link('character')/$LinkTitle" class="area_item" data-behaviour="searchable">
                                 <% if $Image %>
                                     <div class="item_image">
                                         $Image.FocusFill(200, 50)

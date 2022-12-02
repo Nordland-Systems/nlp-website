@@ -6,6 +6,7 @@ use App\Docs\DocsAttraction;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
  * Class \App\Docs\Docs
@@ -14,6 +15,7 @@ use SilverStripe\Security\Permission;
  * @property string $Description
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
+ * @property string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  */
@@ -23,7 +25,8 @@ class DocsArea extends DataObject
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
         "VisibleToGuests" => "Boolean",
-        "VisibleToDreamteam" => "Boolean"
+        "VisibleToDreamteam" => "Boolean",
+        "LinkTitle" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -89,6 +92,16 @@ class DocsArea extends DataObject
     public function CanArchive($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
+    }
+
+    public function onBeforeWrite()
+    {
+        if ($this->LinkTitle == "") {
+            $filter = URLSegmentFilter::create();
+            $filteredTitle = $filter->filter($this->Title);
+            $this->LinkTitle = $filteredTitle;
+        }
+        parent::onBeforeWrite();
     }
 
     public function VisibilitiesAsString()

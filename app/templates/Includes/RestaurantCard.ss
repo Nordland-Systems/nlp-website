@@ -1,4 +1,4 @@
-<a href="$Parent.Link('restaurant')/$FormattedName" class="attraction_item" data-behaviour="searchable">
+<a href="$Parent.Link('restaurant')/$LinkTitle" class="attraction_item" data-behaviour="searchable">
     <% if $HeaderImage %>
         <div class="item_image">
             $HeaderImage.FocusFill(300, 200)

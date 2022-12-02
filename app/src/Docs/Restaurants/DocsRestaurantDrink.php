@@ -5,6 +5,7 @@ namespace App\Docs;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
  * Class \App\Elements\FaceItem
@@ -19,6 +20,7 @@ use SilverStripe\Security\Permission;
  * @property bool $LactoseFree
  * @property bool $NutFree
  * @property bool $Halal
+ * @property string $LinkTitle
  * @property int $HeaderImageID
  * @method \SilverStripe\Assets\Image HeaderImage()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsRestaurant[] Restaurants()
@@ -36,6 +38,7 @@ class DocsRestaurantDrink extends DataObject
         "LactoseFree" => "Boolean",
         "NutFree" => "Boolean",
         "Halal" => "Boolean",
+        "LinkTitle" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -109,6 +112,16 @@ class DocsRestaurantDrink extends DataObject
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
+    }
+
+    public function onBeforeWrite()
+    {
+        if ($this->LinkTitle == "") {
+            $filter = URLSegmentFilter::create();
+            $filteredTitle = $filter->filter($this->Title);
+            $this->LinkTitle = $filteredTitle;
+        }
+        parent::onBeforeWrite();
     }
 
     // this function creates the thumbnail for the summary fields to use
