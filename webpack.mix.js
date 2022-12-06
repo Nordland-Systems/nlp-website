@@ -16,7 +16,7 @@ mix.setPublicPath(dist)
     .sourceMaps(true)
     .version()
     .browserSync({
-        proxy: 'http://localhost/nlp-silverstripe/public',
+        proxy: 'http://localhost/nlp-website/public',
         files: [
             "public/_resources/app/client/dist/css/*.css",
             "public/_resources/app/client/dist/js/*.js",
