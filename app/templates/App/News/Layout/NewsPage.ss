@@ -2,9 +2,18 @@
     <div class="section_content">
 
         <div class="news_socials">
-            <a href="https://twitter.com/NordlandPark" class="social_icon"><img src="images/social_media/logo_twitter.png"></a>
-            <a href="https://www.youtube.com/channel/UCGzoVFbz2ILFBaJpZNzRBJA" class="social_icon"><img src="images/social_media/logo_youtube.png"></a>
-            <a href="https://www.instagram.com/nordlandpark/" class="social_icon"><img src="images/social_media/logo_instagram.png"></a>
+        <% if $SiteConfig.LinkTwitter %>
+            <a href="$SiteConfig.LinkTwitter" target="_blank" class="social_icon"><img src="images/social_media/logo_twitter.png"></a>
+        <% end_if %>
+        <% if $SiteConfig.LinkYouTube %>
+            <a href="$SiteConfig.LinkYouTube" target="_blank" class="social_icon"><img src="images/social_media/logo_youtube.png"></a>
+        <% end_if %>
+        <% if $SiteConfig.LinkInstagram %>
+            <a href="$SiteConfig.LinkInstagram" target="_blank" class="social_icon"><img src="images/social_media/logo_instagram.png"></a>
+        <% end_if %>
+        <% if $SiteConfig.LinkDiscord %>
+            <a href="$SiteConfig.LinkDiscord" target="_blank" class="social_icon"><img src="images/social_media/logo_discord.png"></a>
+        <% end_if %>
         </div>
 
         <% if $FutureEvents.Count > 0 %>
