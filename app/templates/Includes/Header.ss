@@ -19,9 +19,15 @@
             </label>
         </div>
         <div class="header_topbar_socials">
-            <a href="https://twitter.com/NordlandPark" target="_blank" class="social_button twitter"><img alt="Twitter Logo" src="images/social_media/logo_twitter.png"></a>
-            <a href="https://discord.gg/V3nCVXn" target="_blank" class="social_button discord"><img alt="Discord Logo" src="images/social_media/logo_discord.png"></a>
-            <a href="https://github.com/Nordland-Systems/nlp-website" target="_blank" class="social_button github"><img alt="Github Logo" src="images/social_media/logo_github.png"></a>
+        <% if $SiteConfig.LinkTwitter %>
+            <a href="$SiteConfig.LinkTwitter" target="_blank" class="social_button twitter"><img alt="Twitter Logo" src="images/social_media/logo_twitter.png"></a>
+        <% end_if %>
+        <% if $SiteConfig.LinkDiscord %>
+            <a href="$SiteConfig.LinkDiscord" target="_blank" class="social_button discord"><img alt="Discord Logo" src="images/social_media/logo_discord.png"></a>
+        <% end_if %>
+        <% if $SiteConfig.LinkGitHub %>
+            <a href="$SiteConfig.LinkGitHub" target="_blank" class="social_button github"><img alt="Github Logo" src="images/social_media/logo_github.png"></a>
+        <% end_if %>
         </div>
         <% if $Locales %>
             <div class="header_topbar_language">

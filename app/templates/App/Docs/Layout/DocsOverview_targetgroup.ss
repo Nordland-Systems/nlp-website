@@ -8,6 +8,12 @@
             </div>
         </div>
 
+        <div class="section section--docs_description">
+            <div class="section_content">
+                <p>$Description</p>
+            </div>
+        </div>
+
         <div class="section section--docs_attractionslist">
             <div class="section_content">
 

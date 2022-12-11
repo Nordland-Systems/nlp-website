@@ -27,3 +27,7 @@ SilverStripe\Core\Injector\Injector:
     class: App\ORM\FulltextBooleanFilter
 DNADesign\ElementalUserForms\Model\ElementForm:
   block_default_userforms_js: true
+
+Silverstripe\SiteConfig\SiteConfig:
+  extensions:
+    - App\CustomSiteConfig
