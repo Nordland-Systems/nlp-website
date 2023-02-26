@@ -66,7 +66,7 @@
                 <% if $News.Count > 0 %>
                 <div class="news">
                     <% loop $News %>
-                        <% include NewsItem %>
+                        <% include NewsItem Newspage=$Top %>
                     <% end_loop %>
                 </div>
                 <% include Pagination ItemList=$News %>
