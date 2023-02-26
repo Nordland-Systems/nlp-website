@@ -18,7 +18,7 @@ class NewsPageController extends PageController
 {
 
     private static $allowed_actions = array (
-        "view",
+        "post",
         'rss'
     );
 
@@ -54,10 +54,11 @@ class NewsPageController extends PageController
         return $pagelist;
     }
 
-    public function view()
+    public function post()
     {
-        $id = $this->getRequest()->param("ID");
-        $article = News::get()->byId($id);
+        $title = $this->getRequest()->param("ID");
+        $article = News::get()->filter("LinkTitle", $title)->first();
+
         return array(
             "News" => $article,
         );

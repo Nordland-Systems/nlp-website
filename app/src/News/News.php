@@ -7,6 +7,7 @@ use App\Events\EventAdmin;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
  * Class \App\Docs\Docs
@@ -17,6 +18,7 @@ use SilverStripe\Security\Permission;
  * @property string $Description
  * @property string $ImageDescription
  * @property bool $Visible
+ * @property string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
@@ -29,7 +31,8 @@ class News extends DataObject
         "Summary" => "Varchar(255)",
         "Description" => "HTMLText",
         "ImageDescription" => "Varchar(255)",
-        "Visible" => "Boolean"
+        "Visible" => "Boolean",
+        "LinkTitle" => "Varchar(255)"
     ];
 
     private static $has_one = [
@@ -86,6 +89,22 @@ class News extends DataObject
         if ($date) {
             return $date->Format("dd.MM.yyyy");
         }
+    }
+
+    public function onBeforeWrite()
+    {
+        if ($this->LinkTitle == "") {
+            $date = $this->dbObject('Date');
+            if ($date) {
+                $date = $date->Format("dd-MM-yyyy");
+            }
+
+            $filter = URLSegmentFilter::create();
+            $filteredTitle = $filter->filter($this->Title);
+
+            $this->LinkTitle = $date . "-" . $filteredTitle;
+        }
+        parent::onBeforeWrite();
     }
 
     protected function onAfterWrite()
