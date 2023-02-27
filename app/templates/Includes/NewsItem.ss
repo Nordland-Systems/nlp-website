@@ -1,4 +1,9 @@
 <div class="news_item">
+    <% if $Image %>
+        <a class="news_item_image" href="$Link">
+            $Image.FocusFill(1000,300)
+        </a>
+    <% end_if %>
     <div class="news_item_text">
         <p class="text_undertitle news">$FormattedDate</p>
         <a href="$Newspage.Link('post')/$LinkTitle">
@@ -15,9 +20,4 @@
             <a class="news_moreinfo_text" href="$Newspage.Link('post')/$LinkTitle"><%t App.READMORE 'Weiterlesen...' %></a>
         </div>
     </div>
-    <% if $Image %>
-        <a class="news_item_image" href="$Link">
-            $Image.FocusFill(1000,200)
-        </a>
-    <% end_if %>
 </div>
