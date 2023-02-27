@@ -317,7 +317,6 @@
 
                     @include media("<medium"){
                         flex-wrap: wrap;
-                        flex-direction: column-reverse;
 
                         .news_item_image{
                             width: 100%;
