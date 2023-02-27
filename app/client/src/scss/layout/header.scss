@@ -299,6 +299,7 @@
                         width: auto;
                         display: block;
                         color: $colorWhite;
+                        transition: background-color 0.1s ease-in-out;
 
                         a{
                             padding: 5px 0px;
