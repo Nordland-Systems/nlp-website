@@ -1,6 +1,6 @@
 <div class="news_item">
     <% if $Image %>
-        <a class="news_item_image" href="$Link">
+        <a class="news_item_image" href="$Newspage.Link('post')/$LinkTitle">
             $Image.FocusFill(1000,300)
         </a>
     <% end_if %>
