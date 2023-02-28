@@ -23,7 +23,7 @@
                     <div class="event_item">
                         <% if $Image %>
                             <div class="event_item_image">
-                                $Image.FocusFill(300,500)
+                                $Image.FocusFill(1000,300)
                             </div>
                         <% end_if %>
                         <div class="event_item_text">
