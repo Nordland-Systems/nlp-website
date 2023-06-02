@@ -12,6 +12,7 @@
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 150px;
+    color: $colorWhite;
 
     animation: slight_perspective_move 10s ease-in-out infinite;
 
