@@ -2,26 +2,23 @@
 
 namespace App;
 
-use SilverStripe\Assets\Image;
+use SilverStripe\Core\Extension;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\ORM\DataExtension;
-use SilverStripe\Forms\CheckboxField;
-use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 /**
  * Class \App\CustomSiteConfig
  *
  * @property \SilverStripe\SiteConfig\SiteConfig|\App\CustomSiteConfig $owner
- * @property string $LinkTwitter
- * @property string $LinkYouTube
- * @property string $LinkInstagram
- * @property string $LinkDiscord
- * @property string $LinkGitHub
- * @property string $FooterText
+ * @property ?string $LinkTwitter
+ * @property ?string $LinkYouTube
+ * @property ?string $LinkInstagram
+ * @property ?string $LinkDiscord
+ * @property ?string $LinkGitHub
+ * @property ?string $FooterText
  */
-class CustomSiteConfig extends DataExtension
+class CustomSiteConfig extends Extension
 {
 
     private static $db = [

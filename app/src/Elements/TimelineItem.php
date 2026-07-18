@@ -2,18 +2,29 @@
 
 namespace App\Elements;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 
 /**
  * Class \App\Elements\TimelineItem
  *
- * @property string $Year
- * @property string $Headline
- * @property string $Text
+ * @property ?string $Year
+ * @property ?string $Headline
+ * @property ?string $Text
  * @property int $SortOrder
  * @property int $ParentID
  * @method \App\Elements\TimelineElement Parent()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class TimelineItem extends DataObject
 {
@@ -52,6 +63,7 @@ class TimelineItem extends DataObject
     private static $singular_name = "Zeitleisten-Eintrag";
     private static $plural_name = "Zeitleisten-Einträge";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -60,21 +72,25 @@ class TimelineItem extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);

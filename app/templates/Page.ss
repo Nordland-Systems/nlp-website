@@ -33,12 +33,13 @@
 
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="theme-color" content="#ffffff">
-        <link rel="stylesheet" href="$Mix("/css/styles.min.css")">
+        $ViteClient.RAW
+        <link rel="stylesheet" href="$Vite('app/client/src/scss/styles.scss')">
     </head>
     <body>
         <% include Header %>
         $Layout
-        <script src="$Mix("/js/main.js")"></script>
+        <script type="module" src="$Vite('app/client/src/js/main.js')"></script>
         <% include Footer %>
     </body>
 </html>

@@ -2,7 +2,12 @@
 
 namespace App\Team;
 
-use App\Team\TeamAdmin;
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use App\Team\TeamMember;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DropdownField;
@@ -10,11 +15,16 @@ use SilverStripe\Forms\DropdownField;
 /**
  * Class \App\Team\TeamSocial
  *
- * @property string $Plattform
- * @property string $Link
+ * @property ?string $Plattform
+ * @property ?string $Link
  * @property int $SortOrder
  * @property int $ParentID
  * @method \App\Team\TeamMember Parent()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class TeamSocial extends DataObject
 {
@@ -48,6 +58,7 @@ class TeamSocial extends DataObject
 
     private static $url_segment = "teamsocial";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

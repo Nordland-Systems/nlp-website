@@ -10,12 +10,13 @@ namespace {
     use SilverStripe\CMS\Controllers\ContentController;
 
     /**
- * Class \PageController
- *
- * @property \Page dataRecord
- * @method \Page data()
- * @mixin \Page
- */
+     * Class \PageController
+     *
+     * @property Page $dataRecord
+     * @method Page data()
+     * @mixin Page
+     * @@property \Page dataRecord
+     */
     class PageController extends ContentController
     {
         private static $allowed_actions = [
@@ -28,6 +29,7 @@ namespace {
             $this->redirect($this->Page("home")->Link());
         }
 
+        #[Override]
         protected function init()
         {
             parent::init();

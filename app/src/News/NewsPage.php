@@ -1,13 +1,24 @@
 <?php
 namespace App\News;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use Page;
 use SilverStripe\Forms\TextField;
 
 /**
  * Class \App\Docs\DocsPage
  *
- * @property string $YoutubeLink
+ * @property ?string $YoutubeLink
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class NewsPage extends Page
 {
@@ -17,6 +28,7 @@ class NewsPage extends Page
 
     private static $table_name = "App_News_NewsPage";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

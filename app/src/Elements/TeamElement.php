@@ -2,19 +2,27 @@
 
 namespace App\Elements;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use App\Team\TeamMember;
 use App\Team\TeamOverview;
 use SilverStripe\Forms\DropdownField;
 use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
  * Class \App\Elements\TeamElement
  *
- * @property string $Text
- * @property string $DataType
+ * @property ?string $Text
+ * @property ?string $DataType
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class TeamElement extends BaseElement
 {
@@ -29,7 +37,7 @@ class TeamElement extends BaseElement
 
     private static $plural_name = 'Team Elemente';
 
-    private static $description = '';
+    private static $class_description = '';
 
     private static $field_labels = [
         "Text" => "Text",
@@ -37,6 +45,7 @@ class TeamElement extends BaseElement
 
     private static $icon = "font-icon-menu-security";
 
+    #[Override]
     public function getType()
     {
         return "Team";
@@ -73,6 +82,7 @@ class TeamElement extends BaseElement
         return TeamMember::get()->filter("Status", "formerly");
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

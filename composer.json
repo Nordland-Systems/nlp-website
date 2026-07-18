@@ -3,34 +3,31 @@
     "type": "silverstripe-recipe",
     "description": "The SilverStripe Framework Installer",
     "require": {
-        "php": "^7.4 || ^8",
-        "silverstripe/recipe-plugin": "^1.2",
-        "silverstripe/recipe-cms": "^4",
-        "dnadesign/silverstripe-elemental": "^4",
+        "php": "^8.5",
+        "silverstripe/recipe-plugin": "^2",
+        "silverstripe/recipe-cms": "^6.2",
+        "dnadesign/silverstripe-elemental": "^6.2",
         "ext-json": "*",
-        "colymba/gridfield-bulk-editing-tools": "^3.0",
-        "undefinedoffset/sortablegridfield": "^2.0",
-        "jonom/focuspoint": "^4.0",
-        "tractorcow/silverstripe-fluent": "^5",
-        "silverstripe/login-forms": "^4.6",
-        "silverstripe/blog": "dev-master",
-        "dnadesign/silverstripe-elemental-userforms": "3.x-dev",
-        "purplespider/silverstripe-basic-gallery-extension": "3",
-        "silverstripe/linkfield": "1.x-dev",
-        "dompdf/dompdf": "^2.0",
-        "tractorcow/silverstripe-sliderfield": "dev-master",
-        "wilr/silverstripe-googlesitemaps": "^2.2",
-        "ryanpotter/silverstripe-cms-theme": "^3.4"
-    },
-    "repositories": {
-        "silverstripe/linkfield": {
-          "type": "git",
-          "url": "https://github.com/silverstripe/silverstripe-linkfield.git"
-        }
+        "colymba/gridfield-bulk-editing-tools": "^5",
+        "undefinedoffset/sortablegridfield": "^3",
+        "jonom/focuspoint": "^6",
+        "tractorcow/silverstripe-fluent": "^8",
+        "silverstripe/login-forms": "^6",
+        "silverstripe/blog": "^5",
+        "dnadesign/silverstripe-elemental-userforms": "^5",
+        "purplespider/silverstripe-basic-gallery-extension": "^5",
+        "silverstripe/linkfield": "^5.2",
+        "dompdf/dompdf": "^3",
+        "wilr/silverstripe-googlesitemaps": "^4",
+        "stevenpaw/silverstripe-cms-backend-theme": "^1.1",
+        "atwx/silverstripe-vitehelper": "^1.3"
     },
     "require-dev": {
-        "silverleague/ideannotator": "^3",
-        "squizlabs/php_codesniffer": "^3.6"
+        "silverleague/ideannotator": "^4",
+        "squizlabs/php_codesniffer": "^3.6",
+        "wernerkrauss/silverstripe-rector": "^1",
+        "cambis/silverstan": "^2",
+        "phpstan/extension-installer": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -62,13 +59,17 @@
     "minimum-stability": "dev",
     "scripts": {
         "lint": "vendor/bin/phpcs",
-        "fix": "vendor/bin/phpcbf"
+        "fix": "vendor/bin/phpcbf",
+        "rector": "vendor/bin/rector -v",
+        "rector-dry": "vendor/bin/rector -v --dry-run",
+        "phpstan": "vendor/bin/phpstan"
     },
     "config": {
         "allow-plugins": {
             "composer/installers": true,
             "silverstripe/recipe-plugin": true,
-            "silverstripe/vendor-plugin": true
+            "silverstripe/vendor-plugin": true,
+            "phpstan/extension-installer": true
         }
     }
 }

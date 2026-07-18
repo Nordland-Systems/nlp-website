@@ -2,7 +2,10 @@
 Only:
   environment: 'dev'
 ---
+# Disabled: silverleague/ideannotator 4.0.1 calls the now-deprecated
+# ReflectionProperty::setAccessible() on every dev/build under PHP 8.5.
+# Re-enable once upstream ships a fix.
 SilverLeague\IDEAnnotator\DataObjectAnnotator:
-  enabled: true
+  enabled: false
   enabled_modules:
     - app

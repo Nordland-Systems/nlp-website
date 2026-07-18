@@ -2,6 +2,12 @@
 
 namespace App\Docs;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
@@ -10,13 +16,18 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 /**
  * Class \App\Docs\Docs
  *
- * @property string $Title
- * @property string $Description
+ * @property ?string $Title
+ * @property ?string $Description
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
- * @property string $LinkTitle
+ * @property ?string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class DocsCharacter extends DataObject
 {
@@ -64,21 +75,25 @@ class DocsCharacter extends DataObject
     private static $singular_name = "Charakter";
     private static $plural_name = "Charaktere";
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -90,6 +105,7 @@ class DocsCharacter extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {
@@ -120,12 +136,14 @@ class DocsCharacter extends DataObject
         }
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         return $fields;
     }
 
+    #[Override]
     public function CMSEditLink()
     {
         $admin = DocsAdmin::singleton();

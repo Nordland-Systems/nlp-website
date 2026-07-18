@@ -1,6 +1,7 @@
 <?php
 namespace App\Docs;
 
+use Override;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use PageController;
@@ -14,9 +15,10 @@ use SilverStripe\Security\PermissionProvider;
 /**
  * Class \App\Docs\DocsPageController
  *
- * @property \App\Docs\DocsOverview dataRecord
- * @method \App\Docs\DocsOverview data()
- * @mixin \App\Docs\DocsOverview
+ * @property DocsOverview $dataRecord
+ * @method DocsOverview data()
+ * @mixin DocsOverview
+ * @@property \App\Docs\DocsOverview dataRecord
  */
 class DocsOverviewController extends PageController implements PermissionProvider
 {
@@ -53,6 +55,7 @@ class DocsOverviewController extends PageController implements PermissionProvide
         return $this->redirect($this->Link());
     }
 
+    #[Override]
     public function logout($request)
     {
         $session = $this->getRequest()->getSession();
@@ -64,27 +67,27 @@ class DocsOverviewController extends PageController implements PermissionProvide
     {
         $title = $this->getRequest()->param("ID");
         $article = Docs::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Doc" => $article
-        );
+        ];
     }
 
     public function area()
     {
         $title = $this->getRequest()->param("ID");
         $article = DocsArea::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Area" => $article,
-        );
+        ];
     }
 
     public function character()
     {
         $title = $this->getRequest()->param("ID");
         $article = DocsCharacter::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Character" => $article,
-        );
+        ];
     }
 
     public function targetgroup()
@@ -92,18 +95,18 @@ class DocsOverviewController extends PageController implements PermissionProvide
         $id = $this->getRequest()->param("ID");
         $deformatted = str_replace('_', ' ', $id);
         $article = DocsTargetgroup::get()->filter("Title", $deformatted)->first();
-        return array(
+        return [
             "Targetgroup" => $article,
-        );
+        ];
     }
 
     public function restaurant()
     {
         $title = $this->getRequest()->param("ID");
         $article = DocsRestaurant::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Restaurant" => $article,
-        );
+        ];
     }
 
     public function pdf()
@@ -135,18 +138,18 @@ class DocsOverviewController extends PageController implements PermissionProvide
     {
         $id = $this->getRequest()->param("ID");
         $article = DocsCategory::get()->byId($id);
-        return array(
+        return [
             "Category" => $article,
-        );
+        ];
     }
 
     public function attraction()
     {
         $title = $this->getRequest()->param("ID");
         $article = DocsAttraction::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Attraction" => $article,
-        );
+        ];
     }
 
     public function getDocsCategories()
@@ -188,9 +191,9 @@ class DocsOverviewController extends PageController implements PermissionProvide
     {
         $id = $this->getRequest()->param("ID");
         $article = DocsCategory::get()->byId($id);
-        return array(
+        return [
             "DocCategory" => $article,
-        );
+        ];
     }
 
     public function checkLogin()

@@ -2,6 +2,13 @@
 
 namespace {
 
+    use SilverStripe\Assets\AssetControlExtension;
+    use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+    use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+    use SilverStripe\Versioned\RecursivePublishable;
+    use SilverStripe\Versioned\VersionedStateExtension;
+    use DNADesign\Elemental\Models\ElementalArea;
+    use DNADesign\Elemental\Extensions\ElementalPageExtension;
     use SilverStripe\Assets\Image;
     use SilverStripe\AssetAdmin\Forms\UploadField;
     use SilverStripe\CMS\Model\SiteTree;
@@ -10,16 +17,23 @@ namespace {
     /**
  * Class \Page
  *
- * @property string $MenuPosition
- * @property string $ShowHeroImage
+ * @property ?string $MenuPosition
+ * @property ?string $ShowHeroImage
  * @property int $ElementalAreaID
  * @property int $ImageID
  * @method \DNADesign\Elemental\Models\ElementalArea ElementalArea()
  * @method \SilverStripe\Assets\Image Image()
  * @mixin \DNADesign\Elemental\Extensions\ElementalPageExtension
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
     class Page extends SiteTree
     {
+        private static $table_name = 'Page';
+
         private static $db = [
             "MenuPosition" => "Enum('main,footer,topbar', 'main')",
             "ShowHeroImage" => "Varchar(255)"
@@ -33,6 +47,7 @@ namespace {
             "Image"
         ];
 
+        #[Override]
         public function getCMSFields()
         {
             $fields = parent::getCMSFields();

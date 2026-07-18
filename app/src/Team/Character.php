@@ -2,6 +2,12 @@
 
 namespace App\Team;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use SilverStripe\Assets\Image;
 use SilverStripe\LinkField\Models\Link;
 use SilverStripe\LinkField\Form\LinkField;
@@ -10,12 +16,12 @@ use SilverStripe\ORM\DataObject;
 /**
  * Class \App\Team\TeamMember
  *
- * @property string $Title
- * @property string $Place
- * @property string $Jointime
- * @property string $Bodysize
- * @property string $Age
- * @property string $Description
+ * @property ?string $Title
+ * @property ?string $Place
+ * @property ?string $Jointime
+ * @property ?string $Bodysize
+ * @property ?string $Age
+ * @property ?string $Description
  * @property int $Importance
  * @property int $ImageID
  * @property int $ButtonID
@@ -23,6 +29,11 @@ use SilverStripe\ORM\DataObject;
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\LinkField\Models\Link Button()
  * @method \SilverStripe\LinkField\Models\Link Button2()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class Character extends DataObject
 {
@@ -79,6 +90,7 @@ class Character extends DataObject
 
     private static $url_segment = "character";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -89,6 +101,7 @@ class Character extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function CMSEditLink()
     {
         $admin = TeamAdmin::singleton();

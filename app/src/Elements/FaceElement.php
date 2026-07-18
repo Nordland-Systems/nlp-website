@@ -2,6 +2,12 @@
 
 namespace App\Elements;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DropdownField;
@@ -9,13 +15,18 @@ use SilverStripe\Forms\DropdownField;
 /**
  * Class \App\Elements\SpaceElement
  *
- * @property string $Variant
- * @property string $Text
- * @property string $TwitterLink
- * @property string $LinkedInLink
- * @property string $InstagramLink
+ * @property ?string $Variant
+ * @property ?string $Text
+ * @property ?string $TwitterLink
+ * @property ?string $LinkedInLink
+ * @property ?string $InstagramLink
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class FaceElement extends BaseElement
 {
@@ -47,11 +58,13 @@ class FaceElement extends BaseElement
     private static $table_name = 'FaceElement';
     private static $icon = 'font-icon-happy';
 
+    #[Override]
     public function getType()
     {
         return "Gesicht";
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

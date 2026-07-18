@@ -1,34 +1,36 @@
 <?php
 namespace App\News;
 
+use SilverStripe\Model\List\PaginatedList;
+use Override;
 use App\News\News;
 use PageController;
 use App\Events\Event;
-use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Control\RSS\RSSFeed;
 
 /**
  * Class \App\Events\EventPageController
  *
- * @property \App\News\NewsPage dataRecord
- * @method \App\News\NewsPage data()
- * @mixin \App\News\NewsPage
+ * @property NewsPage $dataRecord
+ * @method NewsPage data()
+ * @mixin NewsPage
+ * @@property \App\News\NewsPage dataRecord
  */
 class NewsPageController extends PageController
 {
 
-    private static $allowed_actions = array (
+    private static $allowed_actions =  [
         "post",
         'rss'
-    );
+    ];
 
     public function getNews()
     {
         $now = date("Y-m-d H:i:s");
-        $news = News::get()->filter(array(
+        $news = News::get()->filter([
             "Date:LessThan" => $now,
             "Visible" => true
-        ))->sort("Date", "DESC");
+        ])->sort("Date", "DESC");
         $pagelist = new PaginatedList($news, $this->request);
         $pagelist->setPageLength(10);
         return $pagelist;
@@ -59,11 +61,12 @@ class NewsPageController extends PageController
         $title = $this->getRequest()->param("ID");
         $article = News::get()->filter("LinkTitle", $title)->first();
 
-        return array(
+        return [
             "News" => $article,
-        );
+        ];
     }
 
+    #[Override]
     public function init()
     {
         parent::init();
@@ -88,9 +91,9 @@ class NewsPageController extends PageController
     public function LatestUpdates()
     {
         $now = date("Y-m-d H:i:s");
-        return News::get()->filter(array(
+        return News::get()->filter([
             "Date:LessThan" => $now,
             "Visible" => true
-        ))->sort("Date", "DESC")->limit(20);
+        ])->sort("Date", "DESC")->limit(20);
     }
 }

@@ -2,6 +2,12 @@
 
 namespace App\Elements;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use SilverStripe\LinkField\Models\Link;
@@ -11,12 +17,17 @@ use SilverStripe\Forms\DropdownField;
 /**
  * Class \App\Elements\SpaceElement
  *
- * @property string $Variant
- * @property string $Text
+ * @property ?string $Variant
+ * @property ?string $Text
  * @property int $ImageID
  * @property int $ButtonID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\LinkField\Models\Link Button()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class NoticeElement extends BaseElement
 {
@@ -45,11 +56,13 @@ class NoticeElement extends BaseElement
     private static $table_name = 'NoticeElement';
     private static $icon = 'font-icon-attention';
 
+    #[Override]
     public function getType()
     {
         return "Hinweis";
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

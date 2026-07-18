@@ -2,17 +2,29 @@
 
 namespace App\Docs;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use TractorCow\Fluent\Extension\FluentExtension;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
 
 /**
  * Class \App\Elements\FaceItem
  *
- * @property string $InfoTitle
- * @property string $InfoContent
+ * @property ?string $InfoTitle
+ * @property ?string $InfoContent
  * @property int $SortOrder
  * @property int $ParentID
  * @method \App\Docs\DocsAttraction Parent()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class DocsAttractionInfo extends DataObject
@@ -53,6 +65,7 @@ class DocsAttractionInfo extends DataObject
 
 
     // tidy up the CMS by not showing these fields
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -61,21 +74,25 @@ class DocsAttractionInfo extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);

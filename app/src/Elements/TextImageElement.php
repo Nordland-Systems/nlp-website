@@ -2,6 +2,12 @@
 
 namespace App\Elements;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use SilverStripe\LinkField\Models\Link;
@@ -11,14 +17,19 @@ use SilverStripe\Forms\DropdownField;
 /**
  * Class \App\Elements\TextImageElement
  *
- * @property string $Text
- * @property string $Variant
- * @property string $Highlight
- * @property string $ImgWidth
+ * @property ?string $Text
+ * @property ?string $Variant
+ * @property ?string $Highlight
+ * @property ?string $ImgWidth
  * @property int $ImageID
  * @property int $ButtonID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\LinkField\Models\Link Button()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class TextImageElement extends BaseElement
 {
@@ -55,11 +66,13 @@ class TextImageElement extends BaseElement
         'Button',
     ];
 
+    #[Override]
     public function getType()
     {
         return "Text + Bild";
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

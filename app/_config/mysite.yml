@@ -18,9 +18,9 @@ SilverStripe\ORM\Connect\MySQLDatabase:
 SilverStripe\Assets\File:
   allowed_extensions:
     - svg
-SilverStripe\Forms\HTMLEditor\TinyMCEConfig:
-  editor_css:
-    - 'app/client/dist/css/editor.css'
+
+Atwx\ViteHelper\Helper\ViteHelper:
+  editor_css: "app/client/src/scss/editor.scss"
 
 SilverStripe\Core\Injector\Injector:
   DataListFilter.FulltextBoolean:

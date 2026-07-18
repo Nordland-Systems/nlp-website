@@ -2,6 +2,12 @@
 
 namespace App\Team;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use Page;
 use SilverStripe\Assets\Image;
 
@@ -12,6 +18,11 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
  *
  * @property int $HeaderImageID
  * @method \SilverStripe\Assets\Image HeaderImage()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class TeamOverview extends Page
 {
@@ -25,8 +36,9 @@ class TeamOverview extends Page
         "HeaderImage"
     ];
 
-    private static $icon = "app/client/icons/teamgray.svg";
+    private static $cms_icon = "app/client/icons/teamgray.svg";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
