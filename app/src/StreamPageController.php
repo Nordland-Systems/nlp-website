@@ -5,12 +5,13 @@ namespace {
     use SilverStripe\CMS\Controllers\ContentController;
 
     /**
- * Class \PageController
- *
- * @property \StreamPage dataRecord
- * @method \StreamPage data()
- * @mixin \StreamPage
- */
+     * Class \PageController
+     *
+     * @property StreamPage $dataRecord
+     * @method StreamPage data()
+     * @mixin StreamPage
+     * @@property \StreamPage dataRecord
+     */
     class StreamPageController extends ContentController
     {
         /**
@@ -30,6 +31,7 @@ namespace {
          */
         private static $allowed_actions = [];
 
+        #[Override]
         protected function init()
         {
             parent::init();

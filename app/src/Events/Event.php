@@ -2,26 +2,36 @@
 
 namespace App\Events;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use TractorCow\Fluent\Extension\FluentExtension;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\LinkField\Models\Link;
-use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\LinkField\Form\LinkField;
-use SilverStripe\ORM\FieldType\DBDatetime;
 
 /**
  * Class \App\Events\Event
  *
- * @property string $Title
- * @property string $Start
- * @property string $End
+ * @property ?string $Title
+ * @property ?string $Start
+ * @property ?string $End
  * @property bool $Allday
  * @property bool $IsStream
- * @property string $Description
+ * @property ?string $Description
  * @property int $ImageID
  * @property int $LinkID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\LinkField\Models\Link Link()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Event extends DataObject
@@ -67,6 +77,7 @@ class Event extends DataObject
         "Start", "Title", "Description",
     ];
 
+    #[Override]
     public function populateDefaults()
     {
         $this->Start = date('Y-m-d H:00:00');
@@ -78,6 +89,7 @@ class Event extends DataObject
     private static $singular_name = "Event";
     private static $plural_name = "Events";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

@@ -2,11 +2,19 @@
 
 namespace App\Docs;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\ManyManyList;
+use TractorCow\Fluent\Extension\FluentExtension;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Assets\Thumbnail;
-use TractorCow\SliderField\SliderField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
@@ -16,17 +24,17 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 /**
  * Class \App\Events\Event
  *
- * @property string $Title
- * @property string $AttractionID
- * @property string $Type
- * @property string $TypeLink
- * @property string $Description
- * @property string $Price
- * @property string $Capacity
+ * @property ?string $Title
+ * @property ?string $AttractionID
+ * @property ?string $Type
+ * @property ?string $TypeLink
+ * @property ?string $Description
+ * @property ?string $Price
+ * @property ?string $Capacity
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
  * @property int $ThrillIntensity
- * @property string $LinkTitle
+ * @property ?string $LinkTitle
  * @property int $HeaderImageID
  * @property int $SvgIconID
  * @property int $AreaID
@@ -37,6 +45,11 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  * @method \SilverStripe\ORM\DataList|\App\Docs\DocsAttractionInfo[] AttractionInfos()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsTargetgroup[] AttractionTargetgroups()
  * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class DocsAttraction extends DataObject
@@ -137,6 +150,7 @@ class DocsAttraction extends DataObject
         }
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -157,13 +171,18 @@ class DocsAttraction extends DataObject
         $fields->addFieldToTab("Root.Main", new CheckboxSetField("AttractionTargetgroups", "Zielgruppen", $targetgroups_map));
 
         $fields->removeByName("ThrillIntensity");
-        $fields->addFieldToTab("Root.Main", new SliderField("ThrillIntensity", "Thrill Intensität (0-10)", 0, 10));
+        $thrillIntensityField = new NumericField("ThrillIntensity", "Thrill Intensität (0-10)");
+        $thrillIntensityField->setAttribute('type', 'range');
+        $thrillIntensityField->setAttribute('min', 0);
+        $thrillIntensityField->setAttribute('max', 10);
+        $fields->addFieldToTab("Root.Main", $thrillIntensityField);
 
         $fields->removeByName("Locales");
 
         return $fields;
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {

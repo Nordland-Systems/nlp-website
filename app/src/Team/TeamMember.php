@@ -2,6 +2,13 @@
 
 namespace App\Team;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use SilverStripe\ORM\DataList;
 use App\Team\TeamAdmin;
 use App\Team\TeamSocial;
 use SilverStripe\Assets\Image;
@@ -11,15 +18,20 @@ use SilverStripe\Forms\DropdownField;
 /**
  * Class \App\Team\TeamMember
  *
- * @property string $Title
- * @property string $Profession
- * @property string $Jointime
- * @property string $Description
- * @property string $Importance
- * @property string $Status
+ * @property ?string $Title
+ * @property ?string $Profession
+ * @property ?string $Jointime
+ * @property ?string $Description
+ * @property ?string $Importance
+ * @property ?string $Status
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\DataList|\App\Team\TeamSocial[] Socials()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class TeamMember extends DataObject
 {
@@ -78,6 +90,7 @@ class TeamMember extends DataObject
 
     private static $url_segment = "teammember";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -94,6 +107,7 @@ class TeamMember extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function CMSEditLink()
     {
         $admin = TeamAdmin::singleton();

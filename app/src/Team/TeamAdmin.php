@@ -1,6 +1,7 @@
 <?php
 namespace App\Team;
 
+use Override;
 use App\Team\Character;
 use App\Team\TeamMember;
 use SilverStripe\Admin\ModelAdmin;
@@ -12,10 +13,10 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  */
 class TeamAdmin extends ModelAdmin {
 
-    private static $managed_models = array (
+    private static $managed_models =  [
         TeamMember::class,
         Character::class,
-    );
+    ];
 
     private static $url_segment = "team";
 
@@ -23,10 +24,12 @@ class TeamAdmin extends ModelAdmin {
 
     private static $menu_icon = "app/client/icons/team.svg";
 
+    #[Override]
     public function init() {
         parent::init();
     }
 
+    #[Override]
     public function getEditForm($id = null, $fields = null)
     {
         $form = parent::getEditForm($id, $fields);

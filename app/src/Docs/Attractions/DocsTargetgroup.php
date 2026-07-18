@@ -2,6 +2,13 @@
 
 namespace App\Docs;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use SilverStripe\ORM\ManyManyList;
 use SilverStripe\Assets\File;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\View\Parsers\URLSegmentFilter;
@@ -9,12 +16,17 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 /**
  * Class \App\Events\Event
  *
- * @property string $Title
- * @property string $Description
- * @property string $LinkTitle
+ * @property ?string $Title
+ * @property ?string $Description
+ * @property ?string $LinkTitle
  * @property int $SvgIconID
  * @method \SilverStripe\Assets\File SvgIcon()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsAttraction[] Attractions()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class DocsTargetgroup extends DataObject
 {
@@ -56,6 +68,7 @@ class DocsTargetgroup extends DataObject
     private static $singular_name = "Zielgruppe";
     private static $plural_name = "Zielgruppen";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -63,6 +76,7 @@ class DocsTargetgroup extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {

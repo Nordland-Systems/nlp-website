@@ -2,6 +2,12 @@
 
 namespace App\Elements;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DropdownField;
@@ -9,15 +15,20 @@ use SilverStripe\Forms\DropdownField;
 /**
  * Class \App\Elements\TextImageElement
  *
- * @property string $Subline
- * @property string $Overlay
- * @property string $Parallax
+ * @property ?string $Subline
+ * @property ?string $Overlay
+ * @property ?string $Parallax
  * @property int $ImageID
  * @property int $BackgroundImageID
  * @property int $BackgroundImageDarkmodeID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\Assets\Image BackgroundImage()
  * @method \SilverStripe\Assets\Image BackgroundImageDarkmode()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class HeroElement extends BaseElement
 {
@@ -54,11 +65,13 @@ class HeroElement extends BaseElement
         'Subline',
     ];
 
+    #[Override]
     public function getType()
     {
         return "Hero";
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

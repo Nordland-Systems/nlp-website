@@ -5,18 +5,13 @@
   "author": "Steffen Kahl <steffen.kahl@nordland-park.de>",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn development",
-    "development": "npx mix",
-    "watch": "npx mix watch",
-    "build": "npx mix --production"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "browser-sync": "^2.27.7",
-    "browser-sync-webpack-plugin": "^2.3.0",
-    "laravel-mix": "^6.0.41",
-    "resolve-url-loader": "^5.0.0",
-    "sass": "^1.49.7",
-    "sass-loader": "^12.1.0"
+    "sass": "^1.89.2",
+    "vite": "~5.0.8"
   },
   "dependencies": {
     "glightbox": "^3.0.9",

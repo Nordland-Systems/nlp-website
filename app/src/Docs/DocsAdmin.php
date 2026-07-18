@@ -1,6 +1,7 @@
 <?php
 namespace App\Docs;
 
+use Override;
 use SilverStripe\Admin\ModelAdmin;
 
 /**
@@ -10,11 +11,11 @@ use SilverStripe\Admin\ModelAdmin;
 class DocsAdmin extends ModelAdmin
 {
 
-    private static $managed_models = array (
+    private static $managed_models =  [
         Docs::class,
         DocsCategory::class,
         DocsCharacter::class,
-    );
+    ];
 
     private static $url_segment = "docs";
 
@@ -22,6 +23,7 @@ class DocsAdmin extends ModelAdmin
 
     private static $menu_icon = "app/client/icons/docs.svg";
 
+    #[Override]
     public function init()
     {
         parent::init();

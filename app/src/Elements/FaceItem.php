@@ -2,6 +2,12 @@
 
 namespace App\Elements;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
 use SilverStripe\Assets\Image;
 use SilverStripe\Security\Permission;
 use SilverStripe\ORM\DataObject;
@@ -9,29 +15,34 @@ use SilverStripe\ORM\DataObject;
 /**
  * Class \App\Elements\FaceItem
  *
- * @property string $Name
- * @property string $Description
- * @property string $Profession
+ * @property ?string $Name
+ * @property ?string $Description
+ * @property ?string $Profession
  * @property int $SortOrder
- * @property string $WebsiteLink
- * @property string $Mail
- * @property string $TwitterLink
- * @property string $InstagramLink
- * @property string $LinkedInLink
- * @property string $RedditLink
- * @property string $FacebookLink
- * @property string $PinterestLink
- * @property string $TikTokLink
- * @property string $FlickrLink
- * @property string $YoutubeLink
- * @property string $SoundcloudLink
- * @property string $GitHubLink
- * @property string $BehanceLink
- * @property string $TelegramLink
+ * @property ?string $WebsiteLink
+ * @property ?string $Mail
+ * @property ?string $TwitterLink
+ * @property ?string $InstagramLink
+ * @property ?string $LinkedInLink
+ * @property ?string $RedditLink
+ * @property ?string $FacebookLink
+ * @property ?string $PinterestLink
+ * @property ?string $TikTokLink
+ * @property ?string $FlickrLink
+ * @property ?string $YoutubeLink
+ * @property ?string $SoundcloudLink
+ * @property ?string $GitHubLink
+ * @property ?string $BehanceLink
+ * @property ?string $TelegramLink
  * @property int $ParentID
  * @property int $ImageID
  * @method \App\Elements\TeamElement Parent()
  * @method \SilverStripe\Assets\Image Image()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class FaceItem extends DataObject
 {
@@ -95,6 +106,7 @@ class FaceItem extends DataObject
     private static $plural_name = "Gesichter";
 
     // tidy up the CMS by not showing these fields
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -103,21 +115,25 @@ class FaceItem extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);

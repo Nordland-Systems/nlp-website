@@ -1,6 +1,7 @@
 <?php
 namespace App\Events;
 
+use Override;
 use App\News\News;
 use SilverStripe\Admin\ModelAdmin;
 
@@ -11,10 +12,10 @@ use SilverStripe\Admin\ModelAdmin;
 class EventAdmin extends ModelAdmin
 {
 
-    private static $managed_models = array (
+    private static $managed_models =  [
         Event::class,
         News::class,
-    );
+    ];
 
     private static $url_segment = "events";
 
@@ -22,6 +23,7 @@ class EventAdmin extends ModelAdmin
 
     private static $menu_icon = "app/client/icons/aktuelles.svg";
 
+    #[Override]
     public function init()
     {
         parent::init();

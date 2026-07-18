@@ -2,31 +2,37 @@
 
 namespace App\Docs;
 
-use SilverStripe\Assets\File;
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use SilverStripe\ORM\ManyManyList;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
-use TractorCow\SliderField\SliderField;
-use SilverStripe\Forms\CheckboxSetField;
-use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
  * Class \App\Events\Event
  *
- * @property string $Title
- * @property string $Type
- * @property string $Description
+ * @property ?string $Title
+ * @property ?string $Type
+ * @property ?string $Description
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
- * @property string $LinkTitle
+ * @property ?string $LinkTitle
  * @property int $HeaderImageID
  * @property int $AreaID
  * @method \SilverStripe\Assets\Image HeaderImage()
  * @method \App\Docs\DocsArea Area()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsRestaurantFood[] RestaurantFoods()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsRestaurantDrink[] RestaurantDrinks()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  */
 class DocsRestaurant extends DataObject
 {
@@ -111,6 +117,7 @@ class DocsRestaurant extends DataObject
         }
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -120,6 +127,7 @@ class DocsRestaurant extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {

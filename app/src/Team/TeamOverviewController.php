@@ -6,9 +6,10 @@ use PageController;
 /**
  * Class \App\Team\TeamOverviewController
  *
- * @property \App\Team\TeamOverview dataRecord
- * @method \App\Team\TeamOverview data()
- * @mixin \App\Team\TeamOverview
+ * @property TeamOverview $dataRecord
+ * @method TeamOverview data()
+ * @mixin TeamOverview
+ * @@property \App\Team\TeamOverview dataRecord
  */
 class TeamOverviewController extends PageController {
 
@@ -21,9 +22,9 @@ class TeamOverviewController extends PageController {
         $id = $this->getRequest()->param("ID");
         $deformatted = str_replace('_', ' ', $id);
         $article = TeamMember::get()->filter("Title", $deformatted)->first();
-        return array(
+        return [
             "TeamMember" => $article,
-        );
+        ];
     }
 
     public function getTeamMembers()

@@ -2,6 +2,13 @@
 
 namespace App\News;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use TractorCow\Fluent\Extension\FluentExtension;
 use App\News\NewsPage;
 use App\Events\EventAdmin;
 use SilverStripe\Assets\Image;
@@ -12,15 +19,20 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 /**
  * Class \App\Docs\Docs
  *
- * @property string $Title
- * @property string $Date
- * @property string $Summary
- * @property string $Description
- * @property string $ImageDescription
+ * @property ?string $Title
+ * @property ?string $Date
+ * @property ?string $Summary
+ * @property ?string $Description
+ * @property ?string $ImageDescription
  * @property bool $Visible
- * @property string $LinkTitle
+ * @property ?string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class News extends DataObject
@@ -77,6 +89,7 @@ class News extends DataObject
 
     private static $url_segment = "news";
 
+    #[Override]
     public function populateDefaults()
     {
         $this->Date = date('Y-m-d H:00:00');
@@ -91,6 +104,7 @@ class News extends DataObject
         }
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {
@@ -107,6 +121,7 @@ class News extends DataObject
         parent::onBeforeWrite();
     }
 
+    #[Override]
     protected function onAfterWrite()
     {
         parent::onAfterWrite();
@@ -116,21 +131,25 @@ class News extends DataObject
         }
     }
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -158,12 +177,14 @@ class News extends DataObject
         }
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         return $fields;
     }
 
+    #[Override]
     public function CMSEditLink()
     {
         $admin = EventAdmin::singleton();

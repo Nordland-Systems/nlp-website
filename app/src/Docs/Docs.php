@@ -2,26 +2,37 @@
 
 namespace App\Docs;
 
+use SilverStripe\Assets\AssetControlExtension;
+use SilverStripe\Assets\Shortcodes\FileLinkTracking;
+use SilverStripe\CMS\Model\SiteTreeLinkTracking;
+use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\VersionedStateExtension;
+use Override;
+use SilverStripe\ORM\ManyManyList;
+use TractorCow\Fluent\Extension\FluentExtension;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
-use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-use SilverStripe\SnapshotAdmin\SnapshotHistoryExtension;
 
 /**
  * Class \App\Docs\Docs
  *
- * @property string $Title
- * @property string $Status
- * @property string $Description
+ * @property ?string $Title
+ * @property ?string $Status
+ * @property ?string $Description
  * @property bool $VisibleToGuests
  * @property bool $VisibleToDreamteam
- * @property string $LinkTitle
+ * @property ?string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Docs\DocsCategory[] Categories()
+ * @mixin \SilverStripe\Assets\AssetControlExtension
+ * @mixin \SilverStripe\Assets\Shortcodes\FileLinkTracking
+ * @mixin \SilverStripe\CMS\Model\SiteTreeLinkTracking
+ * @mixin \SilverStripe\Versioned\RecursivePublishable
+ * @mixin \SilverStripe\Versioned\VersionedStateExtension
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Docs extends DataObject
@@ -81,26 +92,31 @@ class Docs extends DataObject
 
     private static $url_segment = "docs";
 
+    #[Override]
     public function populateDefaults()
     {
         parent::populateDefaults();
     }
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -112,6 +128,7 @@ class Docs extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {
@@ -152,6 +169,7 @@ class Docs extends DataObject
         }
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -164,6 +182,7 @@ class Docs extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function CMSEditLink()
     {
         $admin = DocsAdmin::singleton();
